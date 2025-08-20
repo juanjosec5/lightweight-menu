@@ -1,0 +1,471 @@
+{
+  "version": 1,
+  "restaurant": {
+    "id": "g-lounge",
+    "name": "G Lounge",
+    "subtitle": "Bunker bites, platos fuertes, coctelería y destilados",
+    "description": "Menú lounge con sliders, ensaladas, clásicos de bar y una carta amplia de destilados.",
+    "currency": "COP",
+    "locale": "es-CO",
+    "updatedAt": "2025-08-19T00:00:00Z"
+  },
+  "categories": [
+    {
+      "id": "entries",
+      "label": "Entradas",
+      "items": [
+        {
+          "id": "g-dogs-4",
+          "name": "G Dogs (4 unidades)",
+          "ingredients": ["pan brioche", "cola de res", "mayonesa de hierbas", "cebolla encurtida"],
+          "description": "",
+          "price": 58000
+        },
+        {
+          "id": "croquetas-morcilla",
+          "name": "Croquetas de Morcilla",
+          "ingredients": ["morcilla", "mayonesa de ají"],
+          "description": "",
+          "price": 27000
+        },
+        {
+          "id": "chicharron",
+          "name": "Chicharrón",
+          "ingredients": ["arepas de maíz", "mayonesa", "cilantro cimarrón"],
+          "description": "",
+          "price": 46000
+        },
+        {
+          "id": "mini-burgers-4",
+          "name": "Mini Burgers (4 un)",
+          "ingredients": ["brioche", "coleslaw", "pepino", "queso de Ubaté", "carne de res premium"],
+          "description": "",
+          "price": 45000
+        },
+        {
+          "id": "mini-burgers-pollo-4",
+          "name": "Mini Burgers de Pollo (4 un)",
+          "ingredients": ["pollo apanado con miel", "mayonesa de pepinillos", "pepinos encurtidos", "queso gouda"],
+          "description": "",
+          "price": 42000
+        },
+        {
+          "id": "choripanes-4",
+          "name": "Choripanes (4 unidades)",
+          "ingredients": ["pan brioche", "chorizos caseros", "chimichurri", "pepinos encurtidos", "mayonesa de ají"],
+          "description": "",
+          "price": 48000
+        },
+        {
+          "id": "papas-francesa",
+          "name": "Papas a la Francesa",
+          "ingredients": ["papas rizadas", "salsa ahumada"],
+          "description": "200 g",
+          "price": 23000
+        },
+        {
+          "id": "papas-casco",
+          "name": "Papas en Casco",
+          "ingredients": ["papas andinas", "mayonesa de jalapeño"],
+          "description": "",
+          "price": 23000
+        },
+        {
+          "id": "chips-papa",
+          "name": "Chips de Papa",
+          "ingredients": ["chips de papas andinas", "salsa de hogao", "cilantro cimarrón"],
+          "description": "",
+          "price": 21000
+        },
+        {
+          "id": "papas-criollas",
+          "name": "Papas Criollas",
+          "ingredients": ["papas criollas", "mayonesa de ají"],
+          "description": "",
+          "price": 23000
+        },
+        {
+          "id": "aceitunas-marinadas",
+          "name": "Aceitunas Marinadas",
+          "ingredients": ["aceitunas marinadas"],
+          "description": "",
+          "price": 21000
+        },
+        {
+          "id": "tabla-quesos",
+          "name": "Tabla de Quesos",
+          "ingredients": ["queso gouda de Guasca", "queso de cabra de Ubaté", "queso Paipa", "aceitunas", "tomates encurtidos", "pan de masa madre"],
+          "description": "",
+          "price": 89000
+        },
+        {
+          "id": "hummus-vegetales",
+          "name": "Hummus de Vegetales",
+          "ingredients": ["hummus", "tzatziki", "pickles", "pan de masa madre"],
+          "description": "",
+          "price": 27000
+        },
+        {
+          "id": "orellanas-apanadas",
+          "name": "Orellanas Apanadas",
+          "ingredients": ["orellanas", "syrup de miel picante", "crème fraîche"],
+          "description": "",
+          "price": 27000
+        }
+      ]
+    },
+    {
+      "id": "meals",
+      "label": "Platos Fuertes",
+      "items": [
+        {
+          "id": "matambre-latino",
+          "name": "Matambre Latino",
+          "ingredients": ["matambrito de cerdo", "papa criolla", "salsa latina", "aguacate", "chips de batata"],
+          "description": "",
+          "price": 54000
+        },
+        {
+          "id": "steak-con-papas",
+          "name": "Steak con Papas",
+          "ingredients": ["ojo de bife 250 g", "papa francesa", "dip de queso de cabra", "tare"],
+          "description": "",
+          "price": 89000
+        },
+        {
+          "id": "pollo-organico",
+          "name": "Pollo Orgánico",
+          "ingredients": ["pechuga de pollo", "papines en chupe", "cogollos braseados", "fresa de Saboyá", "demiglace de pollo", "miel"],
+          "description": "",
+          "price": 78000
+        },
+        {
+          "id": "ensalada-pollo",
+          "name": "Ensalada de Pollo",
+          "ingredients": ["pollo orgánico al Josper", "aguacate", "tomates cherry", "encurtidos", "hojas de la huerta", "semillas de chía"],
+          "description": "",
+          "price": 58000
+        },
+        {
+          "id": "ensalada-hongos",
+          "name": "Ensalada de Hongos",
+          "ingredients": ["hongos al Josper", "aguacate", "tomates cherry", "encurtidos", "hojas de la huerta", "semillas de chía"],
+          "description": "",
+          "price": 42000
+        },
+        {
+          "id": "picada-3p",
+          "name": "Picada (3 personas sugerido)",
+          "ingredients": ["pollo", "matambre", "chicharrón", "chorizos", "papa criolla", "arepa", "ají de tomate", "aguacate", "ají dulce parrillado"],
+          "description": "Recomendado para compartir",
+          "price": 160000
+        }
+      ]
+    },
+    {
+      "id": "desserts",
+      "label": "Postres",
+      "items": [
+        {
+          "id": "churros",
+          "name": "Churros",
+          "ingredients": ["mini churros", "salsa caliente de chocolate Disidente 70% o arequipe"],
+          "description": "",
+          "price": 23000
+        },
+        {
+          "id": "alfajores",
+          "name": "Alfajores (4 un)",
+          "ingredients": ["arequipe", "coco", "maní"],
+          "description": "",
+          "price": 18000
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "label": "Bebidas",
+      "sections": [
+        {
+          "id": "classic-cocktails",
+          "label": "Classic Cocktails",
+          "items": [
+            { "id": "aviation", "name": "Aviation", "ingredients": ["Tanqueray London Dry", "Crème de Violette", "limón", "Luxardo Maraschino"], "price": 65000 },
+            { "id": "rusty-nail", "name": "Rusty Nail", "ingredients": ["Monkey Shoulder", "Drambuie", "angostura de naranja"], "price": 55000 },
+            { "id": "bijou", "name": "Bijou", "ingredients": ["Tanqueray Gin", "Vermouth Rosso", "Chartreuse Verde", "amargos"], "price": 65000 },
+            { "id": "hanky-panky", "name": "Hanky Panky", "ingredients": ["Tanqueray Gin", "Vermouth Rosso", "Fernet Branca"], "price": 49000 },
+            { "id": "hemingway-daiquiri", "name": "Hemingway Daiquiri", "ingredients": ["Ron Santafé 12", "limón", "toronja", "licor de maraschino", "almíbar simple"], "price": 49000 },
+            { "id": "naked-famous", "name": "Naked & Famous", "ingredients": ["Mezcal Unión", "Aperol", "Chartreuse", "limón"], "price": 65000 },
+            { "id": "rum-fashioned", "name": "Rum Fashioned", "ingredients": ["Ron Santafé 12", "azúcar morena", "angostura"], "price": 49000 },
+            { "id": "last-word", "name": "Last Word", "ingredients": ["Tanqueray London Dry", "Luxardo Maraschino", "Chartreuse Verde", "limón"], "price": 65000 },
+            { "id": "manhattan", "name": "Manhattan", "ingredients": ["Bulleit Bourbon", "Vermouth Rosso", "angostura"], "price": 55000 },
+            { "id": "penicillin", "name": "Penicillin", "ingredients": ["Singleton 12", "perfume de Ardbeg", "caramelo de jengibre", "limón"], "price": 55000 },
+            { "id": "adonis", "name": "Adonis", "ingredients": ["Jerez Palomino Fino", "Vermouth Rosso"], "price": 49000 },
+            { "id": "gin-basil-smash", "name": "Gin Basil Smash", "ingredients": ["Tanqueray London Dry", "albahaca", "limón", "syrup simple"], "price": 49000 },
+            { "id": "new-york-sour", "name": "New York Sour", "ingredients": ["Bulleit Bourbon", "limón", "albúmina", "almíbar simple", "vino tinto"], "price": 49000 },
+            { "id": "pink-lady", "name": "Pink Lady", "ingredients": ["Tanqueray London Dry", "limón", "almíbar simple", "frutos rojos", "albúmina"], "price": 49000 },
+            { "id": "rosita", "name": "Rosita", "ingredients": ["Don Julio Blanco", "Vermouth Rosso", "Vermouth Dry", "Campari", "angostura"], "price": 55000 }
+          ]
+        },
+        {
+          "id": "spritz",
+          "label": "Spritz",
+          "items": [
+            { "id": "aperol-spritz", "name": "Aperol Spritz", "ingredients": ["Aperol", "espumante", "soda"], "price": 40000 },
+            { "id": "limoncello-spritz", "name": "Limoncello Spritz", "ingredients": ["limoncello", "espumante", "soda"], "price": 40000 },
+            { "id": "porto-mora-spritz", "name": "Porto de Mora Spritz", "ingredients": ["porto de mora", "espumante", "soda"], "price": 40000 }
+          ]
+        },
+        {
+          "id": "mocktails",
+          "label": "Mocktails (sin licor)",
+          "items": [
+            { "id": "cordillera", "name": "Cordillera", "ingredients": ["cordial de mandarina", "extracto de uchuva", "cítrico de fresa"], "price": 20000 },
+            { "id": "fuente-vida", "name": "Fuente de Vida", "ingredients": ["extracto de pepino", "extracto de guatila", "almíbar de lulo", "polvo de limón"], "price": 20000 },
+            { "id": "tinto-verano", "name": "Tinto de Verano (sin alcohol)", "ingredients": ["vino tinto sin alcohol", "zumo de limón", "soda"], "price": 20000 },
+            { "id": "blanco-verano", "name": "Blanco de Verano (sin alcohol)", "ingredients": ["vino blanco sin alcohol", "zumo de limón", "soda", "extracto de manzana verde"], "price": 20000 },
+            { "id": "arnold-palmer", "name": "Arnold Palmer", "ingredients": ["té negro", "almíbar simple", "limón"], "price": 16000 }
+          ]
+        },
+        {
+          "id": "sodas-artesanales",
+          "label": "Sodas Artesanales",
+          "items": [
+            { "id": "soda-jamaica", "name": "Flor de Jamaica", "ingredients": [], "price": 16000 },
+            { "id": "soda-jengibre", "name": "Jengibre", "ingredients": [], "price": 16000 },
+            { "id": "soda-maiz-morado", "name": "Maíz morado", "ingredients": [], "price": 16000 },
+            { "id": "soda-feijoa", "name": "Feijoa", "ingredients": [], "price": 16000 },
+            { "id": "soda-limon-mandarino", "name": "Limón Mandarino", "ingredients": [], "price": 16000 },
+            { "id": "soda-frutos-rojos", "name": "Frutos Rojos", "ingredients": [], "price": 16000 },
+            { "id": "soda-lulo", "name": "Lulo", "ingredients": [], "price": 16000 }
+          ]
+        },
+        {
+          "id": "bebidas-sin-alcohol",
+          "label": "Bebidas sin Alcohol",
+          "items": [
+            { "id": "sorbete-guanabana", "name": "Sorbete de guanábana", "ingredients": [], "price": 15000 },
+            { "id": "jugo-pasifloras", "name": "Jugo de pasifloras", "ingredients": [], "price": 15000 },
+            { "id": "sugarfree-mango", "name": "Sugar free de mango, té verde y limón", "ingredients": [], "price": 15000 },
+            { "id": "jugo-manzana-apio", "name": "Jugo de manzana y apio", "ingredients": [], "price": 15000 }
+          ]
+        },
+        {
+          "id": "cafes",
+          "label": "Cafés",
+          "items": [
+            { "id": "americano", "name": "Americano", "ingredients": [], "price": 9000 },
+            { "id": "capuccino", "name": "Capuccino", "ingredients": [], "price": 11000 },
+            { "id": "capuccino-vegetal", "name": "Capuccino leche vegetal", "ingredients": [], "price": 13000 },
+            { "id": "mocaccino", "name": "Mocaccino", "ingredients": [], "price": 13000 },
+            { "id": "espresso", "name": "Espresso", "ingredients": [], "price": 9000 },
+            { "id": "espresso-doble", "name": "Espresso Doble", "ingredients": [], "price": 11000 },
+            { "id": "prensa-francesa", "name": "Prensa Francesa (2 tazas)", "ingredients": [], "price": 14000 },
+            { "id": "v60", "name": "V-60 (2-3 tazas)", "ingredients": [], "price": 16000 },
+            { "id": "chemex", "name": "Chemex (3-4 tazas)", "ingredients": [], "price": 18000 },
+            { "id": "olla", "name": "Olla (3-4 tazas)", "ingredients": [], "price": 18000 }
+          ]
+        },
+        {
+          "id": "tes-infusiones",
+          "label": "Tés / Infusiones",
+          "items": [
+            { "id": "te-hoja-coca", "name": "Té de hoja de coca", "ingredients": [], "price": 7000 },
+            { "id": "te-valle", "name": "Té del Valle del Cauca (agua)", "ingredients": [], "price": 8000 },
+            { "id": "te-valle-leche", "name": "Té del Valle del Cauca (en leche)", "ingredients": [], "price": 10000 },
+            { "id": "infusion-frutas", "name": "Infusión de frutas", "ingredients": [], "price": 10000 }
+          ]
+        },
+        {
+          "id": "aguas-casa",
+          "label": "Aguas / Gaseosas",
+          "items": [
+            { "id": "tonica-1976", "name": "Tónica 1976", "ingredients": [], "price": 15000 },
+            { "id": "soda", "name": "Soda", "ingredients": [], "price": 10000 },
+            { "id": "coca-cola", "name": "Coca Cola (Original/Zero)", "ingredients": [], "price": 10000 },
+            { "id": "san-pellegrino", "name": "San Pellegrino 500 ml", "ingredients": [], "price": 20000 },
+            { "id": "acqua-panna", "name": "Acqua Panna 500 ml", "ingredients": [], "price": 20000 },
+            { "id": "agua-siembra-gas", "name": "Agua Siembra con Gas", "ingredients": [], "price": 13000 },
+            { "id": "agua-siembra", "name": "Agua Siembra sin Gas", "ingredients": [], "price": 13000 },
+            { "id": "agua-purezza", "name": "Agua Purezza 500 ml (con/sin gas)", "ingredients": [], "price": 13000 }
+          ]
+        },
+        {
+          "id": "cocteles-cafe",
+          "label": "Cocteles con café",
+          "items": [
+            { "id": "amarula-espresso", "name": "Amarula Espresso", "ingredients": ["licor Amarula", "espresso"], "price": 36000 },
+            { "id": "carajillo", "name": "Carajillo", "ingredients": ["licor de vainilla", "café"], "price": 36000 },
+            { "id": "baileys-capuccino", "name": "Bailey's Capuccino", "ingredients": ["crema de whisky", "café"], "price": 36000 },
+            { "id": "espresso-martini", "name": "Espresso Martini", "ingredients": ["vodka", "espresso"], "price": 49000 }
+          ]
+        },
+        {
+          "id": "cervezas",
+          "label": "Cervezas",
+          "items": [
+            { "id": "heineken", "name": "Heineken", "ingredients": [], "price": 17000 },
+            { "id": "tres-cordilleras-rosada", "name": "3 Cordilleras Rosada", "ingredients": [], "price": 17000 },
+            { "id": "tres-cordilleras-mestiza", "name": "3 Cordilleras Mestiza", "ingredients": [], "price": 17000 },
+            { "id": "sol", "name": "Sol", "ingredients": [], "price": 17000 }
+          ]
+        },
+        {
+          "id": "momento-fika",
+          "label": "Momento FIKA",
+          "items": [
+            {
+              "id": "fika",
+              "name": "Degustación FIKA",
+              "ingredients": ["3 tipos de cafés colombianos", "preparaciones variadas"],
+              "description": "Filosofía sueca de pausa con café. Presentado por Volvo.",
+              "price": 50000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "liquors",
+      "label": "Licores",
+      "sections": [
+        {
+          "id": "whisky",
+            "label": "Whisky / Single Malt / Rye / Bourbon",
+            "items": [
+              { "id": "flight-whisky", "name": "Flight de whisky (5 whiskys x 1 oz)", "ingredients": [], "price": 350000, "description": "Degustación guiada por bartenders" },
+              { "id": "buchanans-12", "name": "Buchanan's 12 años", "ingredients": [], "description": "Botella 450.000", "price": 45000 },
+              { "id": "two-souls", "name": "Buchanan's Two Souls", "ingredients": [], "description": "Botella 480.000", "price": 48000 },
+              { "id": "buchanans-18", "name": "Buchanan's 18 años", "ingredients": [], "description": "Botella 850.000", "price": 85000 },
+              { "id": "dewars-25", "name": "Dewars 25", "ingredients": [], "description": "Botella 1.400.000", "price": 140000 },
+              { "id": "jw-blue", "name": "Johnnie Walker Blue Label", "ingredients": [], "description": "Botella 1.800.000", "price": 180000 },
+              { "id": "tullamore-dew", "name": "Tullamore Dew (Irish)", "ingredients": [], "description": "Botella 380.000", "price": 38000 },
+              { "id": "bulleit-rye", "name": "Bulleit Rye", "ingredients": [], "description": "Botella 450.000", "price": 45000 },
+              { "id": "bulleit-bourbon", "name": "Bulleit Bourbon", "ingredients": [], "description": "Botella 450.000", "price": 45000 },
+              { "id": "michters-bourbon", "name": "Michter’s Kentucky Bourbon", "ingredients": [], "description": "Botella 700.000", "price": 70000 },
+              { "id": "michters-sourmash", "name": "Michter’s Sour Mash Whiskey", "ingredients": [], "description": "Botella 700.000", "price": 70000 },
+              { "id": "monkey-shoulder", "name": "Monkey Shoulder (Blend Malt)", "ingredients": [], "description": "Botella 350.000", "price": 35000 },
+              { "id": "singleton-12", "name": "Singleton 12 años", "ingredients": [], "description": "", "price": 60000 },
+              { "id": "glenlivet-12", "name": "Glenlivet 12 años", "ingredients": [], "description": "", "price": 45000 },
+              { "id": "glenfiddich-12", "name": "Glenfiddich 12 años", "ingredients": [], "description": "", "price": 45000 },
+              { "id": "glenlivet-caribbean", "name": "Glenlivet Caribbean Reserve", "ingredients": [], "description": "", "price": 47000 },
+              { "id": "glenlivet-15", "name": "Glenlivet 15 años", "ingredients": [], "description": "", "price": 69000 },
+              { "id": "glenfiddich-15", "name": "Glenfiddich 15 años", "ingredients": [], "description": "", "price": 68000 },
+              { "id": "balvenie-12", "name": "Balvenie 12 años", "ingredients": [], "description": "", "price": 70000 },
+              { "id": "singleton-18", "name": "Singleton 18 años", "ingredients": [], "description": "", "price": 85000 },
+              { "id": "ardbeg", "name": "Ardbeg", "ingredients": [], "description": "", "price": 95000 },
+              { "id": "balvenie-14", "name": "Balvenie 14 años", "ingredients": [], "description": "", "price": 95000 },
+              { "id": "glenfiddich-18", "name": "Glenfiddich 18 años", "ingredients": [], "description": "", "price": 95000 },
+              { "id": "macallan-12", "name": "Macallan 12 Sherry Oak", "ingredients": [], "description": "", "price": 98000 },
+              { "id": "macallan-15", "name": "Macallan 15 Double Cask", "ingredients": [], "description": "", "price": 130000 },
+              { "id": "glenfiddich-21", "name": "Glenfiddich 21 años", "ingredients": [], "description": "Botella 300.000 (por copa puede variar)", "price": 180000 },
+              { "id": "macallan-rare", "name": "Macallan Rare Cask", "ingredients": [], "description": "Botella 320.000 (por copa puede variar)", "price": 300000 },
+              { "id": "macallan-18", "name": "Macallan 18 Sherry Oak", "ingredients": [], "description": "", "price": 320000 },
+              { "id": "talisker", "name": "Talisker", "ingredients": [], "description": "", "price": 60000 }
+            ]
+        },
+        {
+          "id": "mezcal",
+          "label": "Mezcal",
+          "items": [
+            { "id": "union-joven", "name": "Unión el Joven", "ingredients": [], "description": "Botella 400.000", "price": 40000 },
+            { "id": "amores-espadin", "name": "Amores Espadín", "ingredients": [], "description": "Botella 600.000", "price": 60000 },
+            { "id": "amores-cupreata", "name": "Amores Cupreata", "ingredients": [], "description": "Botella 750.000", "price": 75000 }
+          ]
+        },
+        {
+          "id": "tequila",
+          "label": "Tequila",
+          "items": [
+            { "id": "don-julio-1942", "name": "Don Julio 1942", "ingredients": [], "description": "Botella 1.900.000", "price": 190000 },
+            { "id": "don-julio-70", "name": "Don Julio 70", "ingredients": [], "description": "Botella 850.000", "price": 85000 },
+            { "id": "don-julio-reposado", "name": "Don Julio Reposado", "ingredients": [], "description": "Botella 650.000", "price": 65000 },
+            { "id": "don-julio-blanco", "name": "Don Julio Blanco", "ingredients": [], "description": "Botella 450.000", "price": 45000 },
+            { "id": "patron-cielo", "name": "Patrón El Cielo", "ingredients": [], "description": "Botella 1.500.000", "price": 150000 },
+            { "id": "patron-cristalino", "name": "Patrón Cristalino", "ingredients": [], "description": "Botella 800.000", "price": 80000 },
+            { "id": "patron-silver", "name": "Patrón Silver", "ingredients": [], "description": "Botella 450.000", "price": 45000 }
+          ]
+        },
+        {
+          "id": "ron",
+          "label": "Ron",
+          "items": [
+            { "id": "ron-santafe-12", "name": "Ron Santafé 12 años", "ingredients": [], "description": "Botella 400.000", "price": 40000 },
+            { "id": "santa-teresa-1796", "name": "Ron Santa Teresa 1796", "ingredients": [], "description": "Botella 600.000", "price": 60000 },
+            { "id": "zacapa-xo", "name": "Ron Zacapa XO", "ingredients": [], "description": "Botella 1.300.000", "price": 130000 },
+            { "id": "diplomatico-vintage", "name": "Diplomático Single Vintage", "ingredients": [], "description": "Botella —", "price": 150000 }
+          ]
+        },
+        {
+          "id": "aguardiente",
+          "label": "Aguardiente",
+          "items": [
+            { "id": "nectar-premium", "name": "Nectar Premium", "ingredients": [], "description": "Botella 300.000", "price": 30000 },
+            { "id": "nectar-reposado", "name": "Nectar Reposado", "ingredients": [], "description": "Botella 300.000", "price": 30000 }
+          ]
+        },
+        {
+          "id": "vodka",
+          "label": "Vodka",
+          "items": [
+            { "id": "grey-goose", "name": "Grey Goose", "ingredients": [], "description": "Botella 600.000", "price": 60000 },
+            { "id": "stolichnaya-elit", "name": "Stolichnaya Elit", "ingredients": [], "description": "Botella —", "price": 72000 }
+          ]
+        },
+        {
+          "id": "gin",
+          "label": "Gin",
+          "items": [
+            { "id": "tanqueray-london", "name": "Tanqueray London Dry", "ingredients": [], "description": "Botella 400.000", "price": 40000 },
+            { "id": "tanqueray-rangpur", "name": "Tanqueray Rangpur", "ingredients": [], "description": "Botella 430.000", "price": 43000 },
+            { "id": "tanqueray-ten", "name": "Tanqueray Ten", "ingredients": [], "description": "Botella 600.000", "price": 60000 },
+            { "id": "hendricks", "name": "Hendrick's", "ingredients": [], "description": "Botella 580.000", "price": 58000 },
+            { "id": "canaima", "name": "Canaima", "ingredients": [], "description": "Botella 520.000", "price": 52000 }
+          ]
+        },
+        {
+          "id": "cognac",
+          "label": "Cognac",
+          "items": [
+            { "id": "remy-martin-vsop", "name": "Rémy Martin V.S.O.P", "ingredients": [], "description": "Botella 780.000", "price": 78000 }
+          ]
+        },
+        {
+          "id": "digestivos",
+          "label": "Digestivos y Apéritifs",
+          "items": [
+            { "id": "baileys", "name": "Baileys", "ingredients": [], "price": 35000 },
+            { "id": "amarula", "name": "Amarula", "ingredients": [], "price": 35000 },
+            { "id": "amaretto-disaronno", "name": "Amaretto Disaronno", "ingredients": [], "price": 40000 },
+            { "id": "frangelico", "name": "Frangelico", "ingredients": [], "price": 40000 },
+            { "id": "drambuie", "name": "Drambuie", "ingredients": [], "price": 40000 },
+            { "id": "dubonnet", "name": "Dubonnet", "ingredients": [], "price": 35000 },
+            { "id": "sambuca", "name": "Sambuca", "ingredients": [], "price": 40000 },
+            { "id": "licor-43", "name": "Licor 43", "ingredients": [], "price": 40000 },
+            { "id": "licor-8", "name": "Licor 8 (licor de café)", "ingredients": [], "price": 40000 },
+            { "id": "cointreau", "name": "Cointreau", "ingredients": [], "price": 40000 },
+            { "id": "limoncello-del-contadino", "name": "Limoncello del Contadino", "ingredients": [], "price": 40000 },
+            { "id": "amaro-lucano", "name": "Amaro Lucano", "ingredients": [], "price": 35000 },
+            { "id": "porto-de-mora", "name": "Porto de Mora (Cruxe de las Rocas)", "ingredients": [], "price": 35000 },
+            { "id": "jerez-noe-30", "name": "Jerez Noe Pedro Ximénez 30 años", "ingredients": [], "price": 120000 },
+            { "id": "fernet-branca", "name": "Fernet Branca", "ingredients": [], "price": 35000 },
+            { "id": "campari", "name": "Campari", "ingredients": [], "price": 35000 },
+            { "id": "lillet-blanc", "name": "Lillet Blanc", "ingredients": [], "price": 35000 },
+            { "id": "lillet-rose", "name": "Lillet Rosé", "ingredients": [], "price": 35000 },
+            { "id": "luxardo-bitter-rose", "name": "Luxardo Bitter Rosé", "ingredients": [], "price": 40000 },
+            { "id": "jerez-amontillado", "name": "Jerez Viña AB Amontillado", "ingredients": [], "price": 35000 },
+            { "id": "yzaguirre-rosso", "name": "Yzaguirre Vermouth Rosso", "ingredients": [], "price": 35000 },
+            { "id": "yzaguirre-bianco", "name": "Yzaguirre Vermouth Bianco", "ingredients": [], "price": 35000 },
+            { "id": "yzaguirre-reserva", "name": "Yzaguirre Vermouth Reserva", "ingredients": [], "price": 35000 }
+          ]
+        }
+      ]
+    }
+  ],
+  "badges": [
+    { "id": "v", "label": "Vegetarian" },
+    { "id": "gf", "label": "Sin gluten" },
+    { "id": "spicy", "label": "Picante" }
+  ],
+  "allergens": ["gluten", "lácteos", "huevo", "soya", "nueces", "mariscos"]
+}
