@@ -76,7 +76,7 @@ withDefaults(defineProps<{
   .section__title {
     text-align: left;
     font-size: 1.25rem;
-    margin-block: rem .25rem;
+    margin-block: .25rem;
     color: #464646;
   }
 </style>

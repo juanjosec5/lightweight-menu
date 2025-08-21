@@ -1,16 +1,15 @@
 // composables/useMenuFromUrl.ts
-
-import { ref, readonly } from "vue";
+import { computed } from "vue";
 
 export function useMenuFromUrl(knownMenus: string[]) {
   const params = new URLSearchParams(window.location.search);
   const raw = (params.get("menu") || "").trim();
-  
+
   const slugify = (s: string) =>
     s.toLowerCase().trim().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
-  
+
   const normalized = raw ? slugify(raw) : "";
-  
+
   const isKnown = normalized ? knownMenus.includes(normalized) : false;
   const isMissingParam = raw.length === 0;
   const menuId = isMissingParam ? "" : isKnown ? normalized : "";
@@ -24,8 +23,8 @@ export function useMenuFromUrl(knownMenus: string[]) {
   }
 
   return {
-    menuId: readonly(ref(menuId)),
-    invalidMenu: readonly(ref(invalidMenu)),
-    isMissingParam: readonly(ref(isMissingParam)),
+    menuId: computed(() => menuId),
+    invalidMenu: computed(() => invalidMenu),
+    isMissingParam: computed(() => isMissingParam),
   };
 }

@@ -1,11 +1,14 @@
 <script setup lang="ts">
+import { ref } from "vue";
   import { useMenu } from "@/composables/useMenu";
   import { useMenuFromUrl } from "@/composables/useMenuFromUrl";
   import MenuCategory from "@/components/MenuCategory.vue";
 
-  const KNOWN_MENUS = ["oda-bogota", "g-lounge"];
+  const KNOWN_MENUS = ["oda-bogota", "g-lounge", "coma-taco"];
   const { menuId, invalidMenu, isMissingParam } = useMenuFromUrl(KNOWN_MENUS);
   const { data, loading, error, reload } = useMenu(menuId);
+
+  const menus = ref<string[]>(["oda-bogota", "g-lounge", "coma-taco"]);
 </script>
 
 <template>
@@ -14,7 +17,7 @@
       <h2>Bienvenido</h2>
       <p>Por favor, selecciona un menú para empezar:</p>
       <ul>
-        <li v-for="m in KNOWN_MENUS" :key="m">
+        <li v-for="m in menus" :key="m">
           <a :href="`?menu=${m}`">{{ m }}</a>
         </li>
       </ul>
@@ -24,7 +27,7 @@
       <h2>El menú solicitado no existe</h2>
       <p>Verifica la URL o usa uno de estos IDs válidos:</p>
       <ul>
-        <li v-for="m in ['oda-bogota', 'g-lounge']" :key="m">
+        <li v-for="m in menus" :key="m">
           <a :href="`?menu=${m}`">{{ m }}</a>
         </li>
       </ul>

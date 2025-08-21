@@ -1,0 +1,558 @@
+{
+  "version": 1,
+  "restaurant": {
+    "id": "coma-taco",
+    "name": "Coma Taco",
+    "subtitle": "TexMex",
+    "description": "TexMex restaurant offering tacos, burritos, burgers, drinks, and more.",
+    "currency": "COP",
+    "locale": "es-CO",
+    "updatedAt": "2025-08-20"
+  },
+  "categories": [
+    {
+      "id": "entrantes",
+      "label": "Entrantes",
+      "items": [
+        {
+          "id": "caldo-birria",
+          "name": "Caldo de birria",
+          "description": "Caldo resultante de la cocción lenta de nuestra preparación de la carne de birria (sutilmente picante) acompañado de totopos.",
+          "price": 14000
+        },
+        {
+          "id": "totopitos",
+          "name": "Totopitos",
+          "description": "(Nachos) Totopos fritos con guacamole, sour cream, pico de gallo y tajín.",
+          "price": 15000
+        },
+        {
+          "id": "totopitos-picantes",
+          "name": "Totopitos picantes",
+          "description": "(Nachos) Totopos fritos con alioli de habanero",
+          "price": 11000
+        },
+        {
+          "id": "nuggets-totopitos",
+          "name": "Nuggets con salsa BBQ y totopitos",
+          "description": "Salchi nachos con nuggets, salsa alioli y salsa BBQ (menu infantil).",
+          "price": 17000
+        },
+        {
+          "id": "maiz-texmex",
+          "name": "Maíz TexMex picantes",
+          "description": "Totopitos con maíz TexMex, opción de pollo, birria o mixto.",
+          "price": 24000
+        },
+        {
+          "id": "aguachile",
+          "name": "Aguachile",
+          "description": "Camarones frescos cocidos al limón, marinados con pepino, cilantro, jalapeños y sal. (sutilmente picante)",
+          "price": 30000
+        },
+        {
+          "id": "molcajete-camarones",
+          "name": "Molcajete camarones al ajillo",
+          "description": "Molcajete con guacamole, pico de gallo, totopos y camarones al ajillo.",
+          "price": 35000
+        },
+        {
+          "id": "molcajete-chicharron",
+          "name": "Molcajete crujiente de chicharrón",
+          "description": "Molcajete con guacamole, pico de gallo, totopos y chicharrón crocante.",
+          "price": 28000
+        },
+        {
+          "id": "quesadilla-frijol",
+          "name": "Quesadilla de frijol y queso",
+          "description": "Tortilla de harina con puré de frijoles y queso.",
+          "price": 15000
+        },
+        {
+          "id": "quesabirria",
+          "name": "Quesabirria",
+          "description": "Tortilla de harina con queso y carne de birria.",
+          "price": 21000
+        },
+        {
+          "id": "quesabirria-guacamole",
+          "name": "Quesabirria con pico de gallo y guacamole",
+          "description": "Tortilla de harina con queso y carne de birria, acpompañada de pico de gallo y guacamole.",
+          "price": 24000
+        }
+      ]
+    },
+    {
+      "id": "nuevos-tacos",
+      "label": "Nuevos Tacos",
+      "items": [
+        {
+          "id": "tacos-atun",
+          "name": "Tacos de atún x3",
+          "description": "De atún fresco, aderezado con limón, alioli, guacamole y pico de gallo.",
+          "price": 25000
+        },
+        {
+          "id": "tacos-picana",
+          "name": "Tacos de picaña Angus Choice x3",
+          "description": "Punta de anca con guacamole, salsa verde y pico de gallo.",
+          "price": 25000
+        },
+        {
+          "id": "tacos-chicharron",
+          "name": "Tacos de chicharrón x3",
+          "description": "Con guacamole, endulzado con bbq picante, y pico de gallo.",
+          "price": 24000
+        },
+        {
+          "id": "tacos-camaron-apanado",
+          "name": "Tacos camarones apanados x3",
+          "description": "Con guacamole, alioli y cebolla encurtida.",
+          "price": 27000
+        },
+        {
+          "id": "tacos-vegetales",
+          "name": "Tacos de vegetales x3",
+          "description": "De vegetales salteados al ajillo.",
+          "price": 23000
+        }
+      ]
+    },
+    {
+      "id": "tostadas",
+      "label": "Tostadas",
+      "items": [
+        {
+          "id": "tostadas-atun",
+          "name": "De atún x3",
+          "description": "De crudo de atún fresco acevichado montado sobre puré de guayabo, guacamole, salsa verde y pico de gallo. Picante opcional.",
+          "price": 25000
+        },
+        {
+          "id": "tostadas-anca",
+          "name": "De punta de anca x3",
+          "description": "Montado sobre puré de guayabo, guacamole, salsa verde y pico de gallo.",
+          "price": 26000
+        }
+      ]
+    },
+    {
+      "id": "burger",
+      "label": "Nueva Burger Mex",
+      "items": [
+        {
+          "id": "burger-hummel",
+          "name": "La Hummel Colombian Burger",
+          "description": "Crema de frijol, salsa de plátano maduro guayabo, queso mozzarella, carne de hamburguesa y crocante de chicharrón, guacamole, pico de gallo y alioli. (En colaboración con @hummelrestobar)",
+          "price": 35000
+        }
+      ]
+    },
+    {
+      "id": "flautas",
+      "label": "Flautas",
+      "items": [
+        {
+          "id": "flautas-proteina",
+          "name": "Flautas (pollo, birria, sudadero, carnitas, pastor)",
+          "description": "4 Rollitos de tortilla de harina rellenos de proteína a elección, fritos acompañados con sourcream, aguacate, salsa verde, batavia, guacamole y crocante de puerro.",
+          "price": 25000
+        }
+      ]
+    },
+    {
+      "id": "postres",
+      "label": "Siempre hay espacio para el postre",
+      "items": [
+        {
+          "id": "churros",
+          "name": "Churros texmex",
+          "description": "Churros con azúcar, mermelada de moras y arequipe.",
+          "price": 16000
+        },
+        {
+          "id": "tortillita",
+          "name": "Tortillita de harina rellena",
+          "description": "Tortillita de harina asada a la plancha rellena con arequipe y queso, acompañada de mermelada de la casa y azúcar glass.",
+          "price": 16000
+        }
+      ]
+    },
+    {
+      "id": "tacos",
+      "label": "Tacos",
+      "description": "Presentación: Unidad $9,000 / x3 $24,000 / x4 $29,000 / x5 $36,000 / x6 $43,000",
+      "items": [
+        { "id": "taco-birria", "name": "Taco Birria", "price": 9000 },
+        {
+          "id": "taco-cochinita",
+          "name": "Taco Cochinita pibil",
+          "price": 9000
+        },
+        { "id": "taco-suadero", "name": "Taco Suadero", "price": 9000 },
+        { "id": "taco-chipotle", "name": "Taco Pollo chipotle", "price": 9000 },
+        { "id": "taco-lengua", "name": "Taco Lengua de res", "price": 9000 },
+        { "id": "taco-chorizo", "name": "Taco Chorizo", "price": 9000 },
+        { "id": "taco-carnitas", "name": "Taco Carnitas", "price": 9000 },
+        { "id": "taco-pastor", "name": "Taco Al pastor", "price": 9000 }
+      ]
+    },
+    {
+      "id": "platos-fuertes",
+      "label": "Platos Fuertes",
+      "items": [
+        {
+          "id": "nachos-personal",
+          "name": "Nachos personal",
+          "description": "Totopos con queso y complementos. Versión mixta disponible.",
+          "price": 20000
+        },
+        { "id": "nachos-mixto", "name": "Nachos mixto", "price": 25000 },
+        { "id": "nachos-2", "name": "Nachos para 2", "price": 30000 },
+        {
+          "id": "nachos-2-mixto",
+          "name": "Nachos para 2 mixto",
+          "price": 35000
+        },
+        { "id": "burros-texmex", "name": "Burros TexMex", "price": 26000 },
+        { "id": "birria-burger", "name": "Birria burger", "price": 35000 },
+        { "id": "pastor-burger", "name": "Pastor burger", "price": 35000 },
+        { "id": "totopos", "name": "Totopos", "price": 27000 },
+        {
+          "id": "perro-bravo-mini",
+          "name": "Perro bravo mini",
+          "price": 18000
+        },
+        {
+          "id": "perro-bravo-grande",
+          "name": "Perro bravo grande",
+          "price": 23000
+        },
+        {
+          "id": "perro-texmex-mini",
+          "name": "Perro TexMex mini",
+          "price": 18000
+        },
+        {
+          "id": "perro-texmex-grande",
+          "name": "Perro TexMex grande",
+          "price": 23000
+        }
+      ]
+    },
+    {
+      "id": "bebidas",
+      "label": "Bebidas",
+      "items": [
+        {
+          "id": "refresco-jamaica",
+          "name": "Refresco Jamaica",
+          "price": 13000
+        },
+        {
+          "id": "refresco-maracuya",
+          "name": "Refresco Maracuyá",
+          "price": 13000
+        },
+        {
+          "id": "refresco-jengibre",
+          "name": "Refresco Jengibre",
+          "price": 13000
+        },
+        {
+          "id": "michelado-tradicional",
+          "name": "Michelado tradicional",
+          "description": "Limón y sal.",
+          "price": 2000
+        },
+        {
+          "id": "michelado-chamoy",
+          "name": "Michelado chamoy y tajín",
+          "price": 5000
+        },
+        {
+          "id": "real-michelada",
+          "name": "Real michelada",
+          "description": "Chamoy, tajín, tabasco picante, salsa inglesa, pimienta, limón, sal y clamato.",
+          "price": 6000
+        },
+        {
+          "id": "real-michelada-grande",
+          "name": "Real michelada grande",
+          "price": 12000
+        },
+        {
+          "id": "michelado-tropical",
+          "name": "Michelado tropical",
+          "description": "Frutos amarillos, chamoy, limón y tajín.",
+          "price": 5000
+        },
+        {
+          "id": "michelado-clarita",
+          "name": "Michelado clarita",
+          "description": "Ginger, sal y limón.",
+          "price": 6000
+        },
+        { "id": "cerveza-corona", "name": "Corona", "price": 12000 },
+        { "id": "cerveza-stella", "name": "Stella", "price": 13000 },
+        { "id": "cerveza-aguila", "name": "Aguila light", "price": 9000 },
+        { "id": "cerveza-poker", "name": "Poker", "price": 8000 },
+        { "id": "cerveza-club", "name": "Club Colombia", "price": 10000 }
+      ]
+    },
+    {
+      "id": "cocteles",
+      "label": "Cócteles",
+      "items": [
+        { "id": "margarita", "name": "Margarita", "price": 28000 },
+        { "id": "margarita-jarra", "name": "Margarita jarra", "price": 205000 },
+        {
+          "id": "blue-curacao",
+          "name": "Blue Curacao margarita",
+          "description": "Don Julio reposado, cointreau, limón, sal y tajín.",
+          "price": 56000
+        },
+        {
+          "id": "margarita-maracuya",
+          "name": "Margarita de maracuyá",
+          "price": 32000
+        },
+        { "id": "gin-tonic", "name": "Gin and tonic", "price": 34000 },
+        {
+          "id": "gin-tonic-premium",
+          "name": "Gin and tonic ultra premium",
+          "description": "Hendriks, pepino, gotas de rosas y fever tree tonic.",
+          "price": 49000
+        },
+        { "id": "cuba-libre", "name": "Cuba libre", "price": 26000 },
+        { "id": "tinto-verano", "name": "Tinto de verano", "price": 27000 },
+        {
+          "id": "tinto-verano-jarra",
+          "name": "Tinto de verano jarra",
+          "price": 185000
+        },
+        { "id": "moscow-mule", "name": "Moscow mule", "price": 29000 },
+        {
+          "id": "moscow-mule-premium",
+          "name": "Moscow mule ultra premium",
+          "description": "Con Grey Goose.",
+          "price": 46000
+        },
+        {
+          "id": "bloody-mary",
+          "name": "Bloody Mary",
+          "description": "Vodka, jugo de tomate, sal, pimienta, limón y tabasco.",
+          "price": 21000
+        }
+      ]
+    },
+    {
+      "id": "vinos",
+      "label": "Vinos",
+      "items": [
+        { "id": "copa-vino", "name": "Copa de vino", "price": 26000 },
+        {
+          "id": "espumante-oro-veneto",
+          "name": "Oro veneto proseco, Italia",
+          "price": 155000
+        },
+        {
+          "id": "blanco-chardonnay",
+          "name": "Baron Philyphe Chardonnay, Francia",
+          "price": 120000
+        },
+        {
+          "id": "blanco-sauvignon",
+          "name": "Portillo Sauvignon blanc, Argentina",
+          "price": 122000
+        },
+        {
+          "id": "blanco-albarino",
+          "name": "Santiago Ruiz Albariño, España",
+          "price": 305000
+        },
+        {
+          "id": "rosado-aliwen",
+          "name": "Aliwen rosé, Chile",
+          "price": 140000
+        },
+        {
+          "id": "tinto-malbec",
+          "name": "Portillo Malbec, Argentina",
+          "price": 123000
+        },
+        {
+          "id": "tinto-merlot",
+          "name": "Baron Philyphe Merlot, Francia",
+          "price": 120000
+        },
+        {
+          "id": "tinto-carmenere",
+          "name": "Sibaris gran reserva Carmenere, Chile",
+          "price": 170000
+        },
+        {
+          "id": "tinto-tempranillo",
+          "name": "Lan crianza Tempranillo, España",
+          "price": 180000
+        }
+      ]
+    },
+    {
+      "id": "licores",
+      "label": "Licores",
+      "items": [
+        {
+          "id": "tequila-don-julio-botella",
+          "name": "Don Julio reposado (botella)",
+          "price": 450000
+        },
+        {
+          "id": "tequila-don-julio-trago",
+          "name": "Don Julio reposado (trago)",
+          "price": 46000
+        },
+        {
+          "id": "tequila-olmeca-botella",
+          "name": "Olmeca reposado (botella)",
+          "price": 240000
+        },
+        {
+          "id": "tequila-olmeca-trago",
+          "name": "Olmeca reposado (trago)",
+          "price": 26000
+        },
+        {
+          "id": "tequila-1800-botella",
+          "name": "1800 silver (botella)",
+          "price": 350000
+        },
+        {
+          "id": "tequila-1800-trago",
+          "name": "1800 silver (trago)",
+          "price": 36000
+        },
+        {
+          "id": "vodka-greygoose-botella",
+          "name": "Grey Goose (botella)",
+          "price": 380000
+        },
+        {
+          "id": "vodka-greygoose-trago",
+          "name": "Grey Goose (trago)",
+          "price": 39000
+        },
+        {
+          "id": "vodka-absolut-botella",
+          "name": "Absolut (botella)",
+          "price": 220000
+        },
+        {
+          "id": "vodka-absolut-trago",
+          "name": "Absolut (trago)",
+          "price": 24000
+        },
+        {
+          "id": "aguardiente-botella",
+          "name": "Aguardiente blanco del Valle (botella)",
+          "price": 110000
+        },
+        {
+          "id": "aguardiente-trago",
+          "name": "Aguardiente blanco del Valle (trago)",
+          "price": 12000
+        },
+        {
+          "id": "ron-zacapa-botella",
+          "name": "Ron Zacapa 23 (botella)",
+          "price": 320000
+        },
+        {
+          "id": "ron-zacapa-trago",
+          "name": "Ron Zacapa 23 (trago)",
+          "price": 26000
+        },
+        {
+          "id": "ron-bacardi-botella",
+          "name": "Bacardi añejo (botella)",
+          "price": 180000
+        },
+        {
+          "id": "ron-bacardi-trago",
+          "name": "Bacardi añejo (trago)",
+          "price": 20000
+        },
+        {
+          "id": "mezcal-amores-botella",
+          "name": "Mezcal Amores (botella)",
+          "price": 400000
+        },
+        {
+          "id": "mezcal-amores-trago",
+          "name": "Mezcal Amores (trago)",
+          "price": 29000
+        },
+        {
+          "id": "ginebra-hendricks-botella",
+          "name": "Hendricks (botella)",
+          "price": 480000
+        },
+        {
+          "id": "ginebra-hendricks-trago",
+          "name": "Hendricks (trago)",
+          "price": 40000
+        },
+        {
+          "id": "ginebra-gordons-botella",
+          "name": "Gordons (botella)",
+          "price": 250000
+        },
+        {
+          "id": "ginebra-gordons-trago",
+          "name": "Gordons (trago)",
+          "price": 26000
+        },
+        {
+          "id": "ginebra-tanqueray-botella",
+          "name": "Tanqueray (botella)",
+          "price": 210000
+        },
+        {
+          "id": "ginebra-tanqueray-trago",
+          "name": "Tanqueray (trago)",
+          "price": 23000
+        },
+        {
+          "id": "whisky-buchanas-botella",
+          "name": "Buchanan’s 18 años (botella)",
+          "price": 600000
+        },
+        {
+          "id": "whisky-buchanas-trago",
+          "name": "Buchanan’s 18 años (trago)",
+          "price": 60000
+        },
+        {
+          "id": "whisky-jack-botella",
+          "name": "Jack Daniels (botella)",
+          "price": 220000
+        },
+        {
+          "id": "whisky-jack-trago",
+          "name": "Jack Daniels (trago)",
+          "price": 24000
+        },
+        {
+          "id": "whisky-chivas-botella",
+          "name": "Chivas extra 13 años (botella)",
+          "price": 300000
+        },
+        {
+          "id": "whisky-chivas-trago",
+          "name": "Chivas extra 13 años (trago)",
+          "price": 30000
+        }
+      ]
+    }
+  ]
+}

@@ -19,7 +19,7 @@
   <article class="item">
     <div class="item__body">
       <h4 class="item__title">{{ item.name }}</h4>
-      <p class="item__ingredients">{{ item.ingredients.join(", ") }}</p>
+      <p v-if="item.ingredients?.length" class="item__ingredients">{{ item.ingredients.join(", ") }}</p>
       <p v-if="item.description" class="item__desc">{{ item.description }}</p>
       <strong class="item__price">{{
         formatPrice(item.price, currency, locale)
