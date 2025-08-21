@@ -1,0 +1,138 @@
+{
+  "version": 1,
+  "restaurant": {
+    "id": "wings-walker",
+    "name": "Wings Walker",
+    "subtitle": "Cocina de alas",
+    "description": "Bandejas de alitas con 2 sabores a elección. Cada bandeja incluye 8 piezas y papas.",
+    "currency": "COP",
+    "locale": "es-CO",
+    "updatedAt": "2025-08-20"
+  },
+  "categories": [
+    {
+      "id": "alitas",
+      "label": "Alitas (elige 2 sabores por bandeja)",
+      "description": "Cada bandeja incluye 8 piezas y papas.",
+      "items": [
+        {
+          "id": "sin-salsa",
+          "name": "Sin salsa",
+          "description": "Suave apanado de la casa.",
+          "price": 28000
+        },
+        {
+          "id": "sweet-chili",
+          "name": "Sweet Chili",
+          "description": "Dulce y picante suave.",
+          "price": 28000
+        },
+        {
+          "id": "bbq",
+          "name": "BBQ",
+          "description": "Hecha en casa, no picante.",
+          "price": 28000
+        },
+        {
+          "id": "asiaticas",
+          "name": "Asiáticas",
+          "description": "Piña, salsa soya y ajonjolí.",
+          "price": 28000
+        },
+        {
+          "id": "caramelizadas",
+          "name": "Caramelizadas",
+          "description": "Zumo de naranja y panela.",
+          "price": 28000
+        },
+        {
+          "id": "ajo",
+          "name": "Ajo",
+          "description": "Salsa cremosa de ajo.",
+          "price": 30000
+        },
+        {
+          "id": "mostaza",
+          "name": "Mostaza",
+          "description": "Miel y mostaza.",
+          "price": 30000
+        },
+        {
+          "id": "miel-parmesano",
+          "name": "Miel / Parmesano",
+          "description": "Bañadas en miel maple y cubiertas con parmesano.",
+          "price": 34000
+        },
+        {
+          "id": "picante",
+          "name": "Picante",
+          "description": "Crema picante de jalapeños.",
+          "price": 30000
+        }
+      ]
+    },
+    {
+      "id": "extras",
+      "label": "Extras",
+      "items": [
+        { "id": "adicion-papas", "name": "Adición de papas", "price": 8000 },
+        { "id": "adicion-miel-parmesano", "name": "Adición de miel/parmesano", "price": 6000 }
+      ]
+    },
+    {
+      "id": "bebidas-artesanales",
+      "label": "Bebidas — Artesanales hechas en casa",
+      "items": [
+        { "id": "jamaica", "name": "Jamaica", "price": 9000 },
+        { "id": "tamarindo", "name": "Tamarindo", "price": 9000 },
+        { "id": "jengibre", "name": "Jengibre", "price": 9000 },
+        { "id": "fresa-pina", "name": "Fresa Piña", "price": 9000 },
+        { "id": "limonada-coco", "name": "Limonada de coco", "price": 14000 },
+        { "id": "limonada-natural", "name": "Limonada natural", "price": 14000 },
+        { "id": "limonada-cerezada", "name": "Limonada cerezada", "price": 14000 }
+      ]
+    },
+    {
+      "id": "gaseosas",
+      "label": "Bebidas — Gaseosas personales",
+      "items": [
+        { "id": "colombiana", "name": "Colombiana", "price": 6500 },
+        { "id": "manzana", "name": "Manzana", "price": 6500 },
+        { "id": "coca-cola", "name": "Coca Cola", "price": 7000 },
+        { "id": "coca-cola-zero", "name": "Coca Cola Zero", "price": 7000 },
+        { "id": "ginger", "name": "Ginger", "price": 6500 },
+        { "id": "soda", "name": "Soda", "price": 6500 },
+        { "id": "agua-agua-gas", "name": "Agua / Agua gas", "price": 6000 },
+        { "id": "jugo-hit", "name": "Jugo Hit", "price": 6500 }
+      ]
+    },
+    {
+      "id": "cervezas",
+      "label": "Bebidas — Cervezas",
+      "items": [
+        { "id": "poker", "name": "Poker", "price": 8000 },
+        { "id": "club-dorada", "name": "Club Dorada", "price": 8000 },
+        { "id": "club-roja", "name": "Club Roja", "price": 8000 },
+        { "id": "club-negra", "name": "Club Negra", "price": 8000 },
+        { "id": "aguila-light", "name": "Águila Light", "price": 8000 },
+        { "id": "corona", "name": "Corona", "price": 12000 },
+        { "id": "heineken", "name": "Heineken", "price": 12000 },
+        { "id": "stella-artois", "name": "Stella Artois", "price": 12000 }
+      ]
+    },
+    {
+      "id": "cerveza-artesanal",
+      "label": "Bebidas — Cerveza artesanal",
+      "items": [
+        { "id": "holy-water-ipa", "name": "Holy Water IPA", "price": 14000 }
+      ]
+    },
+    {
+      "id": "adicionales-bebidas",
+      "label": "Bebidas — Adicionales",
+      "items": [
+        { "id": "vaso-michelado", "name": "Vaso michelado", "price": 2000 }
+      ]
+    }
+  ]
+}

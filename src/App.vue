@@ -4,11 +4,11 @@ import { ref } from "vue";
   import { useMenuFromUrl } from "@/composables/useMenuFromUrl";
   import MenuCategory from "@/components/MenuCategory.vue";
 
-  const KNOWN_MENUS = ["oda-bogota", "g-lounge", "coma-taco"];
+  const KNOWN_MENUS = ["oda-bogota", "g-lounge", "coma-taco", "hummel"];
   const { menuId, invalidMenu, isMissingParam } = useMenuFromUrl(KNOWN_MENUS);
   const { data, loading, error, reload } = useMenu(menuId);
 
-  const menus = ref<string[]>(["oda-bogota", "g-lounge", "coma-taco"]);
+  const menus = ref<string[]>(["oda-bogota", "g-lounge", "coma-taco", "hummel"]);
 </script>
 
 <template>
