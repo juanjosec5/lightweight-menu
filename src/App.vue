@@ -1,14 +1,21 @@
 <script setup lang="ts">
-import { ref } from "vue";
+  import { ref } from "vue";
   import { useMenu } from "@/composables/useMenu";
   import { useMenuFromUrl } from "@/composables/useMenuFromUrl";
   import MenuCategory from "@/components/MenuCategory.vue";
 
-  const KNOWN_MENUS = ["oda-bogota", "g-lounge", "coma-taco", "hummel"];
+  const KNOWN_MENUS = ["oda-bogota", "g-lounge", "coma-taco", "hummel", "greta", "wings-walker"];
   const { menuId, invalidMenu, isMissingParam } = useMenuFromUrl(KNOWN_MENUS);
   const { data, loading, error, reload } = useMenu(menuId);
 
-  const menus = ref<string[]>(["oda-bogota", "g-lounge", "coma-taco", "hummel"]);
+  const menus = ref<string[]>([
+    "oda-bogota",
+    "g-lounge",
+    "coma-taco",
+    "hummel",
+    "greta",
+    "wings-walker",
+  ]);
 </script>
 
 <template>
@@ -57,8 +64,13 @@ import { ref } from "vue";
       <p v-if="error">Error: {{ error }}</p>
 
       <template v-if="data">
-        <menu-category v-for="cat in data.categories" :key="cat.id" :category="cat" :currency="data.restaurant.currency"
-          :locale="data.restaurant.locale" />
+        <menu-category
+          v-for="cat in data.categories"
+          :key="cat.id"
+          :category="cat"
+          :currency="data.restaurant.currency"
+          :locale="data.restaurant.locale"
+        />
       </template>
     </template>
   </main>
@@ -103,3 +115,4 @@ import { ref } from "vue";
     text-decoration: underline;
   }
 </style>
+

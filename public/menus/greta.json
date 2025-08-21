@@ -1,0 +1,291 @@
+{
+  "version": 1,
+  "restaurant": {
+    "id": "greta",
+    "name": "Greta",
+    "subtitle": "Cocina Mediterránea",
+    "description": "Raciones, pizzas, platos fuertes y pastas con opción de salsas y proteína.",
+    "currency": "COP",
+    "locale": "es-CO",
+    "updatedAt": "2025-08-20"
+  },
+  "categories": [
+    {
+      "id": "raciones",
+      "label": "Raciones",
+      "items": [
+        {
+          "id": "capresse-horneada",
+          "name": "Capresse Horneada",
+          "description": "Tomates salteados en ajo, pimienta y albahaca, base napolitana con queso mozzarella, parmesano, puntos de pesto y reducción balsámica.",
+          "price": 28000
+        },
+        {
+          "id": "albondigas-napolitanas",
+          "name": "Albóndigas Napolitanas",
+          "description": "Albóndigas de res y cerdo con trozos de tomate, en salsa napolitana, cubiertas con queso mozzarella y parmesano.",
+          "price": 34000
+        },
+        {
+          "id": "cazuela-camarones",
+          "name": "Cazuela de Camarones",
+          "description": "Camarones y trozos de tomate salteados al ajillo, sal y pimienta, en salsa blanca, cubiertos con queso mozzarella y parmesano.",
+          "price": 34000
+        },
+        {
+          "id": "tablita-charcutera",
+          "name": "Tablita Charcutera (para compartir)",
+          "description": "Jamón serrano, chorizo vela, queso cheddar, queso mozzarella, queso de cabra, mermelada de higos, pistachos y pan.",
+          "price": 53000
+        },
+        {
+          "id": "mejillones",
+          "name": "Mejillones (para compartir)",
+          "description": "Mejillones negros al vino blanco con ajo y perejil, acompañados con pan.",
+          "price": 42000
+        }
+      ]
+    },
+    {
+      "id": "pizzas-rojas",
+      "label": "Pizzas Rojas (Personal 4 porciones / Mediana 8 porciones)",
+      "items": [
+        {
+          "id": "margarita",
+          "name": "Margarita",
+          "description": "Base napolitana, mozzarella y albahaca.",
+          "variants": [
+            { "label": "Personal", "price": 19000 },
+            { "label": "Mediana", "price": 35000 }
+          ],
+          "price": 19000
+        },
+        {
+          "id": "gaucha",
+          "name": "Gaucha",
+          "description": "Base napolitana, chorizo argentino, mozzarella, parmesano y rúgula.",
+          "variants": [
+            { "label": "Personal", "price": 24000 },
+            { "label": "Mediana", "price": 45000 }
+          ],
+          "price": 24000
+        },
+        {
+          "id": "anana",
+          "name": "Ananá",
+          "description": "Base napolitana, mozzarella, piña asada, tocineta y jalapeños.",
+          "variants": [
+            { "label": "Personal", "price": 21000 },
+            { "label": "Mediana", "price": 39000 }
+          ],
+          "price": 21000
+        },
+        {
+          "id": "fungo-e-pollo",
+          "name": "Fungo e Pollo",
+          "description": "Base napolitana, mozzarella, champiñones y pollo.",
+          "variants": [
+            { "label": "Personal", "price": 24000 },
+            { "label": "Mediana", "price": 45000 }
+          ],
+          "price": 24000
+        },
+        {
+          "id": "pepperoni",
+          "name": "Pepperoni",
+          "description": "Base napolitana, mozzarella y pepperoni.",
+          "variants": [
+            { "label": "Personal", "price": 23000 },
+            { "label": "Mediana", "price": 43000 }
+          ],
+          "price": 23000
+        },
+        {
+          "id": "albondigas-pizza",
+          "name": "Albóndigas",
+          "description": "Base napolitana, mozzarella, trozos de tomate salteados al ajillo y albóndigas.",
+          "variants": [
+            { "label": "Personal", "price": 24000 },
+            { "label": "Mediana", "price": 44000 }
+          ],
+          "price": 24000
+        },
+        {
+          "id": "hawaiana-bacon",
+          "name": "Hawaiana Bacon",
+          "description": "Base napolitana, mozzarella, piña asada y tocineta.",
+          "variants": [
+            { "label": "Personal", "price": 20000 },
+            { "label": "Mediana", "price": 37000 }
+          ],
+          "price": 20000
+        }
+      ]
+    },
+    {
+      "id": "otras-pizzas",
+      "label": "Otras Pizzas (Personal 4 porciones / Mediana 8 porciones)",
+      "items": [
+        {
+          "id": "capresse-pizza",
+          "name": "Capresse",
+          "description": "Base de salsa pesto, mozzarella, tomáticos frescos y reducción de balsámico.",
+          "variants": [
+            { "label": "Personal", "price": 20000 },
+            { "label": "Mediana", "price": 38000 }
+          ],
+          "price": 20000
+        },
+        {
+          "id": "queso-tocineta",
+          "name": "Queso Tocineta",
+          "description": "Mozzarella, queso cheddar y tocineta.",
+          "variants": [
+            { "label": "Personal", "price": 18000 },
+            { "label": "Mediana", "price": 33000 }
+          ],
+          "price": 18000
+        },
+        {
+          "id": "pollo-bbq",
+          "name": "Pollo & BBQ",
+          "description": "Base de salsa BBQ, mozzarella y pollo.",
+          "variants": [
+            { "label": "Personal", "price": 20000 },
+            { "label": "Mediana", "price": 37000 }
+          ],
+          "price": 20000
+        },
+        {
+          "id": "mermellata",
+          "name": "Mermellata",
+          "description": "Base de mermelada de higos, mozzarella y jamón serrano.",
+          "variants": [
+            { "label": "Personal", "price": 23000 },
+            { "label": "Mediana", "price": 43000 }
+          ],
+          "price": 23000
+        },
+        {
+          "id": "gamberetto",
+          "name": "Gamberetto",
+          "description": "Base de salsa blanca, queso mozzarella, camarones y tomates salteados al ajillo.",
+          "variants": [
+            { "label": "Personal", "price": 27000 },
+            { "label": "Mediana", "price": 51000 }
+          ],
+          "price": 27000
+        }
+      ]
+    },
+    {
+      "id": "fuertes",
+      "label": "Fuertes",
+      "items": [
+        {
+          "id": "salmon",
+          "name": "Salmón",
+          "description": "180g a la plancha con sal y pimienta, acompañado de vegetales de temporada.",
+          "price": 59000
+        },
+        {
+          "id": "lomo-res",
+          "name": "Lomo de Res",
+          "description": "Lomo fino de res, acompañado con vegetales de temporada.",
+          "price": 61000
+        },
+        {
+          "id": "steak-pimienta",
+          "name": "Steak Pimienta",
+          "description": "Lomo fino de res en salsa pimienta con vino tinto, acompañado con vegetales de temporada.",
+          "price": 61000
+        },
+        {
+          "id": "ensalada-pulpo",
+          "name": "Ensalada de Pulpo",
+          "description": "100g de pulpo confitado en aceite de oliva, acompañado con ensalada fresca.",
+          "price": 55000
+        },
+        {
+          "id": "cremoso-mar",
+          "name": "Cremoso de Mar",
+          "description": "Arroz meloso con camarón, calamar y mejillones salteados en vino blanco y ajo.",
+          "price": 64000
+        }
+      ]
+    },
+    {
+      "id": "pastas",
+      "label": "Pastas",
+      "description": "Elige fettuccine o spaghetti, una salsa y una proteína.",
+      "items": [
+        {
+          "id": "pasta-sin-proteina",
+          "name": "Pasta — sin proteína",
+          "description": "Salsas disponibles: blanca, rústica de tomate, pesto.",
+          "price": 33000
+        },
+        {
+          "id": "pasta-albondigas",
+          "name": "Pasta — con albóndigas",
+          "description": "Salsas disponibles: blanca, rústica de tomate, pesto.",
+          "price": 44000
+        },
+        {
+          "id": "pasta-camarones",
+          "name": "Pasta — con camarones",
+          "description": "Salsas disponibles: blanca, rústica de tomate, pesto.",
+          "price": 48000
+        },
+        {
+          "id": "pasta-pollo-hilos",
+          "name": "Pasta — con pollo en hilos",
+          "description": "Salsas disponibles: blanca, rústica de tomate, pesto.",
+          "price": 43000
+        }
+      ]
+    },
+    {
+      "id": "aguas-minerales",
+      "label": "Bebidas — Aguas minerales naturales",
+      "items": [
+        { "id": "san-pellegrino-500", "name": "San Pellegrino (con gas, 500ml)", "price": 13000 },
+        { "id": "panna", "name": "Panna (sin gas)", "price": 12000 }
+      ]
+    },
+    {
+      "id": "bebidas-artesanales",
+      "label": "Bebidas — Artesanales",
+      "items": [
+        { "id": "soda-frutos-frescos", "name": "Soda de frutos frescos", "price": 14000 },
+        { "id": "soda-jengibre", "name": "Soda de jengibre", "price": 12000 },
+        { "id": "soda-frutos-rojos", "name": "Soda frutos rojos", "price": 16000 },
+        { "id": "limonada-coco", "name": "Limonada de coco", "price": 14000 },
+        { "id": "limonada-natural", "name": "Limonada natural", "price": 12000 },
+        { "id": "limonada-cerezada", "name": "Limonada cerezada", "price": 14000 }
+      ]
+    },
+    {
+      "id": "cervezas",
+      "label": "Bebidas — Cervezas",
+      "items": [
+        { "id": "aguila-light", "name": "Águila Light", "price": 10000 },
+        { "id": "club-dorada", "name": "Club Dorada", "price": 10000 },
+        { "id": "club-roja", "name": "Club Roja", "price": 10000 },
+        { "id": "club-negra", "name": "Club Negra", "price": 10000 },
+        { "id": "stella-artois", "name": "Stella Artois", "price": 14000 },
+        { "id": "holy-water-ipa", "name": "Holy Water IPA", "price": 14000 },
+        { "id": "corona", "name": "Corona", "price": 14000 },
+        { "id": "cerveza-importada", "name": "Cerveza importada", "price": 14000 },
+        { "id": "michelado", "name": "Michelado (adicional)", "price": 2000 }
+      ]
+    },
+    {
+      "id": "gaseosas",
+      "label": "Bebidas — Gaseosas",
+      "items": [
+        { "id": "gaseosa", "name": "Gaseosa", "price": 7000 }
+      ]
+    }
+  ]
+}
