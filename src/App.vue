@@ -3,7 +3,7 @@
   import { useMenuFromUrl } from "@/composables/useMenuFromUrl";
   import { useTheme } from "@/composables/useTheme";
   import MenuCategory from "@/components/MenuCategory.vue";
-  import { Sun, Moon } from "lucide-vue-next"
+  import { Sun, Moon, ArrowBigUpDash } from "lucide-vue-next";
 
   const KNOWN_MENUS = [
     "oda-bogota",
@@ -15,15 +15,33 @@
   ];
   const { menuId, invalidMenu, isMissingParam } = useMenuFromUrl(KNOWN_MENUS);
   const { data, loading, error, reload } = useMenu(menuId);
-const { isDark, toggle } = useTheme()
+  const { isDark, toggle } = useTheme();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 </script>
 
 <template>
   <main class="wrap">
-  <button class="theme-toggle" @click="toggle">
-    <component :is="isDark ? Sun : Moon" :size="24" />
-  </button>
+    <div
+      :class="['toolbar', { 'shadow-light': !isDark, 'shadow-dark': isDark }]"
+    >
+      <button
+        class="toolbar-button"
+        @click="scrollToTop"
+        aria-label="scroll to the top"
+      >
+        <component :is="ArrowBigUpDash" />
+      </button>
+      <button
+        :aria-label="`toggle to ${isDark ? 'light' : 'dark'} theme`"
+        class="toolbar-button theme-toggle"
+        @click="toggle"
+      >
+        <component :is="isDark ? Sun : Moon" :size="24" />
+      </button>
+    </div>
     <section v-if="isMissingParam" class="welcome">
       <h2>Bienvenido</h2>
       <p>Por favor, selecciona un menú para empezar:</p>
@@ -83,23 +101,55 @@ const { isDark, toggle } = useTheme()
   </main>
 </template>
 
-<style scoped>
-.theme-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  background: transparent;
-  outline: none;
-  border: none;
+<style scoped lang="scss">
+  .toolbar {
+    display: flex;
+    z-index: 10;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0.75rem;
+    width: calc(100% - 0.75rem * 2);
+    background: var(--fg);
+    transition: background-color 0.5s ease-in-out;
 
-}
+    &-button {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+
+      &:active {
+        background-color: var(--action);
+      }
+    }
+  }
+
+  .shadow-light {
+    box-shadow: -1px 4px 9px 0px rgba(92, 92, 92, 0.75);
+    -webkit-box-shadow: -1px 4px 9px 0px rgba(92, 92, 92, 0.75);
+    -moz-box-shadow: -1px 4px 9px 0px rgba(92, 92, 92, 0.75);
+  }
+
+  .shadow-dark {
+    box-shadow: -1px 4px 9px 0px rgba(31, 31, 31, 0.75);
+    -webkit-box-shadow: -1px 4px 9px 0px rgba(31, 31, 31, 0.75);
+    -moz-box-shadow: -1px 4px 9px 0px rgba(31, 31, 31, 0.75);
+  }
+
+  .theme-toggle {
+    top: 1rem;
+    right: 1rem;
+    outline: none;
+  }
 
   .wrap {
     max-width: 780px;
     margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
+    padding-top: 5rem;
   }
 
   .hdr h1 {
