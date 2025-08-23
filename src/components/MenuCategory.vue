@@ -31,47 +31,62 @@
 
   const expanded = ref(false);
   const bodyEl = ref<HTMLElement | null>(null);
+  const btnEl = ref<HTMLElement | null>(null);
   const isAnimating = ref(false);
-  const TRANSITION_MS = 350; // match your CSS duration
 
-function openBody() {
-  const el = bodyEl.value
-  if (!el) return
-  isAnimating.value = true
-  el.style.marginTop = "1.5rem"
-  el.style.maxHeight = el.scrollHeight + "px"
-  // Allow natural growth after it opens
-  el.addEventListener("transitionend", onAfterOpen, { once: true })
-}
+  function openBody() {
+    const el = bodyEl.value;
 
-function onAfterOpen(e: Event) {
-  const el = bodyEl.value
-  if (!el) return
-  el.style.maxHeight = "none"
-  isAnimating.value = false
-}
+    if (!el) return;
 
-function closeBody() {
-  const el = bodyEl.value
-  if (!el) return
-  isAnimating.value = true
-  // If currently 'none', fix to current px so we can animate down
-  if (el.style.maxHeight === "none") {
-    el.style.maxHeight = el.scrollHeight + "px"
+    isAnimating.value = true;
+    el.style.marginTop = "1.5rem";
+    el.style.maxHeight = el.scrollHeight + "px";
+    // Allow natural growth after it opens
+    el.addEventListener("transitionend", onAfterOpen, { once: true });
+
+    btnEl.value?.focus();
   }
-  // Force reflow to ensure transition kicks in
-  void el.offsetHeight
-  el.style.marginTop = "0"
-  el.style.maxHeight = "0px"
-  el.addEventListener("transitionend", () => { isAnimating.value = false }, { once: true })
-}
 
+  function onAfterOpen() {
+    const el = bodyEl.value;
 
-function toggleContent() {
-  if (isAnimating.value) return           // ← guard against double-clicks
-  expanded.value = !expanded.value
-  expanded.value ? openBody() : closeBody()
-}
+    if (!el) return;
+
+    el.style.maxHeight = "none";
+    isAnimating.value = false;
+
+    btnEl.value?.focus();
+  }
+
+  function closeBody() {
+    const el = bodyEl.value;
+    if (!el) return;
+    isAnimating.value = true;
+    // If currently 'none', fix to current px so we can animate down
+    if (el.style.maxHeight === "none") {
+      el.style.maxHeight = el.scrollHeight + "px";
+    }
+    // Force reflow to ensure transition kicks in
+    void el.offsetHeight;
+    el.style.marginTop = "0";
+    el.style.maxHeight = "0px";
+    el.addEventListener(
+      "transitionend",
+      () => {
+        isAnimating.value = false;
+      },
+      { once: true }
+    );
+    btnEl.value?.focus();
+  }
+
+  function toggleContent() {
+    if (isAnimating.value) return;
+
+    expanded.value = !expanded.value;
+    expanded.value ? openBody() : closeBody();
+  }
 </script>
 
 <template>
@@ -82,7 +97,8 @@ function toggleContent() {
         class="cat__title"
         :aria-label="`Mostrar menu de ${category.label}`"
         :aria-expanded="expanded"
-        :disabled="isAnimating"   
+        :disabled="isAnimating"
+        ref="btnEl"
       >
         <span :class="['arrow', { 'arrow--expanded': expanded }]">&#8595;</span>
         <h3 class="cat__title-text">
@@ -136,14 +152,14 @@ function toggleContent() {
   .arrow {
     font-size: 1.5rem;
     position: absolute;
-    top: 0.6rem;
+    top: 0.8rem;
     right: 2rem;
     cursor: pointer;
     transition: transform 0.5s ease;
 
     &--expanded {
       transform: rotate(180deg);
-      transition: transform 0.3s ease;
+      transition: transform 0.5s ease;
     }
   }
 
@@ -163,7 +179,7 @@ function toggleContent() {
       gap: 1.5rem;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.6s ease, margin-top 0.6s ease;
+      transition: max-height 0.5s ease, margin-top 0.5s ease;
     }
   }
 
@@ -174,8 +190,10 @@ function toggleContent() {
     justify-content: space-between;
     cursor: pointer;
     background: transparent;
-    border: 2px solid #121212;
-    padding: 0.5rem 0.75rem;
+    border: 2px solid var(--bg);
+    color: var(--bg);
+    padding: 0.75rem;
+    border-radius: .25rem;
     text-align: left;
 
     &-text {
@@ -184,16 +202,16 @@ function toggleContent() {
     }
 
     &:hover {
-      background-color: color.adjust(#faf9f6, $lightness: -10%);
+      background-color: var(--action);
     }
 
     &:active {
-      background-color: color.adjust(#faf9f6, $lightness: -15%);
+      background-color: var(--action);
     }
 
     &:focus {
-      outline: 3px solid #121212;
-      background-color: color.adjust(#faf9f6, $lightness: -15%);
+      outline: 3px solid var(--bg);
+      background-color: var(--action);
       outline-offset: 2px;
     }
   }

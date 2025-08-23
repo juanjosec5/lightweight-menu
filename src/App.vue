@@ -1,8 +1,9 @@
 <script setup lang="ts">
-  import { ref } from "vue";
   import { useMenu } from "@/composables/useMenu";
   import { useMenuFromUrl } from "@/composables/useMenuFromUrl";
+  import { useTheme } from "@/composables/useTheme";
   import MenuCategory from "@/components/MenuCategory.vue";
+  import { Sun, Moon } from "lucide-vue-next"
 
   const KNOWN_MENUS = [
     "oda-bogota",
@@ -14,10 +15,15 @@
   ];
   const { menuId, invalidMenu, isMissingParam } = useMenuFromUrl(KNOWN_MENUS);
   const { data, loading, error, reload } = useMenu(menuId);
+const { isDark, toggle } = useTheme()
+
 </script>
 
 <template>
   <main class="wrap">
+  <button class="theme-toggle" @click="toggle">
+    <component :is="isDark ? Sun : Moon" :size="24" />
+  </button>
     <section v-if="isMissingParam" class="welcome">
       <h2>Bienvenido</h2>
       <p>Por favor, selecciona un menú para empezar:</p>
@@ -78,6 +84,16 @@
 </template>
 
 <style scoped>
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  outline: none;
+  border: none;
+
+}
+
   .wrap {
     max-width: 780px;
     margin: auto;
@@ -92,16 +108,16 @@
 
   .sub {
     margin: 0.25rem 0;
-    color: #444;
+    color: var(--bg);
   }
 
   .desc {
     margin: 0.25rem 0 1rem;
-    color: #555;
+    color: var(--bg);
   }
 
   .muted {
-    color: #777;
+    color: var(--bg);
   }
 
   .error {

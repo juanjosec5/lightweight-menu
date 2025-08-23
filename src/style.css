@@ -19,8 +19,9 @@ body {
   place-items: flex-start;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #FAF9F6;
-  color: #121212;
+  background-color: var(--fg);
+  color: var(--bg);
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 #app {

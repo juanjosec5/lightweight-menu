@@ -12,7 +12,7 @@
   "categories": [
     {
       "id": "entrantes",
-      "label": "Entrantes",
+      "label": "Entradas",
       "items": [
         {
           "id": "caldo-birria",
@@ -162,7 +162,7 @@
     },
     {
       "id": "postres",
-      "label": "Siempre hay espacio para el postre",
+      "label": "Postres",
       "items": [
         {
           "id": "churros",

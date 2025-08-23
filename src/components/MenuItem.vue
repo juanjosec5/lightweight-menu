@@ -40,7 +40,7 @@
     grid-template-columns: 1fr auto;
     gap: 12px;
     padding: 14px 0;
-    border-bottom: 1px solid #a3a3a3;
+    border-bottom: 1px solid var(--bg);
 
     &__body {
       display: flex;
@@ -54,11 +54,12 @@
   .item__title {
     margin: 0 0 4px;
     font-weight: 600;
+    font-size: 1.1rem;
   }
   .item__ingredients,
   .item__desc {
     margin: 0 0 6px;
-    color: #555;
+    color: hsla(var(--bg), .7);
     text-align: left;
   }
   .item__price {

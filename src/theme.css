@@ -1,0 +1,23 @@
+:root {
+  color-scheme: light;
+  --fg: #FAF9F6;
+  --bg: #252525;
+  --action: #dbdbdb;
+}
+
+/* Dark override */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --fg: #252525;
+  --bg: #FAF9F6;
+  --action: #3f3f3f;
+}
+
+/* Optional: respect OS when no explicit data-theme */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --fg: #252525;
+    --bg: #FAF9F6;
+  }
+}
