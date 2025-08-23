@@ -118,6 +118,7 @@
       border-radius: 50%;
       width: 40px;
       height: 40px;
+      color: var(--bg);
 
       &:active {
         background-color: var(--action);
