@@ -47,14 +47,6 @@
         <p v-if="data.restaurant.description" class="desc">
           {{ data.restaurant.description }}
         </p>
-        <small class="muted">
-          Última actualización:
-          {{
-            new Date(data.restaurant.updatedAt).toLocaleDateString(
-              data.restaurant.locale
-            )
-          }}
-        </small>
       </header>
 
       <button v-if="error" @click="reload">Reintentar</button>
@@ -63,16 +55,25 @@
 
       <template v-if="data">
         <div class="category-wrapper">
-        <menu-category
-          v-for="cat in data.categories"
-          :key="cat.id"
-          :category="cat"
-          :currency="data.restaurant.currency"
-          :locale="data.restaurant.locale"
-        />
+          <menu-category
+            v-for="cat in data.categories"
+            :key="cat.id"
+            :category="cat"
+            :currency="data.restaurant.currency"
+            :locale="data.restaurant.locale"
+          />
         </div>
       </template>
     </template>
+
+    <small v-if="data" class="muted">
+      Última actualización:
+      {{
+        new Date(data.restaurant.updatedAt).toLocaleDateString(
+          data.restaurant.locale
+        )
+      }}
+    </small>
   </main>
 </template>
 

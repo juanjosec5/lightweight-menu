@@ -19,7 +19,7 @@
     image?: string;
   };
 
-withDefaults(
+  withDefaults(
     defineProps<{
       category: Category;
       currency: string;
@@ -30,88 +30,113 @@ withDefaults(
   );
 
   const expanded = ref(false);
+  const bodyEl = ref<HTMLElement | null>(null);
+  const isAnimating = ref(false);
+  const TRANSITION_MS = 350; // match your CSS duration
 
-  const toggleContent = (id: string) => {
-    expanded.value = !expanded.value;
-    const el = document.getElementById(id);
-    
-    if (el && el.querySelector('.cat-items')) {
-      const content = el.querySelector(".cat-items");
-      console.log(content);
-      
-      if (content && content instanceof HTMLElement) {
-        if (content.style.maxHeight && content.style.maxHeight !== "0px") {
-          content.style.marginTop = "0";
-          content.style.maxHeight = "0px";
-        } else {
-          content.style.marginTop = "1.5rem";
-          content.style.maxHeight = content.scrollHeight + "px";
-        }
-      }
-    } else if(el && el.querySelector('.cat-section')) {
-      const content = el.querySelector(".cat-section");
-      console.log(content);
-      if (content && content instanceof HTMLElement) {
-        if (content.style.maxHeight && content.style.maxHeight !== "0px") {
-          content.style.marginTop = "0";
-          content.style.maxHeight = "0px";
-        } else {
-          
-          content.style.maxHeight = content.scrollHeight + "px";
-        }
-      }
-    }
-  };
+function openBody() {
+  const el = bodyEl.value
+  if (!el) return
+  isAnimating.value = true
+  el.style.marginTop = "1.5rem"
+  el.style.maxHeight = el.scrollHeight + "px"
+  // Allow natural growth after it opens
+  el.addEventListener("transitionend", onAfterOpen, { once: true })
+}
+
+function onAfterOpen(e: Event) {
+  const el = bodyEl.value
+  if (!el) return
+  el.style.maxHeight = "none"
+  isAnimating.value = false
+}
+
+function closeBody() {
+  const el = bodyEl.value
+  if (!el) return
+  isAnimating.value = true
+  // If currently 'none', fix to current px so we can animate down
+  if (el.style.maxHeight === "none") {
+    el.style.maxHeight = el.scrollHeight + "px"
+  }
+  // Force reflow to ensure transition kicks in
+  void el.offsetHeight
+  el.style.marginTop = "0"
+  el.style.maxHeight = "0px"
+  el.addEventListener("transitionend", () => { isAnimating.value = false }, { once: true })
+}
+
+
+function toggleContent() {
+  if (isAnimating.value) return           // ← guard against double-clicks
+  expanded.value = !expanded.value
+  expanded.value ? openBody() : closeBody()
+}
 </script>
 
 <template>
   <section :id="category.id" :class="['cat', { 'cat--reverse': reverse }]">
     <div class="cat-content">
-      <span :class="[ 'arrow', { 'arrow--expanded': expanded }]">&#8595;</span>
-      <h3 @click="toggleContent(category.id)" class="cat__title">
-        {{ category.label }}
-      </h3>
-
-      <!-- Flat items -->
-      <div v-if="category.items?.length" class="cat-items">
-        <menu-item
-          v-for="it in category.items"
-          :key="it.id"
-          :item="it"
-          :currency="currency"
-          :locale="locale"
-        />
-      </div>
-
-      <!-- Grouped sections -->
-      <div v-if="category.sections?.length" class="cat-sections">
-        <div v-for="sec in category.sections" :key="sec.id" class="cat-section">
-          <h4 class="section__title">{{ sec.label }}</h4>
+      <button
+        @click="toggleContent"
+        class="cat__title"
+        :aria-label="`Mostrar menu de ${category.label}`"
+        :aria-expanded="expanded"
+        :disabled="isAnimating"   
+      >
+        <span :class="['arrow', { 'arrow--expanded': expanded }]">&#8595;</span>
+        <h3 class="cat__title-text">
+          {{ category.label }}
+        </h3>
+      </button>
+      <div class="cat-body" ref="bodyEl">
+        <!-- Flat items -->
+        <div v-if="category.items?.length" class="cat-items">
           <menu-item
-            v-for="it in sec.items"
+            v-for="it in category.items"
             :key="it.id"
             :item="it"
             :currency="currency"
             :locale="locale"
           />
         </div>
-      </div>
 
-      <p
-        v-if="!category.items?.length && !category.sections?.length"
-        class="muted"
-      >
-        Sin ítems por ahora.
-      </p>
+        <!-- Grouped sections -->
+        <div v-if="category.sections?.length" class="cat-sections">
+          <div
+            v-for="sec in category.sections"
+            :key="sec.id"
+            class="cat-section"
+          >
+            <h4 class="section__title">{{ sec.label }}</h4>
+            <menu-item
+              v-for="it in sec.items"
+              :key="it.id"
+              :item="it"
+              :currency="currency"
+              :locale="locale"
+            />
+          </div>
+        </div>
+
+        <p
+          v-if="!category.items?.length && !category.sections?.length"
+          class="muted"
+        >
+          Sin ítems por ahora.
+        </p>
+      </div>
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
+  @use "sass:color";
+
   .arrow {
-    font-size: 2rem;
+    font-size: 1.5rem;
     position: absolute;
-    top: 0;
+    top: 0.6rem;
     right: 2rem;
     cursor: pointer;
     transition: transform 0.5s ease;
@@ -129,11 +154,10 @@ withDefaults(
     margin-bottom: 1rem;
 
     &-content {
-      position: relative
+      position: relative;
     }
 
-    &-items,
-    &-section {
+    &-body {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
@@ -144,15 +168,33 @@ withDefaults(
   }
 
   .cat__title {
-    margin: 0;
-    font-size: 1.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    padding: 0.5rem 0;
-    border: 2px solid black;
+    background: transparent;
+    border: 2px solid #121212;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+
+    &-text {
+      margin: 0;
+      font-size: 1.45rem;
+    }
 
     &:hover {
-      background-color: darken(#faf9f6, 10%);
+      background-color: color.adjust(#faf9f6, $lightness: -10%);
+    }
+
+    &:active {
+      background-color: color.adjust(#faf9f6, $lightness: -15%);
+    }
+
+    &:focus {
+      outline: 3px solid #121212;
+      background-color: color.adjust(#faf9f6, $lightness: -15%);
+      outline-offset: 2px;
     }
   }
 
