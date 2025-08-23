@@ -4,18 +4,16 @@
   import { useMenuFromUrl } from "@/composables/useMenuFromUrl";
   import MenuCategory from "@/components/MenuCategory.vue";
 
-  const KNOWN_MENUS = ["oda-bogota", "g-lounge", "coma-taco", "hummel", "greta", "wings-walker"];
-  const { menuId, invalidMenu, isMissingParam } = useMenuFromUrl(KNOWN_MENUS);
-  const { data, loading, error, reload } = useMenu(menuId);
-
-  const menus = ref<string[]>([
+  const KNOWN_MENUS = [
     "oda-bogota",
     "g-lounge",
     "coma-taco",
     "hummel",
     "greta",
     "wings-walker",
-  ]);
+  ];
+  const { menuId, invalidMenu, isMissingParam } = useMenuFromUrl(KNOWN_MENUS);
+  const { data, loading, error, reload } = useMenu(menuId);
 </script>
 
 <template>
@@ -24,7 +22,7 @@
       <h2>Bienvenido</h2>
       <p>Por favor, selecciona un menú para empezar:</p>
       <ul>
-        <li v-for="m in menus" :key="m">
+        <li v-for="m in KNOWN_MENUS" :key="m">
           <a :href="`?menu=${m}`">{{ m }}</a>
         </li>
       </ul>
@@ -34,7 +32,7 @@
       <h2>El menú solicitado no existe</h2>
       <p>Verifica la URL o usa uno de estos IDs válidos:</p>
       <ul>
-        <li v-for="m in menus" :key="m">
+        <li v-for="m in KNOWN_MENUS" :key="m">
           <a :href="`?menu=${m}`">{{ m }}</a>
         </li>
       </ul>
@@ -64,6 +62,7 @@
       <p v-if="error">Error: {{ error }}</p>
 
       <template v-if="data">
+        <div class="category-wrapper">
         <menu-category
           v-for="cat in data.categories"
           :key="cat.id"
@@ -71,6 +70,7 @@
           :currency="data.restaurant.currency"
           :locale="data.restaurant.locale"
         />
+        </div>
       </template>
     </template>
   </main>
@@ -80,6 +80,9 @@
   .wrap {
     max-width: 780px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   .hdr h1 {
