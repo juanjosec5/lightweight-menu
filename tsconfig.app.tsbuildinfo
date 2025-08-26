@@ -1,1 +1,1 @@
-{"root":["./src/main.ts","./src/vite-env.d.ts","./src/composables/usemenu.ts","./src/composables/usemenufromurl.ts","./src/composables/usetheme.ts","./src/utils/formatprice.ts","./src/utils/query.ts","./src/app.vue","./src/components/menucategory.vue","./src/components/menuitem.vue"],"version":"5.8.3"}
+{"root":["./src/main.ts","./src/vite-env.d.ts","./src/composables/usemenu.ts","./src/composables/usemenufromurl.ts","./src/utils/formatprice.ts","./src/utils/query.ts","./src/app.vue","./src/components/menucategory.vue","./src/components/menuitem.vue"],"version":"5.8.3"}
