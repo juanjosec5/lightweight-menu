@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { formatPrice } from "@/utils/formatPrice";
   import { Flame, Leaf } from "lucide-vue-next";
-  import { Share } from "lucide-vue-next";
+  import { Link } from "lucide-vue-next";
 
   const props = defineProps<{
     item: {
@@ -60,9 +60,6 @@
 
 <template>
   <article @click="onShareClick" class="item" :id="item.id">
-    <button class="share-button" :aria-label="`Share link to ${item.name}`">
-      <component :is="Share" :size="20"></component>
-    </button>
     <div class="item__body">
       <span class="item__header">
         <h4 class="item__title">{{ item.name }}</h4>
@@ -84,6 +81,9 @@
         formatPrice(item.price, currency, locale)
       }}</strong>
     </div>
+    <button class="share-button" :aria-label="`Share link to ${item.name}`">
+      <component :is="Link" :size="20"></component>
+    </button>
     <img
       v-if="item.image?.src"
       :src="item.image.src"
@@ -96,6 +96,8 @@
 <style scoped lang="scss">
   .share-button {
     height: fit-content;
+    position: absolute;
+    right: 0;
   }
   .spicy {
     color: red;
@@ -105,11 +107,11 @@
   }
 
   .item {
+    position: relative;
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 12px;
+    grid-template-columns: 1fr;
     padding-block: 0 1rem;
-    margin-block: 0 1rem;
+    margin-block: 0 2rem;
     border-bottom: 1px solid var(--bg);
 
     &__body {
@@ -143,6 +145,7 @@
     margin: 0 0 6px;
     color: hsla(var(--bg), 0.7);
     text-align: left;
+    padding-right: 3rem;
   }
   .item__price {
     white-space: nowrap;
