@@ -1,8 +1,10 @@
 <script setup lang="ts">
-  import { ref, computed } from "vue";
+  import { ref, computed, onMounted, watch, nextTick } from "vue";
   import MenuItem from "./MenuItem.vue";
   import { Leaf, Flame } from "lucide-vue-next";
 
+  type Label = "spicy" | "vegetarian"; // extend later
+  type LabelMeta = { icon: any; text?: string; class: string };
   type Item = {
     id: string;
     name: string;
@@ -10,7 +12,7 @@
     description?: string;
     image?: { src: string; alt?: string };
     price: number;
-    labels?: string[];
+    labels?: Label[];
   };
   type Section = { id: string; label: string; items: Item[] };
   type Category = {
@@ -27,11 +29,13 @@
       currency: string;
       locale: string;
       reverse?: boolean;
+      menuId?: string;
+      activeItemId?: string | null;
     }>(),
     { reverse: false }
   );
 
-  const LABELS_MAP: Record<string, any> = {
+  const LABELS_MAP: Record<string, LabelMeta> = {
     spicy: { icon: Flame, text: "picante", class: "spicy" },
     vegetarian: { icon: Leaf, text: "vegetariano", class: "vegetarian" },
   };
@@ -41,68 +45,77 @@
   const btnEl = ref<HTMLElement | null>(null);
   const isAnimating = ref(false);
 
-  const hasLabels = computed(() => {
-    if (props.category.items) {
-      return props.category.items.some(
-        (it) => it.labels && it.labels.length > 0
-      );
+  const hasItem = (id: string | null | undefined): boolean => {
+    if (!id) return false;
+
+    if (props.category.items?.some((it) => it.id === id)) {
+      return true;
     }
 
-    if (props.category.sections) {
-      return props.category.sections.some((sec) =>
-        sec.items.some((it) => it.labels && it.labels.length > 0)
-      );
+    if (
+      props.category.sections?.some((sec) =>
+        sec.items.some((it) => it.id === id)
+      )
+    ) {
+      return true;
     }
 
     return false;
+  };
+
+  const ensureOpenAndScrollTo = (id: string) => {
+    const scroll = () => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      el.classList.add("highlight");
+      setTimeout(() => el.classList.remove("highlight"), 2000);
+    };
+
+    if (!expanded.value) {
+      expanded.value = true;
+      openBody(() => {
+        // container is fully open now
+        // one frame delay ensures layout has settled
+        requestAnimationFrame(scroll);
+      });
+    } else {
+      // already open – just scroll next frame
+      requestAnimationFrame(scroll);
+    }
+  };
+
+  const categoryLabels = computed<LabelMeta[]>(() => {
+    const set = new Set<Label>();
+
+    props.category.items?.forEach((it) =>
+      it.labels?.forEach((l) => set.add(l))
+    );
+
+    props.category.sections?.forEach((sec) =>
+      sec.items.forEach((it) => it.labels?.forEach((l) => set.add(l)))
+    );
+    return [...set].map((l) => LABELS_MAP[l]).filter(Boolean);
   });
 
-  const getLabelsFromItems = computed(() => {
-    const labelsSet = new Set<string>();
-
-    if (props.category.items) {
-      props.category.items.forEach((it) => {
-        it.labels?.forEach((label) => labelsSet.add(label));
-      });
-    }
-
-    if (props.category.sections) {
-      props.category.sections.forEach((sec) => {
-        sec.items.forEach((it) => {
-          it.labels?.forEach((label) => labelsSet.add(label));
-        });
-      });
-    }
-
-    return Array.from(labelsSet).map((label) => LABELS_MAP[label]);
-  });
-
-  function openBody() {
+  const openBody = (after?: () => void) => {
     const el = bodyEl.value;
-
     if (!el) return;
-
     isAnimating.value = true;
-    el.style.marginTop = "1.5rem";
     el.style.maxHeight = el.scrollHeight + "px";
-    // Allow natural growth after it opens
-    el.addEventListener("transitionend", onAfterOpen, { once: true });
-
-    btnEl.value?.focus();
+    el.addEventListener(
+      "transitionend",
+      (e) => {
+        if (e.propertyName !== "max-height") return;
+        el.style.maxHeight = "none"; // allow natural growth after open
+        isAnimating.value = false;
+        after?.(); // <-- run scroll NOW, container is open
+      },
+      { once: true }
+    );
   }
 
-  function onAfterOpen() {
-    const el = bodyEl.value;
-
-    if (!el) return;
-
-    el.style.maxHeight = "none";
-    isAnimating.value = false;
-
-    btnEl.value?.focus();
-  }
-
-  function closeBody() {
+  const closeBody = () => {
     const el = bodyEl.value;
     if (!el) return;
     isAnimating.value = true;
@@ -112,7 +125,6 @@
     }
     // Force reflow to ensure transition kicks in
     void el.offsetHeight;
-    el.style.marginTop = "0";
     el.style.maxHeight = "0px";
     el.addEventListener(
       "transitionend",
@@ -124,12 +136,27 @@
     btnEl.value?.focus();
   }
 
-  function toggleContent() {
+  const toggleContent = () => {
     if (isAnimating.value) return;
 
     expanded.value = !expanded.value;
     expanded.value ? openBody() : closeBody();
   }
+
+  onMounted(() => {
+    if (hasItem(props.activeItemId)) {
+      ensureOpenAndScrollTo(props.activeItemId as string);
+    }
+  });
+
+  watch(
+    () => props.activeItemId,
+    (newId) => {
+      if (hasItem(newId)) {
+        ensureOpenAndScrollTo(newId as string);
+      }
+    }
+  );
 </script>
 
 <template>
@@ -150,16 +177,15 @@
       </button>
       <div class="cat-body" ref="bodyEl">
         <!-- Flat items -->
-        <div v-if="hasLabels">
-          <ul class="labels-list" v-if="getLabelsFromItems.length">
-            <li v-for="l in getLabelsFromItems">
-              <span class="badge">
-                <component :is="l.icon" :class="l.class" size="20" />
-                {{ l.text }}
-              </span>
-            </li>
-          </ul>
-        </div>
+
+        <ul class="labels-list" v-if="categoryLabels.length">
+          <li v-for="l in categoryLabels" :key="l.class">
+            <span class="badge">
+              <component :is="l.icon" :class="l.class" size="20" />
+              {{ l.text }}
+            </span>
+          </li>
+        </ul>
         <div v-if="category.items?.length" class="cat-items">
           <menu-item
             v-for="it in category.items"
@@ -167,6 +193,7 @@
             :item="it"
             :currency="currency"
             :locale="locale"
+            :menu-id="menuId"
           />
         </div>
         <!-- Grouped sections -->
@@ -176,13 +203,16 @@
             :key="sec.id"
             class="cat-section"
           >
-            <h4 class="section__title">{{ sec.label }}</h4>
+            <span class="section__title-wrapper">
+              <h4 class="section__title">{{ sec.label }}</h4>
+            </span>
             <menu-item
               v-for="it in sec.items"
               :key="it.id"
               :item="it"
               :currency="currency"
               :locale="locale"
+              :menu-id="menuId"
             />
           </div>
         </div>
@@ -204,10 +234,15 @@
   .labels-list {
     list-style: none;
     display: flex;
-    place-content: flex-start;
+    justify-content: flex-start;
     gap: 1rem;
     padding: 0;
     margin: 0;
+    margin-top: 1rem;
+
+    & + div.cat-items {
+      margin-top: 0;
+    }
   }
 
   .spicy {
@@ -246,6 +281,10 @@
     gap: 2rem;
     margin-bottom: 1rem;
 
+    &-items {
+      margin-top: 2rem;
+    }
+
     &-content {
       position: relative;
     }
@@ -255,8 +294,9 @@
       flex-direction: column;
       gap: 1.5rem;
       max-height: 0;
+      margin-top: 0;
       overflow: hidden;
-      transition: max-height 0.5s ease, margin-top 0.5s ease;
+      transition: max-height 0.5s ease;
     }
   }
 
@@ -278,17 +318,12 @@
       font-size: 1.45rem;
     }
 
-    &:hover {
-      background-color: var(--action);
-    }
-
     &:active {
       background-color: var(--action);
     }
 
     &:focus {
       outline: 3px solid var(--bg);
-      background-color: var(--action);
       outline-offset: 2px;
     }
   }
@@ -298,10 +333,22 @@
     font-style: italic;
   }
 
+  .section__title-wrapper {
+    display: flex;
+    position: relative;
+  }
+
   .section__title {
     text-align: left;
     font-size: 1.25rem;
-    margin-block: 0.25rem;
-    color: #464646;
+    margin-block: 2.5rem 2rem;
+    color: var(--bg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .arrow,
+    .cat-body {
+      transition: none;
+    }
   }
 </style>

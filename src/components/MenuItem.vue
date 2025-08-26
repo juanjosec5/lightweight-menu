@@ -1,8 +1,9 @@
 <script setup lang="ts">
   import { formatPrice } from "@/utils/formatPrice";
   import { Flame, Leaf } from "lucide-vue-next";
+  import { Share } from "lucide-vue-next";
 
-  defineProps<{
+  const props = defineProps<{
     item: {
       id: string;
       name: string;
@@ -14,16 +15,54 @@
     };
     currency: string;
     locale: string;
+    menuId?: string;
   }>();
 
   const LABEL_MAP: Record<string, any> = {
     spicy: { icon: Flame, class: "spicy" },
     vegetarian: { icon: Leaf, class: "vegetarian" },
   };
+
+  const buildShareUrl = (itemId: string) => {
+    if (!props.menuId) return window.location.href;
+
+    const url = new URL(window.location.href);
+    url.searchParams.set("menu", props.menuId);
+    url.hash = itemId;
+    return url.toString();
+  };
+
+  const onShareClick = async (e: MouseEvent) => {
+    e.stopPropagation(); // don’t trigger parent click handlers
+    const link = buildShareUrl(props.item.id);
+
+    // Update the current tab’s hash without stacking history
+    history.replaceState({}, "", `#${props.item.id}`);
+
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: props.item.name, url: link });
+        return;
+      }
+    } catch {
+      // fall through to clipboard if user cancels share or it fails
+    }
+
+    try {
+      await navigator.clipboard.writeText(link);
+      // TODO: show a toast if you have one
+    } catch {
+      // Last-resort fallback
+      prompt("Copia el enlace:", link);
+    }
+  };
 </script>
 
 <template>
-  <article class="item">
+  <article @click="onShareClick" class="item" :id="item.id">
+    <button class="share-button" :aria-label="`Share link to ${item.name}`">
+      <component :is="Share" :size="20"></component>
+    </button>
     <div class="item__body">
       <span class="item__header">
         <h4 class="item__title">{{ item.name }}</h4>
@@ -55,6 +94,9 @@
 </template>
 
 <style scoped lang="scss">
+  .share-button {
+    height: fit-content;
+  }
   .spicy {
     color: red;
   }
@@ -66,7 +108,8 @@
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 12px;
-    padding: 14px 0;
+    padding-block: 0 1rem;
+    margin-block: 0 1rem;
     border-bottom: 1px solid var(--bg);
 
     &__body {

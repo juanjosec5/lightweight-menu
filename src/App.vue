@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { watch } from "vue";
+  import { watch, ref, onMounted, onBeforeUnmount } from "vue";
   import { useMenu } from "@/composables/useMenu";
   import { useMenuFromUrl } from "@/composables/useMenuFromUrl";
   import { useTheme } from "@/composables/useTheme";
@@ -18,6 +18,12 @@
   const { data, loading, error, reload } = useMenu(menuId);
   const { isDark, toggle } = useTheme();
 
+  const activeItemId = ref<string | null>(null);
+
+  const  updateActiveFromHash = () => {
+  activeItemId.value = (window.location.hash || "").replace(/^#/, "")
+}
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -29,7 +35,16 @@ watch(data, (val) => {
   } else {
     document.title = "Menu"
   }
-})
+});
+
+onMounted(() => {
+  updateActiveFromHash();
+  window.addEventListener("hashchange", updateActiveFromHash);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("hashchange", updateActiveFromHash);
+});
 </script>
 
 <template>
@@ -95,6 +110,8 @@ watch(data, (val) => {
             :category="cat"
             :currency="data.restaurant.currency"
             :locale="data.restaurant.locale"
+            :active-item-id="activeItemId"
+            :menu-id="data.restaurant.id"
           />
         </div>
       </template>
@@ -131,10 +148,6 @@ watch(data, (val) => {
       color: var(--bg);
       transition: background-color 0.3s ease;
 
-      &:hover {
-        background-color: var(--action);
-      }
-
       &:active {
         background-color: var(--action);
       }
@@ -154,10 +167,6 @@ watch(data, (val) => {
       border-radius: 0.25rem;
       text-align: center;
       transition: background-color 0.3s ease;
-
-      &:hover {
-        background-color: var(--action);
-      }
 
       &:active {
         background-color: var(--action);
