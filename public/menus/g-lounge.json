@@ -7,7 +7,7 @@
     "description": "Menú lounge con sliders, ensaladas, clásicos de bar y una carta amplia de destilados.",
     "currency": "COP",
     "locale": "es-CO",
-    "updatedAt": "2025-08-19T00:00:00Z"
+    "updatedAt": "2025-08-26T03:16:56.999Z"
   },
   "categories": [
     {
@@ -30,7 +30,10 @@
         {
           "id": "croquetas-morcilla",
           "name": "Croquetas de Morcilla",
-          "ingredients": ["morcilla", "mayonesa de ají"],
+          "ingredients": [
+            "morcilla",
+            "mayonesa de ají"
+          ],
           "description": "",
           "price": 27000,
           "labels": null
@@ -38,7 +41,11 @@
         {
           "id": "chicharron",
           "name": "Chicharrón",
-          "ingredients": ["arepas de maíz", "mayonesa", "cilantro cimarrón"],
+          "ingredients": [
+            "arepas de maíz",
+            "mayonesa",
+            "cilantro cimarrón"
+          ],
           "description": "",
           "price": 46000,
           "labels": null
@@ -87,7 +94,10 @@
         {
           "id": "papas-francesa",
           "name": "Papas a la Francesa",
-          "ingredients": ["papas rizadas", "salsa ahumada"],
+          "ingredients": [
+            "papas rizadas",
+            "salsa ahumada"
+          ],
           "description": "200 g",
           "price": 23000,
           "labels": null
@@ -95,10 +105,15 @@
         {
           "id": "papas-casco",
           "name": "Papas en Casco",
-          "ingredients": ["papas andinas", "mayonesa de jalapeño"],
+          "ingredients": [
+            "papas andinas",
+            "mayonesa de jalapeño"
+          ],
           "description": "",
           "price": 23000,
-          "labels": ["spicy"]
+          "labels": [
+            "spicy"
+          ]
         },
         {
           "id": "chips-papa",
@@ -115,7 +130,10 @@
         {
           "id": "papas-criollas",
           "name": "Papas Criollas",
-          "ingredients": ["papas criollas", "mayonesa de ají"],
+          "ingredients": [
+            "papas criollas",
+            "mayonesa de ají"
+          ],
           "description": "",
           "price": 23000,
           "labels": null
@@ -123,7 +141,9 @@
         {
           "id": "aceitunas-marinadas",
           "name": "Aceitunas Marinadas",
-          "ingredients": ["aceitunas marinadas"],
+          "ingredients": [
+            "aceitunas marinadas"
+          ],
           "description": "",
           "price": 21000
         },
@@ -145,10 +165,17 @@
         {
           "id": "hummus-vegetales",
           "name": "Hummus de Vegetales",
-          "ingredients": ["hummus", "tzatziki", "pickles", "pan de masa madre"],
+          "ingredients": [
+            "hummus",
+            "tzatziki",
+            "pickles",
+            "pan de masa madre"
+          ],
           "description": "",
           "price": 27000,
-          "labels": ["vegetarian"]
+          "labels": [
+            "vegetarian"
+          ]
         },
         {
           "id": "orellanas-apanadas",
@@ -160,7 +187,9 @@
           ],
           "description": "",
           "price": 27000,
-          "labels": ["vegetarian"]
+          "labels": [
+            "vegetarian"
+          ]
         }
       ]
     },
@@ -238,7 +267,9 @@
           ],
           "description": "",
           "price": 42000,
-          "labels": ["vegetarian"]
+          "labels": [
+            "vegetarian"
+          ]
         },
         {
           "id": "picada-3p",
@@ -277,7 +308,11 @@
         {
           "id": "alfajores",
           "name": "Alfajores (4 un)",
-          "ingredients": ["arequipe", "coco", "maní"],
+          "ingredients": [
+            "arequipe",
+            "coco",
+            "maní"
+          ],
           "description": "",
           "price": 18000
         }
@@ -348,13 +383,22 @@
             {
               "id": "naked-famous",
               "name": "Naked & Famous",
-              "ingredients": ["Mezcal Unión", "Aperol", "Chartreuse", "limón"],
+              "ingredients": [
+                "Mezcal Unión",
+                "Aperol",
+                "Chartreuse",
+                "limón"
+              ],
               "price": 65000
             },
             {
               "id": "rum-fashioned",
               "name": "Rum Fashioned",
-              "ingredients": ["Ron Santafé 12", "azúcar morena", "angostura"],
+              "ingredients": [
+                "Ron Santafé 12",
+                "azúcar morena",
+                "angostura"
+              ],
               "price": 49000
             },
             {
@@ -371,7 +415,11 @@
             {
               "id": "manhattan",
               "name": "Manhattan",
-              "ingredients": ["Bulleit Bourbon", "Vermouth Rosso", "angostura"],
+              "ingredients": [
+                "Bulleit Bourbon",
+                "Vermouth Rosso",
+                "angostura"
+              ],
               "price": 55000
             },
             {
@@ -388,7 +436,10 @@
             {
               "id": "adonis",
               "name": "Adonis",
-              "ingredients": ["Jerez Palomino Fino", "Vermouth Rosso"],
+              "ingredients": [
+                "Jerez Palomino Fino",
+                "Vermouth Rosso"
+              ],
               "price": 49000
             },
             {
@@ -447,19 +498,31 @@
             {
               "id": "aperol-spritz",
               "name": "Aperol Spritz",
-              "ingredients": ["Aperol", "espumante", "soda"],
+              "ingredients": [
+                "Aperol",
+                "espumante",
+                "soda"
+              ],
               "price": 40000
             },
             {
               "id": "limoncello-spritz",
               "name": "Limoncello Spritz",
-              "ingredients": ["limoncello", "espumante", "soda"],
+              "ingredients": [
+                "limoncello",
+                "espumante",
+                "soda"
+              ],
               "price": 40000
             },
             {
               "id": "porto-mora-spritz",
               "name": "Porto de Mora Spritz",
-              "ingredients": ["porto de mora", "espumante", "soda"],
+              "ingredients": [
+                "porto de mora",
+                "espumante",
+                "soda"
+              ],
               "price": 40000
             }
           ]
@@ -513,7 +576,11 @@
             {
               "id": "arnold-palmer",
               "name": "Arnold Palmer",
-              "ingredients": ["té negro", "almíbar simple", "limón"],
+              "ingredients": [
+                "té negro",
+                "almíbar simple",
+                "limón"
+              ],
               "price": 16000
             }
           ]
@@ -702,7 +769,12 @@
               "ingredients": [],
               "price": 15000
             },
-            { "id": "soda", "name": "Soda", "ingredients": [], "price": 10000 },
+            {
+              "id": "soda",
+              "name": "Soda",
+              "ingredients": [],
+              "price": 10000
+            },
             {
               "id": "coca-cola",
               "name": "Coca Cola (Original/Zero)",
@@ -748,25 +820,37 @@
             {
               "id": "amarula-espresso",
               "name": "Amarula Espresso",
-              "ingredients": ["licor Amarula", "espresso"],
+              "ingredients": [
+                "licor Amarula",
+                "espresso"
+              ],
               "price": 36000
             },
             {
               "id": "carajillo",
               "name": "Carajillo",
-              "ingredients": ["licor de vainilla", "café"],
+              "ingredients": [
+                "licor de vainilla",
+                "café"
+              ],
               "price": 36000
             },
             {
               "id": "baileys-capuccino",
               "name": "Bailey's Capuccino",
-              "ingredients": ["crema de whisky", "café"],
+              "ingredients": [
+                "crema de whisky",
+                "café"
+              ],
               "price": 36000
             },
             {
               "id": "espresso-martini",
               "name": "Espresso Martini",
-              "ingredients": ["vodka", "espresso"],
+              "ingredients": [
+                "vodka",
+                "espresso"
+              ],
               "price": 49000
             }
           ]
@@ -793,7 +877,12 @@
               "ingredients": [],
               "price": 17000
             },
-            { "id": "sol", "name": "Sol", "ingredients": [], "price": 17000 }
+            {
+              "id": "sol",
+              "name": "Sol",
+              "ingredients": [],
+              "price": 17000
+            }
           ]
         },
         {
@@ -1385,9 +1474,25 @@
     }
   ],
   "badges": [
-    { "id": "v", "label": "Vegetarian" },
-    { "id": "gf", "label": "Sin gluten" },
-    { "id": "spicy", "label": "Picante" }
+    {
+      "id": "v",
+      "label": "Vegetarian"
+    },
+    {
+      "id": "gf",
+      "label": "Sin gluten"
+    },
+    {
+      "id": "spicy",
+      "label": "Picante"
+    }
   ],
-  "allergens": ["gluten", "lácteos", "huevo", "soya", "nueces", "mariscos"]
+  "allergens": [
+    "gluten",
+    "lácteos",
+    "huevo",
+    "soya",
+    "nueces",
+    "mariscos"
+  ]
 }

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { watch } from "vue";
   import { useMenu } from "@/composables/useMenu";
   import { useMenuFromUrl } from "@/composables/useMenuFromUrl";
   import { useTheme } from "@/composables/useTheme";
@@ -20,6 +21,15 @@
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  // Watch when menu data is loaded
+watch(data, (val) => {
+  if (val?.restaurant?.name) {
+    document.title = `Menu ${val.restaurant.name}`
+  } else {
+    document.title = "Menu"
+  }
+})
 </script>
 
 <template>
