@@ -204,7 +204,7 @@
   .labels-list {
     list-style: none;
     display: flex;
-    place-content: flex-end;
+    place-content: flex-start;
     gap: 1rem;
     padding: 0;
     margin: 0;

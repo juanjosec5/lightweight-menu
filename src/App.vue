@@ -3,7 +3,7 @@
   import { useMenuFromUrl } from "@/composables/useMenuFromUrl";
   import { useTheme } from "@/composables/useTheme";
   import MenuCategory from "@/components/MenuCategory.vue";
-  import { Sun, Moon, ArrowBigUpDash } from "lucide-vue-next";
+  import { Sun, Moon } from "lucide-vue-next";
 
   const KNOWN_MENUS = [
     "oda-bogota",
@@ -28,11 +28,11 @@
       :class="['toolbar', { 'shadow-light': !isDark, 'shadow-dark': isDark }]"
     >
       <button
-        class="toolbar-button"
         @click="scrollToTop"
         aria-label="scroll to the top"
+        class="toolbar-inicio"
       >
-        <component :is="ArrowBigUpDash" />
+        INICIO
       </button>
       <button
         :aria-label="`toggle to ${isDark ? 'light' : 'dark'} theme`"
@@ -119,9 +119,44 @@
       width: 40px;
       height: 40px;
       color: var(--bg);
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: var(--action);
+      }
 
       &:active {
         background-color: var(--action);
+      }
+
+      &:focus {
+        outline: 3px solid var(--bg);
+        background-color: var(--action);
+        outline-offset: 2px;
+      }
+    }
+
+    &-inicio {
+      font-weight: 600;
+      background: transparent;
+      color: var(--bg);
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      text-align: center;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: var(--action);
+      }
+
+      &:active {
+        background-color: var(--action);
+      }
+
+      &:focus {
+        outline: 3px solid var(--bg);
+        background-color: var(--action);
+        outline-offset: 2px;
       }
     }
   }
