@@ -65,22 +65,20 @@
 
   const ensureOpenAndScrollTo = (id: string) => {
     const scroll = () => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.scrollIntoView({ behavior: "smooth", block: "center" });
-      el.classList.add("highlight");
-      setTimeout(() => el.classList.remove("highlight"), 2000);
+      const node = document.getElementById(id);
+      if (!node) return;
+      node.scrollIntoView({ behavior: "smooth", block: "start" });
+      node.classList.add("highlight");
+      setTimeout(() => node.classList.remove("highlight"), 2000);
     };
 
     if (!expanded.value) {
       expanded.value = true;
       openBody(() => {
-        // container is fully open now
-        // one frame delay ensures layout has settled
+        // one extra frame ensures layout is settled
         requestAnimationFrame(scroll);
       });
     } else {
-      // already open – just scroll next frame
       requestAnimationFrame(scroll);
     }
   };
@@ -107,13 +105,14 @@
       "transitionend",
       (e) => {
         if (e.propertyName !== "max-height") return;
-        el.style.maxHeight = "none"; // allow natural growth after open
+        el.style.maxHeight = "none";
         isAnimating.value = false;
-        after?.(); // <-- run scroll NOW, container is open
+        // run after the panel is fully open
+        requestAnimationFrame(() => after?.());
       },
       { once: true }
     );
-  }
+  };
 
   const closeBody = () => {
     const el = bodyEl.value;
@@ -134,14 +133,14 @@
       { once: true }
     );
     btnEl.value?.focus();
-  }
+  };
 
   const toggleContent = () => {
     if (isAnimating.value) return;
 
     expanded.value = !expanded.value;
     expanded.value ? openBody() : closeBody();
-  }
+  };
 
   onMounted(() => {
     if (hasItem(props.activeItemId)) {

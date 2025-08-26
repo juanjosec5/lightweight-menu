@@ -40,10 +40,21 @@ watch(data, (val) => {
 onMounted(() => {
   updateActiveFromHash();
   window.addEventListener("hashchange", updateActiveFromHash);
-});
 
-onBeforeUnmount(() => {
-  window.removeEventListener("hashchange", updateActiveFromHash);
+  const onPageShow = (e: PageTransitionEvent) => {
+    if (!window.location.hash) return;
+    // If the page was restored from bfcache, re-trigger your flow
+    if (e.persisted) {
+      // force a tiny delay so layout/JS re-hydrate first
+      setTimeout(() => updateActiveFromHash(), 0);
+    }
+  };
+  window.addEventListener("pageshow", onPageShow);
+
+  onBeforeUnmount(() => {
+    window.removeEventListener("hashchange", updateActiveFromHash);
+    window.removeEventListener("pageshow", onPageShow);
+  });
 });
 </script>
 

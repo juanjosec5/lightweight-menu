@@ -59,7 +59,7 @@
 </script>
 
 <template>
-  <article @click="onShareClick" class="item" :id="item.id">
+  <article class="item" :id="item.id">
     <div class="item__body">
       <span class="item__header">
         <h4 class="item__title">{{ item.name }}</h4>
@@ -81,7 +81,7 @@
         formatPrice(item.price, currency, locale)
       }}</strong>
     </div>
-    <button class="share-button" :aria-label="`Share link to ${item.name}`">
+    <button  @click.prevent="onShareClick" class="share-button" :aria-label="`Share link to ${item.name}`">
       <component :is="Link" :size="20"></component>
     </button>
     <img
@@ -114,6 +114,7 @@
     padding-block: 0 1rem;
     margin-block: 0 2rem;
     border-bottom: 1px solid var(--bg);
+    scroll-margin-top: 6.5rem;
 
     &__body {
       display: flex;
