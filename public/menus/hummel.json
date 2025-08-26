@@ -7,7 +7,7 @@
     "description": "Un lugar donde los sabores navegan entre un concepto alemán y americano.",
     "currency": "COP",
     "locale": "es-CO",
-    "updatedAt": "2025-08-20"
+    "updatedAt": "2025-08-26T03:47:40.464Z"
   },
   "categories": [
     {
@@ -19,14 +19,18 @@
           "name": "Patatas Bravas",
           "description": "Papas fritas, salsa alioli, salsa brava (a base de tomates, picante).",
           "price": 24000,
-          "labels": ["spicy"]
+          "labels": [
+            "spicy"
+          ]
         },
         {
           "id": "patatas-bravas-bacon",
           "name": "Patatas Bravas con bacon",
           "description": "Papas fritas con bacon, salsa alioli y salsa brava (a base de tomates, picante).",
           "price": 29000,
-          "labels": ["spicy"]
+          "labels": [
+            "spicy"
+          ]
         },
         {
           "id": "croquetas-bacon",
@@ -54,7 +58,9 @@
           "name": "Ensalada Capresse",
           "description": "Tomates asados, queso mozzarella, salsa pesto, reducción de vino y balsámico, tostadas de pan.",
           "price": 22000,
-          "labels": ["vegetarian"]
+          "labels": [
+            "vegetarian"
+          ]
         },
         {
           "id": "croquetas-pulpo",
@@ -106,13 +112,17 @@
           "name": "Hamburguesa Spicy",
           "description": "Pan brioche, carne burger, tocineta, jalapeños, queso cheddar, alioli, mantequilla picante, vegetales frescos y papas fritas.",
           "price": 30000,
-          "labels": ["spicy"]
+          "labels": [
+            "spicy"
+          ]
         },
         {
           "id": "hamburguesa-spicy-doble",
           "name": "Hamburguesa Spicy (doble carne)",
           "price": 40000,
-          "labels": ["spicy"]
+          "labels": [
+            "spicy"
+          ]
         },
         {
           "id": "american-big-burger",
@@ -139,7 +149,9 @@
           "name": "Hamburguesa Veggie",
           "description": "Pan brioche, croqueta de garbanzos, salsa fresca de la casa, queso cheddar, vegetales encurtidos y papas fritas.",
           "price": 26000,
-          "labels": ["vegetarian"]
+          "labels": [
+            "vegetarian"
+          ]
         }
       ]
     },
@@ -195,9 +207,21 @@
       "id": "adiciones",
       "label": "Adiciones",
       "items": [
-        { "id": "ad-pepinillos", "name": "Pepinillos", "price": 3000 },
-        { "id": "ad-queso", "name": "Queso", "price": 4000 },
-        { "id": "ad-tocineta", "name": "Tocineta", "price": 5000 },
+        {
+          "id": "ad-pepinillos",
+          "name": "Pepinillos",
+          "price": 3000
+        },
+        {
+          "id": "ad-queso",
+          "name": "Queso",
+          "price": 4000
+        },
+        {
+          "id": "ad-tocineta",
+          "name": "Tocineta",
+          "price": 5000
+        },
         {
           "id": "ad-mozzarella-asado",
           "name": "Mozzarella asado",
@@ -208,11 +232,31 @@
           "name": "Cebolla caramelizada",
           "price": 4000
         },
-        { "id": "ad-papas-fritas", "name": "Papas fritas", "price": 10000 },
-        { "id": "ad-carne-burger", "name": "Carne burger", "price": 10000 },
-        { "id": "ad-pina-asada", "name": "Piña asada", "price": 6000 },
-        { "id": "ad-jalapenos", "name": "Jalapeños", "price": 3000 },
-        { "id": "ad-burrata", "name": "Burrata", "price": 26000 }
+        {
+          "id": "ad-papas-fritas",
+          "name": "Papas fritas",
+          "price": 10000
+        },
+        {
+          "id": "ad-carne-burger",
+          "name": "Carne burger",
+          "price": 10000
+        },
+        {
+          "id": "ad-pina-asada",
+          "name": "Piña asada",
+          "price": 6000
+        },
+        {
+          "id": "ad-jalapenos",
+          "name": "Jalapeños",
+          "price": 3000
+        },
+        {
+          "id": "ad-burrata",
+          "name": "Burrata",
+          "price": 26000
+        }
       ]
     },
     {
@@ -372,13 +416,21 @@
           "name": "Hendrick’s (botella)",
           "price": 510000
         },
-        { "id": "hendricks-shot", "name": "Hendrick’s (shot)", "price": 36000 },
+        {
+          "id": "hendricks-shot",
+          "name": "Hendrick’s (shot)",
+          "price": 36000
+        },
         {
           "id": "tanqueray-botella",
           "name": "Tanqueray (botella)",
           "price": 380000
         },
-        { "id": "tanqueray-shot", "name": "Tanqueray (shot)", "price": 29000 },
+        {
+          "id": "tanqueray-shot",
+          "name": "Tanqueray (shot)",
+          "price": 29000
+        },
         {
           "id": "la-hechicera-botella",
           "name": "La Hechicera (botella)",
@@ -439,20 +491,36 @@
           "name": "Mezcal Amores (shot)",
           "price": 31000
         },
-        { "id": "reyka-botella", "name": "Reyka (botella)", "price": 260000 },
-        { "id": "reyka-shot", "name": "Reyka (shot)", "price": 27000 },
+        {
+          "id": "reyka-botella",
+          "name": "Reyka (botella)",
+          "price": 260000
+        },
+        {
+          "id": "reyka-shot",
+          "name": "Reyka (shot)",
+          "price": 27000
+        },
         {
           "id": "smirnoff-botella",
           "name": "Smirnoff (botella)",
           "price": 180000
         },
-        { "id": "smirnoff-shot", "name": "Smirnoff (shot)", "price": 18000 },
+        {
+          "id": "smirnoff-shot",
+          "name": "Smirnoff (shot)",
+          "price": 18000
+        },
         {
           "id": "licor-43-botella",
           "name": "Licor 43 (botella)",
           "price": 220000
         },
-        { "id": "licor-43-shot", "name": "Licor 43 (shot)", "price": 25000 },
+        {
+          "id": "licor-43-shot",
+          "name": "Licor 43 (shot)",
+          "price": 25000
+        },
         {
           "id": "jagermeister-botella",
           "name": "Jagermeister (botella)",
@@ -655,7 +723,11 @@
           "name": "Limonada natural",
           "price": 13000
         },
-        { "id": "limonada-coco", "name": "Limonada de coco", "price": 14000 },
+        {
+          "id": "limonada-coco",
+          "name": "Limonada de coco",
+          "price": 14000
+        },
         {
           "id": "limonada-cerezada",
           "name": "Limonada cerezada",
@@ -676,8 +748,16 @@
           "name": "Club Colombia negra",
           "price": 11000
         },
-        { "id": "cerveza-corona", "name": "Corona", "price": 13000 },
-        { "id": "cerveza-stella", "name": "Stella Artois", "price": 13000 },
+        {
+          "id": "cerveza-corona",
+          "name": "Corona",
+          "price": 13000
+        },
+        {
+          "id": "cerveza-stella",
+          "name": "Stella Artois",
+          "price": 13000
+        },
         {
           "id": "cerveza-aguila-light",
           "name": "Águila light",
@@ -688,7 +768,11 @@
           "name": "Holy Water IPA",
           "price": 14000
         },
-        { "id": "gaseosas", "name": "Gaseosas", "price": 8000 },
+        {
+          "id": "gaseosas",
+          "name": "Gaseosas",
+          "price": 8000
+        },
         {
           "id": "fever-tree-mediterranean",
           "name": "Tónica Fever Tree Mediterranean",
@@ -699,7 +783,11 @@
           "name": "Agua San Pellegrino con gas",
           "price": 16000
         },
-        { "id": "red-bull", "name": "Red Bull", "price": 10000 }
+        {
+          "id": "red-bull",
+          "name": "Red Bull",
+          "price": 10000
+        }
       ]
     },
     {
@@ -769,8 +857,16 @@
       "id": "almuerzos-adiciones",
       "label": "Almuerzos — Adiciones",
       "items": [
-        { "id": "parm", "name": "Queso parmesano", "price": 4000 },
-        { "id": "pollo", "name": "Pollo", "price": 10000 }
+        {
+          "id": "parm",
+          "name": "Queso parmesano",
+          "price": 4000
+        },
+        {
+          "id": "pollo",
+          "name": "Pollo",
+          "price": 10000
+        }
       ]
     },
     {
