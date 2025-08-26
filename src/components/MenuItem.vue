@@ -98,6 +98,7 @@
     height: fit-content;
     position: absolute;
     right: 0;
+    color: var(--bg)
   }
   .spicy {
     color: red;
