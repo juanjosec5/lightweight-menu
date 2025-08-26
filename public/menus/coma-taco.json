@@ -18,67 +18,78 @@
           "id": "caldo-birria",
           "name": "Caldo de birria",
           "description": "Caldo resultante de la cocción lenta de nuestra preparación de la carne de birria (sutilmente picante) acompañado de totopos.",
-          "price": 14000
+          "price": 14000,
+          "labels": ["spicy"]
         },
         {
           "id": "totopitos",
           "name": "Totopitos",
           "description": "(Nachos) Totopos fritos con guacamole, sour cream, pico de gallo y tajín.",
-          "price": 15000
+          "price": 15000,
+          "labels": null
         },
         {
           "id": "totopitos-picantes",
           "name": "Totopitos picantes",
           "description": "(Nachos) Totopos fritos con alioli de habanero",
-          "price": 11000
+          "price": 11000,
+          "labels": ["spicy"]
         },
         {
           "id": "nuggets-totopitos",
           "name": "Nuggets con salsa BBQ y totopitos",
           "description": "Salchi nachos con nuggets, salsa alioli y salsa BBQ (menu infantil).",
-          "price": 17000
+          "price": 17000,
+          "labels": null
         },
         {
           "id": "maiz-texmex",
           "name": "Maíz TexMex picantes",
           "description": "Totopitos con maíz TexMex, opción de pollo, birria o mixto.",
-          "price": 24000
+          "price": 24000,
+          "labels": null
         },
         {
           "id": "aguachile",
           "name": "Aguachile",
           "description": "Camarones frescos cocidos al limón, marinados con pepino, cilantro, jalapeños y sal. (sutilmente picante)",
-          "price": 30000
+          "price": 30000,
+          "labels": ["spicy"]
         },
         {
           "id": "molcajete-camarones",
           "name": "Molcajete camarones al ajillo",
           "description": "Molcajete con guacamole, pico de gallo, totopos y camarones al ajillo.",
-          "price": 35000
+          "price": 35000,
+          "labels": null
         },
         {
           "id": "molcajete-chicharron",
           "name": "Molcajete crujiente de chicharrón",
           "description": "Molcajete con guacamole, pico de gallo, totopos y chicharrón crocante.",
-          "price": 28000
+          "price": 28000,
+          "labels": null
         },
         {
           "id": "quesadilla-frijol",
           "name": "Quesadilla de frijol y queso",
           "description": "Tortilla de harina con puré de frijoles y queso.",
-          "price": 15000
+          "price": 15000,
+          "labels": null
         },
         {
           "id": "quesabirria",
           "name": "Quesabirria",
           "description": "Tortilla de harina con queso y carne de birria.",
-          "price": 21000
+          "price": 21000,
+          "labels": null
         },
         {
           "id": "quesabirria-guacamole",
           "name": "Quesabirria con pico de gallo y guacamole",
           "description": "Tortilla de harina con queso y carne de birria, acpompañada de pico de gallo y guacamole.",
-          "price": 24000
+          "price": 24000,
+          "labels": null
         }
       ]
     },
@@ -90,31 +101,36 @@
           "id": "tacos-atun",
           "name": "Tacos de atún x3",
           "description": "De atún fresco, aderezado con limón, alioli, guacamole y pico de gallo.",
-          "price": 25000
+          "price": 25000,
+          "labels": null
         },
         {
           "id": "tacos-picana",
           "name": "Tacos de picaña Angus Choice x3",
           "description": "Punta de anca con guacamole, salsa verde y pico de gallo.",
-          "price": 25000
+          "price": 25000,
+          "labels": null
         },
         {
           "id": "tacos-chicharron",
           "name": "Tacos de chicharrón x3",
           "description": "Con guacamole, endulzado con bbq picante, y pico de gallo.",
-          "price": 24000
+          "price": 24000,
+          "labels": ["spicy"]
         },
         {
           "id": "tacos-camaron-apanado",
           "name": "Tacos camarones apanados x3",
           "description": "Con guacamole, alioli y cebolla encurtida.",
-          "price": 27000
+          "price": 27000,
+          "labels": null
         },
         {
           "id": "tacos-vegetales",
           "name": "Tacos de vegetales x3",
           "description": "De vegetales salteados al ajillo.",
-          "price": 23000
+          "price": 23000,
+          "labels": ["vegetarian"]
         }
       ]
     },
@@ -126,13 +142,15 @@
           "id": "tostadas-atun",
           "name": "De atún x3",
           "description": "De crudo de atún fresco acevichado montado sobre puré de guayabo, guacamole, salsa verde y pico de gallo. Picante opcional.",
-          "price": 25000
+          "price": 25000,
+          "labels": null
         },
         {
           "id": "tostadas-anca",
           "name": "De punta de anca x3",
           "description": "Montado sobre puré de guayabo, guacamole, salsa verde y pico de gallo.",
-          "price": 26000
+          "price": 26000,
+          "labels": null
         }
       ]
     },
@@ -144,7 +162,8 @@
           "id": "burger-hummel",
           "name": "La Hummel Colombian Burger",
           "description": "Crema de frijol, salsa de plátano maduro guayabo, queso mozzarella, carne de hamburguesa y crocante de chicharrón, guacamole, pico de gallo y alioli. (En colaboración con @hummelrestobar)",
-          "price": 35000
+          "price": 35000,
+          "labels": null
         }
       ]
     },
@@ -156,25 +175,8 @@
           "id": "flautas-proteina",
           "name": "Flautas (pollo, birria, sudadero, carnitas, pastor)",
           "description": "4 Rollitos de tortilla de harina rellenos de proteína a elección, fritos acompañados con sourcream, aguacate, salsa verde, batavia, guacamole y crocante de puerro.",
-          "price": 25000
-        }
-      ]
-    },
-    {
-      "id": "postres",
-      "label": "Postres",
-      "items": [
-        {
-          "id": "churros",
-          "name": "Churros texmex",
-          "description": "Churros con azúcar, mermelada de moras y arequipe.",
-          "price": 16000
-        },
-        {
-          "id": "tortillita",
-          "name": "Tortillita de harina rellena",
-          "description": "Tortillita de harina asada a la plancha rellena con arequipe y queso, acompañada de mermelada de la casa y azúcar glass.",
-          "price": 16000
+          "price": 25000,
+          "labels": null
         }
       ]
     },
@@ -205,7 +207,8 @@
           "id": "nachos-personal",
           "name": "Nachos personal",
           "description": "Totopos con queso y complementos. Versión mixta disponible.",
-          "price": 20000
+          "price": 20000,
+          "labels": null
         },
         { "id": "nachos-mixto", "name": "Nachos mixto", "price": 25000 },
         { "id": "nachos-2", "name": "Nachos para 2", "price": 30000 },
@@ -237,6 +240,24 @@
           "id": "perro-texmex-grande",
           "name": "Perro TexMex grande",
           "price": 23000
+        }
+      ]
+    },
+    {
+      "id": "postres",
+      "label": "Postres",
+      "items": [
+        {
+          "id": "churros",
+          "name": "Churros texmex",
+          "description": "Churros con azúcar, mermelada de moras y arequipe.",
+          "price": 16000
+        },
+        {
+          "id": "tortillita",
+          "name": "Tortillita de harina rellena",
+          "description": "Tortillita de harina asada a la plancha rellena con arequipe y queso, acompañada de mermelada de la casa y azúcar glass.",
+          "price": 16000
         }
       ]
     },

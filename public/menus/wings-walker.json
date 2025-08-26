@@ -19,55 +19,64 @@
           "id": "sin-salsa",
           "name": "Sin salsa",
           "description": "Suave apanado de la casa.",
-          "price": 28000
+          "price": 28000,
+          "labels": null
         },
         {
           "id": "sweet-chili",
           "name": "Sweet Chili",
           "description": "Dulce y picante suave.",
-          "price": 28000
+          "price": 28000,
+          "labels": ["spicy"]
         },
         {
           "id": "bbq",
           "name": "BBQ",
           "description": "Hecha en casa, no picante.",
-          "price": 28000
+          "price": 28000,
+          "labels": null
         },
         {
           "id": "asiaticas",
           "name": "Asiáticas",
           "description": "Piña, salsa soya y ajonjolí.",
-          "price": 28000
+          "price": 28000,
+          "labels": null
         },
         {
           "id": "caramelizadas",
           "name": "Caramelizadas",
           "description": "Zumo de naranja y panela.",
-          "price": 28000
+          "price": 28000,
+          "labels": null
         },
         {
           "id": "ajo",
           "name": "Ajo",
           "description": "Salsa cremosa de ajo.",
-          "price": 30000
+          "price": 30000,
+          "labels": null
         },
         {
           "id": "mostaza",
           "name": "Mostaza",
           "description": "Miel y mostaza.",
-          "price": 30000
+          "price": 30000,
+          "labels": null
         },
         {
           "id": "miel-parmesano",
           "name": "Miel / Parmesano",
           "description": "Bañadas en miel maple y cubiertas con parmesano.",
-          "price": 34000
+          "price": 34000,
+          "labels": null
         },
         {
           "id": "picante",
           "name": "Picante",
           "description": "Crema picante de jalapeños.",
-          "price": 30000
+          "price": 30000,
+          "labels": ["spicy"]
         }
       ]
     },
@@ -76,7 +85,11 @@
       "label": "Extras",
       "items": [
         { "id": "adicion-papas", "name": "Adición de papas", "price": 8000 },
-        { "id": "adicion-miel-parmesano", "name": "Adición de miel/parmesano", "price": 6000 }
+        {
+          "id": "adicion-miel-parmesano",
+          "name": "Adición de miel/parmesano",
+          "price": 6000
+        }
       ]
     },
     {
@@ -88,8 +101,16 @@
         { "id": "jengibre", "name": "Jengibre", "price": 9000 },
         { "id": "fresa-pina", "name": "Fresa Piña", "price": 9000 },
         { "id": "limonada-coco", "name": "Limonada de coco", "price": 14000 },
-        { "id": "limonada-natural", "name": "Limonada natural", "price": 14000 },
-        { "id": "limonada-cerezada", "name": "Limonada cerezada", "price": 14000 }
+        {
+          "id": "limonada-natural",
+          "name": "Limonada natural",
+          "price": 14000
+        },
+        {
+          "id": "limonada-cerezada",
+          "name": "Limonada cerezada",
+          "price": 14000
+        }
       ]
     },
     {

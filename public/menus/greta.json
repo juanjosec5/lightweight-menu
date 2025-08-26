@@ -18,31 +18,36 @@
           "id": "capresse-horneada",
           "name": "Capresse Horneada",
           "description": "Tomates salteados en ajo, pimienta y albahaca, base napolitana con queso mozzarella, parmesano, puntos de pesto y reducción balsámica.",
-          "price": 28000
+          "price": 28000,
+          "labels": ["vegetarian"]
         },
         {
           "id": "albondigas-napolitanas",
           "name": "Albóndigas Napolitanas",
           "description": "Albóndigas de res y cerdo con trozos de tomate, en salsa napolitana, cubiertas con queso mozzarella y parmesano.",
-          "price": 34000
+          "price": 34000,
+          "labels": null
         },
         {
           "id": "cazuela-camarones",
           "name": "Cazuela de Camarones",
           "description": "Camarones y trozos de tomate salteados al ajillo, sal y pimienta, en salsa blanca, cubiertos con queso mozzarella y parmesano.",
-          "price": 34000
+          "price": 34000,
+          "labels": null
         },
         {
           "id": "tablita-charcutera",
           "name": "Tablita Charcutera (para compartir)",
           "description": "Jamón serrano, chorizo vela, queso cheddar, queso mozzarella, queso de cabra, mermelada de higos, pistachos y pan.",
-          "price": 53000
+          "price": 53000,
+          "labels": null
         },
         {
           "id": "mejillones",
           "name": "Mejillones (para compartir)",
           "description": "Mejillones negros al vino blanco con ajo y perejil, acompañados con pan.",
-          "price": 42000
+          "price": 42000,
+          "labels": null
         }
       ]
     },
@@ -58,7 +63,8 @@
             { "label": "Personal", "price": 19000 },
             { "label": "Mediana", "price": 35000 }
           ],
-          "price": 19000
+          "price": 19000,
+          "labels": null
         },
         {
           "id": "gaucha",
@@ -68,7 +74,8 @@
             { "label": "Personal", "price": 24000 },
             { "label": "Mediana", "price": 45000 }
           ],
-          "price": 24000
+          "price": 24000,
+          "labels": null
         },
         {
           "id": "anana",
@@ -78,7 +85,8 @@
             { "label": "Personal", "price": 21000 },
             { "label": "Mediana", "price": 39000 }
           ],
-          "price": 21000
+          "price": 21000,
+          "labels": ["spicy"]
         },
         {
           "id": "fungo-e-pollo",
@@ -88,7 +96,8 @@
             { "label": "Personal", "price": 24000 },
             { "label": "Mediana", "price": 45000 }
           ],
-          "price": 24000
+          "price": 24000,
+          "labels": null
         },
         {
           "id": "pepperoni",
@@ -98,7 +107,8 @@
             { "label": "Personal", "price": 23000 },
             { "label": "Mediana", "price": 43000 }
           ],
-          "price": 23000
+          "price": 23000,
+          "labels": null
         },
         {
           "id": "albondigas-pizza",
@@ -108,7 +118,8 @@
             { "label": "Personal", "price": 24000 },
             { "label": "Mediana", "price": 44000 }
           ],
-          "price": 24000
+          "price": 24000,
+          "labels": null
         },
         {
           "id": "hawaiana-bacon",
@@ -118,7 +129,8 @@
             { "label": "Personal", "price": 20000 },
             { "label": "Mediana", "price": 37000 }
           ],
-          "price": 20000
+          "price": 20000,
+          "labels": null
         }
       ]
     },
@@ -134,7 +146,8 @@
             { "label": "Personal", "price": 20000 },
             { "label": "Mediana", "price": 38000 }
           ],
-          "price": 20000
+          "price": 20000,
+          "labels": ["vegetarian"]
         },
         {
           "id": "queso-tocineta",
@@ -144,7 +157,8 @@
             { "label": "Personal", "price": 18000 },
             { "label": "Mediana", "price": 33000 }
           ],
-          "price": 18000
+          "price": 18000,
+          "labels": null
         },
         {
           "id": "pollo-bbq",
@@ -154,7 +168,8 @@
             { "label": "Personal", "price": 20000 },
             { "label": "Mediana", "price": 37000 }
           ],
-          "price": 20000
+          "price": 20000,
+          "labels": null
         },
         {
           "id": "mermellata",
@@ -164,7 +179,8 @@
             { "label": "Personal", "price": 23000 },
             { "label": "Mediana", "price": 43000 }
           ],
-          "price": 23000
+          "price": 23000,
+          "labels": null
         },
         {
           "id": "gamberetto",
@@ -174,7 +190,8 @@
             { "label": "Personal", "price": 27000 },
             { "label": "Mediana", "price": 51000 }
           ],
-          "price": 27000
+          "price": 27000,
+          "labels": null
         }
       ]
     },
@@ -186,31 +203,36 @@
           "id": "salmon",
           "name": "Salmón",
           "description": "180g a la plancha con sal y pimienta, acompañado de vegetales de temporada.",
-          "price": 59000
+          "price": 59000,
+          "labels": null
         },
         {
           "id": "lomo-res",
           "name": "Lomo de Res",
           "description": "Lomo fino de res, acompañado con vegetales de temporada.",
-          "price": 61000
+          "price": 61000,
+          "labels": null
         },
         {
           "id": "steak-pimienta",
           "name": "Steak Pimienta",
           "description": "Lomo fino de res en salsa pimienta con vino tinto, acompañado con vegetales de temporada.",
-          "price": 61000
+          "price": 61000,
+          "labels": null
         },
         {
           "id": "ensalada-pulpo",
           "name": "Ensalada de Pulpo",
           "description": "100g de pulpo confitado en aceite de oliva, acompañado con ensalada fresca.",
-          "price": 55000
+          "price": 55000,
+          "labels": null
         },
         {
           "id": "cremoso-mar",
           "name": "Cremoso de Mar",
           "description": "Arroz meloso con camarón, calamar y mejillones salteados en vino blanco y ajo.",
-          "price": 64000
+          "price": 64000,
+          "labels": null
         }
       ]
     },
@@ -223,25 +245,29 @@
           "id": "pasta-sin-proteina",
           "name": "Pasta — sin proteína",
           "description": "Salsas disponibles: blanca, rústica de tomate, pesto.",
-          "price": 33000
+          "price": 33000,
+          "labels": ["vegetarian"]
         },
         {
           "id": "pasta-albondigas",
           "name": "Pasta — con albóndigas",
           "description": "Salsas disponibles: blanca, rústica de tomate, pesto.",
-          "price": 44000
+          "price": 44000,
+          "labels": null
         },
         {
           "id": "pasta-camarones",
           "name": "Pasta — con camarones",
           "description": "Salsas disponibles: blanca, rústica de tomate, pesto.",
-          "price": 48000
+          "price": 48000,
+          "labels": null
         },
         {
           "id": "pasta-pollo-hilos",
           "name": "Pasta — con pollo en hilos",
           "description": "Salsas disponibles: blanca, rústica de tomate, pesto.",
-          "price": 43000
+          "price": 43000,
+          "labels": null
         }
       ]
     },
@@ -249,7 +275,11 @@
       "id": "aguas-minerales",
       "label": "Bebidas — Aguas minerales naturales",
       "items": [
-        { "id": "san-pellegrino-500", "name": "San Pellegrino (con gas, 500ml)", "price": 13000 },
+        {
+          "id": "san-pellegrino-500",
+          "name": "San Pellegrino (con gas, 500ml)",
+          "price": 13000
+        },
         { "id": "panna", "name": "Panna (sin gas)", "price": 12000 }
       ]
     },
@@ -257,12 +287,28 @@
       "id": "bebidas-artesanales",
       "label": "Bebidas — Artesanales",
       "items": [
-        { "id": "soda-frutos-frescos", "name": "Soda de frutos frescos", "price": 14000 },
+        {
+          "id": "soda-frutos-frescos",
+          "name": "Soda de frutos frescos",
+          "price": 14000
+        },
         { "id": "soda-jengibre", "name": "Soda de jengibre", "price": 12000 },
-        { "id": "soda-frutos-rojos", "name": "Soda frutos rojos", "price": 16000 },
+        {
+          "id": "soda-frutos-rojos",
+          "name": "Soda frutos rojos",
+          "price": 16000
+        },
         { "id": "limonada-coco", "name": "Limonada de coco", "price": 14000 },
-        { "id": "limonada-natural", "name": "Limonada natural", "price": 12000 },
-        { "id": "limonada-cerezada", "name": "Limonada cerezada", "price": 14000 }
+        {
+          "id": "limonada-natural",
+          "name": "Limonada natural",
+          "price": 12000
+        },
+        {
+          "id": "limonada-cerezada",
+          "name": "Limonada cerezada",
+          "price": 14000
+        }
       ]
     },
     {
@@ -276,16 +322,18 @@
         { "id": "stella-artois", "name": "Stella Artois", "price": 14000 },
         { "id": "holy-water-ipa", "name": "Holy Water IPA", "price": 14000 },
         { "id": "corona", "name": "Corona", "price": 14000 },
-        { "id": "cerveza-importada", "name": "Cerveza importada", "price": 14000 },
+        {
+          "id": "cerveza-importada",
+          "name": "Cerveza importada",
+          "price": 14000
+        },
         { "id": "michelado", "name": "Michelado (adicional)", "price": 2000 }
       ]
     },
     {
       "id": "gaseosas",
       "label": "Bebidas — Gaseosas",
-      "items": [
-        { "id": "gaseosa", "name": "Gaseosa", "price": 7000 }
-      ]
+      "items": [{ "id": "gaseosa", "name": "Gaseosa", "price": 7000 }]
     }
   ]
 }

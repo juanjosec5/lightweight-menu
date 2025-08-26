@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { formatPrice } from "@/utils/formatPrice";
+  import { Flame, Leaf } from "lucide-vue-next";
 
   defineProps<{
     item: {
@@ -9,17 +10,36 @@
       description?: string;
       image?: { src: string; alt?: string };
       price: number;
+      labels?: string[];
     };
     currency: string;
     locale: string;
   }>();
+
+  const LABEL_MAP: Record<string, any> = {
+    spicy: { icon: Flame, class: "spicy" },
+    vegetarian: { icon: Leaf, class: "vegetarian" },
+  };
 </script>
 
 <template>
   <article class="item">
     <div class="item__body">
-      <h4 class="item__title">{{ item.name }}</h4>
-      <p v-if="item.ingredients?.length" class="item__ingredients">{{ item.ingredients.join(", ") }}</p>
+      <span class="item__header">
+        <h4 class="item__title">{{ item.name }}</h4>
+        <ul v-if="item.labels?.length" class="mi-labels">
+          <li v-for="b in item.labels" :key="b" :class="`badge`">
+            <component
+              :is="LABEL_MAP[b].icon"
+              :class="LABEL_MAP[b].class"
+              size="20"
+            ></component>
+          </li>
+        </ul>
+      </span>
+      <p v-if="item.ingredients?.length" class="item__ingredients">
+        {{ item.ingredients.join(", ") }}
+      </p>
       <p v-if="item.description" class="item__desc">{{ item.description }}</p>
       <strong class="item__price">{{
         formatPrice(item.price, currency, locale)
@@ -35,6 +55,13 @@
 </template>
 
 <style scoped lang="scss">
+  .spicy {
+    color: red;
+  }
+  .vegetarian {
+    color: green;
+  }
+
   .item {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -50,6 +77,18 @@
     }
   }
 
+  .item__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 4px;
+    width: 100%;
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+  }
 
   .item__title {
     margin: 0 0 4px;
@@ -59,7 +98,7 @@
   .item__ingredients,
   .item__desc {
     margin: 0 0 6px;
-    color: hsla(var(--bg), .7);
+    color: hsla(var(--bg), 0.7);
     text-align: left;
   }
   .item__price {

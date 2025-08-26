@@ -1,6 +1,7 @@
 <script setup lang="ts">
-  import { ref } from "vue";
+  import { ref, computed } from "vue";
   import MenuItem from "./MenuItem.vue";
+  import { Leaf, Flame } from "lucide-vue-next";
 
   type Item = {
     id: string;
@@ -9,6 +10,7 @@
     description?: string;
     image?: { src: string; alt?: string };
     price: number;
+    labels?: string[];
   };
   type Section = { id: string; label: string; items: Item[] };
   type Category = {
@@ -19,7 +21,7 @@
     image?: string;
   };
 
-  withDefaults(
+  const props = withDefaults(
     defineProps<{
       category: Category;
       currency: string;
@@ -29,10 +31,51 @@
     { reverse: false }
   );
 
+  const LABELS_MAP: Record<string, any> = {
+    spicy: { icon: Flame, text: "picante", class: "spicy" },
+    vegetarian: { icon: Leaf, text: "vegetariano", class: "vegetarian" },
+  };
+
   const expanded = ref(false);
   const bodyEl = ref<HTMLElement | null>(null);
   const btnEl = ref<HTMLElement | null>(null);
   const isAnimating = ref(false);
+
+  const hasLabels = computed(() => {
+    if (props.category.items) {
+      return props.category.items.some(
+        (it) => it.labels && it.labels.length > 0
+      );
+    }
+
+    if (props.category.sections) {
+      return props.category.sections.some((sec) =>
+        sec.items.some((it) => it.labels && it.labels.length > 0)
+      );
+    }
+
+    return false;
+  });
+
+  const getLabelsFromItems = computed(() => {
+    const labelsSet = new Set<string>();
+
+    if (props.category.items) {
+      props.category.items.forEach((it) => {
+        it.labels?.forEach((label) => labelsSet.add(label));
+      });
+    }
+
+    if (props.category.sections) {
+      props.category.sections.forEach((sec) => {
+        sec.items.forEach((it) => {
+          it.labels?.forEach((label) => labelsSet.add(label));
+        });
+      });
+    }
+
+    return Array.from(labelsSet).map((label) => LABELS_MAP[label]);
+  });
 
   function openBody() {
     const el = bodyEl.value;
@@ -107,6 +150,16 @@
       </button>
       <div class="cat-body" ref="bodyEl">
         <!-- Flat items -->
+        <div v-if="hasLabels">
+          <ul class="labels-list" v-if="getLabelsFromItems.length">
+            <li v-for="l in getLabelsFromItems">
+              <span class="badge">
+                <component :is="l.icon" :class="l.class" size="20" />
+                {{ l.text }}
+              </span>
+            </li>
+          </ul>
+        </div>
         <div v-if="category.items?.length" class="cat-items">
           <menu-item
             v-for="it in category.items"
@@ -116,7 +169,6 @@
             :locale="locale"
           />
         </div>
-
         <!-- Grouped sections -->
         <div v-if="category.sections?.length" class="cat-sections">
           <div
@@ -148,6 +200,31 @@
 
 <style scoped lang="scss">
   @use "sass:color";
+
+  .labels-list {
+    list-style: none;
+    display: flex;
+    place-content: flex-end;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .spicy {
+    color: red;
+  }
+
+  .vegetarian {
+    color: green;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
 
   .arrow {
     font-size: 1.5rem;
@@ -193,7 +270,7 @@
     border: 2px solid var(--bg);
     color: var(--bg);
     padding: 0.75rem;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     text-align: left;
 
     &-text {

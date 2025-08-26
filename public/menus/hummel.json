@@ -18,43 +18,50 @@
           "id": "patatas-bravas",
           "name": "Patatas Bravas",
           "description": "Papas fritas, salsa alioli, salsa brava (a base de tomates, picante).",
-          "price": 24000
+          "price": 24000,
+          "labels": ["spicy"]
         },
         {
           "id": "patatas-bravas-bacon",
           "name": "Patatas Bravas con bacon",
           "description": "Papas fritas con bacon, salsa alioli y salsa brava (a base de tomates, picante).",
-          "price": 29000
+          "price": 29000,
+          "labels": ["spicy"]
         },
         {
           "id": "croquetas-bacon",
           "name": "Croquetas Bacon",
           "description": "5 croquetas a base de salsa bechamel y tocineta con salsa alioli y reducción de vino.",
-          "price": 28000
+          "price": 28000,
+          "labels": null
         },
         {
           "id": "calamares-romana",
           "name": "Calamares a la Romana",
           "description": "Calamares rebosados en panko, papa rústica, salsa alioli y gajos de limón.",
-          "price": 28000
+          "price": 28000,
+          "labels": null
         },
         {
           "id": "chorizo-casa",
           "name": "Chorizo de la Casa",
           "description": "Chorizo artesanal con un toque picante, acompañado de ensalada (mix de lechugas, rábanos, tomates cherry) y aderezo de limón.",
-          "price": 26000
+          "price": 26000,
+          "labels": null
         },
         {
           "id": "ensalada-capresse",
           "name": "Ensalada Capresse",
           "description": "Tomates asados, queso mozzarella, salsa pesto, reducción de vino y balsámico, tostadas de pan.",
-          "price": 22000
+          "price": 22000,
+          "labels": ["vegetarian"]
         },
         {
           "id": "croquetas-pulpo",
           "name": "Croquetas de Pulpo",
           "description": "5 croquetas a base de salsa bechamel, tinta de calamar, trozos de pulpo y salsa alioli.",
-          "price": 28000
+          "price": 28000,
+          "labels": null
         }
       ]
     },
@@ -65,63 +72,74 @@
         {
           "id": "cheese-burger",
           "name": "Cheese Burger",
-          "price": 25000
+          "price": 25000,
+          "labels": null
         },
         {
           "id": "cheese-burger-carne",
           "name": "Cheese Burger con carne",
-          "price": 38000
+          "price": 38000,
+          "labels": null
         },
         {
           "id": "hamburguesa-clasica",
           "name": "Hamburguesa Clásica",
           "description": "Carne burger, pan brioche, queso cheddar, vegetales frescos y papas fritas.",
-          "price": 29000
+          "price": 29000,
+          "labels": null
         },
         {
           "id": "hamburguesa-clasica-doble",
           "name": "Hamburguesa Clásica (doble carne)",
-          "price": 39000
+          "price": 39000,
+          "labels": null
         },
         {
           "id": "hamburguesa-anana",
           "name": "Hamburguesa Ananá",
           "description": "Carne burger, pan brioche, rodaja de piña asada, tocineta, cebolla, salsa de la casa y papas fritas.",
-          "price": 29000
+          "price": 29000,
+          "labels": null
         },
         {
           "id": "hamburguesa-spicy",
           "name": "Hamburguesa Spicy",
           "description": "Pan brioche, carne burger, tocineta, jalapeños, queso cheddar, alioli, mantequilla picante, vegetales frescos y papas fritas.",
-          "price": 30000
+          "price": 30000,
+          "labels": ["spicy"]
         },
         {
           "id": "hamburguesa-spicy-doble",
           "name": "Hamburguesa Spicy (doble carne)",
-          "price": 40000
+          "price": 40000,
+          "labels": ["spicy"]
         },
         {
           "id": "american-big-burger",
           "name": "American Big Burger",
           "description": "Pan brioche, 2 carnes burger de 70g tipo smash, cebolla ligeramente caramelizada, queso americano, salsa de la casa con pepinillos, trozos de tocineta y papas fritas.",
-          "price": 36000
+          "price": 36000,
+          "labels": null
         },
         {
           "id": "american-big-burger-doble",
           "name": "American Big Burger (doble carne)",
-          "price": 46000
+          "price": 46000,
+          "labels": null
         },
         {
           "id": "fried-chicken-burger",
           "name": "Fried Chicken Burger",
           "description": "Pan brioche, pollo crocante, cebolla caramelizada, salsa tártara, rúgula y papas fritas.",
-          "price": 28000
+          "price": 28000,
+          "labels": null
         },
         {
           "id": "hamburguesa-veggie",
           "name": "Hamburguesa Veggie",
           "description": "Pan brioche, croqueta de garbanzos, salsa fresca de la casa, queso cheddar, vegetales encurtidos y papas fritas.",
-          "price": 26000
+          "price": 26000,
+          "labels": ["vegetarian"]
         }
       ]
     },
@@ -133,37 +151,43 @@
           "id": "steak-hans",
           "name": "Steak Hans",
           "description": "Paletero de res 290g en crudo, bañado en salsa Hans tipo asiática, acompañado de papas fritas.",
-          "price": 49000
+          "price": 49000,
+          "labels": null
         },
         {
           "id": "punta-anca",
           "name": "Punta de Anca",
           "description": "Carne Angus choice 280g en crudo, tomate asado, papas fritas y chimichurri.",
-          "price": 69000
+          "price": 69000,
+          "labels": null
         },
         {
           "id": "secreto-cerdo",
           "name": "Secreto de Cerdo",
           "description": "Corte de cerdo en salmuera por 24h, a la plancha y terminado en parrilla con chimichurri y un (1) acompañante a elegir entre: ensalada, puré criollo o papas fritas.",
-          "price": 49000
+          "price": 49000,
+          "labels": null
         },
         {
           "id": "lomito-pollo",
           "name": "Lomito de Pollo",
           "description": "Filete a la plancha, ensalada fresca con vinagreta de la casa, papas fritas y chimichurri.",
-          "price": 36000
+          "price": 36000,
+          "labels": null
         },
         {
           "id": "pesca-dia",
           "name": "Pesca del Día",
           "description": "180g fresco, puré criollo y salsa de temporada.",
-          "price": 56000
+          "price": 56000,
+          "labels": null
         },
         {
           "id": "mex-pulpo",
           "name": "Mex Pulpo",
           "description": "90g de pulpo mexicano a la parrilla, puré criollo, chimichurri y pico de gallo (no picante).",
-          "price": 49000
+          "price": 49000,
+          "labels": null
         }
       ]
     },
@@ -174,8 +198,16 @@
         { "id": "ad-pepinillos", "name": "Pepinillos", "price": 3000 },
         { "id": "ad-queso", "name": "Queso", "price": 4000 },
         { "id": "ad-tocineta", "name": "Tocineta", "price": 5000 },
-        { "id": "ad-mozzarella-asado", "name": "Mozzarella asado", "price": 6000 },
-        { "id": "ad-cebolla-caramelizada", "name": "Cebolla caramelizada", "price": 4000 },
+        {
+          "id": "ad-mozzarella-asado",
+          "name": "Mozzarella asado",
+          "price": 6000
+        },
+        {
+          "id": "ad-cebolla-caramelizada",
+          "name": "Cebolla caramelizada",
+          "price": 4000
+        },
         { "id": "ad-papas-fritas", "name": "Papas fritas", "price": 10000 },
         { "id": "ad-carne-burger", "name": "Carne burger", "price": 10000 },
         { "id": "ad-pina-asada", "name": "Piña asada", "price": 6000 },
@@ -191,13 +223,15 @@
           "id": "crumble-chocolate",
           "name": "Crumble de Chocolate",
           "description": "Ganache de chocolate, mantequilla escocesa, galleta de chocolate, helado de vainilla y ralladura de limón.",
-          "price": 20000
+          "price": 20000,
+          "labels": null
         },
         {
           "id": "postre-temporada",
           "name": "De Temporada",
           "description": "Inspiración a criterio del chef.",
-          "price": 20000
+          "price": 20000,
+          "labels": null
         }
       ]
     },
@@ -205,118 +239,466 @@
       "id": "cocteles",
       "label": "Cócteles",
       "items": [
-        { "id": "tinto-verano", "name": "Copa Tinto de Verano", "description": "Vino tinto, sirope simple, limón y soda saborizada.", "price": 29000 },
-        { "id": "mojito-clasico", "name": "Mojito Clásico", "description": "Ron, hierbabuena, limón y sirope simple.", "price": 31000 },
-        { "id": "mojito-lulo", "name": "Mojito de Lulo", "description": "Ron, hierbabuena, limón y sirope simple.", "price": 29000 },
-        { "id": "gin-tonic", "name": "Gin Tonic", "description": "Ginebra estándar y agua tónica.", "price": 32000 },
-        { "id": "aperol-spritz", "name": "Aperol Spritz", "description": "Aperol, vino espumante y soda.", "price": 32000 },
-        { "id": "margarita", "name": "Margarita", "description": "Tequila, triple sec y limón.", "price": 32000 },
-        { "id": "french-75", "name": "French 75", "description": "Ginebra estándar, limón, sirope simple y vino espumante.", "price": 30000 },
-        { "id": "tom-collins", "name": "Tom Collins", "description": "Ginebra estándar, limón, sirope simple y soda.", "price": 28000 },
-        { "id": "moscow-mule", "name": "Moscow Mule", "description": "Vodka, limón, sirope de jengibre y soda.", "price": 33000 },
-        { "id": "mimosa", "name": "Mimosa", "description": "Vino espumante y jugo de naranja.", "price": 29000 },
-        { "id": "fresquito-brandy", "name": "Fresquito de Brandy", "description": "Brandy Domec 8 años, fruta, sirope simple, limón y soda.", "price": 28000 },
-        { "id": "penicillin", "name": "Penicillin", "description": "Whisky escocés, limón, sirope de jengibre y miel maple.", "price": 30000 }
+        {
+          "id": "tinto-verano",
+          "name": "Copa Tinto de Verano",
+          "description": "Vino tinto, sirope simple, limón y soda saborizada.",
+          "price": 29000
+        },
+        {
+          "id": "mojito-clasico",
+          "name": "Mojito Clásico",
+          "description": "Ron, hierbabuena, limón y sirope simple.",
+          "price": 31000
+        },
+        {
+          "id": "mojito-lulo",
+          "name": "Mojito de Lulo",
+          "description": "Ron, hierbabuena, limón y sirope simple.",
+          "price": 29000
+        },
+        {
+          "id": "gin-tonic",
+          "name": "Gin Tonic",
+          "description": "Ginebra estándar y agua tónica.",
+          "price": 32000
+        },
+        {
+          "id": "aperol-spritz",
+          "name": "Aperol Spritz",
+          "description": "Aperol, vino espumante y soda.",
+          "price": 32000
+        },
+        {
+          "id": "margarita",
+          "name": "Margarita",
+          "description": "Tequila, triple sec y limón.",
+          "price": 32000
+        },
+        {
+          "id": "french-75",
+          "name": "French 75",
+          "description": "Ginebra estándar, limón, sirope simple y vino espumante.",
+          "price": 30000
+        },
+        {
+          "id": "tom-collins",
+          "name": "Tom Collins",
+          "description": "Ginebra estándar, limón, sirope simple y soda.",
+          "price": 28000
+        },
+        {
+          "id": "moscow-mule",
+          "name": "Moscow Mule",
+          "description": "Vodka, limón, sirope de jengibre y soda.",
+          "price": 33000
+        },
+        {
+          "id": "mimosa",
+          "name": "Mimosa",
+          "description": "Vino espumante y jugo de naranja.",
+          "price": 29000
+        },
+        {
+          "id": "fresquito-brandy",
+          "name": "Fresquito de Brandy",
+          "description": "Brandy Domec 8 años, fruta, sirope simple, limón y soda.",
+          "price": 28000
+        },
+        {
+          "id": "penicillin",
+          "name": "Penicillin",
+          "description": "Whisky escocés, limón, sirope de jengibre y miel maple.",
+          "price": 30000
+        }
       ]
     },
     {
       "id": "licores",
       "label": "Tragos & Botellas",
       "items": [
-        { "id": "macallan-12-botella", "name": "Macallan 12 (botella)", "price": 380000 },
-        { "id": "macallan-12-shot", "name": "Macallan 12 (shot)", "price": 38000 },
-        { "id": "glenfiddich-12-botella", "name": "Glenfiddich 12 (botella)", "price": 290000 },
-        { "id": "glenfiddich-12-shot", "name": "Glenfiddich 12 (shot)", "price": 30000 },
-        { "id": "jack-daniels-botella", "name": "Jack Daniel’s (botella)", "price": 250000 },
-        { "id": "jack-daniels-shot", "name": "Jack Daniel’s (shot)", "price": 26000 },
-        { "id": "monkey-shoulder-botella", "name": "Monkey Shoulder (botella)", "price": 260000 },
-        { "id": "monkey-shoulder-shot", "name": "Monkey Shoulder (shot)", "price": 29000 },
-        { "id": "buchanans-18-botella", "name": "Buchanan’s 18 (botella)", "price": 630000 },
-        { "id": "buchanans-18-shot", "name": "Buchanan’s 18 (shot)", "price": 45000 },
-        { "id": "hendricks-botella", "name": "Hendrick’s (botella)", "price": 510000 },
+        {
+          "id": "macallan-12-botella",
+          "name": "Macallan 12 (botella)",
+          "price": 380000
+        },
+        {
+          "id": "macallan-12-shot",
+          "name": "Macallan 12 (shot)",
+          "price": 38000
+        },
+        {
+          "id": "glenfiddich-12-botella",
+          "name": "Glenfiddich 12 (botella)",
+          "price": 290000
+        },
+        {
+          "id": "glenfiddich-12-shot",
+          "name": "Glenfiddich 12 (shot)",
+          "price": 30000
+        },
+        {
+          "id": "jack-daniels-botella",
+          "name": "Jack Daniel’s (botella)",
+          "price": 250000
+        },
+        {
+          "id": "jack-daniels-shot",
+          "name": "Jack Daniel’s (shot)",
+          "price": 26000
+        },
+        {
+          "id": "monkey-shoulder-botella",
+          "name": "Monkey Shoulder (botella)",
+          "price": 260000
+        },
+        {
+          "id": "monkey-shoulder-shot",
+          "name": "Monkey Shoulder (shot)",
+          "price": 29000
+        },
+        {
+          "id": "buchanans-18-botella",
+          "name": "Buchanan’s 18 (botella)",
+          "price": 630000
+        },
+        {
+          "id": "buchanans-18-shot",
+          "name": "Buchanan’s 18 (shot)",
+          "price": 45000
+        },
+        {
+          "id": "hendricks-botella",
+          "name": "Hendrick’s (botella)",
+          "price": 510000
+        },
         { "id": "hendricks-shot", "name": "Hendrick’s (shot)", "price": 36000 },
-        { "id": "tanqueray-botella", "name": "Tanqueray (botella)", "price": 380000 },
+        {
+          "id": "tanqueray-botella",
+          "name": "Tanqueray (botella)",
+          "price": 380000
+        },
         { "id": "tanqueray-shot", "name": "Tanqueray (shot)", "price": 29000 },
-        { "id": "la-hechicera-botella", "name": "La Hechicera (botella)", "price": 420000 },
-        { "id": "la-hechicera-shot", "name": "La Hechicera (shot)", "price": 30000 },
-        { "id": "bacardi-anejo-botella", "name": "Bacardí añejo (botella)", "price": 160000 },
-        { "id": "bacardi-anejo-shot", "name": "Bacardí añejo (shot)", "price": 16000 },
-        { "id": "brandy-domec-botella", "name": "Brandy Domec 8 años (botella)", "price": 140000 },
-        { "id": "brandy-domec-shot", "name": "Brandy Domec 8 años (shot)", "price": 18000 },
-        { "id": "milagro-reposado-botella", "name": "Milagro reposado (botella)", "price": 380000 },
-        { "id": "milagro-reposado-shot", "name": "Milagro reposado (shot)", "price": 38000 },
-        { "id": "olmeca-reposado-botella", "name": "Olmeca reposado (botella)", "price": 190000 },
-        { "id": "olmeca-reposado-shot", "name": "Olmeca reposado (shot)", "price": 19000 },
-        { "id": "mezcal-amores-botella", "name": "Mezcal Amores (botella)", "price": 380000 },
-        { "id": "mezcal-amores-shot", "name": "Mezcal Amores (shot)", "price": 31000 },
+        {
+          "id": "la-hechicera-botella",
+          "name": "La Hechicera (botella)",
+          "price": 420000
+        },
+        {
+          "id": "la-hechicera-shot",
+          "name": "La Hechicera (shot)",
+          "price": 30000
+        },
+        {
+          "id": "bacardi-anejo-botella",
+          "name": "Bacardí añejo (botella)",
+          "price": 160000
+        },
+        {
+          "id": "bacardi-anejo-shot",
+          "name": "Bacardí añejo (shot)",
+          "price": 16000
+        },
+        {
+          "id": "brandy-domec-botella",
+          "name": "Brandy Domec 8 años (botella)",
+          "price": 140000
+        },
+        {
+          "id": "brandy-domec-shot",
+          "name": "Brandy Domec 8 años (shot)",
+          "price": 18000
+        },
+        {
+          "id": "milagro-reposado-botella",
+          "name": "Milagro reposado (botella)",
+          "price": 380000
+        },
+        {
+          "id": "milagro-reposado-shot",
+          "name": "Milagro reposado (shot)",
+          "price": 38000
+        },
+        {
+          "id": "olmeca-reposado-botella",
+          "name": "Olmeca reposado (botella)",
+          "price": 190000
+        },
+        {
+          "id": "olmeca-reposado-shot",
+          "name": "Olmeca reposado (shot)",
+          "price": 19000
+        },
+        {
+          "id": "mezcal-amores-botella",
+          "name": "Mezcal Amores (botella)",
+          "price": 380000
+        },
+        {
+          "id": "mezcal-amores-shot",
+          "name": "Mezcal Amores (shot)",
+          "price": 31000
+        },
         { "id": "reyka-botella", "name": "Reyka (botella)", "price": 260000 },
         { "id": "reyka-shot", "name": "Reyka (shot)", "price": 27000 },
-        { "id": "smirnoff-botella", "name": "Smirnoff (botella)", "price": 180000 },
+        {
+          "id": "smirnoff-botella",
+          "name": "Smirnoff (botella)",
+          "price": 180000
+        },
         { "id": "smirnoff-shot", "name": "Smirnoff (shot)", "price": 18000 },
-        { "id": "licor-43-botella", "name": "Licor 43 (botella)", "price": 220000 },
+        {
+          "id": "licor-43-botella",
+          "name": "Licor 43 (botella)",
+          "price": 220000
+        },
         { "id": "licor-43-shot", "name": "Licor 43 (shot)", "price": 25000 },
-        { "id": "jagermeister-botella", "name": "Jagermeister (botella)", "price": 220000 },
-        { "id": "jagermeister-shot", "name": "Jagermeister (shot)", "price": 21000 },
-        { "id": "aguardiente-botella", "name": "Aguardiente Blanco del Valle (botella)", "price": 100000 },
-        { "id": "aguardiente-shot", "name": "Aguardiente Blanco del Valle (shot)", "price": 13000 }
+        {
+          "id": "jagermeister-botella",
+          "name": "Jagermeister (botella)",
+          "price": 220000
+        },
+        {
+          "id": "jagermeister-shot",
+          "name": "Jagermeister (shot)",
+          "price": 21000
+        },
+        {
+          "id": "aguardiente-botella",
+          "name": "Aguardiente Blanco del Valle (botella)",
+          "price": 100000
+        },
+        {
+          "id": "aguardiente-shot",
+          "name": "Aguardiente Blanco del Valle (shot)",
+          "price": 13000
+        }
       ]
     },
     {
       "id": "vinos",
       "label": "Vinos",
       "items": [
-        { "id": "espumante-taittinger", "name": "Taittinger Brut Réserve (Champagne, FRA)", "price": 600000 },
-        { "id": "espumante-killka", "name": "Killka Chardonnay (Valle de Uco, ARG)", "price": 141000 },
-        { "id": "espumante-juve-camps", "name": "Juvé & Camps Cinta Púrpura (Penedès, ESP)", "price": 188000 },
-        { "id": "blanco-baron-philipe-chard", "name": "Baron Philipe de Rothschild Chardonnay (FRA)", "price": 102000 },
-        { "id": "blanco-portillo-sauvignon", "name": "Portillo Sauvignon Blanc (Valle de Uco, ARG)", "price": 102000 },
-        { "id": "blanco-danzante-pinot-grigio", "name": "Danzante Pinot Grigio (Venecia, ITA)", "price": 170000 },
-        { "id": "rosado-aliwen-reserva", "name": "Aliwen Reserva Syrah/Merlot (Colchagua, CHL)", "price": 145000 },
-        { "id": "rosado-portillo-malbec", "name": "Portillo Malbec Rosado (Valle de Uco, ARG)", "price": 102000 },
-        { "id": "tinto-lan-crianza", "name": "Lan Crianza Tempranillo (Rioja, ESP)", "price": 180000 },
-        { "id": "tinto-aliwen-reserva", "name": "Aliwen Reserva Carmenere/Cabernet (Colchagua, CHL)", "price": 145000 },
-        { "id": "tinto-sibaris-gran-reserva", "name": "Sibaris Gran Reserva Carmenere (Colchagua, CHL)", "price": 165000 },
-        { "id": "tinto-salentein-reserva", "name": "Salentein Reserva Malbec (Valle de Uco, ARG)", "price": 184000 },
-        { "id": "tinto-baron-philipe-merlot", "name": "Baron Philipe de Rothschild Merlot (FRA)", "price": 102000 },
-        { "id": "media-undurraga-brut-royal", "name": "Undurraga Brut Royal (Media botella, CHL)", "price": 78000 },
-        { "id": "media-undurraga-chardonnay", "name": "Undurraga Chardonnay (Media botella, CHL)", "price": 75000 },
-        { "id": "media-salentein-malbec", "name": "Salentein Malbec (Media botella, ARG)", "price": 98000 },
-        { "id": "media-lan-crianza", "name": "Lan Crianza Tempranillo (Media botella, ESP)", "price": 139000 },
-        { "id": "media-undurraga-cabernet", "name": "Undurraga Cabernet (Media botella, CHL)", "price": 76000 },
-        { "id": "top-terrior-hunter", "name": "Terrior Hunter Pinot Noir (Valle de Leyda, CHL)", "price": 268000 },
-        { "id": "top-salentein-numina", "name": "Salentein Numina (blend, Valle de Uco, ARG)", "price": 295000 },
-        { "id": "top-lan-gran-reserva", "name": "Lan Gran Reserva Tempranillo (Rioja, ESP)", "price": 330000 },
-        { "id": "top-pedroza-crianza", "name": "Viña Pedroza Crianza (Ribera del Duero, ESP)", "price": 340000 },
-        { "id": "top-santiago-ruiz", "name": "Santiago Ruiz Albariño (Rías Baixas, ESP)", "price": 340000 },
-        { "id": "top-undurraga-late-harvest", "name": "Undurraga Late Harvest (Valle de Maipo, CHL)", "price": 122000 },
-        { "id": "copa-blanco-casa", "name": "Copa vino blanco de la casa", "price": 27000 },
-        { "id": "copa-rosado-casa", "name": "Copa vino rosado de la casa", "price": 27000 },
-        { "id": "copa-tinto-casa", "name": "Copa vino tinto de la casa", "price": 27000 },
-        { "id": "copa-prosecco", "name": "Copa vino espumante Prosecco (Glera)", "price": 28000 }
+        {
+          "id": "espumante-taittinger",
+          "name": "Taittinger Brut Réserve (Champagne, FRA)",
+          "price": 600000
+        },
+        {
+          "id": "espumante-killka",
+          "name": "Killka Chardonnay (Valle de Uco, ARG)",
+          "price": 141000
+        },
+        {
+          "id": "espumante-juve-camps",
+          "name": "Juvé & Camps Cinta Púrpura (Penedès, ESP)",
+          "price": 188000
+        },
+        {
+          "id": "blanco-baron-philipe-chard",
+          "name": "Baron Philipe de Rothschild Chardonnay (FRA)",
+          "price": 102000
+        },
+        {
+          "id": "blanco-portillo-sauvignon",
+          "name": "Portillo Sauvignon Blanc (Valle de Uco, ARG)",
+          "price": 102000
+        },
+        {
+          "id": "blanco-danzante-pinot-grigio",
+          "name": "Danzante Pinot Grigio (Venecia, ITA)",
+          "price": 170000
+        },
+        {
+          "id": "rosado-aliwen-reserva",
+          "name": "Aliwen Reserva Syrah/Merlot (Colchagua, CHL)",
+          "price": 145000
+        },
+        {
+          "id": "rosado-portillo-malbec",
+          "name": "Portillo Malbec Rosado (Valle de Uco, ARG)",
+          "price": 102000
+        },
+        {
+          "id": "tinto-lan-crianza",
+          "name": "Lan Crianza Tempranillo (Rioja, ESP)",
+          "price": 180000
+        },
+        {
+          "id": "tinto-aliwen-reserva",
+          "name": "Aliwen Reserva Carmenere/Cabernet (Colchagua, CHL)",
+          "price": 145000
+        },
+        {
+          "id": "tinto-sibaris-gran-reserva",
+          "name": "Sibaris Gran Reserva Carmenere (Colchagua, CHL)",
+          "price": 165000
+        },
+        {
+          "id": "tinto-salentein-reserva",
+          "name": "Salentein Reserva Malbec (Valle de Uco, ARG)",
+          "price": 184000
+        },
+        {
+          "id": "tinto-baron-philipe-merlot",
+          "name": "Baron Philipe de Rothschild Merlot (FRA)",
+          "price": 102000
+        },
+        {
+          "id": "media-undurraga-brut-royal",
+          "name": "Undurraga Brut Royal (Media botella, CHL)",
+          "price": 78000
+        },
+        {
+          "id": "media-undurraga-chardonnay",
+          "name": "Undurraga Chardonnay (Media botella, CHL)",
+          "price": 75000
+        },
+        {
+          "id": "media-salentein-malbec",
+          "name": "Salentein Malbec (Media botella, ARG)",
+          "price": 98000
+        },
+        {
+          "id": "media-lan-crianza",
+          "name": "Lan Crianza Tempranillo (Media botella, ESP)",
+          "price": 139000
+        },
+        {
+          "id": "media-undurraga-cabernet",
+          "name": "Undurraga Cabernet (Media botella, CHL)",
+          "price": 76000
+        },
+        {
+          "id": "top-terrior-hunter",
+          "name": "Terrior Hunter Pinot Noir (Valle de Leyda, CHL)",
+          "price": 268000
+        },
+        {
+          "id": "top-salentein-numina",
+          "name": "Salentein Numina (blend, Valle de Uco, ARG)",
+          "price": 295000
+        },
+        {
+          "id": "top-lan-gran-reserva",
+          "name": "Lan Gran Reserva Tempranillo (Rioja, ESP)",
+          "price": 330000
+        },
+        {
+          "id": "top-pedroza-crianza",
+          "name": "Viña Pedroza Crianza (Ribera del Duero, ESP)",
+          "price": 340000
+        },
+        {
+          "id": "top-santiago-ruiz",
+          "name": "Santiago Ruiz Albariño (Rías Baixas, ESP)",
+          "price": 340000
+        },
+        {
+          "id": "top-undurraga-late-harvest",
+          "name": "Undurraga Late Harvest (Valle de Maipo, CHL)",
+          "price": 122000
+        },
+        {
+          "id": "copa-blanco-casa",
+          "name": "Copa vino blanco de la casa",
+          "price": 27000
+        },
+        {
+          "id": "copa-rosado-casa",
+          "name": "Copa vino rosado de la casa",
+          "price": 27000
+        },
+        {
+          "id": "copa-tinto-casa",
+          "name": "Copa vino tinto de la casa",
+          "price": 27000
+        },
+        {
+          "id": "copa-prosecco",
+          "name": "Copa vino espumante Prosecco (Glera)",
+          "price": 28000
+        }
       ]
     },
     {
       "id": "bebidas",
       "label": "Bebidas",
       "items": [
-        { "id": "artesanal-sandia-hierbabuena", "name": "Fresquito de sandía y hierbabuena", "price": 14000 },
-        { "id": "artesanal-mora-albahaca", "name": "Fresquito de mora y albahaca", "price": 14000 },
-        { "id": "artesanal-lulo-jengibre", "name": "Fresquito de lulo y jengibre", "price": 14000 },
-        { "id": "artesanal-jamaica-limon", "name": "Fresquito de jamaica y limón", "price": 14000 },
-        { "id": "artesanal-dulce-pasion", "name": "Dulce pasión (maracuyá)", "price": 14000 },
-        { "id": "limonada-natural", "name": "Limonada natural", "price": 13000 },
+        {
+          "id": "artesanal-sandia-hierbabuena",
+          "name": "Fresquito de sandía y hierbabuena",
+          "price": 14000
+        },
+        {
+          "id": "artesanal-mora-albahaca",
+          "name": "Fresquito de mora y albahaca",
+          "price": 14000
+        },
+        {
+          "id": "artesanal-lulo-jengibre",
+          "name": "Fresquito de lulo y jengibre",
+          "price": 14000
+        },
+        {
+          "id": "artesanal-jamaica-limon",
+          "name": "Fresquito de jamaica y limón",
+          "price": 14000
+        },
+        {
+          "id": "artesanal-dulce-pasion",
+          "name": "Dulce pasión (maracuyá)",
+          "price": 14000
+        },
+        {
+          "id": "limonada-natural",
+          "name": "Limonada natural",
+          "price": 13000
+        },
         { "id": "limonada-coco", "name": "Limonada de coco", "price": 14000 },
-        { "id": "limonada-cerezada", "name": "Limonada cerezada", "price": 14000 },
-        { "id": "cerveza-club-colombia-dorada", "name": "Club Colombia dorada", "price": 11000 },
-        { "id": "cerveza-club-colombia-roja", "name": "Club Colombia roja", "price": 11000 },
-        { "id": "cerveza-club-colombia-negra", "name": "Club Colombia negra", "price": 11000 },
+        {
+          "id": "limonada-cerezada",
+          "name": "Limonada cerezada",
+          "price": 14000
+        },
+        {
+          "id": "cerveza-club-colombia-dorada",
+          "name": "Club Colombia dorada",
+          "price": 11000
+        },
+        {
+          "id": "cerveza-club-colombia-roja",
+          "name": "Club Colombia roja",
+          "price": 11000
+        },
+        {
+          "id": "cerveza-club-colombia-negra",
+          "name": "Club Colombia negra",
+          "price": 11000
+        },
         { "id": "cerveza-corona", "name": "Corona", "price": 13000 },
         { "id": "cerveza-stella", "name": "Stella Artois", "price": 13000 },
-        { "id": "cerveza-aguila-light", "name": "Águila light", "price": 10000 },
-        { "id": "cerveza-holy-water-ipa", "name": "Holy Water IPA", "price": 14000 },
+        {
+          "id": "cerveza-aguila-light",
+          "name": "Águila light",
+          "price": 10000
+        },
+        {
+          "id": "cerveza-holy-water-ipa",
+          "name": "Holy Water IPA",
+          "price": 14000
+        },
         { "id": "gaseosas", "name": "Gaseosas", "price": 8000 },
-        { "id": "fever-tree-mediterranean", "name": "Tónica Fever Tree Mediterranean", "price": 10000 },
-        { "id": "agua-san-pellegrino", "name": "Agua San Pellegrino con gas", "price": 16000 },
+        {
+          "id": "fever-tree-mediterranean",
+          "name": "Tónica Fever Tree Mediterranean",
+          "price": 10000
+        },
+        {
+          "id": "agua-san-pellegrino",
+          "name": "Agua San Pellegrino con gas",
+          "price": 16000
+        },
         { "id": "red-bull", "name": "Red Bull", "price": 10000 }
       ]
     },
@@ -396,28 +778,69 @@
       "label": "Para llevar — Salsas",
       "description": "De nuestra carta a tu casa.",
       "items": [
-        { "id": "salsa-casa-200", "name": "Salsa de la casa 200g (para papas fritas)", "price": 15000 },
-        { "id": "salsa-brava-200", "name": "Salsa brava 200g (con tomate y picante)", "price": 16000 },
-        { "id": "salsa-pesto-200", "name": "Salsa pesto de albahaca 200g (para pasta)", "price": 20000 },
-        { "id": "salsa-alioli-200", "name": "Salsa alioli de ajo 200g (para untar)", "price": 18000 },
-        { "id": "vinagreta-agridulce-200", "name": "Vinagreta agridulce 200g", "price": 11000 }
+        {
+          "id": "salsa-casa-200",
+          "name": "Salsa de la casa 200g (para papas fritas)",
+          "price": 15000
+        },
+        {
+          "id": "salsa-brava-200",
+          "name": "Salsa brava 200g (con tomate y picante)",
+          "price": 16000
+        },
+        {
+          "id": "salsa-pesto-200",
+          "name": "Salsa pesto de albahaca 200g (para pasta)",
+          "price": 20000
+        },
+        {
+          "id": "salsa-alioli-200",
+          "name": "Salsa alioli de ajo 200g (para untar)",
+          "price": 18000
+        },
+        {
+          "id": "vinagreta-agridulce-200",
+          "name": "Vinagreta agridulce 200g",
+          "price": 11000
+        }
       ]
     },
     {
       "id": "para-llevar-pan",
       "label": "Para llevar — Pan",
       "items": [
-        { "id": "pan-brioche", "name": "Pan tipo brioche (unidad)", "price": 3000 }
+        {
+          "id": "pan-brioche",
+          "name": "Pan tipo brioche (unidad)",
+          "price": 3000
+        }
       ]
     },
     {
       "id": "para-llevar-proteinas",
       "label": "Para llevar — Proteínas frías",
       "items": [
-        { "id": "chorizo-artesanal", "name": "Chorizo artesanal de la casa (unidad)", "price": 9000 },
-        { "id": "carne-burger-pack4", "name": "Carne burger lista para asar (pack 4 unidades, 140g c/u)", "price": 32000 },
-        { "id": "falafel-pack4", "name": "Falafel, croqueta de garbanzo (pack 4 unidades, 130g c/u)", "price": 28000 },
-        { "id": "punta-anca-kg", "name": "Punta de anca Angus Choice 1kg congelado", "description": "Precio por kilo.", "price": 125000 }
+        {
+          "id": "chorizo-artesanal",
+          "name": "Chorizo artesanal de la casa (unidad)",
+          "price": 9000
+        },
+        {
+          "id": "carne-burger-pack4",
+          "name": "Carne burger lista para asar (pack 4 unidades, 140g c/u)",
+          "price": 32000
+        },
+        {
+          "id": "falafel-pack4",
+          "name": "Falafel, croqueta de garbanzo (pack 4 unidades, 130g c/u)",
+          "price": 28000
+        },
+        {
+          "id": "punta-anca-kg",
+          "name": "Punta de anca Angus Choice 1kg congelado",
+          "description": "Precio por kilo.",
+          "price": 125000
+        }
       ]
     }
   ]

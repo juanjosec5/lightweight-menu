@@ -332,10 +332,7 @@
         {
           "id": "pan-masa-madre",
           "name": "Pan de Masa Madre",
-          "ingredients": [
-            "pan de masa madre",
-            "crème fraîche"
-          ],
+          "ingredients": ["pan de masa madre", "crème fraîche"],
           "price": 18000
         }
       ]
@@ -365,12 +362,5 @@
       "label": "Picante"
     }
   ],
-  "allergens": [
-    "gluten",
-    "lácteos",
-    "huevo",
-    "soya",
-    "nueces",
-    "mariscos"
-  ]
+  "allergens": ["gluten", "lácteos", "huevo", "soya", "nueces", "mariscos"]
 }
