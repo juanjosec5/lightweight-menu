@@ -8,7 +8,7 @@
     "description": "TexMex restaurant offering tacos, burritos, burgers, drinks, and more.",
     "currency": "COP",
     "locale": "es-CO",
-    "updatedAt": "2025-08-27T20:40:20.712Z"
+    "updatedAt": "2025-08-27T23:17:06.605Z"
   },
   "categories": [
     {
@@ -22,7 +22,15 @@
           "price": 14000,
           "labels": [
             "spicy"
-          ]
+          ],
+          "image": {
+            "src": "https://storage.googleapis.com/lightweight-menu/coma-taco/meals/sopa-tomate.jpg",
+            "alt": "Molcajete crujiente de chicharrón"
+          },
+          "imageThumbnail": {
+            "src": "https://storage.googleapis.com/lightweight-menu/coma-taco/meals/sopa-tomate_tn.jpg",
+            "alt": "Molcajete crujiente de chicharrón"
+          }
         },
         {
           "id": "totopitos",
@@ -68,7 +76,15 @@
           "name": "Molcajete camarones al ajillo",
           "description": "Molcajete con guacamole, pico de gallo, totopos y camarones al ajillo.",
           "price": 35000,
-          "labels": null
+          "labels": null,
+          "image": {
+            "src": "https://storage.googleapis.com/lightweight-menu/coma-taco/meals/guacamole.jpg",
+            "alt": "Molcajete crujiente de chicharrón"
+          },
+          "imageThumbnail": {
+            "src": "https://storage.googleapis.com/lightweight-menu/coma-taco/meals/guacamole_tn.jpg",
+            "alt": "Molcajete crujiente de chicharrón"
+          }
         },
         {
           "id": "molcajete-chicharron",
@@ -78,6 +94,10 @@
           "labels": null,
           "image": {
             "src": "https://storage.googleapis.com/lightweight-menu/coma-taco/meals/chicharron.jpg",
+            "alt": "Molcajete crujiente de chicharrón"
+          },
+          "imageThumbnail": {
+            "src": "https://storage.googleapis.com/lightweight-menu/coma-taco/meals/chicharron_tn.jpg",
             "alt": "Molcajete crujiente de chicharrón"
           }
         },
@@ -203,7 +223,15 @@
         {
           "id": "taco-birria",
           "name": "Taco Birria",
-          "price": 9000
+          "price": 9000,
+          "image": {
+            "src": "https://storage.googleapis.com/lightweight-menu/coma-taco/meals/tacos.jpg",
+            "alt": "Molcajete crujiente de chicharrón"
+          },
+          "imageThumbnail": {
+            "src": "https://storage.googleapis.com/lightweight-menu/coma-taco/meals/tacos_tn.jpg",
+            "alt": "Molcajete crujiente de chicharrón"
+          }
         },
         {
           "id": "taco-cochinita",
@@ -415,7 +443,15 @@
         {
           "id": "margarita",
           "name": "Margarita",
-          "price": 28000
+          "price": 28000,
+          "image": {
+            "src": "https://storage.googleapis.com/lightweight-menu/coma-taco/meals/margarita.jpg",
+            "alt": "Molcajete crujiente de chicharrón"
+          },
+          "imageThumbnail": {
+            "src": "https://storage.googleapis.com/lightweight-menu/coma-taco/meals/margarita_tn.jpg",
+            "alt": "Molcajete crujiente de chicharrón"
+          }
         },
         {
           "id": "margarita-jarra",

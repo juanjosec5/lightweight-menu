@@ -41,6 +41,7 @@
   };
 
   const expanded = ref(false);
+  const canLoadThumbs = ref(false);
   const bodyEl = ref<HTMLElement | null>(null);
   const btnEl = ref<HTMLElement | null>(null);
   const isAnimating = ref(false);
@@ -79,6 +80,7 @@
         requestAnimationFrame(scroll);
       });
     } else {
+      canLoadThumbs.value = true ;
       requestAnimationFrame(scroll);
     }
   };
@@ -107,6 +109,7 @@
         if (e.propertyName !== "max-height") return;
         el.style.maxHeight = "none";
         isAnimating.value = false;
+        canLoadThumbs.value = true;
         // run after the panel is fully open
         requestAnimationFrame(() => after?.());
       },
@@ -197,6 +200,7 @@
             :currency="currency"
             :locale="locale"
             :menu-id="menuId"
+            :can-load-thumbs="canLoadThumbs"
           />
         </div>
         <!-- Grouped sections -->
@@ -216,6 +220,7 @@
               :currency="currency"
               :locale="locale"
               :menu-id="menuId"
+              :can-load-thumbs="canLoadThumbs"
             />
           </div>
         </div>

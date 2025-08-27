@@ -13,14 +13,16 @@
       image?: { src: string; alt?: string };
       price: number;
       labels?: string[];
+      imageThumbnail?: { src: string; alt?: string };
     };
     currency: string;
     locale: string;
     menuId?: string;
+    canLoadThumbs?: boolean;
   }>();
 
   const dialogRef = ref<HTMLDialogElement | null>(null);
-  const showModal = ref<boolean>(false);
+  const showModal = ref(false);
 
   const LABEL_MAP: Record<string, any> = {
     spicy: { icon: Flame, class: "spicy" },
@@ -112,15 +114,21 @@
       <component :is="Link" :size="20"></component>
     </button>
     <button
-      v-if="item.image?.src"
+      v-if="item.imageThumbnail?.src"
       type="button"
       class="thumb"
       :aria-label="`Ver imagen de ${item.name}`"
       @click="showModal = true"
     >
+      <div
+        v-if="!canLoadThumbs"
+        class="thumb__placeholder"
+        aria-hidden="true"
+      ></div>
       <img
-        :src="item.image.src"
-        :alt="item.image.alt || item.name"
+        v-else
+        :src="item.imageThumbnail.src"
+        :alt="item.imageThumbnail.alt || item.name"
         loading="lazy"
       />
     </button>
@@ -136,11 +144,16 @@
           aria-label="Cerrar"
           @click="showModal = false"
         >
-          <component class="img-dialog__close-button" :is="X" :size="28"></component>
+          <component
+            class="img-dialog__close-button"
+            :is="X"
+            :size="28"
+          ></component>
         </button>
       </form>
       <div class="img-dialog__img-wrapper">
         <img
+          v-if="showModal"
           class="img-dialog__img"
           :src="item.image?.src"
           :alt="item.image?.alt || item.name"
@@ -222,9 +235,9 @@
     cursor: zoom-in;
 
     img {
-      width: 88px;
-      height: 88px;
-      object-fit: cover;
+      width: 80px;
+      height: 80px;
+      object-fit: none;
       border-radius: 8px;
     }
   }
@@ -240,6 +253,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 780px;
     gap: 0.5rem;
     position: fixed;
     top: 0;
