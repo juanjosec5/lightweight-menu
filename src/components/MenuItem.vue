@@ -2,7 +2,7 @@
   import { ref, watch } from "vue";
   import { formatPrice } from "@/utils/formatPrice";
   import { Flame, Leaf } from "lucide-vue-next";
-  import { Link } from "lucide-vue-next";
+  import { Link, X } from "lucide-vue-next";
 
   const props = defineProps<{
     item: {
@@ -136,7 +136,7 @@
           aria-label="Cerrar"
           @click="showModal = false"
         >
-          ✕
+          <component :is="X" :size="20"></component>
         </button>
       </form>
       <div class="img-dialog__img-wrapper">
@@ -158,9 +158,11 @@
     right: 0;
     color: var(--bg);
   }
+
   .spicy {
     color: red;
   }
+
   .vegetarian {
     color: green;
   }
@@ -213,10 +215,12 @@
   }
 
   .thumb {
+    display: flex;
     border: 0;
     background: transparent;
     padding: 0;
     cursor: zoom-in;
+
     img {
       width: 88px;
       height: 88px;
