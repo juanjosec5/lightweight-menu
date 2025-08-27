@@ -245,7 +245,7 @@
     top: 0;
     bottom: 0;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
 
     form {
       align-self: flex-end;
