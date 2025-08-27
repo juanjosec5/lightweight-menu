@@ -7,6 +7,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --toolbar-h: 4.5rem;
 }
 
 body {
@@ -35,5 +36,5 @@ button {
 }
 
 html {
-  /* html { scroll-padding-top: 5.5rem; } */
+  html { scroll-padding-top: var(--toolbar-h); }
 }

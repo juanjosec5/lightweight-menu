@@ -114,7 +114,7 @@
     padding-block: 0 1rem;
     margin-block: 0 2rem;
     border-bottom: 1px solid var(--bg);
-    scroll-margin-top: 6.5rem;
+    scroll-margin-top: calc(var(--toolbar-h) + 3.25rem);
 
     &__body {
       display: flex;

@@ -161,19 +161,23 @@
 <template>
   <section :id="category.id" :class="['cat', { 'cat--reverse': reverse }]">
     <div class="cat-content">
-      <button
-        @click="toggleContent"
-        class="cat__title"
-        :aria-label="`Mostrar menu de ${category.label}`"
-        :aria-expanded="expanded"
-        :disabled="isAnimating"
-        ref="btnEl"
-      >
-        <span :class="['arrow', { 'arrow--expanded': expanded }]">&#8595;</span>
-        <h3 class="cat__title-text">
-          {{ category.label }}
-        </h3>
-      </button>
+      <div class="cat-header">
+        <button
+          @click="toggleContent"
+          class="cat__title"
+          :aria-label="`Mostrar menu de ${category.label}`"
+          :aria-expanded="expanded"
+          :disabled="isAnimating"
+          ref="btnEl"
+        >
+          <span :class="['arrow', { 'arrow--expanded': expanded }]"
+            >&#8595;</span
+          >
+          <h3 class="cat__title-text">
+            {{ category.label }}
+          </h3>
+        </button>
+      </div>
       <div class="cat-body" ref="bodyEl">
         <!-- Flat items -->
 
@@ -280,6 +284,16 @@
     gap: 2rem;
     margin-bottom: 1rem;
 
+    &-header {
+      position: sticky;
+      top: var(--toolbar-h); /* sits right below your fixed toolbar */
+      z-index: 3; /* above body content, below toolbar if toolbar has higher z */
+      background: var(--fg); /* avoid text/content bleeding under it */
+      /* optional spacing so it doesn’t jump when sticking */
+      padding-block: 0.25rem;
+      transition: background-color 0.5s ease-in-out;
+    }
+
     &-items {
       margin-top: 2rem;
     }
@@ -305,7 +319,6 @@
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    background: transparent;
     border: 2px solid var(--bg);
     color: var(--bg);
     padding: 0.75rem;

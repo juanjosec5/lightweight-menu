@@ -63,13 +63,14 @@ onMounted(() => {
     <div
       :class="['toolbar', { 'shadow-light': !isDark, 'shadow-dark': isDark }]"
     >
-      <button
+    <span></span>
+      <!-- <button
         @click="scrollToTop"
         aria-label="scroll to the top"
         class="toolbar-inicio"
       >
         INICIO
-      </button>
+      </button> -->
       <button
         :aria-label="`toggle to ${isDark ? 'light' : 'dark'} theme`"
         class="toolbar-button theme-toggle"
@@ -215,7 +216,7 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding-top: 5rem;
+    padding-top: calc(var(--toolbar-h) + 1rem);
   }
 
   .hdr h1 {
