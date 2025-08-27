@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { ref, watch } from "vue";
   import { formatPrice } from "@/utils/formatPrice";
   import { Flame, Leaf } from "lucide-vue-next";
   import { Link } from "lucide-vue-next";
@@ -18,6 +19,9 @@
     menuId?: string;
   }>();
 
+  const dialogRef = ref<HTMLDialogElement | null>(null);
+  const showModal = ref<boolean>(false);
+
   const LABEL_MAP: Record<string, any> = {
     spicy: { icon: Flame, class: "spicy" },
     vegetarian: { icon: Leaf, class: "vegetarian" },
@@ -36,7 +40,6 @@
     e.stopPropagation(); // don’t trigger parent click handlers
     const link = buildShareUrl(props.item.id);
 
-    // Update the current tab’s hash without stacking history
     history.replaceState({}, "", `#${props.item.id}`);
 
     try {
@@ -56,6 +59,26 @@
       prompt("Copia el enlace:", link);
     }
   };
+
+  const toggleModal = () => {
+    showModal.value = !showModal.value;
+  };
+
+  const handleKeydown = (e: KeyboardEvent) => {
+    if (e.key === "Escape" && showModal.value) {
+      toggleModal();
+    }
+  };
+
+  watch(showModal, (val) => {
+    if (!dialogRef.value) return;
+
+    if (val) {
+      document.documentElement.classList.add("no-scroll");
+    } else {
+      document.documentElement.classList.remove("no-scroll");
+    }
+  });
 </script>
 
 <template>
@@ -81,15 +104,50 @@
         formatPrice(item.price, currency, locale)
       }}</strong>
     </div>
-    <button  @click.prevent="onShareClick" class="share-button" :aria-label="`Share link to ${item.name}`">
+    <button
+      @click.prevent="onShareClick"
+      class="share-button"
+      :aria-label="`Share link to ${item.name}`"
+    >
       <component :is="Link" :size="20"></component>
     </button>
-    <img
+    <button
       v-if="item.image?.src"
-      :src="item.image.src"
-      :alt="item.image.alt || item.name"
-      loading="lazy"
-    />
+      type="button"
+      class="thumb"
+      :aria-label="`Ver imagen de ${item.name}`"
+      @click="showModal = true"
+    >
+      <img
+        :src="item.image.src"
+        :alt="item.image.alt || item.name"
+        loading="lazy"
+      />
+    </button>
+    <dialog
+      ref="dialogRef"
+      class="img-dialog"
+      :open="showModal"
+      @keydown="handleKeydown"
+    >
+      <form method="dialog">
+        <button
+          class="img-dialog__close"
+          aria-label="Cerrar"
+          @click="showModal = false"
+        >
+          ✕
+        </button>
+      </form>
+      <div class="img-dialog__img-wrapper">
+        <img
+          class="img-dialog__img"
+          :src="item.image?.src"
+          :alt="item.image?.alt || item.name"
+        />
+      </div>
+      <p class="img-dialog__caption">{{ item.image?.alt || item.name }}</p>
+    </dialog>
   </article>
 </template>
 
@@ -98,7 +156,7 @@
     height: fit-content;
     position: absolute;
     right: 0;
-    color: var(--bg)
+    color: var(--bg);
   }
   .spicy {
     color: red;
@@ -153,10 +211,52 @@
     white-space: nowrap;
     align-self: flex-end;
   }
-  img {
-    width: 88px;
-    height: 88px;
-    object-fit: cover;
-    border-radius: 8px;
+
+  .thumb {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: zoom-in;
+    img {
+      width: 88px;
+      height: 88px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  }
+
+  .img-dialog {
+    border: none;
+    border-radius: 0.75rem;
+    z-index: 100;
+  }
+
+  .img-dialog[open] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    form {
+      align-self: flex-end;
+    }
+  }
+
+  .img-dialog__img {
+    object-fit: contain;
+    width: 100%;
+  }
+
+  .img-dialog__close {
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
   }
 </style>

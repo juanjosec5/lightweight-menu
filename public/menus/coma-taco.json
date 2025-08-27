@@ -3,11 +3,12 @@
   "restaurant": {
     "id": "coma-taco",
     "name": "Coma Taco",
+    "logo": "https://storage.googleapis.com/lightweight-menu/coma-taco/logo/coma-taco-logo.jpg",
     "subtitle": "TexMex",
     "description": "TexMex restaurant offering tacos, burritos, burgers, drinks, and more.",
     "currency": "COP",
     "locale": "es-CO",
-    "updatedAt": "2025-08-20"
+    "updatedAt": "2025-08-27T20:40:20.712Z"
   },
   "categories": [
     {
@@ -19,7 +20,9 @@
           "name": "Caldo de birria",
           "description": "Caldo resultante de la cocción lenta de nuestra preparación de la carne de birria (sutilmente picante) acompañado de totopos.",
           "price": 14000,
-          "labels": ["spicy"]
+          "labels": [
+            "spicy"
+          ]
         },
         {
           "id": "totopitos",
@@ -33,7 +36,9 @@
           "name": "Totopitos picantes",
           "description": "(Nachos) Totopos fritos con alioli de habanero",
           "price": 11000,
-          "labels": ["spicy"]
+          "labels": [
+            "spicy"
+          ]
         },
         {
           "id": "nuggets-totopitos",
@@ -54,7 +59,9 @@
           "name": "Aguachile",
           "description": "Camarones frescos cocidos al limón, marinados con pepino, cilantro, jalapeños y sal. (sutilmente picante)",
           "price": 30000,
-          "labels": ["spicy"]
+          "labels": [
+            "spicy"
+          ]
         },
         {
           "id": "molcajete-camarones",
@@ -68,7 +75,11 @@
           "name": "Molcajete crujiente de chicharrón",
           "description": "Molcajete con guacamole, pico de gallo, totopos y chicharrón crocante.",
           "price": 28000,
-          "labels": null
+          "labels": null,
+          "image": {
+            "src": "https://storage.googleapis.com/lightweight-menu/coma-taco/meals/chicharron.jpg",
+            "alt": "Molcajete crujiente de chicharrón"
+          }
         },
         {
           "id": "quesadilla-frijol",
@@ -116,7 +127,9 @@
           "name": "Tacos de chicharrón x3",
           "description": "Con guacamole, endulzado con bbq picante, y pico de gallo.",
           "price": 24000,
-          "labels": ["spicy"]
+          "labels": [
+            "spicy"
+          ]
         },
         {
           "id": "tacos-camaron-apanado",
@@ -130,7 +143,9 @@
           "name": "Tacos de vegetales x3",
           "description": "De vegetales salteados al ajillo.",
           "price": 23000,
-          "labels": ["vegetarian"]
+          "labels": [
+            "vegetarian"
+          ]
         }
       ]
     },
@@ -185,18 +200,46 @@
       "label": "Tacos",
       "description": "Presentación: Unidad $9,000 / x3 $24,000 / x4 $29,000 / x5 $36,000 / x6 $43,000",
       "items": [
-        { "id": "taco-birria", "name": "Taco Birria", "price": 9000 },
+        {
+          "id": "taco-birria",
+          "name": "Taco Birria",
+          "price": 9000
+        },
         {
           "id": "taco-cochinita",
           "name": "Taco Cochinita pibil",
           "price": 9000
         },
-        { "id": "taco-suadero", "name": "Taco Suadero", "price": 9000 },
-        { "id": "taco-chipotle", "name": "Taco Pollo chipotle", "price": 9000 },
-        { "id": "taco-lengua", "name": "Taco Lengua de res", "price": 9000 },
-        { "id": "taco-chorizo", "name": "Taco Chorizo", "price": 9000 },
-        { "id": "taco-carnitas", "name": "Taco Carnitas", "price": 9000 },
-        { "id": "taco-pastor", "name": "Taco Al pastor", "price": 9000 }
+        {
+          "id": "taco-suadero",
+          "name": "Taco Suadero",
+          "price": 9000
+        },
+        {
+          "id": "taco-chipotle",
+          "name": "Taco Pollo chipotle",
+          "price": 9000
+        },
+        {
+          "id": "taco-lengua",
+          "name": "Taco Lengua de res",
+          "price": 9000
+        },
+        {
+          "id": "taco-chorizo",
+          "name": "Taco Chorizo",
+          "price": 9000
+        },
+        {
+          "id": "taco-carnitas",
+          "name": "Taco Carnitas",
+          "price": 9000
+        },
+        {
+          "id": "taco-pastor",
+          "name": "Taco Al pastor",
+          "price": 9000
+        }
       ]
     },
     {
@@ -210,17 +253,41 @@
           "price": 20000,
           "labels": null
         },
-        { "id": "nachos-mixto", "name": "Nachos mixto", "price": 25000 },
-        { "id": "nachos-2", "name": "Nachos para 2", "price": 30000 },
+        {
+          "id": "nachos-mixto",
+          "name": "Nachos mixto",
+          "price": 25000
+        },
+        {
+          "id": "nachos-2",
+          "name": "Nachos para 2",
+          "price": 30000
+        },
         {
           "id": "nachos-2-mixto",
           "name": "Nachos para 2 mixto",
           "price": 35000
         },
-        { "id": "burros-texmex", "name": "Burros TexMex", "price": 26000 },
-        { "id": "birria-burger", "name": "Birria burger", "price": 35000 },
-        { "id": "pastor-burger", "name": "Pastor burger", "price": 35000 },
-        { "id": "totopos", "name": "Totopos", "price": 27000 },
+        {
+          "id": "burros-texmex",
+          "name": "Burros TexMex",
+          "price": 26000
+        },
+        {
+          "id": "birria-burger",
+          "name": "Birria burger",
+          "price": 35000
+        },
+        {
+          "id": "pastor-burger",
+          "name": "Pastor burger",
+          "price": 35000
+        },
+        {
+          "id": "totopos",
+          "name": "Totopos",
+          "price": 27000
+        },
         {
           "id": "perro-bravo-mini",
           "name": "Perro bravo mini",
@@ -314,19 +381,47 @@
           "description": "Ginger, sal y limón.",
           "price": 6000
         },
-        { "id": "cerveza-corona", "name": "Corona", "price": 12000 },
-        { "id": "cerveza-stella", "name": "Stella", "price": 13000 },
-        { "id": "cerveza-aguila", "name": "Aguila light", "price": 9000 },
-        { "id": "cerveza-poker", "name": "Poker", "price": 8000 },
-        { "id": "cerveza-club", "name": "Club Colombia", "price": 10000 }
+        {
+          "id": "cerveza-corona",
+          "name": "Corona",
+          "price": 12000
+        },
+        {
+          "id": "cerveza-stella",
+          "name": "Stella",
+          "price": 13000
+        },
+        {
+          "id": "cerveza-aguila",
+          "name": "Aguila light",
+          "price": 9000
+        },
+        {
+          "id": "cerveza-poker",
+          "name": "Poker",
+          "price": 8000
+        },
+        {
+          "id": "cerveza-club",
+          "name": "Club Colombia",
+          "price": 10000
+        }
       ]
     },
     {
       "id": "cocteles",
       "label": "Cócteles",
       "items": [
-        { "id": "margarita", "name": "Margarita", "price": 28000 },
-        { "id": "margarita-jarra", "name": "Margarita jarra", "price": 205000 },
+        {
+          "id": "margarita",
+          "name": "Margarita",
+          "price": 28000
+        },
+        {
+          "id": "margarita-jarra",
+          "name": "Margarita jarra",
+          "price": 205000
+        },
         {
           "id": "blue-curacao",
           "name": "Blue Curacao margarita",
@@ -338,21 +433,37 @@
           "name": "Margarita de maracuyá",
           "price": 32000
         },
-        { "id": "gin-tonic", "name": "Gin and tonic", "price": 34000 },
+        {
+          "id": "gin-tonic",
+          "name": "Gin and tonic",
+          "price": 34000
+        },
         {
           "id": "gin-tonic-premium",
           "name": "Gin and tonic ultra premium",
           "description": "Hendriks, pepino, gotas de rosas y fever tree tonic.",
           "price": 49000
         },
-        { "id": "cuba-libre", "name": "Cuba libre", "price": 26000 },
-        { "id": "tinto-verano", "name": "Tinto de verano", "price": 27000 },
+        {
+          "id": "cuba-libre",
+          "name": "Cuba libre",
+          "price": 26000
+        },
+        {
+          "id": "tinto-verano",
+          "name": "Tinto de verano",
+          "price": 27000
+        },
         {
           "id": "tinto-verano-jarra",
           "name": "Tinto de verano jarra",
           "price": 185000
         },
-        { "id": "moscow-mule", "name": "Moscow mule", "price": 29000 },
+        {
+          "id": "moscow-mule",
+          "name": "Moscow mule",
+          "price": 29000
+        },
         {
           "id": "moscow-mule-premium",
           "name": "Moscow mule ultra premium",
@@ -371,7 +482,11 @@
       "id": "vinos",
       "label": "Vinos",
       "items": [
-        { "id": "copa-vino", "name": "Copa de vino", "price": 26000 },
+        {
+          "id": "copa-vino",
+          "name": "Copa de vino",
+          "price": 26000
+        },
         {
           "id": "espumante-oro-veneto",
           "name": "Oro veneto proseco, Italia",

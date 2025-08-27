@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ref, computed, onMounted, watch, nextTick } from "vue";
+  import { ref, computed, onMounted, watch } from "vue";
   import MenuItem from "./MenuItem.vue";
   import { Leaf, Flame } from "lucide-vue-next";
 

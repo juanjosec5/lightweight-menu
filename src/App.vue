@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { watch, ref, onMounted, onBeforeUnmount } from "vue";
+  import { watch, ref, computed, onMounted, onBeforeUnmount } from "vue";
   import { useMenu } from "@/composables/useMenu";
   import { useMenuFromUrl } from "@/composables/useMenuFromUrl";
   import { useTheme } from "@/composables/useTheme";
@@ -20,42 +20,51 @@
 
   const activeItemId = ref<string | null>(null);
 
-  const  updateActiveFromHash = () => {
-  activeItemId.value = (window.location.hash || "").replace(/^#/, "")
-}
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const updateActiveFromHash = () => {
+    activeItemId.value = (window.location.hash || "").replace(/^#/, "");
   };
+
+  // const scrollToTop = () => {
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // };
+
+  const logoUrl = computed(() => {
+    const r = data.value?.restaurant;
+    if (!r) return null;
+
+    const v = encodeURIComponent(r.updatedAt || "");
+
+    return `${r.logo}${r.logo.includes("?") ? "&" : "?"}v=${v}`;
+  });
 
   // Watch when menu data is loaded
-watch(data, (val) => {
-  if (val?.restaurant?.name) {
-    document.title = `Menu ${val.restaurant.name}`
-  } else {
-    document.title = "Menu"
-  }
-});
-
-onMounted(() => {
-  updateActiveFromHash();
-  window.addEventListener("hashchange", updateActiveFromHash);
-
-  const onPageShow = (e: PageTransitionEvent) => {
-    if (!window.location.hash) return;
-    // If the page was restored from bfcache, re-trigger your flow
-    if (e.persisted) {
-      // force a tiny delay so layout/JS re-hydrate first
-      setTimeout(() => updateActiveFromHash(), 0);
+  watch(data, (val) => {
+    if (val?.restaurant?.name) {
+      document.title = `Menu ${val.restaurant.name}`;
+    } else {
+      document.title = "Menu";
     }
-  };
-  window.addEventListener("pageshow", onPageShow);
-
-  onBeforeUnmount(() => {
-    window.removeEventListener("hashchange", updateActiveFromHash);
-    window.removeEventListener("pageshow", onPageShow);
   });
-});
+
+  onMounted(() => {
+    updateActiveFromHash();
+    window.addEventListener("hashchange", updateActiveFromHash);
+
+    const onPageShow = (e: PageTransitionEvent) => {
+      if (!window.location.hash) return;
+      // If the page was restored from bfcache, re-trigger your flow
+      if (e.persisted) {
+        // force a tiny delay so layout/JS re-hydrate first
+        setTimeout(() => updateActiveFromHash(), 0);
+      }
+    };
+    window.addEventListener("pageshow", onPageShow);
+
+    onBeforeUnmount(() => {
+      window.removeEventListener("hashchange", updateActiveFromHash);
+      window.removeEventListener("pageshow", onPageShow);
+    });
+  });
 </script>
 
 <template>
@@ -63,7 +72,8 @@ onMounted(() => {
     <div
       :class="['toolbar', { 'shadow-light': !isDark, 'shadow-dark': isDark }]"
     >
-    <span></span>
+      <!-- Added this span to move the toggle to the right -->
+      <span></span>
       <!-- <button
         @click="scrollToTop"
         aria-label="scroll to the top"
@@ -101,6 +111,15 @@ onMounted(() => {
 
     <template v-else>
       <header v-if="data" class="hdr">
+        <img
+          v-if="logoUrl"
+          :src="logoUrl"
+          :alt="data.restaurant.name + ' logo'"
+          width="120"
+          height="120"
+          loading="eager"
+          fetchpriority="high"
+        />
         <h1>{{ data.restaurant.name }}</h1>
         <p v-if="data.restaurant.subtitle" class="sub">
           {{ data.restaurant.subtitle }}
