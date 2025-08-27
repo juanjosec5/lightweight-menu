@@ -136,7 +136,7 @@
           aria-label="Cerrar"
           @click="showModal = false"
         >
-          <component :is="X" :size="20"></component>
+          <component class="img-dialog__close-button" :is="X" :size="28"></component>
         </button>
       </form>
       <div class="img-dialog__img-wrapper">
@@ -262,5 +262,9 @@
     background: transparent;
     font-size: 1.5rem;
     cursor: pointer;
+
+    &-button {
+      color: var(--bg);
+    }
   }
 </style>
