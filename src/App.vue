@@ -1,30 +1,42 @@
 <script setup lang="ts">
-  import { watch, ref, computed, onMounted, onBeforeUnmount } from "vue";
+  import {
+    watch,
+    ref,
+    computed,
+    onMounted,
+    onBeforeUnmount,
+    nextTick,
+  } from "vue";
   import { useMenu } from "@/composables/useMenu";
   import { useMenuFromUrl } from "@/composables/useMenuFromUrl";
   import { useTheme } from "@/composables/useTheme";
   import MenuCategory from "@/components/MenuCategory.vue";
   import { Sun, Moon } from "lucide-vue-next";
 
-  const KNOWN_MENUS = [
-    "oda-bogota",
-    "g-lounge",
-    "coma-taco",
-    "hummel",
-    "greta",
-    "wings-walker",
-  ];
+  const menus = import.meta.glob("../public/menus/*.json");
+  console.log("menus");
+
+  const prettifyName = (name: string) =>
+    name
+      .replace(/[-_]/g, " ")
+      .replace(/\b\w/g, (c) => c.toUpperCase())
+      .trim();
+
+  const KNOWN_MENUS = Object.keys(menus).map((m) =>
+    m.split("/").pop()?.replace(".json", "")
+  ) as string[];
+
   const { menuId, invalidMenu, isMissingParam } = useMenuFromUrl(KNOWN_MENUS);
-  const { data, loading, error, reload } = useMenu(menuId);
-  const { isDark, toggle } = useTheme();
+  const { data, loading, error } = useMenu(menuId);
+  const { theme, toggle } = useTheme();
 
   const activeItemId = ref<string | null>(null);
+  const headerRef = ref<HTMLElement | null>(null);
+  const toolbarTitle = ref("");
 
   const updateActiveFromHash = () => {
     activeItemId.value = (window.location.hash || "").replace(/^#/, "");
   };
-
-  // const scrollToTop = () => {
   //   window.scrollTo({ top: 0, behavior: "smooth" });
   // };
 
@@ -37,14 +49,21 @@
     return `${r.logo}${r.logo.includes("?") ? "&" : "?"}v=${v}`;
   });
 
-  // Watch when menu data is loaded
-  watch(data, (val) => {
-    if (val?.restaurant?.name) {
-      document.title = `Menu ${val.restaurant.name}`;
-    } else {
-      document.title = "Menu";
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          toolbarTitle.value = data.value?.restaurant?.name;
+        } else {
+          toolbarTitle.value = "";
+        }
+      });
+    },
+    {
+      threshold: 0,
+      rootMargin: '-64px 0px 0px 0px',
     }
-  });
+  );
 
   onMounted(() => {
     updateActiveFromHash();
@@ -52,9 +71,8 @@
 
     const onPageShow = (e: PageTransitionEvent) => {
       if (!window.location.hash) return;
-      // If the page was restored from bfcache, re-trigger your flow
+
       if (e.persisted) {
-        // force a tiny delay so layout/JS re-hydrate first
         setTimeout(() => updateActiveFromHash(), 0);
       }
     };
@@ -63,30 +81,30 @@
     onBeforeUnmount(() => {
       window.removeEventListener("hashchange", updateActiveFromHash);
       window.removeEventListener("pageshow", onPageShow);
+      observer?.disconnect();
+    });
+  });
+
+  watch(data, (menu) => {
+    if (!menu) return;
+
+    nextTick(() => {
+      observer.observe(headerRef.value!);
     });
   });
 </script>
 
 <template>
   <main class="wrap">
-    <div
-      :class="['toolbar', { 'shadow-light': !isDark, 'shadow-dark': isDark }]"
-    >
+    <div :class="['toolbar', { 'shadow-light': !theme, 'shadow-dark': theme }]">
       <!-- Added this span to move the toggle to the right -->
-      <span></span>
-      <!-- <button
-        @click="scrollToTop"
-        aria-label="scroll to the top"
-        class="toolbar-inicio"
-      >
-        INICIO
-      </button> -->
+      <h1 class="toolbar-title">{{ toolbarTitle }}</h1>
       <button
-        :aria-label="`toggle to ${isDark ? 'light' : 'dark'} theme`"
+        :aria-label="`toggle to ${theme ? 'light' : 'dark'} theme`"
         class="toolbar-button theme-toggle"
         @click="toggle"
       >
-        <component :is="isDark ? Sun : Moon" :size="24" />
+        <component :is="theme ? Sun : Moon" :size="24" />
       </button>
     </div>
     <section v-if="isMissingParam" class="welcome">
@@ -94,7 +112,7 @@
       <p>Por favor, selecciona un menú para empezar:</p>
       <ul>
         <li v-for="m in KNOWN_MENUS" :key="m">
-          <a :href="`?menu=${m}`">{{ m }}</a>
+          <a :href="`?menu=${m}`">{{ prettifyName(m) }}</a>
         </li>
       </ul>
     </section>
@@ -110,7 +128,7 @@
     </section>
 
     <template v-else>
-      <header v-if="data" class="hdr">
+      <header v-if="data" class="hdr" ref="headerRef">
         <img
           v-if="logoUrl"
           :src="logoUrl"
@@ -129,7 +147,6 @@
         </p>
       </header>
 
-      <button v-if="error" @click="reload">Reintentar</button>
       <p v-if="loading">Cargando…</p>
       <p v-if="error">Error: {{ error }}</p>
 
@@ -163,7 +180,8 @@
   .toolbar {
     display: flex;
     z-index: 10;
-    justify-content: space-between;
+    place-content: center;
+    place-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -171,6 +189,12 @@
     width: calc(100% - 0.75rem * 2);
     background: var(--fg);
     transition: background-color 0.5s ease-in-out;
+    height: calc(var(--toolbar-h) - 1.5rem);
+
+    &-title {
+      margin: 0;
+      font-size: 1.5rem
+    }
 
     &-button {
       border-radius: 50%;
@@ -227,6 +251,8 @@
     top: 1rem;
     right: 1rem;
     outline: none;
+    position: absolute;
+    top: .75rem
   }
 
   .wrap {

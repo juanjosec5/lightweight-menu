@@ -186,7 +186,7 @@
     grid-template-columns: 1fr;
     padding-block: 0 1rem;
     margin-block: 0 2rem;
-    border-bottom: 1px solid var(--bg);
+    border-bottom: 1px solid var(--muted);
     scroll-margin-top: calc(var(--toolbar-h) + 3.25rem);
 
     &__body {
@@ -215,6 +215,7 @@
     font-weight: 600;
     font-size: 1.1rem;
   }
+
   .item__ingredients,
   .item__desc {
     margin: 0 0 6px;
@@ -222,6 +223,7 @@
     text-align: left;
     padding-right: 3rem;
   }
+
   .item__price {
     white-space: nowrap;
     align-self: flex-end;
@@ -232,6 +234,7 @@
     border: 0;
     background: transparent;
     padding: 0;
+    width: fit-content;
     cursor: zoom-in;
 
     img {

@@ -6,7 +6,11 @@ export function useMenuFromUrl(knownMenus: string[]) {
   const raw = (params.get("menu") || "").trim();
 
   const slugify = (s: string) =>
-    s.toLowerCase().trim().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+    s
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, "-")
+      .replace(/[^a-z0-9-]/g, "");
 
   const normalized = raw ? slugify(raw) : "";
 
@@ -17,14 +21,15 @@ export function useMenuFromUrl(knownMenus: string[]) {
 
   if (raw && normalized && normalized !== raw) {
     const url = new URL(window.location.href);
+
     url.pathname = import.meta.env.BASE_URL;
     url.searchParams.set("menu", normalized);
     window.history.replaceState({}, "", url.toString());
   }
 
   return {
-    menuId: computed(() => menuId),
-    invalidMenu: computed(() => invalidMenu),
-    isMissingParam: computed(() => isMissingParam),
+    menuId: menuId,
+    invalidMenu: invalidMenu,
+    isMissingParam: isMissingParam,
   };
 }

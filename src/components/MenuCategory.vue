@@ -324,7 +324,7 @@
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    border: 2px solid var(--bg);
+    border: 2px solid var(--muted);
     color: var(--bg);
     padding: 0.75rem;
     border-radius: 0.25rem;
