@@ -31,7 +31,9 @@
   const { theme, toggle } = useTheme();
 
   const selectedMenuId = ref<string | null>(null);
-  const selectedMenu = computed(() => data.value?.menus.find((m) => m.id === selectedMenuId.value) || null)
+  const selectedMenu = computed(
+    () => data.value?.menus.find((m) => m.id === selectedMenuId.value) || null
+  );
 
   const activeItemId = ref<string | null>(null);
   const headerRef = ref<HTMLElement | null>(null);
@@ -55,7 +57,7 @@
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
-          toolbarTitle.value = data.value?.restaurant?.name || '';
+          toolbarTitle.value = data.value?.restaurant?.name || "";
         } else {
           toolbarTitle.value = "";
         }
@@ -154,8 +156,15 @@
       <p v-if="error">Error: {{ error }}</p>
 
       <template v-if="(data?.menus.length || 0) > 1">
-        <nav>
-          <button v-for="m in data?.menus" @click="selectedMenuId = m.id">
+        <nav class="menus-nav">
+          <button
+            :class="[
+              'menus-nav__button',
+              { 'menus-nav__button--active': m.id === selectedMenuId },
+            ]"
+            v-for="m in data?.menus"
+            @click="selectedMenuId = m.id"
+          >
             {{ m.label }}
           </button>
         </nav>
@@ -188,6 +197,22 @@
 </template>
 
 <style scoped lang="scss">
+  .menus-nav {
+    display: flex;
+    gap: 1rem;
+    place-content: center;
+
+    &__button {
+      border: 2px solid var(--muted);
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+
+      &--active {
+        background-color: var(--action);
+      }
+    }
+  }
+
   .toolbar {
     display: flex;
     z-index: 10;

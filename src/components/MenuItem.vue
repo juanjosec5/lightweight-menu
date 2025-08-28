@@ -120,13 +120,8 @@
       :aria-label="`Ver imagen de ${item.name}`"
       @click="showModal = true"
     >
-      <div
-        v-if="!canLoadThumbs"
-        class="thumb__placeholder"
-        aria-hidden="true"
-      ></div>
       <img
-        v-else
+        v-if="canLoadThumbs"
         :src="item.imageThumbnail.src"
         :alt="item.imageThumbnail.alt || item.name"
         loading="lazy"
@@ -233,15 +228,17 @@
     display: flex;
     border: 0;
     background: transparent;
+    border-radius: 8px;
+    overflow: hidden;
     padding: 0;
-    width: fit-content;
     cursor: zoom-in;
+    height: 80px;
+    width: 80px;
 
     img {
-      width: 80px;
-      height: 80px;
       object-fit: none;
-      border-radius: 8px;
+      width: 100%;
+      height: 100%;
     }
   }
 
