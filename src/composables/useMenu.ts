@@ -1,7 +1,6 @@
 // src/composables/useMenu.ts
-import { ref, onBeforeMount, watch, type Ref } from "vue";
-
-export type MenuJSON = any;
+import { ref, onBeforeMount } from "vue";
+import type { RestaurantMenu } from "@/types/menu";
 
 function buildAssetUrl(pathname: string) {
   const base = new URL(import.meta.env.BASE_URL, window.location.origin);
@@ -10,7 +9,7 @@ function buildAssetUrl(pathname: string) {
 }
 
 export function useMenu(idRef: string) {
-  const data = ref<MenuJSON | null>(null);
+  const data = ref<RestaurantMenu | null>(null);
   const loading = ref(false);
   const error = ref<string | null>(null);
 
@@ -32,6 +31,7 @@ export function useMenu(idRef: string) {
 
       data.value = await res.json();
       document.title = `Menu ${data.value?.restaurant.name}`;
+      console.log(data.value);
     } catch (e: any) {
       error.value = e?.message ?? "Failed to load menu";
     } finally {

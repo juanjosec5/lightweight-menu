@@ -30,6 +30,9 @@
   const { data, loading, error } = useMenu(menuId);
   const { theme, toggle } = useTheme();
 
+  const selectedMenuId = ref<string | null>(null);
+  const selectedMenu = computed(() => data.value?.menus.find((m) => m.id === selectedMenuId.value) || null)
+
   const activeItemId = ref<string | null>(null);
   const headerRef = ref<HTMLElement | null>(null);
   const toolbarTitle = ref("");
@@ -37,13 +40,12 @@
   const updateActiveFromHash = () => {
     activeItemId.value = (window.location.hash || "").replace(/^#/, "");
   };
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
-  // };
 
   const logoUrl = computed(() => {
     const r = data.value?.restaurant;
     if (!r) return null;
-
+    if (!r.logo) return null;
+    // Append updatedAt as a query param to force reload if logo changes
     const v = encodeURIComponent(r.updatedAt || "");
 
     return `${r.logo}${r.logo.includes("?") ? "&" : "?"}v=${v}`;
@@ -53,7 +55,7 @@
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
-          toolbarTitle.value = data.value?.restaurant?.name;
+          toolbarTitle.value = data.value?.restaurant?.name || '';
         } else {
           toolbarTitle.value = "";
         }
@@ -61,7 +63,7 @@
     },
     {
       threshold: 0,
-      rootMargin: '-64px 0px 0px 0px',
+      rootMargin: "-64px 0px 0px 0px",
     }
   );
 
@@ -90,6 +92,7 @@
 
     nextTick(() => {
       observer.observe(headerRef.value!);
+      selectedMenuId.value = data.value?.menus[0]?.id || null;
     });
   });
 </script>
@@ -150,16 +153,24 @@
       <p v-if="loading">Cargando…</p>
       <p v-if="error">Error: {{ error }}</p>
 
-      <template v-if="data">
+      <template v-if="(data?.menus.length || 0) > 1">
+        <nav>
+          <button v-for="m in data?.menus" @click="selectedMenuId = m.id">
+            {{ m.label }}
+          </button>
+        </nav>
+      </template>
+
+      <template v-if="selectedMenu">
         <div class="category-wrapper">
           <menu-category
-            v-for="cat in data.categories"
+            v-for="cat in selectedMenu.categories"
             :key="cat.id"
             :category="cat"
-            :currency="data.restaurant.currency"
-            :locale="data.restaurant.locale"
+            :currency="data!.restaurant.currency"
+            :locale="data!.restaurant.locale"
             :active-item-id="activeItemId"
-            :menu-id="data.restaurant.id"
+            :menu-id="data!.restaurant.id"
           />
         </div>
       </template>
@@ -193,7 +204,7 @@
 
     &-title {
       margin: 0;
-      font-size: 1.5rem
+      font-size: 1.5rem;
     }
 
     &-button {
@@ -252,7 +263,7 @@
     right: 1rem;
     outline: none;
     position: absolute;
-    top: .75rem
+    top: 0.75rem;
   }
 
   .wrap {
@@ -297,4 +308,3 @@
     text-decoration: underline;
   }
 </style>
-

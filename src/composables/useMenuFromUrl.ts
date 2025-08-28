@@ -1,6 +1,3 @@
-// composables/useMenuFromUrl.ts
-import { computed } from "vue";
-
 export function useMenuFromUrl(knownMenus: string[]) {
   const params = new URLSearchParams(window.location.search);
   const raw = (params.get("menu") || "").trim();

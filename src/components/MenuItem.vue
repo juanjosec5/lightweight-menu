@@ -153,7 +153,7 @@
       </form>
       <div class="img-dialog__img-wrapper">
         <img
-          v-if="showModal"
+          v-show="showModal"
           class="img-dialog__img"
           :src="item.image?.src"
           :alt="item.image?.alt || item.name"

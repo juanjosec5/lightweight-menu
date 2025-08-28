@@ -2,26 +2,7 @@
   import { ref, computed, onMounted, watch } from "vue";
   import MenuItem from "./MenuItem.vue";
   import { Leaf, Flame } from "lucide-vue-next";
-
-  type Label = "spicy" | "vegetarian"; // extend later
-  type LabelMeta = { icon: any; text?: string; class: string };
-  type Item = {
-    id: string;
-    name: string;
-    ingredients: string[];
-    description?: string;
-    image?: { src: string; alt?: string };
-    price: number;
-    labels?: Label[];
-  };
-  type Section = { id: string; label: string; items: Item[] };
-  type Category = {
-    id: string;
-    label: string;
-    items?: Item[];
-    sections?: Section[];
-    image?: string;
-  };
+  import type { Category, Label } from "@/types/menu";
 
   const props = withDefaults(
     defineProps<{
@@ -35,7 +16,7 @@
     { reverse: false }
   );
 
-  const LABELS_MAP: Record<string, LabelMeta> = {
+  const LABELS_MAP = {
     spicy: { icon: Flame, text: "picante", class: "spicy" },
     vegetarian: { icon: Leaf, text: "vegetariano", class: "vegetarian" },
   };
@@ -85,7 +66,7 @@
     }
   };
 
-  const categoryLabels = computed<LabelMeta[]>(() => {
+  const categoryLabels = computed(() => {
     const set = new Set<Label>();
 
     props.category.items?.forEach((it) =>
@@ -187,7 +168,7 @@
         <ul class="labels-list" v-if="categoryLabels.length">
           <li v-for="l in categoryLabels" :key="l.class">
             <span class="badge">
-              <component :is="l.icon" :class="l.class" size="20" />
+              <component :is="l.icon" :class="l.class" :size="20" />
               {{ l.text }}
             </span>
           </li>

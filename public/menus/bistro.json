@@ -1,0 +1,47 @@
+{
+  "restaurant": {
+    "id": "bistro",
+    "name": "Bistro Test",
+    "locale": "es-CO",
+    "currency": "COP",
+    "updatedAt": "2025-08-28T20:08:53.310Z"
+  },
+  "menus": [
+    {
+      "id": "brunch",
+      "label": "Brunch Menu",
+      "categories": [
+        {
+          "id": "eggs",
+          "label": "Huevos",
+          "items": [
+            {
+              "id": "benedict",
+              "name": "Benedict",
+              "ingredients": [],
+              "price": 25000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dinner",
+      "label": "Dinner Menu",
+      "categories": [
+        {
+          "id": "eggs",
+          "label": "Huevotes",
+          "items": [
+            {
+              "id": "benedict",
+              "name": "Benedict",
+              "ingredients": [],
+              "price": 25000
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
