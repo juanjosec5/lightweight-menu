@@ -102,12 +102,12 @@
   <main class="wrap">
     <div :class="['toolbar', { 'shadow-light': !theme, 'shadow-dark': theme }]">
       <!-- Added this span to move the toggle to the right -->
-      <div class="toolbar-logo-wrapper" v-if="data?.restaurant.logo">
+      <!-- <div class="toolbar-logo-wrapper" v-if="data?.restaurant.logo">
         <img
           :src="data?.restaurant?.logo"
           :alt="`${data.restaurant.name} logo`"
         />
-      </div>
+      </div> -->
       <h1 class="toolbar-title">{{ toolbarTitle }}</h1>
       <button
         v-if="data?.restaurant.theme !== 'dark'"
@@ -212,6 +212,8 @@
       border: 2px solid var(--muted);
       padding: 0.75rem;
       border-radius: 0.5rem;
+      font-size: .9rem;
+      color: var(--bg);
 
       &--active {
         background-color: var(--action);

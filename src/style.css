@@ -38,6 +38,7 @@ button {
   border: none;
   cursor: pointer;
   outline: none;
+  color: var(--bg);
 }
 
 html {
