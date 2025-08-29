@@ -17,10 +17,10 @@
   );
 
   const LABELS_MAP = {
-    spicy: { icon: Flame, text: "picante", class: "spicy" },
-    vegetarian: { icon: Leaf, text: "vegetariano", class: "vegetarian" },
-    fish: { icon: Fish, text: "pescado", class: "fish" },
-    shrimp: { icon: Shrimp, text: "shrimp", class: "shrimp" },
+    spicy: { icon: Flame, text: `${props.locale === 'en-US' ? 'spicy' : 'picante'}`, class: "spicy" },
+    vegetarian: { icon: Leaf, text: `${props.locale === 'en-US' ? 'vegetarian' : 'vegetariano'}`, class: "vegetarian" },
+    fish: { icon: Fish, text: `${props.locale === 'en-US' ? 'fish' : 'pescado'}`, class: "fish" },
+    shrimp: { icon: Shrimp, text: `${props.locale === 'en-US' ? 'shrimp' : 'camarón'}`, class: "shrimp" },
   };
 
   const expanded = ref(false);
@@ -145,6 +145,7 @@
 </script>
 
 <template>
+  {{ locale }}
   <section :id="category.id" :class="['cat', { 'cat--reverse': reverse }]">
     <div class="cat-content">
       <div class="cat-header">
