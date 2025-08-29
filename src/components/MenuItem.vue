@@ -163,6 +163,7 @@
   .mi-labels {
     display: flex;
     gap: 0.5rem;
+    margin: 0;
   }
   .share-button {
     height: fit-content;
@@ -207,9 +208,11 @@
   .item__header {
     display: flex;
     align-items: center;
+    place-content: flex-start;
     gap: 8px;
-    margin: 0 0 4px;
+    margin: 0;
     width: 100%;
+    margin-bottom: 1.5rem;
 
     ul {
       list-style: none;
@@ -218,7 +221,7 @@
   }
 
   .item__title {
-    margin: 0 0 4px;
+    margin: 0;
     font-weight: 600;
     font-size: 1.1rem;
   }

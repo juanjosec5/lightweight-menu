@@ -212,7 +212,7 @@
       border: 2px solid var(--muted);
       padding: 0.75rem;
       border-radius: 0.5rem;
-      font-size: .9rem;
+      font-size: 0.9rem;
       color: var(--bg);
 
       &--active {
@@ -222,18 +222,20 @@
   }
 
   .toolbar {
+    position: fixed;
     display: flex;
     z-index: 10;
     place-content: center;
     place-items: center;
-    position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    box-sizing: border-box;
     padding: 0.75rem;
-    width: calc(100% - 0.75rem * 2);
+    width: 100%;
     background: var(--fg);
     transition: background-color 0.5s ease-in-out;
-    height: calc(var(--toolbar-h) - 1.5rem);
+    height: var(--toolbar-h);
 
     &-logo-wrapper {
       display: flex;
@@ -316,6 +318,13 @@
     flex-direction: column;
     gap: 1rem;
     padding-top: calc(var(--toolbar-h) + 1rem);
+  }
+
+  .hdr {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    gap: 0.5rem;
   }
 
   .hdr h1 {
