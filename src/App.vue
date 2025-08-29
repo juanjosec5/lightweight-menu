@@ -206,7 +206,10 @@
   .menus-nav {
     display: flex;
     gap: 1rem;
+    flex-direction: column;
     place-content: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--muted);
 
     &__button {
       border: 2px solid var(--muted);
@@ -214,6 +217,7 @@
       border-radius: 0.5rem;
       font-size: 0.9rem;
       color: var(--bg);
+      width: 100%;
 
       &--active {
         background-color: var(--action);
@@ -232,7 +236,6 @@
     right: 0;
     box-sizing: border-box;
     padding: 0.75rem;
-    width: 100%;
     background: var(--fg);
     transition: background-color 0.5s ease-in-out;
     height: var(--toolbar-h);
@@ -337,8 +340,12 @@
   }
 
   .desc {
+    box-sizing: border-box;
     margin: 0.25rem 0 1rem;
     color: var(--bg);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
   }
 
   .muted {
