@@ -9,7 +9,6 @@
   -moz-osx-font-smoothing: grayscale;
   --toolbar-h: 4rem;
   --muted: color-mix(in srgb, var(--fg) 50%, var(--bg));
-  --wrap-soft: anywhere;
 }
 
 * {
@@ -25,14 +24,6 @@ iframe {
   display: block; /* avoids inline gaps that can push layout */
 }
 
-.desc,
-.item__ingredients,
-.hdr,
-.muted {
-  overflow-wrap: var(--wrap-soft);
-  word-break: break-word; /* fallback */
-  hyphens: auto;
-}
 
 body {
   margin: 0;
