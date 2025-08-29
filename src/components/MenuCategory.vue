@@ -145,7 +145,6 @@
 </script>
 
 <template>
-  {{ locale }}
   <section :id="category.id" :class="['cat', { 'cat--reverse': reverse }]">
     <div class="cat-content">
       <div class="cat-header">
