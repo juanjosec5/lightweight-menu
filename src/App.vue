@@ -163,6 +163,7 @@
 
       <template v-if="(data?.menus.length || 0) > 1">
         <nav class="menus-nav">
+          <p class="menus-nav__heading">Our menus:</p>
           <button
             :class="[
               'menus-nav__button',
@@ -205,11 +206,17 @@
 <style scoped lang="scss">
   .menus-nav {
     display: flex;
+    box-sizing: border-box;
     gap: 1rem;
     flex-direction: column;
     place-content: center;
-    padding-bottom: 1.5rem;
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
     border-bottom: 1px solid var(--muted);
+
+    &__heading {
+      margin-bottom: 0;
+    }
 
     &__button {
       border: 2px solid var(--muted);
@@ -218,6 +225,7 @@
       font-size: 0.9rem;
       color: var(--bg);
       width: 100%;
+      transition: background-color .3s ease-in-out;
 
       &--active {
         background-color: var(--action);
@@ -319,7 +327,7 @@
     margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     padding-top: calc(var(--toolbar-h) + 1rem);
   }
 
@@ -341,7 +349,7 @@
 
   .desc {
     box-sizing: border-box;
-    margin: 0.25rem 0 1rem;
+    margin: 0.25rem 0 0;
     color: var(--bg);
     word-wrap: break-word;
     overflow-wrap: break-word;
