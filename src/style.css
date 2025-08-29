@@ -11,6 +11,10 @@
   --muted: color-mix(in srgb, var(--fg) 50%, var(--bg));
 }
 
+* {
+  font-family: 'Montserrat';
+}
+
 body {
   margin: 0;
   display: flex;
@@ -26,7 +30,7 @@ body {
   margin: 0 auto;
   padding: 0 0.75rem 1rem;
   text-align: center;
-  width: 100%;
+  max-width: 780px;
 }
 
 button {

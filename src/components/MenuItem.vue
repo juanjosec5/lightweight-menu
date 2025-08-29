@@ -1,9 +1,7 @@
 <script setup lang="ts">
   import { ref, watch } from "vue";
   import { formatPrice } from "@/utils/formatPrice";
-  import { Flame, Leaf } from "lucide-vue-next";
-  import { Link, X } from "lucide-vue-next";
-
+  import { Flame, Leaf, Fish, Link, X, Shrimp } from "lucide-vue-next";
   const props = defineProps<{
     item: {
       id: string;
@@ -27,6 +25,8 @@
   const LABEL_MAP: Record<string, any> = {
     spicy: { icon: Flame, class: "spicy" },
     vegetarian: { icon: Leaf, class: "vegetarian" },
+    fish: { icon: Fish, class: "fish" },
+    shrimp: { icon: Shrimp, class: "shrimp" },
   };
 
   const buildShareUrl = (itemId: string) => {
@@ -160,6 +160,10 @@
 </template>
 
 <style scoped lang="scss">
+  .mi-labels {
+    display: flex;
+    gap: 0.5rem;
+  }
   .share-button {
     height: fit-content;
     position: absolute;
@@ -173,6 +177,14 @@
 
   .vegetarian {
     color: green;
+  }
+
+  .fish {
+    color: lightseagreen;
+  }
+
+  .shrimp {
+    color: lightcoral;
   }
 
   .item {

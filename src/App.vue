@@ -103,8 +103,15 @@
   <main class="wrap">
     <div :class="['toolbar', { 'shadow-light': !theme, 'shadow-dark': theme }]">
       <!-- Added this span to move the toggle to the right -->
+      <div class="toolbar-logo-wrapper" v-if="data?.restaurant.logo">
+        <img
+          :src="data?.restaurant?.logo"
+          :alt="`${data.restaurant.name} logo`"
+        />
+      </div>
       <h1 class="toolbar-title">{{ toolbarTitle }}</h1>
       <button
+        v-if="data?.restaurant.theme !== 'dark'"
         :aria-label="`toggle to ${theme ? 'light' : 'dark'} theme`"
         class="toolbar-button theme-toggle"
         @click="toggle"
@@ -226,6 +233,16 @@
     background: var(--fg);
     transition: background-color 0.5s ease-in-out;
     height: calc(var(--toolbar-h) - 1.5rem);
+
+    &-logo-wrapper {
+      display: flex;
+      place-items: center;
+      height: 100%;
+      width: 50px;
+      position: absolute;
+      top: 0;
+      left: 1rem;
+    }
 
     &-title {
       margin: 0;

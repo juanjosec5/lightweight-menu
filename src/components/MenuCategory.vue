@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { ref, computed, onMounted, watch } from "vue";
   import MenuItem from "./MenuItem.vue";
-  import { Leaf, Flame } from "lucide-vue-next";
+  import { Leaf, Flame, Fish, Shrimp } from "lucide-vue-next";
   import type { Category, Label } from "@/types/menu";
 
   const props = withDefaults(
@@ -19,6 +19,8 @@
   const LABELS_MAP = {
     spicy: { icon: Flame, text: "picante", class: "spicy" },
     vegetarian: { icon: Leaf, text: "vegetariano", class: "vegetarian" },
+    fish: { icon: Fish, text: "pescado", class: "fish" },
+    shrimp: { icon: Shrimp, text: "shrimp", class: "shrimp" },
   };
 
   const expanded = ref(false);
@@ -240,6 +242,14 @@
 
   .vegetarian {
     color: green;
+  }
+
+  .fish {
+    color: lightseagreen;
+  }
+
+  .shrimp {
+    color: lightcoral;
   }
 
   .badge {
