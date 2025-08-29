@@ -14,7 +14,6 @@
   import { Sun, Moon } from "lucide-vue-next";
 
   const menus = import.meta.glob("../public/menus/*.json");
-  console.log("menus");
 
   const prettifyName = (name: string) =>
     name

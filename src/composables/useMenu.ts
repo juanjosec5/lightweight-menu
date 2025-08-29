@@ -31,7 +31,6 @@ export function useMenu(idRef: string) {
 
       data.value = await res.json();
       document.title = `Menu ${data.value?.restaurant.name}`;
-      console.log(data.value);
     } catch (e: any) {
       error.value = e?.message ?? "Failed to load menu";
     } finally {
