@@ -222,7 +222,7 @@
       border: 2px solid var(--muted);
       padding: 0.75rem;
       border-radius: 0.5rem;
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: var(--bg);
       width: 100%;
       transition: background-color .3s ease-in-out;
