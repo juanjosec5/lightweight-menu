@@ -30,9 +30,12 @@
   const { theme, toggle } = useTheme();
 
   const selectedMenuId = ref<string | null>(null);
-  const selectedMenu = computed(
-    () => data.value?.menus.find((m) => m.id === selectedMenuId.value) || null
-  );
+  const selectedMenu = computed(() => {
+    const all = data.value?.menus ?? [];
+    return (
+      all.find((m: any) => m.id === selectedMenuId.value) ?? all[0] ?? null
+    );
+  });
 
   const activeItemId = ref<string | null>(null);
   const headerRef = ref<HTMLElement | null>(null);
@@ -68,6 +71,32 @@
     }
   );
 
+  const menuHasItem = (menu: any, id: string): boolean => {
+    if (!menu || !id) return false;
+
+    for (const cat of menu.categories ?? []) {
+      if (cat.items?.some((it: any) => it.id === id)) return true;
+
+      if (
+        cat.sections?.some((sec: any) =>
+          sec.items?.some((it: any) => it.id === id)
+        )
+      ) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  // Find which menu contains the item id
+  const findMenuIdForItem = (id: string): string | null => {
+    const all = data.value?.menus ?? [];
+    for (const m of all) {
+      if (menuHasItem(m, id)) return m.id;
+    }
+    return null;
+  };
+
   onMounted(() => {
     updateActiveFromHash();
     window.addEventListener("hashchange", updateActiveFromHash);
@@ -88,36 +117,56 @@
     });
   });
 
-  watch(data, (menu) => {
+  watch(data, async (menu) => {
     if (!menu) return;
 
-    nextTick(() => {
-      observer.observe(headerRef.value!);
-      selectedMenuId.value = data.value?.menus[0]?.id || null;
-    });
+    // default selection (first menu) if not set yet
+    if (!selectedMenuId.value) {
+      selectedMenuId.value = menu.menus?.[0]?.id ?? null;
+    }
+
+    await nextTick();
+    if (headerRef.value) observer.observe(headerRef.value);
+
+    // if there’s a hash item, switch to the menu that contains it
+    if (activeItemId.value) {
+      const hit = findMenuIdForItem(activeItemId.value);
+      if (hit && hit !== selectedMenuId.value) {
+        selectedMenuId.value = hit;
+        // wait for categories of the new menu to render
+        await nextTick();
+      }
+    }
+  });
+
+  watch(activeItemId, async (id) => {
+    if (!id || !data.value?.menus?.length) return;
+    // if current selected menu already has it, do nothing
+    if (selectedMenu.value && menuHasItem(selectedMenu.value, id)) return;
+
+    const hit = findMenuIdForItem(id);
+    if (hit && hit !== selectedMenuId.value) {
+      selectedMenuId.value = hit;
+      await nextTick();
+    }
   });
 </script>
 
 <template>
   <main class="wrap">
     <div :class="['toolbar', { 'shadow-light': !theme, 'shadow-dark': theme }]">
-      <!-- Added this span to move the toggle to the right -->
-      <!-- <div class="toolbar-logo-wrapper" v-if="data?.restaurant.logo">
-        <img
-          :src="data?.restaurant?.logo"
-          :alt="`${data.restaurant.name} logo`"
-        />
-      </div> -->
       <h1 class="toolbar-title">{{ toolbarTitle }}</h1>
       <button
         v-if="data?.restaurant.theme !== 'dark'"
         :aria-label="`toggle to ${theme ? 'light' : 'dark'} theme`"
         class="toolbar-button theme-toggle"
         @click="toggle"
+        type="button"
       >
         <component :is="theme ? Sun : Moon" :size="24" />
       </button>
     </div>
+
     <section v-if="isMissingParam" class="welcome">
       <h2>Bienvenido</h2>
       <p>Por favor, selecciona un menú para empezar:</p>
@@ -148,6 +197,7 @@
           height="120"
           loading="eager"
           fetchpriority="high"
+          decoding="async"
         />
         <h1>{{ data.restaurant.name }}</h1>
         <p v-if="data.restaurant.subtitle" class="sub">
@@ -161,15 +211,19 @@
       <p v-if="loading">Cargando…</p>
       <p v-if="error">Error: {{ error }}</p>
 
-      <template v-if="(data?.menus.length || 0) > 1">
-        <nav class="menus-nav">
+      <template v-if="(data?.menus?.length ?? 0) > 1">
+        <nav class="menus-nav" role="tablist" aria-label="Restaurant Menus">
           <p class="menus-nav__heading">Our menus:</p>
           <button
+            v-for="m in data?.menus"
+            :key="m.id"
+            type="button"
+            role="tab"
+            :aria-selected="m.id === selectedMenuId"
             :class="[
               'menus-nav__button',
               { 'menus-nav__button--active': m.id === selectedMenuId },
             ]"
-            v-for="m in data?.menus"
             @click="selectedMenuId = m.id"
           >
             {{ m.label }}
@@ -177,11 +231,11 @@
         </nav>
       </template>
 
-      <template v-if="selectedMenu">
+      <template v-if="selectedMenu && selectedMenu.categories?.length">
         <div class="category-wrapper">
           <menu-category
             v-for="cat in selectedMenu.categories"
-            :key="cat.id"
+            :key="`${selectedMenuId}-${cat.id}`"
             :category="cat"
             :currency="data!.restaurant.currency"
             :locale="data!.restaurant.locale"
@@ -225,7 +279,7 @@
       font-size: 1rem;
       color: var(--bg);
       width: 100%;
-      transition: background-color .3s ease-in-out;
+      transition: background-color 0.3s ease-in-out;
 
       &--active {
         background-color: var(--action);
