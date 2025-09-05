@@ -9,7 +9,7 @@
     "currency": "USD",
     "locale": "en-US",
     "theme": "dark",
-    "updatedAt": "2025-08-29T01:19:28.207Z"
+    "updatedAt": "2025-09-05T03:25:20.096Z"
   },
   "menus": [
     {
@@ -2528,7 +2528,7 @@
                 "Lime",
                 "Tamarindo"
               ],
-              "price": null,
+              "price": 18,
               "description": "Flavors available.",
               "labels": []
             },
@@ -2543,7 +2543,7 @@
                 "Strawberry",
                 "Passionfruit"
               ],
-              "price": null,
+              "price": 18,
               "description": "Assorted margarita flavors.",
               "labels": []
             },
@@ -2555,7 +2555,7 @@
                 "Muddled cucumber & jalapeño",
                 "Agave syrup"
               ],
-              "price": null,
+              "price": 18,
               "description": "",
               "labels": [
                 "spicy"
@@ -2570,7 +2570,7 @@
                 "Simple syrup",
                 "Tajín rim"
               ],
-              "price": null,
+              "price": 18,
               "description": "",
               "labels": [
                 "spicy"
@@ -2586,7 +2586,7 @@
                 "Desert pear",
                 "Pineapple juice"
               ],
-              "price": null,
+              "price": 18,
               "description": "",
               "labels": []
             },
@@ -2600,7 +2600,7 @@
                 "House red wine",
                 "Mineral water (top)"
               ],
-              "price": null,
+              "price": 18,
               "description": "",
               "labels": []
             },
@@ -2613,7 +2613,7 @@
                 "White wine",
                 "Mineral water (top)"
               ],
-              "price": null,
+              "price": 18,
               "description": "",
               "labels": []
             },
@@ -2628,7 +2628,7 @@
                 "Agave syrup",
                 "Chamoy & Tajín rim"
               ],
-              "price": null,
+              "price": 18,
               "description": "",
               "labels": [
                 "spicy"
@@ -2643,7 +2643,7 @@
                 "Rum",
                 "Mango purée"
               ],
-              "price": null,
+              "price": 18,
               "description": "",
               "labels": []
             },
@@ -2656,7 +2656,7 @@
                 "Rum",
                 "Strawberry & raspberry purée"
               ],
-              "price": null,
+              "price": 18,
               "description": "",
               "labels": []
             },
@@ -2671,7 +2671,7 @@
                 "Coconut purée",
                 "Shredded coconut rim"
               ],
-              "price": null,
+              "price": 18,
               "description": "",
               "labels": []
             },
@@ -2686,7 +2686,7 @@
                 "Muddled jalapeño",
                 "Chamoy & Tajín rim"
               ],
-              "price": null,
+              "price": 18,
               "description": "",
               "labels": [
                 "spicy"
@@ -2702,7 +2702,7 @@
                 "Mint",
                 "Ginger beer"
               ],
-              "price": null,
+              "price": 18,
               "description": "",
               "labels": []
             },
@@ -2716,7 +2716,7 @@
                 "Passion fruit purée",
                 "Soda water"
               ],
-              "price": null,
+              "price": 18,
               "description": "",
               "labels": []
             }

@@ -1,11 +1,12 @@
 <script setup lang="ts">
-  import { ref, watch } from "vue";
+  import { ref, computed, watch } from "vue";
   import { formatPrice } from "@/utils/formatPrice";
   import { Flame, Leaf, Fish, Link, X, Shrimp } from "lucide-vue-next";
   const props = defineProps<{
     item: {
       id: string;
       name: string;
+      ingredientsType?: string | null;
       ingredients: string[];
       description?: string;
       image?: { src: string; alt?: string };
@@ -21,6 +22,20 @@
 
   const dialogRef = ref<HTMLDialogElement | null>(null);
   const showModal = ref(false);
+
+  const ingredientsList = computed(() => {
+    if (!props.item?.ingredientsType) return [];
+    const lines = props.item?.ingredients ?? [];
+
+    return lines.map((line) => {
+      const i = line.indexOf(":");
+      if (i === -1) return { label: "", value: line.trim() };
+      return {
+        label: line.slice(0, i).trim(),
+        value: line.slice(i + 1).trim(),
+      };
+    });
+  });
 
   const LABEL_MAP: Record<string, any> = {
     spicy: { icon: Flame, class: "spicy" },
@@ -98,7 +113,15 @@
           </li>
         </ul>
       </span>
-      <p v-if="item.ingredients?.length" class="item__ingredients">
+      <ul v-if="item.ingredientsType" class="item__ingredients-list">
+        <li v-for="(item, index) in ingredientsList" :key="index">
+          <p><strong>{{ item.label }}:</strong> {{ item.value }}</p>
+        </li>
+      </ul>
+      <p
+        v-else-if="item.ingredients?.length && !item.ingredientsType"
+        class="item__ingredients"
+      >
         {{ item.ingredients.join(", ") }}
       </p>
       <p v-if="item.description" class="item__desc">{{ item.description }}</p>
@@ -217,6 +240,24 @@
     ul {
       list-style: none;
       padding-left: 0;
+    }
+  }
+
+  .item__ingredients-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    place-items: flex-start;
+    margin: 0;
+    padding: 0;
+    gap: .5rem;
+
+    li:last-child {
+      margin-bottom: .5rem;
+    }
+
+    p {
+      margin: 0;
     }
   }
 

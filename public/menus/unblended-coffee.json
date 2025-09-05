@@ -1,0 +1,678 @@
+{
+  "version": 1,
+  "restaurant": {
+    "id": "coffee-shop",
+    "name": "Coffee Shop",
+    "logo": "",
+    "subtitle": "Specialty Coffee Selection",
+    "description": "Seasonal Colombian coffees organized by variety, process, and flavor profile. Prices are set container price ($/lb). For more information on prices please contact us directly.",
+    "currency": "USD",
+    "locale": "en-US",
+    "updatedAt": "2025-09-05T03:22:24.442Z"
+  },
+  "menus": [
+    {
+      "id": "default",
+      "label": "Coffee Menu (by Variety)",
+      "categories": [
+        {
+          "id": "castillo-colombia",
+          "label": "Castillo / Castillo & Colombia",
+          "items": [
+            {
+              "id": "andres-cardona-purple-honey",
+              "name": "Andres Cardona — Purple Honey",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Andres Cardona",
+                "Variety: Castillo & Colombia",
+                "Region: Santa Barbara, Antioquia, Colombia",
+                "Process: Natural",
+                "Profile: Blueberry, Cacao Nibs, Grapes"
+              ],
+              "description": "Natural process lot with purple-fruit sweetness and cacao depth.",
+              "price": 9.8,
+              "prices": {
+                "per_lb": 9.8,
+                "pallet_per_lb": 9.1,
+                "est_tariff_per_lb": 0.85,
+                "full_lot_per_lb": 9,
+                "bag_size_kg": 35,
+                "available_units": 6
+              },
+              "labels": null
+            },
+            {
+              "id": "andres-cardona-the-beer-semi-washed",
+              "name": "Andres Cardona — The Beer (Semi-Washed)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Andres Cardona",
+                "Variety: Castillo & Colombia",
+                "Region: Santa Barbara, Antioquia, Colombia",
+                "Process: Semi-Washed",
+                "Profile: Grapes, Black Pepper, Cinnamon"
+              ],
+              "description": "Semi-washed profile with winey fruit and spice.",
+              "price": 8.8,
+              "prices": {
+                "per_lb": 8.8,
+                "pallet_per_lb": 8.5,
+                "est_tariff_per_lb": 0.75,
+                "full_lot_per_lb": 8,
+                "bag_size_kg": 35,
+                "available_units": 4
+              },
+              "labels": null
+            },
+            {
+              "id": "andres-cardona-blanca-nieves-semi-washed",
+              "name": "Andres Cardona — Blanca Nieves (Semi-Washed)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Andres Cardona",
+                "Variety: Castillo & Colombia",
+                "Region: Santa Barbara, Antioquia, Colombia",
+                "Process: Semi-Washed",
+                "Profile: Red Apple, Chocolate, Caramel"
+              ],
+              "description": "Comforting apple-chocolate sweetness.",
+              "price": 9.1,
+              "prices": {
+                "per_lb": 9.1,
+                "pallet_per_lb": 9,
+                "est_tariff_per_lb": 0.81,
+                "full_lot_per_lb": 8.5,
+                "bag_size_kg": 35,
+                "available_units": 5
+              },
+              "labels": null
+            },
+            {
+              "id": "carolina-ramirez-washed",
+              "name": "Carolina Ramirez — Washed",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Carolina Ramirez",
+                "Variety: Castillo",
+                "Region: Andes, Antioquia, Colombia",
+                "Process: Washed",
+                "Profile: Caramel, Orange, Chocolate"
+              ],
+              "description": "Clean washed clarity with citrus and caramel.",
+              "price": 5.9,
+              "prices": {
+                "per_lb": 5.9,
+                "pallet_per_lb": 5.8,
+                "est_tariff_per_lb": 0.5,
+                "full_lot_per_lb": 6,
+                "bag_size_kg": 35,
+                "available_units": 11
+              },
+              "labels": null
+            },
+            {
+              "id": "jose-vasquez-sunrise-natural",
+              "name": "Jose Daniel Vasquez — Sunrise (Natural)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Jose Daniel Vasquez",
+                "Variety: Castillo & Colombia",
+                "Region: Andes, Antioquia, Colombia",
+                "Process: Natural",
+                "Profile: Chocolate, Citrus, Strawberry"
+              ],
+              "description": "Natural sweetness with strawberry and citrus lift.",
+              "price": 9,
+              "prices": {
+                "per_lb": 9,
+                "pallet_per_lb": 8.8,
+                "est_tariff_per_lb": 0.77,
+                "full_lot_per_lb": 8.8,
+                "bag_size_kg": 35,
+                "available_units": 4
+              },
+              "labels": null
+            },
+            {
+              "id": "cabresto-palenque-natural",
+              "name": "Cabresto Palenque — Natural (Collab Lot)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Variety: Castillo & Colombia",
+                "Region: Andes, Antioquia, Colombia",
+                "Process: Natural",
+                "Profile: TBD"
+              ],
+              "description": "Collaborative natural lot.",
+              "price": 8.7,
+              "prices": {
+                "per_lb": 8.7,
+                "pallet_per_lb": 8.2,
+                "est_tariff_per_lb": 0.75,
+                "full_lot_per_lb": 8.2,
+                "bag_size_kg": 35,
+                "available_units": 9
+              },
+              "labels": null
+            },
+            {
+              "id": "sebastian-ramirez-washed-decaf",
+              "name": "Sebastian Ramirez — Washed Decaf",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Sebastian Ramirez",
+                "Variety: Castillo",
+                "Region: Armenia, Quindio, Colombia",
+                "Process: Washed (Decaf)",
+                "Profile: Sweet Caramel, Sugar Cane, Chocolate"
+              ],
+              "description": "Decaf with classic sweetness—no compromise on flavor.",
+              "price": 7.8,
+              "prices": {
+                "per_lb": 7.8,
+                "pallet_per_lb": 7.5,
+                "est_tariff_per_lb": 0.69,
+                "full_lot_per_lb": 7.1,
+                "bag_size_kg": 35,
+                "available_units": 14
+              },
+              "labels": null
+            },
+            {
+              "id": "development-lot-natural",
+              "name": "Development Lot — Natural (Collab Lot)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Variety: Castillo & Colombia",
+                "Region: Andes & Armenia, Colombia",
+                "Process: Natural",
+                "Profile: Red Fruits, Citrus, Chocolate"
+              ],
+              "description": "R&D natural showcasing bright fruit and cocoa.",
+              "price": 7.9,
+              "prices": {
+                "per_lb": 7.9,
+                "pallet_per_lb": 7.5,
+                "est_tariff_per_lb": 0.66,
+                "full_lot_per_lb": 7.5,
+                "bag_size_kg": 35,
+                "available_units": 206
+              },
+              "labels": null
+            },
+            {
+              "id": "recruitment-lot-washed",
+              "name": "Recruitment Lot — Washed (Collab Lot)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Variety: Castillo",
+                "Region: Antioquia, Huila, Cauca, Colombia",
+                "Process: Washed",
+                "Profile: Sweet Caramel, Sugar Cane, Chocolate"
+              ],
+              "description": "Balanced washed profile across multiple regions.",
+              "price": 5.7,
+              "prices": {
+                "per_lb": 5.7,
+                "pallet_per_lb": 5.6,
+                "est_tariff_per_lb": 0.51,
+                "full_lot_per_lb": 5.9,
+                "bag_size_kg": 35,
+                "available_units": 100
+              },
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "chiroso",
+          "label": "Chiroso",
+          "items": [
+            {
+              "id": "arnulfo-caro-chiroso-washed-lot-3",
+              "name": "Arnulfo Caro — Chiroso (Washed) Lot 3",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Arnulfo Caro",
+                "Variety: Chiroso",
+                "Region: Anza, Antioquia, Colombia",
+                "Process: Washed",
+                "Profile: Jasmine, Maple Syrup, Caramel, Orange, Complex"
+              ],
+              "description": "Floral complexity with syrupy sweetness (Lot 3).",
+              "price": 8.6,
+              "prices": {
+                "per_lb": 8.6,
+                "pallet_per_lb": 8,
+                "est_tariff_per_lb": 0.76,
+                "full_lot_per_lb": 8.2,
+                "bag_size_kg": 24,
+                "available_units": 10
+              },
+              "labels": null
+            },
+            {
+              "id": "arnulfo-caro-chiroso-washed-lot-4",
+              "name": "Arnulfo Caro — Chiroso (Washed) Lot 4",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Arnulfo Caro",
+                "Variety: Chiroso",
+                "Region: Anza, Antioquia, Colombia",
+                "Process: Washed",
+                "Profile: Jasmine, Maple Syrup, Caramel, Orange, Complex"
+              ],
+              "description": "Floral complexity with syrupy sweetness (Lot 4).",
+              "price": 8.6,
+              "prices": {
+                "per_lb": 8.6,
+                "pallet_per_lb": 8,
+                "est_tariff_per_lb": 0.76,
+                "full_lot_per_lb": 8.2,
+                "bag_size_kg": 24,
+                "available_units": 16
+              },
+              "labels": null
+            },
+            {
+              "id": "carmen-montoya-chiroso-washed",
+              "name": "Carmen Montoya — Chiroso (Washed)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Carmen Montoya",
+                "Variety: Chiroso",
+                "Region: Urrao, Antioquia, Colombia",
+                "Process: Washed",
+                "Profile: Dulce de Leche, Mandarin, Honey"
+              ],
+              "description": "Silky body with confectionary sweetness and citrus.",
+              "price": 8,
+              "prices": {
+                "per_lb": 8,
+                "pallet_per_lb": 8,
+                "est_tariff_per_lb": 0.76,
+                "full_lot_per_lb": 7.5,
+                "bag_size_kg": 24,
+                "available_units": 5
+              },
+              "labels": null
+            },
+            {
+              "id": "young-producer-chiroso-washed",
+              "name": "Young Producer — Chiroso (Washed, Collab)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Variety: Chiroso",
+                "Region: Urrao, Antioquia, Colombia",
+                "Process: Washed",
+                "Profile: Brown Sugar, Caramel, Chamomile Tea"
+              ],
+              "description": "Collab lot—comforting sweetness with herbal florals.",
+              "price": 7.9,
+              "prices": {
+                "per_lb": 7.9,
+                "pallet_per_lb": 7.7,
+                "est_tariff_per_lb": 0.7,
+                "full_lot_per_lb": 7.5,
+                "bag_size_kg": 35,
+                "available_units": 15
+              },
+              "labels": null
+            },
+            {
+              "id": "transformation-women-lot-chiroso",
+              "name": "Transformation — Women Lot (Washed, Collab)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Variety: Chiroso & Castillo",
+                "Region: Antioquia, Colombia",
+                "Process: Washed",
+                "Profile: Caramel, Floral, Mandarine"
+              ],
+              "description": "Women-led collab—floral and caramel notes.",
+              "price": 7.8,
+              "prices": {
+                "per_lb": 7.8,
+                "pallet_per_lb": 7.3,
+                "est_tariff_per_lb": 0.62,
+                "full_lot_per_lb": 7.5,
+                "bag_size_kg": 35,
+                "available_units": 14
+              },
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "caturron",
+          "label": "Caturrón",
+          "items": [
+            {
+              "id": "santiago-arango-ombligon-natural",
+              "name": "Santiago Arango — Ombligón (Natural)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Santiago Arango",
+                "Variety: Caturrón",
+                "Region: Andes, Antioquia, Colombia",
+                "Process: Washed",
+                "Profile: Cocoa, Molasses, Mango"
+              ],
+              "description": "Deep sweetness with tropical hints (noted as Washed in source).",
+              "price": 8.8,
+              "prices": {
+                "per_lb": 8.8,
+                "pallet_per_lb": 8.1,
+                "est_tariff_per_lb": 0.78,
+                "full_lot_per_lb": 8.2,
+                "bag_size_kg": 35,
+                "available_units": 14
+              },
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "papayo",
+          "label": "Papayo",
+          "items": [
+            {
+              "id": "yessica-parra-papayo-washed",
+              "name": "Yessica Parra — Papayo (Washed)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Yessica Parra",
+                "Variety: Papayo",
+                "Region: Pitalito, Huila, Colombia",
+                "Process: Washed",
+                "Profile: Strawberry, Caramel, Cinnamon"
+              ],
+              "description": "Bright strawberry with warm spice finish.",
+              "price": 8.9,
+              "prices": {
+                "per_lb": 8.9,
+                "pallet_per_lb": 8.5,
+                "est_tariff_per_lb": 0.78,
+                "full_lot_per_lb": 8.2,
+                "bag_size_kg": 35,
+                "available_units": 3
+              },
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "pink-bourbon",
+          "label": "Pink Bourbon",
+          "items": [
+            {
+              "id": "yessenia-romero-pink-bourbon-washed",
+              "name": "Yessenia Romero — Pink Bourbon (Washed)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Yessenia Romero",
+                "Variety: Pink Bourbon",
+                "Region: Aipe, Huila, Colombia",
+                "Process: Washed",
+                "Profile: Mandarin, Velvety, Caramel"
+              ],
+              "description": "Silky, citrus-forward washed Pink Bourbon.",
+              "price": 9,
+              "prices": {
+                "per_lb": 9,
+                "pallet_per_lb": 8.7,
+                "est_tariff_per_lb": 0.81,
+                "full_lot_per_lb": 8.5,
+                "bag_size_kg": 35,
+                "available_units": 9
+              },
+              "labels": null
+            },
+            {
+              "id": "sebastian-ramirez-pink-bourbon-bg",
+              "name": "Sebastian Ramirez — Pink Bourbon (Honey Co-Fermented)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Sebastian Ramirez",
+                "Variety: Pink Bourbon",
+                "Region: Armenia, Quindio, Colombia",
+                "Process: Honey Co-Fermented",
+                "Profile: Spice, Brown Sugar, Orange"
+              ],
+              "description": "Expressive co-ferment with spice and citrus sweetness.",
+              "price": 15.1,
+              "prices": {
+                "per_lb": 15.1,
+                "pallet_per_lb": 14.5,
+                "est_tariff_per_lb": 1.27,
+                "full_lot_per_lb": 15,
+                "bag_size_kg": 24,
+                "available_units": 2
+              },
+              "labels": null
+            },
+            {
+              "id": "recruitment-holiday-blend",
+              "name": "Recruitment Holiday Blend (Collab)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Varieties: Castillo & Pink Bourbon",
+                "Region: Andes & Armenia, Colombia",
+                "Process: Washed & Co-Ferment",
+                "Profile: Chocolate, Cinnamon, Spice"
+              ],
+              "description": "Festive blend with warming spice and chocolate.",
+              "price": 8,
+              "prices": {
+                "per_lb": 8,
+                "pallet_per_lb": 7.5,
+                "est_tariff_per_lb": 0.66,
+                "full_lot_per_lb": 8,
+                "bag_size_kg": 35,
+                "available_units": 35
+              },
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "caturra",
+          "label": "Caturra",
+          "items": [
+            {
+              "id": "sebastian-ramirez-blackberry-thermal-shock",
+              "name": "Sebastian Ramirez — BlackBerry (Thermal Shock, Honey Co-Fermented)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Sebastian Ramirez",
+                "Variety: Caturra",
+                "Region: Armenia, Quindio, Colombia",
+                "Process: Honey Co-Fermented",
+                "Profile: Cacao Nibs, Berries, Brown Sugar"
+              ],
+              "description": "Vivid berry and cacao; thermal shock co-ferment.",
+              "price": 15.1,
+              "prices": {
+                "per_lb": 15.1,
+                "pallet_per_lb": 14.5,
+                "est_tariff_per_lb": 1.27,
+                "full_lot_per_lb": 12.7,
+                "bag_size_kg": 24,
+                "available_units": 3
+              },
+              "labels": null
+            },
+            {
+              "id": "sebastian-ramirez-cinnamon",
+              "name": "Sebastian Ramirez — Cinnamon (Honey Co-Fermented)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Sebastian Ramirez",
+                "Variety: Caturra",
+                "Region: Armenia, Quindio, Colombia",
+                "Process: Honey Co-Fermented",
+                "Profile: Ginger, Cinnamon, Caramel"
+              ],
+              "description": "Spiced aromatics with honeyed sweetness.",
+              "price": 15.1,
+              "prices": {
+                "per_lb": 15.1,
+                "pallet_per_lb": 14.5,
+                "est_tariff_per_lb": 1.27,
+                "full_lot_per_lb": 15,
+                "bag_size_kg": 24,
+                "available_units": 40
+              },
+              "labels": null
+            },
+            {
+              "id": "sebastian-ramirez-watermelon",
+              "name": "Sebastian Ramirez — Watermelon (Honey Co-Fermented)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Sebastian Ramirez",
+                "Variety: Caturra",
+                "Region: Armenia, Quindio, Colombia",
+                "Process: Honey Co-Fermented",
+                "Profile: Sweet, Watermelon Candy, Mint"
+              ],
+              "description": "Playful candy-like fruit with minty lift.",
+              "price": 15.1,
+              "prices": {
+                "per_lb": 15.1,
+                "pallet_per_lb": 14.5,
+                "est_tariff_per_lb": 1.27,
+                "full_lot_per_lb": 12.7,
+                "bag_size_kg": 24,
+                "available_units": 5
+              },
+              "labels": null
+            },
+            {
+              "id": "sebastian-ramirez-ipa-caturra",
+              "name": "Sebastian Ramirez — IPA Caturra (Honey + Beer Hops)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Sebastian Ramirez",
+                "Variety: Caturra",
+                "Region: Armenia, Quindio, Colombia",
+                "Process: Honey with Beer Hops",
+                "Profile: Sweet, Watermelon Candy, Mint"
+              ],
+              "description": "Hop-kissed honey process with candy-like sweetness.",
+              "price": 15.1,
+              "prices": {
+                "per_lb": 15.1,
+                "pallet_per_lb": 14.5,
+                "est_tariff_per_lb": 1.27,
+                "full_lot_per_lb": 12.7,
+                "bag_size_kg": 24,
+                "available_units": 7
+              },
+              "labels": null
+            },
+            {
+              "id": "andres-martinez-caturra-floral",
+              "name": "Andres Martinez — Caturra Floral (Washed)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Andres Martinez",
+                "Variety: Caturra",
+                "Region: Cajibio, Cauca, Colombia",
+                "Process: Washed",
+                "Profile: Lemongrass, Orange, Vanilla"
+              ],
+              "description": "Crisp florals with citrus and vanilla sweetness.",
+              "price": 8,
+              "prices": {
+                "per_lb": 8,
+                "pallet_per_lb": 7.2,
+                "est_tariff_per_lb": 0.67,
+                "full_lot_per_lb": 7.5,
+                "bag_size_kg": 35,
+                "available_units": 21
+              },
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "geisha",
+          "label": "Geisha",
+          "items": [
+            {
+              "id": "sebastian-ramirez-geisha-white-honey",
+              "name": "Sebastian Ramirez — Geisha (White Honey)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Sebastian Ramirez",
+                "Variety: Geisha",
+                "Region: Armenia, Quindio, Colombia",
+                "Process: White Honey",
+                "Profile: Lavender, Honey, Orange"
+              ],
+              "description": "Elegant florals and citrus; white honey process.",
+              "price": 21,
+              "prices": {
+                "per_lb": 21,
+                "pallet_per_lb": 19.5,
+                "est_tariff_per_lb": 1.86,
+                "full_lot_per_lb": 21,
+                "bag_size_kg": 24,
+                "available_units": 9
+              },
+              "labels": null
+            },
+            {
+              "id": "andres-martinez-geisha-washed",
+              "name": "Andres Martinez — Geisha (Washed)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Andres Martinez",
+                "Variety: Geisha",
+                "Region: Cajibio, Cauca, Colombia",
+                "Process: Washed",
+                "Profile: Lemongrass, Caramel, Black Pepper"
+              ],
+              "description": "Washed clarity with a subtle peppery edge.",
+              "price": 14,
+              "prices": {
+                "per_lb": 14,
+                "pallet_per_lb": 13,
+                "est_tariff_per_lb": 1.17,
+                "full_lot_per_lb": 12,
+                "bag_size_kg": 24,
+                "available_units": 7
+              },
+              "labels": null
+            },
+            {
+              "id": "andres-martinez-geisha-semi-washed",
+              "name": "Andres Martinez — Geisha (Semi-Washed)",
+              "ingredientsType": "list",
+              "ingredients": [
+                "Producer: Andres Martinez",
+                "Variety: Geisha",
+                "Region: Cajibio, Cauca, Colombia",
+                "Process: Washed",
+                "Profile: Honey, Caramel, Marshmallow"
+              ],
+              "description": "Confectionary sweetness; listed as semi-washed in name.",
+              "price": 11,
+              "prices": {
+                "per_lb": 11,
+                "pallet_per_lb": 10.5,
+                "est_tariff_per_lb": 0.98,
+                "full_lot_per_lb": 12,
+                "bag_size_kg": 24,
+                "available_units": 11
+              },
+              "labels": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
