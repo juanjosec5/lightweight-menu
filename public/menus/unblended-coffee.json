@@ -1,14 +1,14 @@
 {
   "version": 1,
   "restaurant": {
-    "id": "coffee-shop",
-    "name": "Coffee Shop",
+    "id": "unblended-coffee",
+    "name": "Unblended Coffee",
     "logo": "",
     "subtitle": "Specialty Coffee Selection",
     "description": "Seasonal Colombian coffees organized by variety, process, and flavor profile. Prices are set container price ($/lb). For more information on prices please contact us directly.",
     "currency": "USD",
     "locale": "en-US",
-    "updatedAt": "2025-09-05T03:22:24.442Z"
+    "updatedAt": "2025-09-05T03:28:37.882Z"
   },
   "menus": [
     {
