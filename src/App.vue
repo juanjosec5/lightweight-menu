@@ -170,7 +170,7 @@
     <section v-if="isMissingParam" class="welcome">
       <h2>Bienvenido</h2>
       <p>Por favor, selecciona un menú para empezar:</p>
-      <ul>
+      <ul class="main-menus">
         <li v-for="m in KNOWN_MENUS" :key="m">
           <a :href="`?menu=${m}`">{{ prettifyName(m) }}</a>
         </li>
@@ -258,6 +258,13 @@
 </template>
 
 <style scoped lang="scss">
+  .main-menus {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    place-items: flex-start;
+    gap: 1rem;
+  }
   .menus-nav {
     display: flex;
     box-sizing: border-box;
