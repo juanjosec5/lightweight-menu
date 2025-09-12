@@ -15,7 +15,7 @@
     },
     "currency": "COP",
     "locale": "es-CO",
-    "updatedAt": "2025-09-12T19:00:05.850Z"
+    "updatedAt": "2025-09-12T19:06:11.158Z"
   },
   "menus": [
     {
@@ -287,17 +287,59 @@
               "label": "Clásicos",
               "items": [
                 {
-                  "id": "clasico-1",
-                  "name": "Clásico #1",
-                  "description": "Ginebra, licor de coco, zumo de limón y clara de huevo.",
+                  "id": "mojito",
+                  "name": "Mojito",
+                  "description": "",
+                  "price": 33900,
+                  "labels": null
+                },
+                {
+                  "id": "moscow-mule",
+                  "name": "Moscow Mule",
+                  "description": "",
+                  "price": 39900,
+                  "labels": null
+                },
+                {
+                  "id": "tequila-sunrise",
+                  "name": "Tequila Sunrise",
+                  "description": "",
+                  "price": 34900,
+                  "labels": null
+                },
+                {
+                  "id": "gin-tonic",
+                  "name": "Gin Tonic",
+                  "description": "",
+                  "price": 37900,
+                  "labels": null
+                },
+                {
+                  "id": "margarita-clasica",
+                  "name": "Margarita Clásica",
+                  "description": "",
+                  "price": 36900,
+                  "labels": null
+                },
+                {
+                  "id": "margarita-albahaca",
+                  "name": "Margarita Albahaca",
+                  "description": "",
                   "price": 38900,
                   "labels": null
                 },
                 {
-                  "id": "clasico-2",
-                  "name": "Clásico #2",
-                  "description": "Whisky Jack Daniels, zumo de limón, monin de manzana verde.",
+                  "id": "dry-martini",
+                  "name": "Dry Martini",
+                  "description": "",
                   "price": 38900,
+                  "labels": null
+                },
+                {
+                  "id": "lychee-martini",
+                  "name": "Lychee Martini",
+                  "description": "",
+                  "price": 40900,
                   "labels": null
                 }
               ]
@@ -314,10 +356,24 @@
                   "labels": null
                 },
                 {
-                  "id": "autor-2",
-                  "name": "Autor #2",
+                  "id": "hoyo-en-uno",
+                  "name": "Hoyo en uno",
                   "description": "Mezcal, sirope sandía y melón, triple sec, clara de huevo y zumo de limón.",
                   "price": 40900,
+                  "labels": null
+                },
+                {
+                  "id": "coctel-bajo-par",
+                  "name": "Bajo Par",
+                  "description": "Ginebra, licor de coco, zumo de limón y clara de huevo.",
+                  "price": 38900,
+                  "labels": null
+                },
+                {
+                  "id": "backspin",
+                  "name": "Backspin",
+                  "description": "Whisky Jack Daniels, zumo de limón, monin de manzana verde.",
+                  "price": 38900,
                   "labels": null
                 }
               ]
