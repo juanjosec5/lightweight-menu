@@ -2,7 +2,7 @@
   "version": 1,
   "restaurant": {
     "id": "bajo-par-minigolf",
-    "name": "Bajo Par Minigolf",
+    "name": "Menu Bajo Par",
     "logo": "https://storage.googleapis.com/lightweight-menu/bajo-par/logo/bajo-par.png",
     "subtitle": "Food Bar",
     "description": "Minigolf food bar with snacks, burgers, drinks and cocktails.",
@@ -15,7 +15,7 @@
     },
     "currency": "COP",
     "locale": "es-CO",
-    "updatedAt": "2025-09-12T18:59:40.368Z"
+    "updatedAt": "2025-09-12T19:00:05.850Z"
   },
   "menus": [
     {
