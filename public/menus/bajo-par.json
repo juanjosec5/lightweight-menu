@@ -1,0 +1,450 @@
+{
+  "version": 1,
+  "restaurant": {
+    "id": "bajo-par-minigolf",
+    "name": "Bajo Par Minigolf",
+    "logo": "https://storage.googleapis.com/lightweight-menu/bajo-par/logo/bajo-par.png",
+    "subtitle": "Food Bar",
+    "description": "Minigolf food bar with snacks, burgers, drinks and cocktails.",
+    "theme": "dark",
+    "colors": {
+      "fg": "#121212",
+      "bg": "#FAF9F6",
+      "action": "#00A85F",
+      "muted": "#00A85F"
+    },
+    "currency": "COP",
+    "locale": "es-CO",
+    "updatedAt": "2025-09-12T18:59:40.368Z"
+  },
+  "menus": [
+    {
+      "id": "default",
+      "label": "",
+      "categories": [
+        {
+          "id": "comida",
+          "label": "Comida",
+          "items": [
+            {
+              "id": "papas-bomba",
+              "name": "Papas bomba",
+              "description": "200 g de papa, rayados con salsa de queso cheddar, alioli y chips de tocineta.",
+              "price": 25900,
+              "labels": null
+            },
+            {
+              "id": "finger-cheese",
+              "name": "Finger Cheese",
+              "description": "Dedos apanados rellenos de queso mozzarella, acompañados de salsa yumyum de la casa.",
+              "price": 23900,
+              "labels": null
+            },
+            {
+              "id": "nachos",
+              "name": "Nachos",
+              "description": "Base de totopos mixtamalizado, salsa de queso cheddar, crema agria, guacamole, pico de gallo y maíz tierno. Adiciones (c/u 9000): Pulled pork · Birria.",
+              "price": 35900,
+              "labels": null
+            },
+            {
+              "id": "chunk-pollo",
+              "name": "Chunk de pollo",
+              "description": "Trozos de pollo apanado, acompañados de papas fritas y salsa de la casa.",
+              "price": 34900,
+              "labels": null
+            },
+            {
+              "id": "pizza-birria",
+              "name": "Pizza birria",
+              "description": "6 porciones con 200 g de birria en total, queso mozzarella fundido y caldo de birria.",
+              "price": 48900,
+              "labels": null
+            },
+            {
+              "id": "alitas-10",
+              "name": "Alitas x10",
+              "description": "10 piezas de alas de pollo apanadas, bañadas en salsa a elección (BBQ, Teriyaki de maracuyá, Mango habanero), con bastones de apio y zanahoria y sour cream.",
+              "price": 37900,
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "hamburguesas",
+          "label": "Hamburguesas + papas",
+          "items": [
+            {
+              "id": "bajo-par",
+              "name": "Bajo Par",
+              "description": "2 carnes blend de 130 g, lechuga, tomate, salsa de la casa, salsa de queso cheddar con trocitos de tocineta, cebolla crispy y pan brioche.",
+              "price": 45900,
+              "labels": null
+            },
+            {
+              "id": "chicken-drill",
+              "name": "Chicken drill",
+              "description": "Filete de pollo a la parrilla (150 g), queso mozzarella, cebolla crispy, lechuga, tomate, salsa de la casa y pan brioche.",
+              "price": 32900,
+              "labels": null
+            },
+            {
+              "id": "clasica",
+              "name": "Clásica",
+              "description": "130 g blend de carne, lechuga, tomate, salsa de la casa y pan brioche.",
+              "price": 34900,
+              "labels": null
+            },
+            {
+              "id": "bacon-cheese",
+              "name": "Bacon cheese",
+              "description": "130 g blend de carne, salsa de queso cheddar con trocitos de tocineta, lechuga, tomate, salsa de la casa y pan brioche.",
+              "price": 39900,
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "bebidas",
+          "label": "Bebidas",
+          "sections": [
+            {
+              "id": "sodas",
+              "label": "Sodas",
+              "items": [
+                {
+                  "id": "soda-jamaica-limonaria",
+                  "name": "Soda Flor de Jamaica y Limonaria",
+                  "price": 12000,
+                  "labels": null
+                },
+                {
+                  "id": "soda-maracuya-romero",
+                  "name": "Soda Maracuyá y Romero",
+                  "price": 12000,
+                  "labels": null
+                },
+                {
+                  "id": "soda-sandia-melon",
+                  "name": "Soda Sandía y Melón",
+                  "price": 12000,
+                  "labels": null
+                }
+              ]
+            },
+            {
+              "id": "limonadas",
+              "label": "Limonadas",
+              "items": [
+                {
+                  "id": "limonada-natural",
+                  "name": "Limonada natural",
+                  "price": 10900,
+                  "labels": null
+                },
+                {
+                  "id": "limonada-mangobiche",
+                  "name": "Limonada mangobiche",
+                  "price": 13900,
+                  "labels": null
+                },
+                {
+                  "id": "limonada-cerezada",
+                  "name": "Limonada cerezada",
+                  "price": 12900,
+                  "labels": null
+                },
+                {
+                  "id": "limonada-hierbabuena",
+                  "name": "Limonada hierbabuena",
+                  "price": 11900,
+                  "labels": null
+                }
+              ]
+            },
+            {
+              "id": "gaseosas-aguas",
+              "label": "Gaseosas y Aguas",
+              "items": [
+                {
+                  "id": "agua-manantial",
+                  "name": "Agua Manantial sin gas 300 ml",
+                  "price": 8000,
+                  "labels": null
+                },
+                {
+                  "id": "agua-manantial-gas",
+                  "name": "Agua Manantial con gas 300 ml",
+                  "price": 8000,
+                  "labels": null
+                },
+                {
+                  "id": "coca-cola",
+                  "name": "Coca Cola Original 300 ml",
+                  "price": 8000,
+                  "labels": null
+                },
+                {
+                  "id": "coca-cola-zero",
+                  "name": "Coca Cola Zero 300 ml",
+                  "price": 8000,
+                  "labels": null
+                },
+                {
+                  "id": "soda-michelada",
+                  "name": "Soda michelada",
+                  "price": 9000,
+                  "labels": null
+                },
+                {
+                  "id": "ginger",
+                  "name": "Ginger 300 ml",
+                  "price": 9000,
+                  "labels": null
+                }
+              ]
+            },
+            {
+              "id": "cerveza",
+              "label": "Cerveza",
+              "items": [
+                {
+                  "id": "club-colombia",
+                  "name": "Club Colombia Dorada",
+                  "price": 13900,
+                  "labels": null
+                },
+                {
+                  "id": "stella-artois",
+                  "name": "Stella Artois",
+                  "price": 15900,
+                  "labels": null
+                }
+              ]
+            },
+            {
+              "id": "cafe",
+              "label": "Café Amor Perfecto",
+              "items": [
+                {
+                  "id": "americano",
+                  "name": "Americano",
+                  "price": 6900,
+                  "labels": null
+                },
+                {
+                  "id": "latte",
+                  "name": "Latte",
+                  "price": 8900,
+                  "labels": null
+                },
+                {
+                  "id": "capuccino",
+                  "name": "Capuccino",
+                  "price": 8400,
+                  "labels": null
+                },
+                {
+                  "id": "espresso",
+                  "name": "Espresso",
+                  "price": 7400,
+                  "labels": null
+                },
+                {
+                  "id": "espresso-doble",
+                  "name": "Espresso doble",
+                  "price": 8900,
+                  "labels": null
+                }
+              ]
+            },
+            {
+              "id": "aromaticas",
+              "label": "Aromáticas",
+              "items": [
+                {
+                  "id": "aromatica-frutos-rojos",
+                  "name": "Aromática frutos rojos",
+                  "price": 6900,
+                  "labels": null
+                },
+                {
+                  "id": "aromatica-maracuya-limonaria",
+                  "name": "Aromática maracuyá y limonaria",
+                  "price": 6900,
+                  "labels": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cocteles",
+          "label": "Cócteles",
+          "sections": [
+            {
+              "id": "clasicos",
+              "label": "Clásicos",
+              "items": [
+                {
+                  "id": "clasico-1",
+                  "name": "Clásico #1",
+                  "description": "Ginebra, licor de coco, zumo de limón y clara de huevo.",
+                  "price": 38900,
+                  "labels": null
+                },
+                {
+                  "id": "clasico-2",
+                  "name": "Clásico #2",
+                  "description": "Whisky Jack Daniels, zumo de limón, monin de manzana verde.",
+                  "price": 38900,
+                  "labels": null
+                }
+              ]
+            },
+            {
+              "id": "autor",
+              "label": "De Autor",
+              "items": [
+                {
+                  "id": "sin-miedo-al-exito",
+                  "name": "Sin miedo al éxito",
+                  "description": "Sirope maracuyá-habanero, miel, zumo de limón, mezcal y tequila.",
+                  "price": 40900,
+                  "labels": null
+                },
+                {
+                  "id": "autor-2",
+                  "name": "Autor #2",
+                  "description": "Mezcal, sirope sandía y melón, triple sec, clara de huevo y zumo de limón.",
+                  "price": 40900,
+                  "labels": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "licores",
+          "label": "Licores",
+          "sections": [
+            {
+              "id": "aguardiente",
+              "label": "Aguardiente",
+              "items": [
+                {
+                  "id": "antioqueno-media",
+                  "name": "Media Botella Antioqueño",
+                  "price": 99900,
+                  "labels": null
+                },
+                {
+                  "id": "antioqueno-botella",
+                  "name": "Botella Antioqueño",
+                  "price": 189900,
+                  "labels": null
+                },
+                {
+                  "id": "amarillo",
+                  "name": "Amarillo",
+                  "price": 194900,
+                  "labels": null
+                },
+                {
+                  "id": "mil-demonios",
+                  "name": "Mil Demonios",
+                  "price": 299900,
+                  "labels": null
+                }
+              ]
+            },
+            {
+              "id": "ron",
+              "label": "Ron",
+              "items": [
+                {
+                  "id": "ron-medellin",
+                  "name": "Ron Medellín Dorado",
+                  "price": 184900,
+                  "labels": null
+                },
+                {
+                  "id": "ron-caldas",
+                  "name": "Ron Caldas 8 años",
+                  "price": 299900,
+                  "labels": null
+                }
+              ]
+            },
+            {
+              "id": "tequila",
+              "label": "Tequila",
+              "items": [
+                {
+                  "id": "olmeca-blanco",
+                  "name": "Olmeca Blanco",
+                  "price": 269900,
+                  "labels": null
+                },
+                {
+                  "id": "olmeca-reposado",
+                  "name": "Olmeca Reposado",
+                  "price": 279900,
+                  "labels": null
+                },
+                {
+                  "id": "jimador-reposado",
+                  "name": "Jimador Reposado",
+                  "price": 339900,
+                  "labels": null
+                },
+                {
+                  "id": "don-julio-reposado",
+                  "name": "Don Julio Reposado",
+                  "price": 459900,
+                  "labels": null
+                }
+              ]
+            },
+            {
+              "id": "whisky",
+              "label": "Whisky",
+              "items": [
+                {
+                  "id": "buchanans-media",
+                  "name": "Media Botella Buchanan’s 12 años",
+                  "price": 214900,
+                  "labels": null
+                },
+                {
+                  "id": "buchanans-12",
+                  "name": "Botella Buchanan’s 12 años",
+                  "price": 369900,
+                  "labels": null
+                },
+                {
+                  "id": "buchanans-master",
+                  "name": "Buchanan’s Master",
+                  "price": 419900,
+                  "labels": null
+                }
+              ]
+            },
+            {
+              "id": "ginebra",
+              "label": "Ginebra",
+              "items": [
+                {
+                  "id": "tanqueray",
+                  "name": "Tanqueray",
+                  "price": 379900,
+                  "labels": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

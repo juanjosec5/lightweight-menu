@@ -8,7 +8,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --toolbar-h: 4rem;
-  --muted: color-mix(in srgb, var(--fg) 50%, var(--bg));
 }
 
 * {

@@ -30,3 +30,7 @@ export interface RestaurantMenu {
     categories: Category[];
   }[];
 }
+
+export type BrandColors = Partial<{
+  fg: string; bg: string; action: string; muted: string;
+}>;

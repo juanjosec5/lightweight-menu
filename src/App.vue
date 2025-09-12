@@ -12,6 +12,7 @@
   import { useTheme } from "@/composables/useTheme";
   import MenuCategory from "@/components/MenuCategory.vue";
   import { Sun, Moon } from "lucide-vue-next";
+  import { type BrandColors } from "./types/menu";
 
   const menus = import.meta.glob("../public/menus/*.json");
 
@@ -97,6 +98,40 @@
     return null;
   };
 
+  function applyBranding(opts?: {
+    theme?: "dark" | "light";
+    colors?: BrandColors;
+  }) {
+    const root = document.documentElement;
+
+    // 1) Theme lock (disables your toggle in UI)
+    if (opts?.theme) {
+      root.setAttribute("data-theme", opts.theme);
+    } else {
+      // if you want to re-enable system behavior when no theme is set:
+      root.removeAttribute("data-theme");
+    }
+
+    // 2) Color overrides (only set what’s provided)
+    const map: Record<string, string | undefined> = {
+      "--fg": opts?.colors?.fg,
+      "--bg": opts?.colors?.bg,
+      "--action": opts?.colors?.action,
+      "--muted": opts?.colors?.muted
+    };
+    Object.entries(map).forEach(([k, v]) => {
+      if (v) root.style.setProperty(k, v);
+      else root.style.removeProperty(k);
+    });
+
+    // 3) Optional: set browser UI theme color (nice touch on mobile)
+    const meta = document.querySelector(
+      'meta[name="theme-color"]'
+    ) as HTMLMetaElement | null;
+    if (meta)
+      meta.content = getComputedStyle(root).getPropertyValue("--fg").trim();
+  }
+
   onMounted(() => {
     updateActiveFromHash();
     window.addEventListener("hashchange", updateActiveFromHash);
@@ -115,6 +150,20 @@
       window.removeEventListener("pageshow", onPageShow);
       observer?.disconnect();
     });
+  });
+
+  // When your menu `data` changes, apply branding
+  watch(data, async (menu) => {
+    await nextTick();
+    if (!menu?.restaurant) {
+      applyBranding(undefined); // reset to defaults
+      return;
+    }
+    const r = menu.restaurant as {
+      theme?: "dark" | "light";
+      colors?: BrandColors;
+    };
+    applyBranding({ theme: r.theme, colors: r.colors });
   });
 
   watch(data, async (menu) => {
