@@ -1,101 +1,101 @@
 <script setup lang="ts">
-  import { ref, computed, watch } from "vue";
-  import { formatPrice } from "@/utils/formatPrice";
-  import { Flame, Leaf, Fish, Link, X, Shrimp } from "lucide-vue-next";
-  const props = defineProps<{
-    item: {
-      id: string;
-      name: string;
-      ingredientsType?: string | null;
-      ingredients: string[];
-      description?: string;
-      image?: { src: string; alt?: string };
-      price: number;
-      labels?: string[];
-      imageThumbnail?: { src: string; alt?: string };
-    };
-    currency: string;
-    locale: string;
-    menuId?: string;
-    canLoadThumbs?: boolean;
-  }>();
+import { ref, computed, watch } from "vue";
+import { formatPrice } from "@/utils/formatPrice";
+import { Flame, Leaf, Fish, Link, X, Shrimp } from "lucide-vue-next";
 
-  const dialogRef = ref<HTMLDialogElement | null>(null);
-  const showModal = ref(false);
+type PriceMap = Record<string, number | string>;
 
-  const ingredientsList = computed(() => {
-    if (!props.item?.ingredientsType) return [];
-    const lines = props.item?.ingredients ?? [];
+const props = defineProps<{
+  item: {
+    id: string;
+    name: string;
+    ingredientsType?: string | null;
+    ingredients: string[];
+    description?: string;
+    image?: { src: string; alt?: string };
+    // ⬇️ allow number OR map of label -> number|string
+    price: number | PriceMap;
+    labels?: string[];
+    imageThumbnail?: { src: string; alt?: string };
+  };
+  currency: string;
+  locale: string;
+  menuId?: string;
+  canLoadThumbs?: boolean;
+}>();
 
-    return lines.map((line) => {
-      const i = line.indexOf(":");
-      if (i === -1) return { label: "", value: line.trim() };
-      return {
-        label: line.slice(0, i).trim(),
-        value: line.slice(i + 1).trim(),
-      };
-    });
+const dialogRef = ref<HTMLDialogElement | null>(null);
+const showModal = ref(false);
+
+const ingredientsList = computed(() => {
+  if (!props.item?.ingredientsType) return [];
+  const lines = props.item?.ingredients ?? [];
+  return lines.map((line) => {
+    const i = line.indexOf(":");
+    if (i === -1) return { label: "", value: line.trim() };
+    return { label: line.slice(0, i).trim(), value: line.slice(i + 1).trim() };
   });
+});
 
-  const LABEL_MAP: Record<string, any> = {
-    spicy: { icon: Flame, class: "spicy" },
-    vegetarian: { icon: Leaf, class: "vegetarian" },
-    fish: { icon: Fish, class: "fish" },
-    shrimp: { icon: Shrimp, class: "shrimp" },
-  };
+const LABEL_MAP: Record<string, any> = {
+  spicy: { icon: Flame, class: "spicy" },
+  vegetarian: { icon: Leaf, class: "vegetarian" },
+  fish: { icon: Fish, class: "fish" },
+  shrimp: { icon: Shrimp, class: "shrimp" },
+};
 
-  const buildShareUrl = (itemId: string) => {
-    if (!props.menuId) return window.location.href;
+// --- price helpers ---
+const isPriceObject = computed(
+  () => typeof props.item.price === "object" && props.item.price !== null
+);
 
-    const url = new URL(window.location.href);
-    url.searchParams.set("menu", props.menuId);
-    url.hash = itemId;
-    return url.toString();
-  };
+const priceLines = computed(() => {
+  if (!isPriceObject.value) return [];
+  const p = props.item.price as PriceMap;
+  return Object.entries(p).map(([label, val]) => ({
+    label,
+    value:
+      typeof val === "number"
+        ? formatPrice(val, props.currency, props.locale)
+        : String(val),
+  }));
+});
 
-  const onShareClick = async (e: MouseEvent) => {
-    e.stopPropagation(); // don’t trigger parent click handlers
-    const link = buildShareUrl(props.item.id);
+const buildShareUrl = (itemId: string) => {
+  if (!props.menuId) return window.location.href;
+  const url = new URL(window.location.href);
+  url.searchParams.set("menu", props.menuId);
+  url.hash = itemId;
+  return url.toString();
+};
 
-    history.replaceState({}, "", `#${props.item.id}`);
-
-    try {
-      if (navigator.share) {
-        await navigator.share({ title: props.item.name, url: link });
-        return;
-      }
-    } catch {
-      // fall through to clipboard if user cancels share or it fails
+const onShareClick = async (e: MouseEvent) => {
+  e.stopPropagation();
+  const link = buildShareUrl(props.item.id);
+  history.replaceState({}, "", `#${props.item.id}`);
+  try {
+    if (navigator.share) {
+      await navigator.share({ title: props.item.name, url: link });
+      return;
     }
+  } catch {}
+  try {
+    await navigator.clipboard.writeText(link);
+  } catch {
+    prompt("Copia el enlace:", link);
+  }
+};
 
-    try {
-      await navigator.clipboard.writeText(link);
-      // TODO: show a toast if you have one
-    } catch {
-      // Last-resort fallback
-      prompt("Copia el enlace:", link);
-    }
-  };
+const toggleModal = () => (showModal.value = !showModal.value);
 
-  const toggleModal = () => {
-    showModal.value = !showModal.value;
-  };
+const handleKeydown = (e: KeyboardEvent) => {
+  if (e.key === "Escape" && showModal.value) toggleModal();
+};
 
-  const handleKeydown = (e: KeyboardEvent) => {
-    if (e.key === "Escape" && showModal.value) {
-      toggleModal();
-    }
-  };
-
-  watch(showModal, (val) => {
-    if (!dialogRef.value) return;
-
-    if (val) {
-      document.documentElement.classList.add("no-scroll");
-    } else {
-      document.documentElement.classList.remove("no-scroll");
-    }
-  });
+watch(showModal, (val) => {
+  if (!dialogRef.value) return;
+  document.documentElement.classList.toggle("no-scroll", val);
+});
 </script>
 
 <template>
@@ -104,18 +104,15 @@
       <span class="item__header">
         <h4 class="item__title">{{ item.name }}</h4>
         <ul v-if="item.labels?.length" class="mi-labels">
-          <li v-for="b in item.labels" :key="b" :class="`badge`">
-            <component
-              :is="LABEL_MAP[b].icon"
-              :class="LABEL_MAP[b].class"
-              size="20"
-            ></component>
+          <li v-for="b in item.labels" :key="b" class="badge">
+            <component :is="LABEL_MAP[b].icon" :class="LABEL_MAP[b].class" size="20" />
           </li>
         </ul>
       </span>
+
       <ul v-if="item.ingredientsType" class="item__ingredients-list">
-        <li v-for="(item, index) in ingredientsList" :key="index">
-          <p><strong>{{ item.label }}:</strong> {{ item.value }}</p>
+        <li v-for="(it, index) in ingredientsList" :key="index">
+          <p><strong>{{ it.label }}:</strong> {{ it.value }}</p>
         </li>
       </ul>
       <p
@@ -125,17 +122,28 @@
         {{ item.ingredients.join(", ") }}
       </p>
       <p v-if="item.description" class="item__desc">{{ item.description }}</p>
-      <strong class="item__price">{{
-        formatPrice(item.price, currency, locale)
-      }}</strong>
+
+      <!-- single price -->
+      <strong
+        v-if="!isPriceObject"
+        class="item__price"
+      >
+        {{ formatPrice(item.price as number, currency, locale) }}
+      </strong>
+
+      <!-- multiple options -->
+      <div v-else class="item__price-multi">
+        <p v-for="line in priceLines" :key="line.label" class="item__price-row">
+          <span class="opt">{{ line.label }}</span>
+          <span class="val">{{ line.value }}</span>
+        </p>
+      </div>
     </div>
-    <button
-      @click.prevent="onShareClick"
-      class="share-button"
-      :aria-label="`Share link to ${item.name}`"
-    >
-      <component :is="Link" :size="20"></component>
+
+    <button @click.prevent="onShareClick" class="share-button" :aria-label="`Share link to ${item.name}`">
+      <component :is="Link" :size="20" />
     </button>
+
     <button
       v-if="item.imageThumbnail?.src"
       type="button"
@@ -150,32 +158,15 @@
         loading="lazy"
       />
     </button>
-    <dialog
-      ref="dialogRef"
-      class="img-dialog"
-      :open="showModal"
-      @keydown="handleKeydown"
-    >
+
+    <dialog ref="dialogRef" class="img-dialog" :open="showModal" @keydown="handleKeydown">
       <form method="dialog">
-        <button
-          class="img-dialog__close"
-          aria-label="Cerrar"
-          @click="showModal = false"
-        >
-          <component
-            class="img-dialog__close-button"
-            :is="X"
-            :size="28"
-          ></component>
+        <button class="img-dialog__close" aria-label="Cerrar" @click="showModal = false">
+          <component class="img-dialog__close-button" :is="X" :size="28" />
         </button>
       </form>
       <div class="img-dialog__img-wrapper">
-        <img
-          v-show="showModal"
-          class="img-dialog__img"
-          :src="item.image?.src"
-          :alt="item.image?.alt || item.name"
-        />
+        <img v-show="showModal" class="img-dialog__img" :src="item.image?.src" :alt="item.image?.alt || item.name" />
       </div>
       <p class="img-dialog__caption">{{ item.image?.alt || item.name }}</p>
     </dialog>
@@ -183,158 +174,68 @@
 </template>
 
 <style scoped lang="scss">
-  .mi-labels {
-    display: flex;
-    gap: 0.5rem;
-    margin: 0;
-  }
-  .share-button {
-    height: fit-content;
-    position: absolute;
-    right: 0;
-    color: var(--bg);
-  }
+.mi-labels { display: flex; gap: 0.5rem; margin: 0; }
+.share-button { height: fit-content; position: absolute; right: 0; color: var(--bg); }
+.spicy { color: red; }
+.vegetarian { color: green; }
+.fish { color: lightseagreen; }
+.shrimp { color: lightcoral; }
 
-  .spicy {
-    color: red;
-  }
+.item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-block: 0 1rem;
+  margin-block: 0 2rem;
+  border-bottom: 1px solid var(--muted);
+  scroll-margin-top: calc(var(--toolbar-h) + 3.25rem);
+  &__body { display: flex; flex-direction: column; align-items: flex-start; }
+}
 
-  .vegetarian {
-    color: green;
-  }
+.item__header {
+  display: flex; align-items: center; place-content: flex-start;
+  gap: 8px; margin: 0 0 1.5rem 0; width: 100%;
+  ul { list-style: none; padding-left: 0; }
+}
 
-  .fish {
-    color: lightseagreen;
-  }
+.item__ingredients-list {
+  list-style: none; display: flex; flex-direction: column; place-items: flex-start;
+  margin: 0; padding: 0; gap: .5rem;
+  li:last-child { margin-bottom: .5rem; }
+  p { margin: 0; }
+}
 
-  .shrimp {
-    color: lightcoral;
-  }
+.item__title { margin: 0; font-weight: 600; font-size: 1.1rem; }
+.item__ingredients, .item__desc { margin: 0 0 6px; color: hsla(var(--bg), 0.7); text-align: left; padding-right: 3rem; }
 
-  .item {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    padding-block: 0 1rem;
-    margin-block: 0 2rem;
-    border-bottom: 1px solid var(--muted);
-    scroll-margin-top: calc(var(--toolbar-h) + 3.25rem);
+.item__price { white-space: nowrap; align-self: flex-end; }
 
-    &__body {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      /* justify-content: center; */
-    }
-  }
+/* multi-price block */
+.item__price-multi {
+  display: grid;
+  gap: 0.25rem;
+  align-self: flex-end;
+  text-align: right;
+}
+.item__price-row { margin: 0; }
+.item__price-row .opt { font-weight: 600; margin-right: .5rem; }
+.item__price-row .val { white-space: nowrap; }
 
-  .item__header {
-    display: flex;
-    align-items: center;
-    place-content: flex-start;
-    gap: 8px;
-    margin: 0;
-    width: 100%;
-    margin-bottom: 1.5rem;
+.thumb {
+  display: flex; border: 0; background: transparent; border-radius: 8px; overflow: hidden;
+  padding: 0; cursor: zoom-in; height: 80px; width: 80px;
+  img { object-fit: none; width: 100%; height: 100%; }
+}
 
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-  }
-
-  .item__ingredients-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    place-items: flex-start;
-    margin: 0;
-    padding: 0;
-    gap: .5rem;
-
-    li:last-child {
-      margin-bottom: .5rem;
-    }
-
-    p {
-      margin: 0;
-    }
-  }
-
-  .item__title {
-    margin: 0;
-    font-weight: 600;
-    font-size: 1.1rem;
-  }
-
-  .item__ingredients,
-  .item__desc {
-    margin: 0 0 6px;
-    color: hsla(var(--bg), 0.7);
-    text-align: left;
-    padding-right: 3rem;
-  }
-
-  .item__price {
-    white-space: nowrap;
-    align-self: flex-end;
-  }
-
-  .thumb {
-    display: flex;
-    border: 0;
-    background: transparent;
-    border-radius: 8px;
-    overflow: hidden;
-    padding: 0;
-    cursor: zoom-in;
-    height: 80px;
-    width: 80px;
-
-    img {
-      object-fit: none;
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  .img-dialog {
-    border: none;
-    border-radius: 0.75rem;
-    z-index: 100;
-  }
-
-  .img-dialog[open] {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 780px;
-    gap: 0.5rem;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-
-    form {
-      align-self: flex-end;
-    }
-  }
-
-  .img-dialog__img {
-    object-fit: contain;
-    width: 100%;
-  }
-
-  .img-dialog__close {
-    border: none;
-    background: transparent;
-    font-size: 1.5rem;
-    cursor: pointer;
-
-    &-button {
-      color: var(--bg);
-    }
-  }
+.img-dialog { border: none; border-radius: 0.75rem; z-index: 100; }
+.img-dialog[open] {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  max-width: 780px; gap: 0.5rem; position: fixed; top: 0; bottom: 0; height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  form { align-self: flex-end; }
+}
+.img-dialog__img { object-fit: contain; width: 100%; }
+.img-dialog__close { border: none; background: transparent; font-size: 1.5rem; cursor: pointer;
+  &-button { color: var(--bg); }
+}
 </style>

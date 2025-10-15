@@ -1,0 +1,406 @@
+{
+  "version": 1,
+  "restaurant": {
+    "id": "libertario-bogota",
+    "name": "Libertario Coffee Bogota",
+    "logo": "",
+    "subtitle": "Coffee Co. & Roasters",
+    "description": "Café especial colombiano con enfoque en orígenes únicos, sostenibilidad y experiencias sensoriales.",
+    "currency": "COP",
+    "locale": "es-CO",
+    "theme": "light",
+    "colors": {
+      "fg": "#EBE2D3",
+      "bg": "#121F3B",
+      "action": "#CEC1AA",
+      "muted": "#888888"
+    },
+    "updatedAt": "2025-10-15T15:59:27.861Z"
+  },
+  "menus": [
+    {
+      "id": "default",
+      "label": "",
+      "categories": [
+        {
+          "id": "single-origins",
+          "label": "Single Origins",
+          "items": [
+            {
+              "id": "paz",
+              "name": "Paz",
+              "description": "Suavidad y equilibrio, con notas dulces y acarameladas. Ideal para cualquier momento del día.",
+              "price": {
+                "200g": 30800,
+                "454g": 57800
+              },
+              "labels": null
+            },
+            {
+              "id": "impacto",
+              "name": "Impacto",
+              "description": "Cultivado en fincas orgánicas con métodos sostenibles para proteger la tierra.",
+              "price": {
+                "340g": 70000
+              },
+              "labels": null
+            },
+            {
+              "id": "libre",
+              "name": "Libre",
+              "description": "Intenso y afrutado, con acidez brillante que despierta los sentidos.",
+              "price": {
+                "200g": 33800,
+                "454g": 62200
+              },
+              "labels": null
+            },
+            {
+              "id": "descafeinado",
+              "name": "Descafeinado",
+              "description": "Café de sabor balanceado sin cafeína, manteniendo su cuerpo y dulzura natural.",
+              "price": {
+                "200g": 36000,
+                "454g": 67000
+              },
+              "labels": null
+            },
+            {
+              "id": "punk",
+              "name": "Punk",
+              "description": "Fermentaciones experimentales y poco convencionales que desafían expectativas.",
+              "price": {
+                "340g": 79900
+              },
+              "labels": null
+            },
+            {
+              "id": "rock",
+              "name": "Rock",
+              "description": "Variedades exóticas y fermentaciones innovadoras para perfiles complejos y vibrantes.",
+              "price": {
+                "200g": 49000,
+                "454g": 92000
+              },
+              "labels": null
+            },
+            {
+              "id": "competition",
+              "name": "Competition",
+              "description": "Nano lotes excepcionales con puntajes superiores a 90 SCA. Complejidad y elegancia.",
+              "price": {
+                "100g": 95000
+              },
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "kits",
+          "label": "Kits y Regalos",
+          "items": [
+            {
+              "id": "kit-coffee-lovers",
+              "name": "Kit Coffee Lovers",
+              "description": "Incluye Paz, Libre y Rock x 200 g c/u.",
+              "price": 115000,
+              "labels": null
+            },
+            {
+              "id": "kit-single-origins",
+              "name": "Kit Single Origins",
+              "description": "Incluye Punk e Impacto x 340 g c/u.",
+              "price": 105900,
+              "labels": null
+            },
+            {
+              "id": "kit-blends",
+              "name": "Kit Blends",
+              "description": "Incluye Paz y Libre x 200 g c/u + prensa francesa de 2 tazas.",
+              "price": 129000,
+              "labels": null
+            },
+            {
+              "id": "kit-blend-prensa",
+              "name": "Kit Blend + Prensa",
+              "description": "Paz o Libre x 200 g + prensa francesa de 2 tazas.",
+              "price": 135000,
+              "labels": null
+            },
+            {
+              "id": "kit-rockstar",
+              "name": "Kit Rockstar",
+              "description": "3 Rock x 200 g c/u. A elegir según variedades disponibles.",
+              "price": 74000,
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "espresso-base",
+          "label": "A Base de Espresso",
+          "items": [
+            {
+              "id": "espresso",
+              "name": "Espresso",
+              "price": {
+                "blend": 7200,
+                "single-origin": 7900
+              },
+              "labels": null
+            },
+            {
+              "id": "americano",
+              "name": "Americano",
+              "price": {
+                "blend": 8300,
+                "single-origin": 9300
+              },
+              "labels": null
+            },
+            {
+              "id": "cappuccino",
+              "name": "Cappuccino",
+              "price": {
+                "blend": 11900,
+                "single-origin": 12900
+              },
+              "labels": null
+            },
+            {
+              "id": "latte",
+              "name": "Latte",
+              "price": {
+                "blend": 11900,
+                "single-origin": 12900
+              },
+              "labels": null
+            },
+            {
+              "id": "macchiato",
+              "name": "Macchiato",
+              "price": {
+                "blend": 8500,
+                "single-origin": 9500
+              },
+              "labels": null
+            },
+            {
+              "id": "mocaccino",
+              "name": "Mocaccino",
+              "price": {
+                "blend": 11900,
+                "single-origin": 12900
+              },
+              "labels": null
+            },
+            {
+              "id": "flat-white",
+              "name": "Flat White",
+              "price": {
+                "blend": 10500,
+                "single-origin": 11500
+              },
+              "labels": null
+            },
+            {
+              "id": "affogato",
+              "name": "Affogato",
+              "price": 15000,
+              "labels": null
+            },
+            {
+              "id": "iced-cappuccino",
+              "name": "Iced Cappuccino",
+              "price": 11900,
+              "labels": null
+            },
+            {
+              "id": "iced-latte",
+              "name": "Iced Latte",
+              "price": 12900,
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "filtrados",
+          "label": "Café Filtrado",
+          "items": [
+            {
+              "id": "paz-filtrado",
+              "name": "PAZ / LIBRE / DECAF",
+              "price": 10200,
+              "labels": null
+            },
+            {
+              "id": "rock-filtrado",
+              "name": "ROCK",
+              "price": 12500,
+              "labels": null
+            },
+            {
+              "id": "punk-filtrado",
+              "name": "PUNK",
+              "price": 12900,
+              "labels": null
+            },
+            {
+              "id": "impacto-filtrado",
+              "name": "IMPACTO",
+              "price": 12500,
+              "labels": null
+            },
+            {
+              "id": "competition-filtrado",
+              "name": "COMPETITION",
+              "price": 19900,
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "bebidas-autor",
+          "label": "Bebidas de Autor",
+          "items": [
+            {
+              "id": "alquimia",
+              "name": "Alquimia",
+              "description": "Cold brew Libertario con infusión de hierbabuena y albahaca, leche y hielo.",
+              "price": 13000,
+              "labels": null
+            },
+            {
+              "id": "esencia",
+              "name": "Esencia",
+              "description": "Cold brew Libertario con zumo de naranja, romero y durazno.",
+              "price": 13000,
+              "labels": null
+            },
+            {
+              "id": "lumina",
+              "name": "Lúmina",
+              "description": "Soda de feijoa con eneldo e hinojo.",
+              "price": 13000,
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "otras-bebidas",
+          "label": "Otras Bebidas",
+          "items": [
+            {
+              "id": "chai-tradicional",
+              "name": "Chai Tradicional",
+              "price": 12500,
+              "labels": null
+            },
+            {
+              "id": "chai-golden",
+              "name": "Chai Golden Milk",
+              "price": 12500,
+              "labels": null
+            },
+            {
+              "id": "chai-carbon",
+              "name": "Chai Carbón Activado",
+              "price": 12500,
+              "labels": null
+            },
+            {
+              "id": "chai-chocolate",
+              "name": "Chai Chocolate",
+              "price": 12500,
+              "labels": null
+            },
+            {
+              "id": "matcha",
+              "name": "Matcha",
+              "price": 14800,
+              "labels": null
+            },
+            {
+              "id": "agua-gas",
+              "name": "Agua con gas",
+              "price": 7500,
+              "labels": null
+            },
+            {
+              "id": "agua-sin-gas",
+              "name": "Agua sin gas",
+              "price": 7500,
+              "labels": null
+            },
+            {
+              "id": "chocolate",
+              "name": "Chocolate",
+              "price": 11800,
+              "labels": null
+            },
+            {
+              "id": "jugo-natural",
+              "name": "Jugo Natural",
+              "price": 10500,
+              "labels": null
+            },
+            {
+              "id": "happy-kombucha",
+              "name": "Happy Kombucha",
+              "price": 12000,
+              "labels": null
+            },
+            {
+              "id": "soda-frutos-rojos",
+              "name": "Soda de frutos rojos",
+              "price": 11500,
+              "labels": null
+            },
+            {
+              "id": "soda-maracuya",
+              "name": "Soda de maracuyá",
+              "price": 11500,
+              "labels": null
+            },
+            {
+              "id": "infusion-frutos-rojos",
+              "name": "Infusión de frutos rojos",
+              "price": 11000,
+              "labels": null
+            },
+            {
+              "id": "infusion-frutos-amarillos",
+              "name": "Infusión de frutos amarillos",
+              "price": 11000,
+              "labels": null
+            },
+            {
+              "id": "te-verde",
+              "name": "Té verde",
+              "price": 9800,
+              "labels": null
+            },
+            {
+              "id": "cerveza",
+              "name": "Cerveza",
+              "price": 13800,
+              "labels": null
+            },
+            {
+              "id": "babyccino",
+              "name": "Babyccino",
+              "price": 8200,
+              "labels": null
+            },
+            {
+              "id": "zumo-limon",
+              "name": "Zumo de limón",
+              "price": 1800,
+              "labels": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
