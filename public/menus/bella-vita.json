@@ -8,9 +8,9 @@
         "description": "",
         "currency": "COP",
         "locale": "es-CO",
-        "theme": "dark",
+        "theme": "light",
         "colors": {
-            "fg": "#f1f1f1",
+            "fg": "#E6E5DA",
             "bg": "#805409",
             "action": "#805409",
             "muted": "#805409"
@@ -211,8 +211,8 @@
                                 "alt": "capuccino con impresion de foto"
                             },
                             "imageThumbnail": {
-                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/capuccino-foto_tnjpg",
-                                "alt": "amecapuccino con impresion de fotoricano"
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/capuccino-foto_tn.jpg",
+                                "alt": "capuccino con impresion de fotoricano"
                             }
                         },
                         {
