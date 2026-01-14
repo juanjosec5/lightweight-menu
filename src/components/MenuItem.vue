@@ -105,7 +105,7 @@ watch(showModal, (val) => {
         <h4 class="item__title">{{ item.name }}</h4>
         <ul v-if="item.labels?.length" class="mi-labels">
           <li v-for="b in item.labels" :key="b" class="badge">
-            <component :is="LABEL_MAP[b].icon" :class="LABEL_MAP[b].class" size="20" />
+            <component :is="LABEL_MAP[b]?.icon" :class="LABEL_MAP[b]?.class" size="20" />
           </li>
         </ul>
       </span>

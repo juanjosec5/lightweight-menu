@@ -206,7 +206,7 @@
     <div :class="['toolbar', { 'shadow-light': !theme, 'shadow-dark': theme }]">
       <h1 class="toolbar-title">{{ toolbarTitle }}</h1>
       <button
-        v-if="data?.restaurant.theme !== 'dark'"
+        v-if="!data?.restaurant.theme"
         :aria-label="`toggle to ${theme ? 'light' : 'dark'} theme`"
         class="toolbar-button theme-toggle"
         @click="toggle"
@@ -242,13 +242,13 @@
           v-if="logoUrl"
           :src="logoUrl"
           :alt="data.restaurant.name + ' logo'"
-          width="120"
+          width="240"
           height="120"
           loading="eager"
           fetchpriority="high"
           decoding="async"
         />
-        <h1>{{ data.restaurant.name }}</h1>
+        <h1 v-if="!logoUrl">{{ data.restaurant.name }}</h1>
         <p v-if="data.restaurant.subtitle" class="sub">
           {{ data.restaurant.subtitle }}
         </p>

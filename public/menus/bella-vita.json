@@ -1,0 +1,835 @@
+{
+    "version": 1,
+    "restaurant": {
+        "id": "bella-vita",
+        "name": "Bella Vita",
+        "logo": "https://storage.googleapis.com/lightweight-menu/bella-vita/logo/bella-vita-logo.png",
+        "subtitle": "El lugar y ambiente perfecto para disfrutar de un buen café 0sur # 5-11, Buga, Valle del Cauca",
+        "description": "",
+        "currency": "COP",
+        "locale": "es-CO",
+        "theme": "dark",
+        "colors": {
+            "fg": "#f1f1f1",
+            "bg": "#805409",
+            "action": "#805409",
+            "muted": "#805409"
+        },
+        "updatedAt": "2026-01-14T00:07:56.845Z"
+    },
+    "menus": [
+        {
+            "id": "default",
+            "label": "",
+            "categories": [
+                {
+                    "id": "bebidas-de-autor",
+                    "label": "Bebidas de Autor",
+                    "items": [
+                        {
+                            "id": "lychee-mojito",
+                            "name": "Lychee Mojito",
+                            "description": "Mojito de lychee con café",
+                            "price": 35000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "bubble-green-apple",
+                            "name": "Bubble Green Apple",
+                            "description": "Soda de manzana verde con café",
+                            "price": 25000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "soda-frutos-amarillos",
+                            "name": "Soda Frutos Amarillos",
+                            "description": "Soda de frutos amarillos con café",
+                            "price": 22000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "malteada-ferrero",
+                            "name": "Malteada Ferrero",
+                            "description": null,
+                            "price": 27000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "malteada-de-red-velvet",
+                            "name": "Malteada de Red Velvet",
+                            "description": null,
+                            "price": 27000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "malteada-de-chocoramo",
+                            "name": "Malteada de Chocoramo",
+                            "description": null,
+                            "price": 27000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "malteada-de-vainilla",
+                            "name": "Malteada de Vainilla",
+                            "description": null,
+                            "price": 18000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        }
+                    ]
+                },
+                {
+                    "id": "bebidas-calientes-con-cafe",
+                    "label": "Bebidas Calientes con Café",
+                    "items": [
+                        {
+                            "id": "espresso-sencillo",
+                            "name": "Espresso Sencillo",
+                            "description": null,
+                            "price": 6300,
+                            "labels": null,
+                            "image": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/espresso.jpg",
+                                "alt": "espresso sencillo"
+                            },
+                            "imageThumbnail": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/espresso_tn.jpg",
+                                "alt": "espresso sencillo "
+                            }
+                        },
+                        {
+                            "id": "espresso-doble",
+                            "name": "Espresso Doble",
+                            "description": null,
+                            "price": 6500,
+                            "labels": null,
+                            "image": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/espresso.jpg",
+                                "alt": "Espresso Doble"
+                            },
+                            "imageThumbnail": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/espresso_tn.jpg",
+                                "alt": "Espresso Doble"
+                            }
+                        },
+                        {
+                            "id": "cappuccino",
+                            "name": "Cappuccino",
+                            "description": null,
+                            "price": 10000,
+                            "labels": null,
+                            "image": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/capuccino.jpg",
+                                "alt": "Cappuccino"
+                            },
+                            "imageThumbnail": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/capuccino_tn.jpg",
+                                "alt": "Cappuccino"
+                            }
+                        },
+                        {
+                            "id": "americano",
+                            "name": "Americano",
+                            "description": null,
+                            "price": 9000,
+                            "labels": null,
+                            "image": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/americano.jpg",
+                                "alt": "americano"
+                            },
+                            "imageThumbnail": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/americano_tn.jpg",
+                                "alt": "americano"
+                            }
+                        },
+                        {
+                            "id": "macchiato",
+                            "name": "Macchiato",
+                            "description": null,
+                            "price": 10000,
+                            "labels": null,
+                            "image": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/machiatto.jpg",
+                                "alt": "Macchiato"
+                            },
+                            "imageThumbnail": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/machiatto_tn.jpg",
+                                "alt": "Macchiato"
+                            }
+                        },
+                        {
+                            "id": "mocachino",
+                            "name": "Mocachino",
+                            "description": null,
+                            "price": 11200,
+                            "labels": null,
+                            "image": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/moccachino.jpg",
+                                "alt": "Mocachino"
+                            },
+                            "imageThumbnail": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/moccachino_tn.jpg",
+                                "alt": "Mocachino"
+                            }
+                        },
+                        {
+                            "id": "cafe-latte",
+                            "name": "Cafe Latte",
+                            "description": null,
+                            "price": 11000,
+                            "labels": null,
+                            "image": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/cafe%20latte.jpg",
+                                "alt": "Cafe Latte"
+                            },
+                            "imageThumbnail": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/cafe%20latte_tn.jpg",
+                                "alt": "Cafe Latte"
+                            }
+                        },
+                        {
+                            "id": "cappuccino-con-impresion-de-foto",
+                            "name": "Cappuccino con Impresión de Foto",
+                            "description": null,
+                            "price": 17000,
+                            "labels": null,
+                            "image": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/capuccino-foto.jpg",
+                                "alt": "capuccino con impresion de foto"
+                            },
+                            "imageThumbnail": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/capuccino-foto_tnjpg",
+                                "alt": "amecapuccino con impresion de fotoricano"
+                            }
+                        },
+                        {
+                            "id": "cafe-irlandes",
+                            "name": "Cafe Irlandes",
+                            "description": null,
+                            "price": 22000,
+                            "labels": null,
+                            "image": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/cafe-irlandes.jpg",
+                                "alt": "Cafe Irlandes"
+                            },
+                            "imageThumbnail": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/cafe-irlandes_tn.jpg",
+                                "alt": "Cafe Irlandes"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "bebidas-calientes-sin-cafe",
+                    "label": "Bebidas Calientes sin Café",
+                    "items": [
+                        {
+                            "id": "te-chai",
+                            "name": "Te Chai",
+                            "description": null,
+                            "price": 18000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "chocochai",
+                            "name": "Chocochai",
+                            "description": null,
+                            "price": 15000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "chocolate-americano",
+                            "name": "Chocolate Americano",
+                            "description": null,
+                            "price": 12000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "aromatica",
+                            "name": "Aromática",
+                            "description": null,
+                            "price": 7000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "chocolate-de-la-casa",
+                            "name": "Chocolate de la Casa",
+                            "description": null,
+                            "price": 15000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        }
+                    ]
+                },
+                {
+                    "id": "bebidas-frias-con-cafe",
+                    "label": "Bebidas Frías con Café",
+                    "items": [
+                        {
+                            "id": "cold-brew",
+                            "name": "Cold Brew",
+                            "description": null,
+                            "price": 12000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "granizado-de-cafe",
+                            "name": "Granizado de Café",
+                            "description": null,
+                            "price": 15000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "affogato",
+                            "name": "Affogato",
+                            "description": null,
+                            "price": 15000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "iced-latte",
+                            "name": "Iced Latte",
+                            "description": null,
+                            "price": 15000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "limonada-de-cold-brew",
+                            "name": "Limonada de Cold Brew",
+                            "description": null,
+                            "price": 18000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "granizado-de-cafe-con-adicion-de-baileys",
+                            "name": "Granizado de Café con Adición de Baileys",
+                            "description": null,
+                            "price": 23000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "frappuccino-oreo",
+                            "name": "Frappuccino Oreo",
+                            "description": null,
+                            "price": 22000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "orange-coffee",
+                            "name": "Orange Coffee",
+                            "description": null,
+                            "price": 10000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "iced-caramel-lotus",
+                            "name": "Iced Caramel Lotus",
+                            "description": null,
+                            "price": 22000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        }
+                    ]
+                },
+                {
+                    "id": "bebidas-frias-sin-cafe",
+                    "label": "Bebidas Frías sin Café",
+                    "items": [
+                        {
+                            "id": "limonada-cerezada",
+                            "name": "Limonada Cerezada",
+                            "description": null,
+                            "price": 16000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "limonada-hierbabuena",
+                            "name": "Limonada Hierbabuena",
+                            "description": null,
+                            "price": 10000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "milo",
+                            "name": "Milo",
+                            "description": null,
+                            "price": 12000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "limonada-natural",
+                            "name": "Limonada Natural",
+                            "description": null,
+                            "price": 10000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "soda-de-maracuya",
+                            "name": "Soda de Maracuyá",
+                            "description": null,
+                            "price": 22000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "soda-blueberry",
+                            "name": "Soda Blueberry",
+                            "description": null,
+                            "price": 23000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "limonada-de-vino",
+                            "name": "Limonada de Vino",
+                            "description": null,
+                            "price": 15000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "soda-de-sandia",
+                            "name": "Soda de Sandia",
+                            "description": null,
+                            "price": 22000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "limonada-de-coco",
+                            "name": "Limonada de Coco",
+                            "description": null,
+                            "price": 22000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "coca-cola-zero",
+                            "name": "Coca-Cola Zero",
+                            "description": null,
+                            "price": 6000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "maracu-mango",
+                            "name": "Maracu-Mango",
+                            "description": null,
+                            "price": 20500,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "te-hatsu",
+                            "name": "Te Hatsu",
+                            "description": null,
+                            "price": 7000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "red-bull",
+                            "name": "Red Bull",
+                            "description": null,
+                            "price": 12000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "soda-personal",
+                            "name": "Soda Personal",
+                            "description": null,
+                            "price": 7000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "soda-michelada",
+                            "name": "Soda Michelada",
+                            "description": null,
+                            "price": 12000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "bebida-de-avena",
+                            "name": "Bebida de Avena",
+                            "description": null,
+                            "price": 12000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        }
+                    ]
+                },
+                {
+                    "id": "pasteleria",
+                    "label": "Pastelería",
+                    "items": [
+                        {
+                            "id": "red-velvet",
+                            "name": "Red Velvet",
+                            "description": null,
+                            "price": 18000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "cheesecake-frutos-rojos",
+                            "name": "Cheesecake Frutos Rojos",
+                            "description": null,
+                            "price": 16000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "croissant-con-queso",
+                            "name": "Croissant con Queso",
+                            "description": null,
+                            "price": 13000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "brownie-con-helado",
+                            "name": "Brownie con Helado",
+                            "description": null,
+                            "price": 15000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "galleta-de-nutella",
+                            "name": "Galleta de Nutella",
+                            "description": null,
+                            "price": 8000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "torta-de-zanahoria",
+                            "name": "Torta de Zanahoria",
+                            "description": null,
+                            "price": 9000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "torta-de-chocolate",
+                            "name": "Torta de Chocolate",
+                            "description": null,
+                            "price": 9000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "croissant-relleno-de-almendra",
+                            "name": "Croissant Relleno de Almendra",
+                            "description": null,
+                            "price": 16000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "croissant-relleno-de-brownie",
+                            "name": "Croissant Relleno de Brownie",
+                            "description": null,
+                            "price": 16000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "croissant-relleno-de-choco-almendra",
+                            "name": "Croissant Relleno de Choco Almendra",
+                            "description": null,
+                            "price": 16000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "croissant-relleno-de-nutella",
+                            "name": "Croissant Relleno de Nutella",
+                            "description": null,
+                            "price": 16000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "cheesecake-limon",
+                            "name": "Cheesecake Limón",
+                            "description": null,
+                            "price": 15000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "cheesecake-oreo",
+                            "name": "Cheesecake Oreo",
+                            "description": null,
+                            "price": 16000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "cheesecake-maracuya",
+                            "name": "Cheesecake Maracuyá",
+                            "description": null,
+                            "price": 16000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "churros-con-adicion",
+                            "name": "Churros con Adición",
+                            "description": null,
+                            "price": 18000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "croissant-integral",
+                            "name": "Croissant Integral",
+                            "description": null,
+                            "price": 13000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "croissant-relleno-de-arequipe",
+                            "name": "Croissant Relleno de Arequipe",
+                            "description": null,
+                            "price": 16000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "unidad-dedo-de-queso",
+                            "name": "Unidad Dedo de Queso",
+                            "description": null,
+                            "price": 4000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "paletas-para-perros",
+                            "name": "Paletas para Perros",
+                            "description": null,
+                            "price": 10000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "torta-de-naranja",
+                            "name": "Torta de Naranja",
+                            "description": null,
+                            "price": 9000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "brownie",
+                            "name": "Brownie",
+                            "description": null,
+                            "price": 12000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        }
+                    ]
+                },
+                {
+                    "id": "comida",
+                    "label": "Comida",
+                    "items": [
+                        {
+                            "id": "lasagna-mini",
+                            "name": "Lasagna Mini",
+                            "description": null,
+                            "price": 20000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "mini-pandebonos-tradicionales",
+                            "name": "Mini Pandebonos Tradicionales",
+                            "description": null,
+                            "price": 16000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "empanadas",
+                            "name": "Empanadas",
+                            "description": null,
+                            "price": 5000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "mini-pandebonos-con-adicion-arequipe",
+                            "name": "Mini Pandebonos con Adición Arequipe",
+                            "description": null,
+                            "price": 23000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "pizza-hawaiana-mini",
+                            "name": "Pizza Hawaiana Mini",
+                            "description": null,
+                            "price": 35000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "lasagna-personal",
+                            "name": "Lasagna Personal",
+                            "description": null,
+                            "price": 32000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "pizza-de-pepperoni-mini",
+                            "name": "Pizza de Pepperoni Mini",
+                            "description": null,
+                            "price": 39000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "pizza-de-carnes-mini",
+                            "name": "Pizza de Carnes Mini",
+                            "description": null,
+                            "price": 38000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "pizza-hawaiana-personal",
+                            "name": "Pizza Hawaiana Personal",
+                            "description": null,
+                            "price": 48000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "pizza-de-carnes-personal",
+                            "name": "Pizza de Carnes Personal",
+                            "description": null,
+                            "price": 40000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "pizza-de-pepperoni-personal",
+                            "name": "Pizza de Pepperoni Personal",
+                            "description": null,
+                            "price": 52000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        },
+                        {
+                            "id": "mini-aborrajados-x-3",
+                            "name": "Mini Aborrajados x 3",
+                            "description": null,
+                            "price": 15000,
+                            "labels": null,
+                            "image": null,
+                            "imageThumbnail": null
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

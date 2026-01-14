@@ -1,0 +1,273 @@
+{
+  "version": 1,
+  "restaurant": {
+    "id": "legaos",
+    "name": "Legaos",
+    "logo": "https://storage.googleapis.com/lightweight-menu/legaos/logo/legaos%20logo.jpg",
+    "subtitle": "",
+    "description": "",
+    "currency": "COP",
+    "locale": "es-CO",
+    "theme": "light",
+    "colors": {
+      "fg": "#ffffff",
+      "bg": "#D92828",
+      "action": "#FF6565",
+      "muted": "#D92828"
+    },
+    "updatedAt": "2026-01-09T00:00:00.000Z"
+  },
+  "menus": [
+    {
+      "id": "default",
+      "label": "",
+      "categories": [
+        {
+          "id": "burgers",
+          "label": "Burgers",
+          "items": [
+            {
+              "id": "burger-americana",
+              "name": "Burger Americana",
+              "description": null,
+              "price": { "solo": 15000, "combo": 20500 },
+              "labels": null
+            },
+            {
+              "id": "angus-burger",
+              "name": "Angus Burger",
+              "description": "Carne Angus, cebolla caramelizada, salsas de la casa, queso cheddar y tocineta.",
+              "price": { "solo": 19000, "combo": 24500 },
+              "labels": null
+            },
+            {
+              "id": "meat-burger",
+              "name": "Meat Burger",
+              "description": "Carne de res artesanal, queso cheddar, tocineta y salsas de la casa.",
+              "price": { "solo": 18000, "combo": 23500 },
+              "labels": null
+            },
+            {
+              "id": "hawai-burger",
+              "name": "Hawai Burger",
+              "description": "Carne Angus, trocitos de piña calada, doble tocineta, queso mozzarella, lechuga, tomate y salsas de la casa.",
+              "price": { "solo": 21500, "combo": 27000 },
+              "labels": null
+            },
+            {
+              "id": "porky-burger",
+              "name": "Porky Burger",
+              "description": "Pulled pork (cerdo desmechado), doble queso mozzarella, doble tocineta, cebolla caramelizada y salsas de la casa.",
+              "price": { "solo": 19500, "combo": 25000 },
+              "labels": null
+            },
+            {
+              "id": "big-cheesy-burger",
+              "name": "Big Cheesy Burger",
+              "description": "Burger con queso gratinado, doble carne Angus (200g), doble tocineta, maicito, lechuga, tomate y salsas de la casa.",
+              "price": { "solo": 28500, "combo": 34000 },
+              "labels": null
+            },
+            {
+              "id": "super-porky-burger",
+              "name": "Super Porky Burger",
+              "description": "Carne de res artesanal, pulled pork, doble tocineta, doble queso mozzarella, cebolla caramelizada y salsas de la casa.",
+              "price": { "solo": 26000, "combo": 31500 },
+              "labels": null
+            },
+            {
+              "id": "paisana-burger",
+              "name": "Paisana Burger",
+              "description": "Carne artesanal, queso cheddar, maicito, tocineta, cebolla caramelizada, lechuga, tomate y salsas de la casa.",
+              "price": { "solo": 28500, "combo": 34000 },
+              "labels": ["Tercer puesto Carnaval Burger 2024"]
+            },
+            {
+              "id": "ranchi-burger",
+              "name": "Ranchi Burger",
+              "description": null,
+              "price": { "solo": 19000, "combo": 24500 },
+              "labels": null
+            },
+            {
+              "id": "angus-doble-supreme",
+              "name": "Angus doble Supreme",
+              "description": "Doble carne Angus (280g), doble tocineta, doble queso cheddar, cebolla caramelizada, lechuga, tomate y salsas de la casa.",
+              "price": { "solo": 30000, "combo": 35500 },
+              "labels": null
+            },
+            {
+              "id": "mexican-burger",
+              "name": "Mexican Burger",
+              "description": "Carne de res artesanal, queso mozzarella, guacamole con pico de gallo, ripio de nachos, maicitos, maduro y salsas de la casa.",
+              "price": { "solo": 19500, "combo": 25000 },
+              "labels": null
+            },
+            {
+              "id": "media-libra-burger",
+              "name": "Media libra Burger",
+              "description": "Doble carne de res artesanal (250g), doble queso cheddar, doble tocineta, cebolla caramelizada, lechuga, tomate y salsas de la casa.",
+              "price": { "solo": 25500, "combo": 31000 },
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "hot-dogs",
+          "label": "Hot Dogs",
+          "items": [
+            {
+              "id": "hotdog",
+              "name": "HotDog",
+              "description": "Pan perro, salchicha americana, doble tocineta, doble queso mozzarella, ripio de papitas y salsas de la casa.",
+              "price": { "solo": 17500, "combo": 23000 },
+              "labels": null
+            },
+            {
+              "id": "hot-dog-hawaiano",
+              "name": "Hot Dog Hawaiano",
+              "description": "Pan perro, salchicha americana, piña calada, pollo desmechado, tocineta, queso mozzarella, ripio y salsas de la casa.",
+              "price": { "solo": 20000, "combo": 25500 },
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "burritos",
+          "label": "Burritos",
+          "items": [
+            {
+              "id": "burrito-mero",
+              "name": "Burrito mero",
+              "description": "Queso doble crema, carne de cerdo desmechada y salsas de la casa.",
+              "price": 16500,
+              "labels": null
+            },
+            {
+              "id": "burrito-mixto",
+              "name": "Burrito mixto",
+              "description": "Carne chilli (no es picante), pollo desmechado, maicitos, queso doble crema, vegetales frescos y salsas de la casa.",
+              "price": 16500,
+              "labels": null
+            },
+            {
+              "id": "burrito-hot",
+              "name": "Burrito Hot",
+              "description": "Burrito picante con carne chilli, pollo desmechado, salsa chipotle con jalapeños, maicitos, queso doble crema y vegetales frescos.",
+              "price": 17500,
+              "labels": ["Picante"]
+            }
+          ]
+        },
+        {
+          "id": "quesadillas",
+          "label": "Quesadillas",
+          "items": [
+            {
+              "id": "quesadilla",
+              "name": "Quesadilla",
+              "description": "Queso doble crema, carne de cerdo desmechada y salsas de la casa.",
+              "price": 13500,
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "salchipapas",
+          "label": "Salchipapas y Papas",
+          "items": [
+            {
+              "id": "salchipapa-tradicional",
+              "name": "Salchipapa tradicional",
+              "description": "XL (para compartir). Papa a la francesa, súper salchicha, doble tocineta, queso doble crema y salsas de la casa.",
+              "price": 17000,
+              "labels": ["XL", "Para compartir"]
+            },
+            {
+              "id": "salchipapa-especial",
+              "name": "Salchipapa especial",
+              "description": "XL (para compartir). Papa a la francesa, súper salchicha, carne de cerdo desmechada, queso doble crema, maicitos, guacamole, maduritos, ripio de papitas, salsa BBQ y salsa verde.",
+              "price": 27000,
+              "labels": ["XL", "Para compartir"]
+            },
+            {
+              "id": "salchicriollotas",
+              "name": "SalchiCriollotas",
+              "description": "Papa amarilla, súper salchicha, carne de cerdo desmechada, queso doble crema, cebolla caramelizada, ripio de papitas y salsas de la casa.",
+              "price": 24000,
+              "labels": null
+            },
+            {
+              "id": "papotas",
+              "name": "Papotas",
+              "description": "XL (para compartir). Papa a la francesa, papa amarilla, salchicha, tocineta, carne chilli (no es picante), carne de cerdo desmechada, madurito, guacamole, ripio de papitas y salsas de la casa.",
+              "price": 38500,
+              "labels": ["XL", "Para compartir"]
+            },
+            {
+              "id": "salchipapotas",
+              "name": "Salchipapotas",
+              "description": "XL (para compartir). Papa amarilla, súper salchicha, carne chilli (no es picante), maduro, doble tocineta y salsas de la casa.",
+              "price": null,
+              "labels": ["XL", "Para compartir"]
+            }
+          ]
+        },
+        {
+          "id": "extras",
+          "label": "Adicionales",
+          "items": [
+            { "id": "carne-desmechada-cerdo", "name": "Carne desmechada de cerdo", "price": 8000, "labels": null },
+            { "id": "carne-chilli", "name": "Carne chilli (no es picante)", "price": 6500, "labels": null },
+            { "id": "pollo-desmechado", "name": "Pollo desmechado", "price": 5500, "labels": null },
+            { "id": "tocineta-x2", "name": "Tocineta x 2", "price": 3500, "labels": null },
+            { "id": "queso-doble-crema-x2", "name": "Queso doble crema x 2", "price": 3000, "labels": null },
+            { "id": "queso-cheddar-x2", "name": "Queso cheddar x 2", "price": 3500, "labels": null },
+            { "id": "maicito", "name": "Maicito", "price": 2000, "labels": null },
+            { "id": "madurito", "name": "Madurito", "price": 2000, "labels": null },
+            { "id": "jalapenos", "name": "Jalapeños", "price": 2000, "labels": null },
+            { "id": "vegetales", "name": "Vegetales (lechuga y tomate)", "price": 1000, "labels": null },
+
+            { "id": "aritos-cebolla", "name": "Aritos de cebolla", "price": 8000, "labels": null },
+            { "id": "papas-francesa", "name": "Papas a la francesa", "price": 7000, "labels": null },
+            { "id": "papas-criollas", "name": "Papas criollas", "price": 7000, "labels": null },
+            { "id": "yuquitas-crocantes", "name": "Yuquitas crocantes", "price": 7500, "labels": null },
+            { "id": "nachitos", "name": "Nachitos", "price": 8000, "labels": null }
+          ]
+        },
+        {
+          "id": "bebidas",
+          "label": "Bebidas",
+          "items": [
+            { "id": "limonada-coco", "name": "Limonada de Coco", "price": 14000, "labels": null },
+            { "id": "cerezada", "name": "Cerezada", "price": 12000, "labels": null },
+            { "id": "mango-biche", "name": "Mango biche", "price": 12000, "labels": null },
+
+            { "id": "jugo-natural-agua", "name": "Jugo natural en agua", "price": 8000, "labels": null },
+            { "id": "jugo-natural-leche", "name": "Jugo natural en leche", "price": 12000, "labels": null },
+
+            { "id": "soda-italiana-maracuya", "name": "Soda Italiana de Maracuyá", "price": null, "labels": ["Pregunta por sabores disponibles"] },
+            { "id": "soda-italiana-frutos-rojos", "name": "Soda italiana de frutos rojos", "price": null, "labels": ["Pregunta por sabores disponibles"] },
+            { "id": "soda-limon", "name": "Soda Limón", "price": null, "labels": null },
+
+            { "id": "vaso-michelada", "name": "Vaso de michelada", "price": null, "labels": null },
+            { "id": "vaso-michelada-maracuya", "name": "Vaso de Michelada con maracuyá", "price": null, "labels": ["Pregunta por sabores disponibles"] },
+
+            { "id": "coca-cola-400ml", "name": "Coca Cola 400mL", "price": 5000, "labels": null },
+            { "id": "coca-cola-zero", "name": "Coca Cola Zero", "price": 5000, "labels": null },
+            { "id": "coca-cola-15l", "name": "Coca Cola 1.5L", "price": 13000, "labels": null },
+            { "id": "h2o", "name": "H2O", "price": 5000, "labels": null },
+            { "id": "hit-personal", "name": "Hit Personal", "price": 5000, "labels": null },
+            { "id": "botella-agua", "name": "Botella de agua", "price": 3000, "labels": null },
+            { "id": "agua-con-gas", "name": "Agua con gas", "price": 4000, "labels": null },
+
+            { "id": "cerveza-corona", "name": "Corona", "price": 10000, "labels": null },
+            { "id": "cerveza-club", "name": "Club", "price": 6500, "labels": null },
+            { "id": "cerveza-aguila", "name": "Aguila", "price": 5500, "labels": null },
+            { "id": "cerveza-aguila-light", "name": "Aguila Light", "price": 5500, "labels": null }
+          ]
+        }
+      ]
+    }
+  ]
+}

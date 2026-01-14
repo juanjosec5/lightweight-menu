@@ -329,6 +329,7 @@
 
     &:active {
       background-color: var(--action);
+      color: var(--fg);
     }
 
     &:focus {

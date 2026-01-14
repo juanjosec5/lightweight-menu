@@ -10,12 +10,12 @@
     "locale": "es-CO",
     "theme": "light",
     "colors": {
-      "fg": "#EBE2D3",
-      "bg": "#121F3B",
+      "bg": "#EBE2D3",
+      "fg": "#121F3B",
       "action": "#CEC1AA",
       "muted": "#888888"
     },
-    "updatedAt": "2025-10-15T15:59:27.861Z"
+    "updatedAt": "2025-10-15T16:03:24.930Z"
   },
   "menus": [
     {
