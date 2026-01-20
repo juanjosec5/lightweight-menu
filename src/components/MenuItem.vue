@@ -78,7 +78,7 @@ const onShareClick = async (e: MouseEvent) => {
       await navigator.share({ title: props.item.name, url: link });
       return;
     }
-  } catch {}
+  } catch { }
   try {
     await navigator.clipboard.writeText(link);
   } catch {
@@ -115,19 +115,13 @@ watch(showModal, (val) => {
           <p><strong>{{ it.label }}:</strong> {{ it.value }}</p>
         </li>
       </ul>
-      <p
-        v-else-if="item.ingredients?.length && !item.ingredientsType"
-        class="item__ingredients"
-      >
+      <p v-else-if="item.ingredients?.length && !item.ingredientsType" class="item__ingredients">
         {{ item.ingredients.join(", ") }}
       </p>
       <p v-if="item.description" class="item__desc">{{ item.description }}</p>
 
       <!-- single price -->
-      <strong
-        v-if="!isPriceObject"
-        class="item__price"
-      >
+      <strong v-if="!isPriceObject" class="item__price">
         {{ formatPrice(item.price as number, currency, locale) }}
       </strong>
 
@@ -144,19 +138,10 @@ watch(showModal, (val) => {
       <component :is="Link" :size="20" />
     </button>
 
-    <button
-      v-if="item.imageThumbnail?.src"
-      type="button"
-      class="thumb"
-      :aria-label="`Ver imagen de ${item.name}`"
-      @click="showModal = true"
-    >
-      <img
-        v-if="canLoadThumbs"
-        :src="item.imageThumbnail.src"
-        :alt="item.imageThumbnail.alt || item.name"
-        loading="lazy"
-      />
+    <button v-if="item.imageThumbnail?.src" type="button" class="thumb" :aria-label="`Ver imagen de ${item.name}`"
+      @click="showModal = true">
+      <img v-if="canLoadThumbs" :src="item.imageThumbnail.src" :alt="item.imageThumbnail.alt || item.name"
+        loading="lazy" />
     </button>
 
     <dialog ref="dialogRef" class="img-dialog" :open="showModal" @keydown="handleKeydown">
@@ -174,12 +159,34 @@ watch(showModal, (val) => {
 </template>
 
 <style scoped lang="scss">
-.mi-labels { display: flex; gap: 0.5rem; margin: 0; }
-.share-button { height: fit-content; position: absolute; right: 0; color: var(--bg); }
-.spicy { color: red; }
-.vegetarian { color: green; }
-.fish { color: lightseagreen; }
-.shrimp { color: lightcoral; }
+.mi-labels {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.share-button {
+  height: fit-content;
+  position: absolute;
+  right: 0;
+  color: var(--bg);
+}
+
+.spicy {
+  color: red;
+}
+
+.vegetarian {
+  color: green;
+}
+
+.fish {
+  color: lightseagreen;
+}
+
+.shrimp {
+  color: lightcoral;
+}
 
 .item {
   position: relative;
@@ -189,26 +196,65 @@ watch(showModal, (val) => {
   margin-block: 0 2rem;
   border-bottom: 1px solid var(--muted);
   scroll-margin-top: calc(var(--toolbar-h) + 3.25rem);
-  &__body { display: flex; flex-direction: column; align-items: flex-start; }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .item__header {
-  display: flex; align-items: center; place-content: flex-start;
-  gap: 8px; margin: 0 0 1.5rem 0; width: 100%;
-  ul { list-style: none; padding-left: 0; }
+  display: flex;
+  align-items: center;
+  place-content: flex-start;
+  gap: 8px;
+  margin: 0 0 1.5rem 0;
+  width: calc(100% - 56px);
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
 }
 
 .item__ingredients-list {
-  list-style: none; display: flex; flex-direction: column; place-items: flex-start;
-  margin: 0; padding: 0; gap: .5rem;
-  li:last-child { margin-bottom: .5rem; }
-  p { margin: 0; }
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  place-items: flex-start;
+  margin: 0;
+  padding: 0;
+  gap: .5rem;
+
+  li:last-child {
+    margin-bottom: .5rem;
+  }
+
+  p {
+    margin: 0;
+  }
 }
 
-.item__title { margin: 0; font-weight: 600; font-size: 1.1rem; }
-.item__ingredients, .item__desc { margin: 0 0 6px; color: hsla(var(--bg), 0.7); text-align: left; padding-right: 3rem; }
+.item__title {
+  text-align: left;
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
 
-.item__price { white-space: nowrap; align-self: flex-end; }
+.item__ingredients,
+.item__desc {
+  margin: 0 0 6px;
+  color: hsla(var(--bg), 0.7);
+  text-align: left;
+  padding-right: 3rem;
+}
+
+.item__price {
+  white-space: nowrap;
+  align-self: flex-end;
+}
 
 /* multi-price block */
 .item__price-multi {
@@ -217,25 +263,75 @@ watch(showModal, (val) => {
   align-self: flex-end;
   text-align: right;
 }
-.item__price-row { margin: 0; }
-.item__price-row .opt { font-weight: 600; margin-right: .5rem; }
-.item__price-row .val { white-space: nowrap; }
+
+.item__price-row {
+  margin: 0;
+}
+
+.item__price-row .opt {
+  font-weight: 600;
+  margin-right: .5rem;
+}
+
+.item__price-row .val {
+  white-space: nowrap;
+}
 
 .thumb {
-  display: flex; border: 0; background: transparent; border-radius: 8px; overflow: hidden;
-  padding: 0; cursor: zoom-in; height: 80px; width: 80px;
-  img { object-fit: none; width: 100%; height: 100%; }
+  display: flex;
+  border: 0;
+  background: transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0;
+  cursor: zoom-in;
+  height: 80px;
+  width: 80px;
+
+  img {
+    object-fit: none;
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.img-dialog { border: none; border-radius: 0.75rem; z-index: 100; }
-.img-dialog[open] {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  max-width: 780px; gap: 0.5rem; position: fixed; top: 0; bottom: 0; height: 100%;
-  background-color: rgba(0,0,0,0.9);
-  form { align-self: flex-end; }
+.img-dialog {
+  border: none;
+  border-radius: 0.75rem;
+  z-index: 100;
 }
-.img-dialog__img { object-fit: contain; width: 100%; }
-.img-dialog__close { border: none; background: transparent; font-size: 1.5rem; cursor: pointer;
-  &-button { color: var(--bg); }
+
+.img-dialog[open] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 780px;
+  gap: 0.5rem;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+
+  form {
+    align-self: flex-end;
+  }
+}
+
+.img-dialog__img {
+  object-fit: contain;
+  width: 100%;
+}
+
+.img-dialog__close {
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  &-button {
+    color: var(--bg);
+  }
 }
 </style>
