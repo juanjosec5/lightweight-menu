@@ -3,10 +3,9 @@
     "restaurant": {
         "id": "okcafe",
         "name": "OK Cafe",
-        "logo": "",
+        "logo": "https://storage.googleapis.com/lightweight-menu/ok-cafe/logo/OK-Cafe-Logo.png",
         "subtitle": "",
-        "description": "",
-        "currency": "USD",
+        "description": "A legendary Southern kitchen serving comfort food made from family recipes since 1987, beloved by generations in Atlanta. Warm hospitality, classic flavors, and an art-filled space that feels like home for breakfast, lunch, and dinner.","currency": "USD",
         "locale": "en-US",
         "theme": "light",
         "updatedAt": "2025-09-05T03:25:20.096Z"

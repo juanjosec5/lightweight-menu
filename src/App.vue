@@ -60,7 +60,7 @@
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
-          toolbarTitle.value = data.value?.restaurant?.name || "";
+          toolbarTitle.value = data.value?.restaurant?.logo || "";
         } else {
           toolbarTitle.value = "";
         }
@@ -204,7 +204,8 @@
 <template>
   <main class="wrap">
     <div :class="['toolbar', { 'shadow-light': !theme, 'shadow-dark': theme }]">
-      <h1 class="toolbar-title">{{ toolbarTitle }}</h1>
+      <img v-if="toolbarTitle" :src="toolbarTitle" :alt="`Logo for ${data?.restaurant.name}`">
+      <!-- <h1 class="toolbar-title">{{ toolbarTitle }}</h1> -->
       <button
         v-if="!data?.restaurant.theme"
         :aria-label="`toggle to ${theme ? 'light' : 'dark'} theme`"
@@ -358,14 +359,8 @@
     transition: background-color 0.5s ease-in-out;
     height: var(--toolbar-h);
 
-    &-logo-wrapper {
-      display: flex;
-      place-items: center;
+    img {
       height: 100%;
-      width: 50px;
-      position: absolute;
-      top: 0;
-      left: 1rem;
     }
 
     &-title {
