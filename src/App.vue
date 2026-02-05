@@ -261,6 +261,25 @@
       <p v-if="loading">Cargando…</p>
       <p v-if="error">Error: {{ error }}</p>
 
+      <template v-if="data?.additionalLinks">
+        <nav class="additional-links" aria-label="Additional Links">
+          <ul>
+            <li
+              v-for="link in data.additionalLinks"
+              :key="link.url"
+            >
+              <a
+                :href="link.url"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ link.label }}
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </template>
+
       <template v-if="(data?.menus?.length ?? 0) > 1">
         <nav class="menus-nav" role="tablist" aria-label="Restaurant Menus">
           <p class="menus-nav__heading">Our menus:</p>
@@ -478,5 +497,20 @@
 
   .error a {
     text-decoration: underline;
+  }
+
+  .additional-links {
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    a {
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
 </style>

@@ -1,4 +1,5 @@
 {
+    "$schema": "../../src/schemas/restaurant-menu.schema.json",
     "version": 1,
     "restaurant": {
         "id": "bella-vita",
@@ -17,6 +18,12 @@
         },
         "updatedAt": "2026-01-14T00:07:56.845Z"
     },
+    "additionalLinks": [
+        {
+            "label": "Envío de foto para Impresión",
+            "url": "http://fw.evebot.cc/?#/en/select_ws?id=214911"
+        }
+    ],
     "menus": [
         {
             "id": "default",
@@ -32,6 +39,7 @@
                             "description": "Mojito de lychee con café",
                             "price": 35000,
                             "labels": null,
+                            "display": false,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/lychee-mojito.webp",
                                 "alt": "Lychee Mojito"
@@ -45,7 +53,7 @@
                             "id": "bubble-green-apple",
                             "name": "Bubble Green Apple",
                             "description": "Soda de manzana verde con café",
-                            "price": 25000,
+                            "price": 30000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/bubble-green.webp",
@@ -57,10 +65,40 @@
                             }
                         },
                         {
+                            "id": "slushie-blueberry",
+                            "name": "Slushie de Blueberry",
+                            "description": "Frappe de blueberry",
+                            "price": 30000,
+                            "labels": null,
+                            "image": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/slushie-blueberry.webp",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/slushie-blueberry_tn.jpeg",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "slushie-mango-biche",
+                            "name": "Slushie de Mango Biche",
+                            "description": "Frappe de Mango Biche",
+                            "price": 24000,
+                            "labels": null,
+                            "image": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/slushie-mango-biche.webp",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/slushie-mango-biche_tn.jpeg",
+                                "alt": ""
+                            }
+                        },
+                        {
                             "id": "soda-frutos-amarillos",
                             "name": "Soda Frutos Amarillos",
                             "description": "Soda de frutos amarillos con café",
-                            "price": 22000,
+                            "price": 28000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/soda-frutos-amarillos.webp",
@@ -72,10 +110,25 @@
                             }
                         },
                         {
+                            "id": "soda-frutos-rojos",
+                            "name": "Soda Frutos Rojos",
+                            "description": "Soda de frutos rojos con café",
+                            "price": 28000,
+                            "labels": null,
+                            "image": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/soda-frutos-rojos.webp",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/soda-frutos-rojos_tn.jpeg",
+                                "alt": ""
+                            }
+                        },
+                        {
                             "id": "malteada-ferrero",
                             "name": "Malteada Ferrero",
                             "description": null,
-                            "price": 27000,
+                            "price": 28000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/malteada-ferrero.png",
@@ -87,10 +140,25 @@
                             }
                         },
                         {
+                            "id": "malteada-cold-brew",
+                            "name": "Malteada de Cold Brew",
+                            "description": "Malteada con cafe",
+                            "price": 25000,
+                            "labels": null,
+                            "image": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/malteada-cold-brew.jpg",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/malteada-cold-brew_tn.jpeg",
+                                "alt": ""
+                            }
+                        },
+                        {
                             "id": "malteada-de-red-velvet",
                             "name": "Malteada de Red Velvet",
                             "description": null,
-                            "price": 27000,
+                            "price": 28000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/malteada-red-velvet.webp",
@@ -107,6 +175,7 @@
                             "description": null,
                             "price": 27000,
                             "labels": null,
+                            "display": false,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/malteada-chocorramo.png",
                                 "alt": ""
@@ -120,7 +189,7 @@
                             "id": "malteada-de-vainilla",
                             "name": "Malteada de Vainilla",
                             "description": null,
-                            "price": 18000,
+                            "price": 20000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/malteada-vainilla.png",
@@ -141,7 +210,7 @@
                             "id": "espresso-sencillo",
                             "name": "Espresso Sencillo",
                             "description": null,
-                            "price": 6300,
+                            "price": 7000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/espresso.jpg",
@@ -156,7 +225,7 @@
                             "id": "espresso-doble",
                             "name": "Espresso Doble",
                             "description": null,
-                            "price": 6500,
+                            "price": 9000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/espresso.jpg",
@@ -171,7 +240,7 @@
                             "id": "cappuccino",
                             "name": "Cappuccino",
                             "description": null,
-                            "price": 10000,
+                            "price": 11000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/capuccino.jpg",
@@ -213,10 +282,10 @@
                             }
                         },
                         {
-                            "id": "mocachino",
-                            "name": "Mocachino",
+                            "id": "moccachino",
+                            "name": "Moccachino",
                             "description": null,
-                            "price": 11200,
+                            "price": 12000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/moccachino.jpg",
@@ -231,7 +300,7 @@
                             "id": "cafe-latte",
                             "name": "Cafe Latte",
                             "description": null,
-                            "price": 11000,
+                            "price": 12000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/cafe%20latte.jpg",
@@ -261,7 +330,7 @@
                             "id": "cafe-irlandes",
                             "name": "Cafe Irlandes",
                             "description": null,
-                            "price": 22000,
+                            "price": 28000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/cafe-irlandes.jpg",
@@ -282,7 +351,7 @@
                             "id": "te-chai",
                             "name": "Te Chai",
                             "description": null,
-                            "price": 18000,
+                            "price": 15000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/te-chai.webp",
@@ -297,7 +366,7 @@
                             "id": "chocochai",
                             "name": "Chocochai",
                             "description": null,
-                            "price": 15000,
+                            "price": 17000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/choco-chai.webp",
@@ -312,7 +381,7 @@
                             "id": "chocolate-americano",
                             "name": "Chocolate Americano",
                             "description": null,
-                            "price": 12000,
+                            "price": 13000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/chocolate-americano.webp",
@@ -342,7 +411,7 @@
                             "id": "chocolate-de-la-casa",
                             "name": "Chocolate de la Casa",
                             "description": null,
-                            "price": 15000,
+                            "price": 16000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/chocolate-casa.webp",
@@ -363,7 +432,7 @@
                             "id": "cold-brew",
                             "name": "Cold Brew",
                             "description": null,
-                            "price": 12000,
+                            "price": 13000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/cold-brew.webp",
@@ -378,7 +447,7 @@
                             "id": "granizado-de-cafe",
                             "name": "Granizado de Café",
                             "description": null,
-                            "price": 15000,
+                            "price": 16000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/granizado-cafe.webp",
@@ -408,7 +477,7 @@
                             "id": "iced-latte",
                             "name": "Iced Latte",
                             "description": null,
-                            "price": 15000,
+                            "price": 13000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/iced-latte.png",
@@ -423,7 +492,7 @@
                             "id": "limonada-de-cold-brew",
                             "name": "Limonada de Cold Brew",
                             "description": null,
-                            "price": 18000,
+                            "price": 15000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/limonada-cold-brew.webp",
@@ -438,7 +507,7 @@
                             "id": "granizado-de-cafe-con-adicion-de-baileys",
                             "name": "Granizado de Café con Adición de Baileys",
                             "description": null,
-                            "price": 23000,
+                            "price": 25000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/granizado-cafe-baileys.webp",
@@ -453,7 +522,7 @@
                             "id": "frappuccino-oreo",
                             "name": "Frappuccino Oreo",
                             "description": null,
-                            "price": 22000,
+                            "price": 24000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/frapuccino-oreo.webp",
@@ -468,7 +537,7 @@
                             "id": "orange-coffee",
                             "name": "Orange Coffee",
                             "description": null,
-                            "price": 10000,
+                            "price": 14000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/orange-coffee.webp",
@@ -483,7 +552,7 @@
                             "id": "iced-caramel-lotus",
                             "name": "Iced Caramel Lotus",
                             "description": null,
-                            "price": 22000,
+                            "price": 25000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/iced-caramel-lotus.webp",
@@ -504,7 +573,7 @@
                             "id": "limonada-cerezada",
                             "name": "Limonada Cerezada",
                             "description": null,
-                            "price": 16000,
+                            "price": 20000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/limonada-cerazada.webp",
@@ -519,7 +588,7 @@
                             "id": "limonada-hierbabuena",
                             "name": "Limonada Hierbabuena",
                             "description": null,
-                            "price": 10000,
+                            "price": 12000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/limonada-hierbabuena.webp",
@@ -534,7 +603,7 @@
                             "id": "milo",
                             "name": "Milo",
                             "description": null,
-                            "price": 12000,
+                            "price": 13000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/milo.webp",
@@ -564,7 +633,7 @@
                             "id": "soda-de-maracuya",
                             "name": "Soda de Maracuyá",
                             "description": null,
-                            "price": 22000,
+                            "price": 24000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/soda-maraculla.webp",
@@ -579,7 +648,7 @@
                             "id": "soda-blueberry",
                             "name": "Soda Blueberry",
                             "description": null,
-                            "price": 23000,
+                            "price": 25000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/soda-blueberry.webp",
@@ -594,7 +663,7 @@
                             "id": "limonada-de-vino",
                             "name": "Limonada de Vino",
                             "description": null,
-                            "price": 15000,
+                            "price": 22000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/limonada-vino.webp",
@@ -624,7 +693,7 @@
                             "id": "limonada-de-coco",
                             "name": "Limonada de Coco",
                             "description": null,
-                            "price": 22000,
+                            "price": 25000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/limonada-coco.webp",
@@ -654,7 +723,7 @@
                             "id": "maracu-mango",
                             "name": "Maracu-Mango",
                             "description": null,
-                            "price": 20500,
+                            "price": 27000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/maracu-mango.webp",
@@ -750,7 +819,7 @@
                             "id": "red-velvet",
                             "name": "Red Velvet",
                             "description": null,
-                            "price": 18000,
+                            "price": 15000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/red-velvet.webp",
@@ -765,7 +834,7 @@
                             "id": "cheesecake-frutos-rojos",
                             "name": "Cheesecake Frutos Rojos",
                             "description": null,
-                            "price": 16000,
+                            "price": 18000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/cheesecake-frutos-rojos.webp",
@@ -780,7 +849,7 @@
                             "id": "croissant-con-queso",
                             "name": "Croissant con Queso",
                             "description": null,
-                            "price": 13000,
+                            "price": 15000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/croissant-queso.webp",
@@ -825,7 +894,7 @@
                             "id": "torta-de-zanahoria",
                             "name": "Torta de Zanahoria",
                             "description": null,
-                            "price": 9000,
+                            "price": 10000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/torta-zanahoria.webp",
@@ -840,7 +909,7 @@
                             "id": "torta-de-chocolate",
                             "name": "Torta de Chocolate",
                             "description": null,
-                            "price": 9000,
+                            "price": 10000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/torta-chocolate.webp",
@@ -855,7 +924,7 @@
                             "id": "croissant-relleno-de-almendra",
                             "name": "Croissant Relleno de Almendra",
                             "description": null,
-                            "price": 16000,
+                            "price": 17000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/croissant-almendra.webp",
@@ -870,7 +939,7 @@
                             "id": "croissant-relleno-de-brownie",
                             "name": "Croissant Relleno de Brownie",
                             "description": null,
-                            "price": 16000,
+                            "price": 17000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/croissant-brownie.webp",
@@ -885,7 +954,7 @@
                             "id": "croissant-relleno-de-choco-almendra",
                             "name": "Croissant Relleno de Choco Almendra",
                             "description": null,
-                            "price": 16000,
+                            "price": 17000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/croissant-almendra.webp",
@@ -900,7 +969,7 @@
                             "id": "croissant-relleno-de-nutella",
                             "name": "Croissant Relleno de Nutella",
                             "description": null,
-                            "price": 16000,
+                            "price": 17000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/croissant-nutella.webp",
@@ -915,7 +984,7 @@
                             "id": "cheesecake-limon",
                             "name": "Cheesecake Limón",
                             "description": null,
-                            "price": 15000,
+                            "price": 18000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/cheesecake-limon.webp",
@@ -945,7 +1014,7 @@
                             "id": "cheesecake-maracuya",
                             "name": "Cheesecake Maracuyá",
                             "description": null,
-                            "price": 16000,
+                            "price": 18000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/cheesecake-maracuya.webp",
@@ -960,7 +1029,7 @@
                             "id": "churros-con-adicion",
                             "name": "Churros con Adición",
                             "description": null,
-                            "price": 18000,
+                            "price": 15000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/churros.webp",
@@ -975,7 +1044,7 @@
                             "id": "croissant-integral",
                             "name": "Croissant Integral",
                             "description": null,
-                            "price": 13000,
+                            "price": 15000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/croissant-integral.webp",
@@ -990,7 +1059,7 @@
                             "id": "croissant-relleno-de-arequipe",
                             "name": "Croissant Relleno de Arequipe",
                             "description": null,
-                            "price": 16000,
+                            "price": 17000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/croissant-arequipo.webp",
@@ -1005,7 +1074,7 @@
                             "id": "unidad-dedo-de-queso",
                             "name": "Unidad Dedo de Queso",
                             "description": null,
-                            "price": 4000,
+                            "price": 3000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/dedo-queso.webp",
@@ -1020,7 +1089,7 @@
                             "id": "paletas-para-perros",
                             "name": "Paletas para Perros",
                             "description": null,
-                            "price": 10000,
+                            "price": 7000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/paleta-perro.png",
@@ -1035,7 +1104,7 @@
                             "id": "torta-de-naranja",
                             "name": "Torta de Naranja",
                             "description": null,
-                            "price": 9000,
+                            "price": 10000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/torta-anranja.png",
@@ -1071,7 +1140,7 @@
                             "id": "lasagna-mini",
                             "name": "Lasagna Mini",
                             "description": null,
-                            "price": 20000,
+                            "price": 28000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/lasagna.webp",
@@ -1086,7 +1155,7 @@
                             "id": "mini-pandebonos-tradicionales",
                             "name": "Mini Pandebonos Tradicionales",
                             "description": null,
-                            "price": 16000,
+                            "price": 18000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/mini-pandebonos.webp",
@@ -1131,7 +1200,7 @@
                             "id": "pizza-hawaiana-mini",
                             "name": "Pizza Hawaiana Mini",
                             "description": null,
-                            "price": 35000,
+                            "price": 39000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/pizza-hawaiana.webp",
@@ -1161,7 +1230,7 @@
                             "id": "pizza-de-pepperoni-mini",
                             "name": "Pizza de Pepperoni Mini",
                             "description": null,
-                            "price": 39000,
+                            "price": 43000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/pizza-pepperoni-mini.webp",
@@ -1176,7 +1245,7 @@
                             "id": "pizza-de-carnes-mini",
                             "name": "Pizza de Carnes Mini",
                             "description": null,
-                            "price": 38000,
+                            "price": 42000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/pizza-carnes.webp",
@@ -1191,7 +1260,7 @@
                             "id": "pizza-hawaiana-personal",
                             "name": "Pizza Hawaiana Personal",
                             "description": null,
-                            "price": 48000,
+                            "price": 49000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/pizza-hawaiana.webp",
@@ -1206,7 +1275,7 @@
                             "id": "pizza-de-carnes-personal",
                             "name": "Pizza de Carnes Personal",
                             "description": null,
-                            "price": 40000,
+                            "price": 53000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/pizza-carnes.webp",
@@ -1221,7 +1290,7 @@
                             "id": "pizza-de-pepperoni-personal",
                             "name": "Pizza de Pepperoni Personal",
                             "description": null,
-                            "price": 52000,
+                            "price": 56000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/pizza-pepperoni-mini.webp",
@@ -1269,7 +1338,7 @@
                             "id": "pizza-mixta-mini",
                             "name": "Pizza Mixta Mini",
                             "description": null,
-                            "price": 38000,
+                            "price": 45000,
                             "labels": [
                                 "Nuevo",
                                 "Recomendado"
@@ -1287,7 +1356,7 @@
                             "id": "pizza-mixta-personal",
                             "name": "Pizza Mixta Personal",
                             "description": null,
-                            "price": 52000,
+                            "price": 58000,
                             "labels": [
                                 "Nuevo",
                                 "Recomendado"
@@ -1305,7 +1374,7 @@
                             "id": "croffle",
                             "name": "Croffle",
                             "description": "Waffle de croissant relleno (brownie, Nutella, arequipe, choco almendra, queso, integral), fresa, banano, chocolate hersheys, lechera, miel.",
-                            "price": 18000,
+                            "price": 20000,
                             "labels": [
                                 "Nuevo",
                                 "Recomendado"
@@ -1329,7 +1398,7 @@
                             "id": "mojito-clasico",
                             "name": "Mojito Clásico",
                             "description": "Ron añejo.",
-                            "price": 22000,
+                            "price": 25000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/mojito.webp",
@@ -1344,7 +1413,7 @@
                             "id": "mojito-de-fresa",
                             "name": "Mojito de Fresa",
                             "description": "Ron añejo.",
-                            "price": 22500,
+                            "price": 26000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/mojito-fresa.webp",
@@ -1359,7 +1428,7 @@
                             "id": "tequila-sunrise",
                             "name": "Tequila Sunrise",
                             "description": "Tequila.",
-                            "price": 24000,
+                            "price": 27000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/tequila-sunrise.webp",
@@ -1374,7 +1443,7 @@
                             "id": "batanga",
                             "name": "Batanga",
                             "description": "Tequila.",
-                            "price": 23000,
+                            "price": 26000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/batanga.webp",
@@ -1389,7 +1458,7 @@
                             "id": "martini-seco",
                             "name": "Martini Seco",
                             "description": "Ginebra. Vermouth blanco.",
-                            "price": 22000,
+                            "price": 25000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/esperro-martini.webp",
@@ -1434,7 +1503,7 @@
                             "id": "margarita-clasico",
                             "name": "Margarita Clásico",
                             "description": "Tequila. Licor de naranja.",
-                            "price": 27000,
+                            "price": 28000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/margarita.webp",
@@ -1449,7 +1518,7 @@
                             "id": "espresso-martini",
                             "name": "Espresso Martini",
                             "description": "Vodka. Espresso.",
-                            "price": 27000,
+                            "price": 28000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/esperro-martini.webp",
@@ -1464,7 +1533,7 @@
                             "id": "orgasmo",
                             "name": "Orgasmo",
                             "description": "Crema de whisky. Licor de café.",
-                            "price": 27000,
+                            "price": 30000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/orgasmo.webp",
@@ -1494,7 +1563,7 @@
                             "id": "long-island-ice-tea",
                             "name": "Long Island Ice Tea",
                             "description": "Vodka. Tequila. Ron blanco. Ginebra. Triple sec.",
-                            "price": 23000,
+                            "price": 25000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/orgasmo.webp",
@@ -1524,7 +1593,7 @@
                             "id": "new-york-city",
                             "name": "New York City",
                             "description": "Whisky. Vino.",
-                            "price": 32000,
+                            "price": 35000,
                             "labels": [
                                 "Nuevo",
                                 "Recomendado"
@@ -1542,7 +1611,7 @@
                             "id": "viva-mexico",
                             "name": "Viva México",
                             "description": "Bebida refrescante a base de cerveza, salsa de aji, amaretto, granadina, tajin, limon.",
-                            "price": 23000,
+                            "price": 25000,
                             "labels": [
                                 "Nuevo",
                                 "Recomendado"
@@ -1560,7 +1629,7 @@
                             "id": "cerveza-corona",
                             "name": "Cerveza Corona",
                             "description": null,
-                            "price": 12000,
+                            "price": 14000,
                             "labels": [
                                 "Nuevo",
                                 "Recomendado"
@@ -1578,7 +1647,7 @@
                             "id": "cerveza-corona-michelada",
                             "name": "Cerveza Corona Michelada",
                             "description": null,
-                            "price": 14000,
+                            "price": 16000,
                             "labels": [
                                 "Nuevo",
                                 "Recomendado"
@@ -1614,7 +1683,7 @@
                             "id": "cerveza-club-colombia",
                             "name": "Cerveza Club Colombia",
                             "description": null,
-                            "price": 10000,
+                            "price": 12000,
                             "labels": [
                                 "Nuevo"
                             ],
@@ -1759,7 +1828,7 @@
                             "id": "chemex",
                             "name": "Chemex",
                             "description": "Preparación a partir de 2 tazas. Cada taza.",
-                            "price": 12000,
+                            "price": 13000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/chemex.webp",
@@ -1774,7 +1843,7 @@
                             "id": "syphon",
                             "name": "Syphon",
                             "description": "Preparación a partir de 2 tazas. Cada taza.",
-                            "price": 14500,
+                            "price": 15000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/syphon.webp",
@@ -1789,7 +1858,7 @@
                             "id": "v60",
                             "name": "V60",
                             "description": "Preparación a partir de 2 tazas. Cada taza.",
-                            "price": 12500,
+                            "price": 14000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/v60.webp",
@@ -1804,7 +1873,7 @@
                             "id": "prensa-francesa",
                             "name": "Prensa Francesa",
                             "description": "Preparación a partir de 2 tazas. Cada taza.",
-                            "price": 10500,
+                            "price": 12000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/prensa-francesa.webp",
@@ -1819,7 +1888,7 @@
                             "id": "metodo-v-60-con-infusion-de-naranja",
                             "name": "Método V-60 con Infusión de Naranja",
                             "description": null,
-                            "price": 11500,
+                            "price": 15000,
                             "labels": null,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/v60-naranja.webp",

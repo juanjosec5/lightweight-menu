@@ -81,6 +81,8 @@
     return [...set].map((l) => LABELS_MAP[l]).filter(Boolean);
   });
 
+  const visibleItems = computed(() => props.category.items?.filter((it) => it.display !== false) ?? [])
+
   const openBody = (after?: () => void) => {
     const el = bodyEl.value;
     if (!el) return;
@@ -177,7 +179,7 @@
         </ul>
         <div v-if="category.items?.length" class="cat-items">
           <menu-item
-            v-for="it in category.items"
+            v-for="it in visibleItems"
             :key="it.id"
             :item="it"
             :currency="currency"

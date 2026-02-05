@@ -8,6 +8,7 @@ export interface Item {
   image?: { src: string; alt?: string };
   price: number;
   labels?: Label[];
+  display: boolean;
 };
 export interface Section {
   id: string;
@@ -24,6 +25,10 @@ export interface Category {
 export interface RestaurantMenu {
   version: number;
   restaurant: Record<string, string>;
+  additionalLinks?: {
+    label: string;
+    url: string;
+  }[];
   menus: {
     id: string;
     label: string;

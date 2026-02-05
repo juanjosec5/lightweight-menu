@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lightweight-menu.app/schemas/restaurant-menu.schema.json",
+  "title": "Lightweight Menu - Restaurant JSON",
+  "type": "object",
+  "required": ["version", "restaurant", "additionalLinks", "menus"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+        "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "additionalLinks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "url"],
+        "additionalProperties": false,
+        "properties": {
+          "label": { "type": "string", "minLength": 1 },
+          "url": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "restaurant": { "$ref": "#/$defs/restaurant" },
+    "menus": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/menu" }
+    }
+  },
+  "$defs": {
+    "restaurant": {
+      "type": "object",
+      "required": ["id", "name", "currency", "locale", "theme", "colors", "updatedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string", "minLength": 1 },
+        "logo": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "description": { "type": "string" },
+        "currency": { "type": "string", "minLength": 1 },
+        "locale": { "type": "string", "minLength": 1 },
+        "theme": { "type": "string", "enum": ["light", "dark"] },
+        "colors": { "$ref": "#/$defs/colors" },
+        "updatedAt": { "$ref": "#/$defs/dateTime" }
+      }
+    },
+
+    "menu": {
+      "type": "object",
+      "required": ["id", "label", "categories"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "label": { "type": "string" },
+        "categories": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/category" }
+        }
+      }
+    },
+
+    "category": {
+      "type": "object",
+      "required": ["id", "label", "items"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "label": { "type": "string", "minLength": 1 },
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/item" }
+        }
+      }
+    },
+
+    "item": {
+      "type": "object",
+      "required": ["id", "name", "price", "labels"],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string", "minLength": 1 },
+        "description": {
+          "type": ["string", "null"]
+        },
+        "price": { "$ref": "#/$defs/price" },
+        "labels": {
+          "type": ["array", "null"],
+          "items": { "type": "string" }
+        },
+        "display": {
+          "type": "boolean",
+          "default": true,
+          "description": "If false, the item should be hidden in the UI."
+        },
+        "image": { "$ref": "#/$defs/image" },
+        "imageThumbnail": { "$ref": "#/$defs/image" }
+      }
+    },
+
+    "price": {
+      "description": "Either a single numeric price or a keyed map (e.g., sizes/variants).",
+      "oneOf": [
+        { "type": "number", "minimum": 0 },
+        {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": { "type": "number", "minimum": 0 },
+          "propertyNames": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      ]
+    },
+
+    "image": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "src": { "type": "string" },
+        "alt": { "type": ["string", "null"] }
+      }
+    },
+
+    "colors": {
+      "type": "object",
+      "required": ["fg", "bg", "action", "muted"],
+      "additionalProperties": false,
+      "properties": {
+        "fg": { "$ref": "#/$defs/hexColor" },
+        "bg": { "$ref": "#/$defs/hexColor" },
+        "action": { "$ref": "#/$defs/hexColor" },
+        "muted": { "$ref": "#/$defs/hexColor" }
+      }
+    },
+
+    "hexColor": {
+      "type": "string",
+      "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+
+    "dateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    }
+  }
+}
