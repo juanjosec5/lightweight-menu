@@ -56,6 +56,28 @@
     return `${r.logo}${r.logo.includes("?") ? "&" : "?"}v=${v}`;
   });
 
+  type GtagFn = (...args: any[]) => void;
+
+const getGtag = (): GtagFn | null => {
+  const w = window as unknown as { gtag?: GtagFn };
+  return typeof w.gtag === "function" ? w.gtag : null;
+};
+
+// prevents double-firing when reactive state changes
+const lastMenuRenderEventKey = ref<string | null>(null);
+
+const trackMenuRendered = (payload: {
+  menu_file_id: string;      // query param menu=...
+  restaurant_id: string;     // from JSON
+  selected_menu_id: string;  // if restaurant has multiple menus
+}) => {
+  const gtag = getGtag();
+  if (!gtag) return;
+
+  gtag("event", "menu_rendered", payload);
+};
+
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -199,6 +221,38 @@
       await nextTick();
     }
   });
+
+  watch(
+  () => ({
+    menuFileId: menuId,
+    restaurantId: data.value?.restaurant?.id ?? null,
+    selectedMenuId: selectedMenuId.value,
+    isReady:
+      !loading.value &&
+      !error.value &&
+      !!data.value?.restaurant &&
+      !!selectedMenu.value &&
+      (selectedMenu.value?.categories?.length ?? 0) > 0,
+  }),
+  async (s) => {
+    if (!s.isReady || !s.menuFileId || !s.restaurantId || !s.selectedMenuId) return;
+
+    // Make sure DOM has updated with the menu content
+    await nextTick();
+
+    const key = `${s.menuFileId}|${s.restaurantId}|${s.selectedMenuId}`;
+    if (lastMenuRenderEventKey.value === key) return;
+    lastMenuRenderEventKey.value = key;
+
+    trackMenuRendered({
+      menu_file_id: s.menuFileId,
+      restaurant_id: s.restaurantId,
+      selected_menu_id: s.selectedMenuId,
+    });
+  },
+  { flush: "post" }
+);
+
 </script>
 
 <template>
