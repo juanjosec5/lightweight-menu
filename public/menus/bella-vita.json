@@ -764,7 +764,7 @@
                             "id": "red-bull",
                             "name": "Red Bull",
                             "description": null,
-                            "price": 12000,
+                            "price": 15000,
                             "labels": null,
                             "image": {
                                 "src": "",
@@ -997,6 +997,7 @@
                             "description": null,
                             "price": 18000,
                             "labels": null,
+                            "display": false,
                             "image": {
                                 "src": "https://storage.googleapis.com/lightweight-menu/bella-vita/meals/cheesecake-limon.webp",
                                 "alt": ""
