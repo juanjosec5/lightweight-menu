@@ -25,6 +25,10 @@ export interface Category {
 export interface RestaurantMenu {
   version: number;
   restaurant: Record<string, string>;
+  socialMedia: {
+    name: string;
+    url: string;
+  }[];
   additionalLinks?: {
     label: string;
     url: string;

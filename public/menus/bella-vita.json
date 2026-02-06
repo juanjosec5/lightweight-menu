@@ -5,19 +5,30 @@
         "id": "bella-vita",
         "name": "Bella Vita",
         "logo": "https://storage.googleapis.com/lightweight-menu/bella-vita/logo/bella-vita-logo.png",
-        "subtitle": "El lugar y ambiente perfecto para disfrutar de un buen café 0sur # 5-11, Buga, Valle del Cauca",
+        "subtitle": "El lugar y ambiente perfecto para disfrutar de un buen café",
+        "address": "https://maps.app.goo.gl/ycay8kxd6rso7U367",
         "description": "",
         "currency": "COP",
         "locale": "es-CO",
         "theme": "light",
         "colors": {
             "fg": "#E6E5DA",
-            "bg": "#805409",
-            "action": "#805409",
-            "muted": "#805409"
+            "bg": "#422c06",
+            "action": "#704c0f",
+            "muted": "#422c06"
         },
         "updatedAt": "2026-01-14T00:07:56.845Z"
     },
+    "socialMedia": [
+        {
+            "name": "instagram",
+            "url": "https://www.instagram.com/bellavita.cafebar"
+        },
+        {
+            "name": "facebook",
+            "url": "https://www.facebook.com/bellavitacafebarbuga"
+        }
+    ],
     "additionalLinks": [
         {
             "label": "Envío de foto para Impresión",
