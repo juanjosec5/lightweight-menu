@@ -312,7 +312,7 @@ watch(
       <p v-if="loading">Cargando…</p>
       <p v-if="error">Error: {{ error }}</p>
 
-      <template v-if="data?.socialMedia.length">
+      <template v-if="data?.socialMedia && data?.socialMedia.length > 0">
         <nav class="social-media-links">
           <ul>
             <li v-for="link in data?.socialMedia" :key="link.url">
