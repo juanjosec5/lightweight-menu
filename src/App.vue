@@ -325,7 +325,7 @@ watch(
       </template>
 
       <a v-if="data?.restaurant.address" :href="data.restaurant.address" class="location-link" target="_blank"
-        rel="noopener noreferrer">Nuestra ubicacion <i class="fa-solid fa-location-dot"></i></a>
+        rel="noopener noreferrer">{{ data?.restaurant?.locale === 'es-CO' ? 'Nuestra ubicación' : 'Our location' }} <i class="fa-solid fa-location-dot"></i></a>
 
       <template v-if="data?.additionalLinks">
         <nav class="additional-links" aria-label="Additional Links">

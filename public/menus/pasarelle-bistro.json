@@ -1,0 +1,847 @@
+{
+  "$schema": "../../src/schemas/restaurant-menu.schema.json",
+  "version": 1,
+  "restaurant": {
+    "id": "passerelle-in-the-park",
+    "name": "Passerelle Bistro",
+    "logo": "",
+    "subtitle": "",
+    "address": "https://passerelleinthepark.com/greenville-passerelle-bistro-food-menu",
+    "description": "",
+    "currency": "USD",
+    "locale": "en-US",
+    "theme": "light",
+    "colors": {
+      "fg": "#ffffff",
+      "bg": "#452727",
+      "action": "#111111",
+      "muted": "#452727"
+    },
+    "updatedAt": "2026-02-18T00:00:00.000Z"
+  },
+  "socialMedia": [],
+  "additionalLinks": [],
+  "menus": [
+    {
+      "id": "default",
+      "label": "Food Menu",
+      "categories": [
+        {
+          "id": "weekend-brunch",
+          "label": "Weekend Brunch (Sat–Sun 10am–3pm)",
+          "items": [
+            {
+              "id": "truffle-frites",
+              "name": "Truffle Frites",
+              "description": "Crispy frites, truffle oil, parmesan, roasted garlic aioli.",
+              "price": 11,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "crispy-goat-cheese",
+              "name": "Crispy Goat Cheese",
+              "description": "Filo, blueberry & lavender jam, candied walnuts, citrus gel.",
+              "price": 14,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "mussels-passerelle",
+              "name": "Mussels Passerelle",
+              "description": "Icy blue mussels, garlic, white wine, saffron cream, tomato, grilled baguette.",
+              "price": 20,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "croissants-and-fresh-fruit",
+              "name": "Croissants & Fresh Fruit",
+              "description": "Butter & preserves.",
+              "price": 15,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "pain-perdu",
+              "name": "Pain Perdu",
+              "description": "Brioche baked with currants and raisins, bourbon maple syrup, spiced creme fraiche, bacon.",
+              "price": 15,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "vegetable-omelette",
+              "name": "Vegetable Omelette",
+              "description": "Mushrooms, diced peppers, kale, tomato, gruyere, dressed green salad.",
+              "price": 14,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "parisian-ham-and-gruyere-omelette",
+              "name": "Parisian Ham & Gruyère Omelette",
+              "description": "Dill onion, dressed green salad.",
+              "price": 15,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "passerelle-breakfast",
+              "name": "Passerelle Breakfast",
+              "description": "Two eggs your way, sausage, bacon, potato croquette, toasted croissant.",
+              "price": 16,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "passerelle-benedict",
+              "name": "Passerelle Benedict",
+              "description": "Parisian ham, poached egg, hollandaise, croissant, frites.",
+              "price": 17,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "steak-potato-hash",
+              "name": "Steak Potato Hash",
+              "description": "Potatoes, onions, red peppers, two eggs your way, toasted croissant.",
+              "price": 23,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "bouillabaisse",
+              "name": "Bouillabaisse",
+              "description": "Saffron shrimp stock, mussels, red snapper, shrimp, garlic & red pepper rouille, grilled baguette.",
+              "price": 32,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "croque-monsieur",
+              "name": "Croque Monsieur",
+              "description": "Grilled ham & gruyère on sourdough bread topped with mornay sauce, frites.",
+              "price": 16,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "croque-madame",
+              "name": "Croque Madame",
+              "description": "Croque monsieur plus an egg.",
+              "price": 18,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "bistro-burger",
+              "name": "Bistro Burger",
+              "description": "Grilled 7oz beef patty, smoked gouda pimento cheese, arugula, tomato, frites.",
+              "price": 19,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "french-toast-monte-cristo",
+              "name": "French Toast Monte Cristo",
+              "description": "Ham, brie, blueberry & lavender jam on brioche french toast, powdered sugar, frites.",
+              "price": 17,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "chicken-salad-croissant",
+              "name": "Chicken Salad Croissant",
+              "description": "Fines herbs, currants, smoked paprika, toasted walnuts, scallions, tomato, mixed greens, dressed green salad.",
+              "price": 16,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "minellis-nj-style-breakfast-sandwich",
+              "name": "Minelli’s “NJ Style” Breakfast Sandwich",
+              "description": "Taylor ham, fried egg, gruyere, basil mayo, pickled red onion, brioche bun, Passerelle “disco” frites.",
+              "price": 16,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "nuts-and-berries-salad",
+              "name": "Nuts & Berries Salad",
+              "description": "Spinach, arugula, strawberries, blueberries, pickled onions, candied pecans, goat cheese, lemon-poppyseed dressing.",
+              "price": 16,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "petite-bistro-salad",
+              "name": "Petite Bistro Salad",
+              "description": "Spring mix, cherry tomatoes, cucumbers, cranberries, sunflower seeds, pickled onion, blue cheese, champagne vinaigrette.",
+              "price": 14,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "burrata-salad",
+              "name": "Burrata Salad",
+              "description": "Fresh burrata, balsamic marinated tomatoes, micro basil, balsamic reduction, extra virgin olive oil, crostini.",
+              "price": 17,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "nicoise",
+              "name": "Niçoise",
+              "description": "Seared tuna, hard boiled egg, cherry tomato, haricot verts, anchovy, nicoise olives, crouton, arcadian mixed greens, herb champagne vinaigrette.",
+              "price": 24,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            }
+          ]
+        },
+        {
+          "id": "lunch",
+          "label": "Lunch (Mon–Fri 11am–3pm)",
+          "items": [
+            {
+              "id": "soup-du-jour-cup",
+              "name": "Soup du Jour (Cup)",
+              "description": null,
+              "price": 8,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "soup-du-jour-bowl",
+              "name": "Soup du Jour (Bowl)",
+              "description": null,
+              "price": 12,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "olives",
+              "name": "Olives",
+              "description": "House blend, cantal.",
+              "price": 11,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "crispy-goat-cheese-lunch",
+              "name": "Crispy Goat Cheese",
+              "description": "Phyllo, blueberry & lavender jam, candied walnuts, citrus gel.",
+              "price": 14,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "crusty-bread",
+              "name": "Crusty Bread",
+              "description": "House bread, salted butter, house preserves (Rise Bakery).",
+              "price": 9,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "truffle-frites-lunch",
+              "name": "Truffle Frites",
+              "description": "Crispy frites, truffle oil, parmesan, roasted garlic aioli.",
+              "price": 11,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "nuts-and-berries-salad-lunch",
+              "name": "Nuts & Berries Salad",
+              "description": "Spinach, arugula, strawberries, blueberries, pickled onion, candied pecans, goat cheese, lemon-poppyseed dressing.",
+              "price": 16,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "petite-bistro-salad-lunch",
+              "name": "Petite Bistro Salad",
+              "description": "Spring mix, cherry tomatoes, cucumbers, cranberries, sunflower seeds, pickled onion, blue cheese, champagne vinaigrette.",
+              "price": 14,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "burrata-salad-lunch",
+              "name": "Burrata Salad",
+              "description": "Fresh burrata, balsamic marinated tomatoes, micro basil, balsamic reduction, extra virgin olive oil, crostini.",
+              "price": 17,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "nicoise-lunch",
+              "name": "Niçoise",
+              "description": "Seared tuna, hard-boiled egg, cherry tomato, haricot verts, anchovy, nicoise olives, crouton, arcadian mixed greens, herb champagne vinaigrette.",
+              "price": 24,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "croque-monsieur-lunch",
+              "name": "Croque Monsieur",
+              "description": "Grilled ham & gruyère on country bread, mornay sauce, frites.",
+              "price": 16,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "chicken-salad-croissant-lunch",
+              "name": "Chicken Salad Croissant",
+              "description": "Fines herbs, currants, smoked paprika, toasted walnuts, scallions, tomato, mixed greens, dressed green salad.",
+              "price": 16,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "bistro-grilled-cheese-and-tomato-fondue",
+              "name": "Bistro Grilled Cheese & Tomato Fondue",
+              "description": "Toasted baguette, cantal, dressed green salad.",
+              "price": 14,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "smash-burger",
+              "name": "Smash Burger",
+              "description": "Two 3.5oz patties, gruyere cheese, caramelized onions, lettuce, tomato, dijonaise, brioche bun, frites.",
+              "price": 20,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "bistro-blt",
+              "name": "Bistro BLT",
+              "description": "Brioche loaf, bacon, remoulade, arcadian greens, tomato jam, frites.",
+              "price": 17,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "quiche-du-jour",
+              "name": "Quiche du Jour",
+              "description": "Dressed green salad.",
+              "price": 16,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "parisian-ham-and-gruyere-omelette-lunch",
+              "name": "Parisian Ham & Gruyère Omelette",
+              "description": "Dill onion, dressed green salad.",
+              "price": 15,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "mussels-passerelle-lunch",
+              "name": "Mussels Passerelle",
+              "description": "Icy blue mussels, garlic, white wine, saffron cream, tomato, grilled baguette.",
+              "price": 20,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "bouillabaisse-lunch",
+              "name": "Bouillabaisse",
+              "description": "Saffron shrimp stock, mussels, red snapper, shrimp, garlic & red pepper rouille, grilled baguette.",
+              "price": 32,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            }
+          ]
+        },
+        {
+          "id": "dinner",
+          "label": "Dinner (Mon–Sun 5pm–9pm)",
+          "items": [
+            {
+              "id": "truffle-frites-dinner",
+              "name": "Truffle Frites",
+              "description": "Crispy frites, truffle oil, parmesan, roasted garlic aioli.",
+              "price": 11,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "mussels-passerelle-dinner",
+              "name": "Mussels Passerelle",
+              "description": "Icy blue mussels, garlic, white wine, saffron cream, tomato, grilled baguette.",
+              "price": 20,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "escargot",
+              "name": "Escargot",
+              "description": "Sauteed French snails, garlic, shallots, diced tomato, prosciutto, pesto cream sauce, grilled rouille baguette.",
+              "price": 25,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "bouillabaisse-dinner",
+              "name": "Bouillabaisse",
+              "description": "Saffron stock, mussels, red snapper, shrimp, cherry tomato, roasted red pepper, garlic, grilled rouille baguette.",
+              "price": 32,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "lamb-lollipops",
+              "name": "Lamb Lollipops",
+              "description": "Herbs de provence marinated lamb, butternut squash puree, roasted brussels, mint pesto.",
+              "price": 28,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "crab-and-artichoke-dip",
+              "name": "Crab & Artichoke Dip",
+              "description": "Creamy crab dip with red peppers, artichoke hearts, topped with parmesan, warm naan bread.",
+              "price": 17,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "fig-and-brie",
+              "name": "Fig & Brie",
+              "description": "Chunky fig-bourbon-vanilla compote, toasted almonds, brie, crostini.",
+              "price": 18,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "cajun-seared-scallops",
+              "name": "Cajun Seared Scallops",
+              "description": "Smoked gouda grit cake, crawfish etouffee, andouille, peppers, scallops.",
+              "price": 26,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "olives-dinner",
+              "name": "Olives",
+              "description": "House marinated blend, emmantaler.",
+              "price": 11,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "crusty-bread-dinner",
+              "name": "Crusty Bread (Rise Bakery)",
+              "description": "Toasted and served with whipped salted butter and house preserves.",
+              "price": 9,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "soup-du-jour-dinner-cup",
+              "name": "Soup du Jour (Cup)",
+              "description": null,
+              "price": 8,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "soup-du-jour-dinner-bowl",
+              "name": "Soup du Jour (Bowl)",
+              "description": null,
+              "price": 12,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "caviar-service",
+              "name": "Caviar Service",
+              "description": "Cornbread crostini, creme fraiche, shallots, chives.",
+              "price": 0,
+              "labels": null,
+              "display": false,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "petite-salad",
+              "name": "Petite Salad",
+              "description": "Spring mix, cherry tomatoes, cucumbers, cranberries, sunflower seeds, pickled red onion, blue cheese crumbles, white balsamic-thyme vinaigrette.",
+              "price": 15,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "pear-salad",
+              "name": "Pear Salad",
+              "description": "Spinach, arugula, poached pears, candied walnuts, smoked goat cheese, radish, golden raisins, maple-sherry vinaigrette.",
+              "price": 16,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "nicoise-dinner",
+              "name": "Nicoise",
+              "description": "Spring mix, seared tuna, hard-boiled egg, fingerling potato, cherry tomato, haricot verts, white anchovies, nicoise olives, croutons, champagne vinaigrette.",
+              "price": 25,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "steak-frites",
+              "name": "Steak Frites",
+              "description": "Grilled 10oz NY strip, crispy frites, au poivre sauce, roasted garlic aioli.",
+              "price": 41,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "seared-salmon",
+              "name": "Seared Salmon",
+              "description": "Seared salmon, guanciale-brussel hash, apple-mustard agrodolce, apple-fennel slaw.",
+              "price": 34,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "duck-confit",
+              "name": "Duck Confit",
+              "description": "Confit duck leg, parsnip puree, sauteed rainbow chard, citrus-pomegranate glaze.",
+              "price": 36,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "goat-cheese-gnocchi",
+              "name": "Goat Cheese Gnocchi",
+              "description": "Sauteed gnocchi, dill onion, red peppers, spinach, roasted mushrooms, pesto cream sauce, parmesan crisp.",
+              "price": 27,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "smash-burger-dinner",
+              "name": "Smash Burger",
+              "description": "Two 3.5oz patties, gruyere cheese, caramelized onions, lettuce, dijonaise, brioche bun, crispy frites.",
+              "price": 20,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "airline-chicken",
+              "name": "Airline Chicken",
+              "description": "Sherry-mustard-guanciale cream sauce, duck fat confit fingerlings, asparagus tips.",
+              "price": 29,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            }
+          ]
+        },
+
+        {
+          "id": "mid-day",
+          "label": "Mid-Day — Passerelle Entr’acte (3pm–5pm)",
+          "items": [
+            {
+              "id": "midday-soup-du-jour-8oz",
+              "name": "Soup du Jour (8oz)",
+              "description": "Daily market soup.",
+              "price": 8,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "midday-soup-du-jour-12oz",
+              "name": "Soup du Jour (12oz)",
+              "description": "Daily market soup.",
+              "price": 12,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "marinated-olives",
+              "name": "Marinated Olives",
+              "description": "House blend.",
+              "price": 11,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "crusty-bread-midday",
+              "name": "Crusty Bread (Rise Bakery)",
+              "description": "House bread, salted butter, house preserves.",
+              "price": 9,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "fig-and-brie-midday",
+              "name": "Fig & Brie",
+              "description": "Chunky fig-bourbon-vanilla compote, toasted almonds, crostini.",
+              "price": 18,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "truffle-frites-midday",
+              "name": "Truffle Frites",
+              "description": "Crispy frites, truffle oil, parmesan, roasted garlic aioli.",
+              "price": 11,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "pear-salad-midday",
+              "name": "Pear Salad",
+              "description": "Spinach, arugula, poached pears, candied walnuts, smoked goat cheese, radish, golden raisins, maple-sherry vinaigrette.",
+              "price": 16,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "petite-bistro-salad-midday",
+              "name": "Petite Bistro Salad",
+              "description": "Spring mix, cherry tomatoes, cucumbers, cranberries, sunflower seeds, pickled onion, blue cheese, white balsamic-thyme vinaigrette.",
+              "price": 15,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "nicoise-salad-midday",
+              "name": "Niçoise Salad",
+              "description": "Mixed greens, seared tuna, hard-boiled egg, fingerling potatoes, cherry tomato, haricot verts, anchovy, nicoise olives, croutons, champagne vinaigrette.",
+              "price": 24,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "smash-burger-midday",
+              "name": "Smash Burger",
+              "description": "Two 3.5oz patties, gruyere cheese, caramelized onions, lettuce, tomato, dijonaise, brioche bun, crispy frites.",
+              "price": 20,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            }
+          ]
+        },
+        {
+          "id": "kids-menu",
+          "label": "Kid’s Menu — Passerelle Children",
+          "items": [
+            {
+              "id": "kids-grilled-cheese",
+              "name": "Grilled Cheese",
+              "description": "Sourdough, gruyere, fresh fruit.",
+              "price": 7,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "kids-pasta",
+              "name": "Pasta",
+              "description": "Red sauce or butter, side shredded cheese.",
+              "price": 7,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "kids-chicken-nuggets",
+              "name": "Chicken Nuggets",
+              "description": "Frites.",
+              "price": 7,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "kids-french-bread-pizza",
+              "name": "French Bread Pizza",
+              "description": "Gruyere, tomato sauce, fresh fruit.",
+              "price": 7,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            }
+          ]
+        },
+        {
+          "id": "desserts",
+          "label": "Desserts (Available all hours)",
+          "items": [
+            {
+              "id": "blackberry-white-chocolate-croissant-pudding",
+              "name": "BlackBerry-White Chocolate Croissant Pudding",
+              "description": "Vanilla gelato, white chocolate garnish.",
+              "price": 12,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "creme-brulee",
+              "name": "Creme Brulee",
+              "description": "Served with seasonal fruit.",
+              "price": 10,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "trio-of-sorbet",
+              "name": "Trio of Sorbet",
+              "description": "Three rotating flavors topped with berries.",
+              "price": 9,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "dark-chocolate-chambord-torte",
+              "name": "Dark Chocolate-Chambord Torte",
+              "description": "Rich and dense chocolate torte, chambord-raspberry coulis, whipped cream and berries.",
+              "price": 11,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "cheesecake-du-jour",
+              "name": "Cheesecake du Jour",
+              "description": null,
+              "price": 12,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            }
+          ]
+        },
+        {
+          "id": "cocktails-sucre",
+          "label": "Cocktails Sucre (Sweet drinks)",
+          "items": [
+            {
+              "id": "sugar-cookie-martini",
+              "name": "Sugar Cookie Martini",
+              "description": "Pearl vanilla vodka, Bailey’s, amaretto, half & half, sprinkles.",
+              "price": 14,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "nutty-irishman",
+              "name": "Nutty Irishman",
+              "description": "Bailey’s, Frangelico, whipped cream.",
+              "price": 13,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "thin-mint-martini",
+              "name": "Thin Mint Martini",
+              "description": "Pearl vanilla vodka, white creme de cocoa, green creme de menthe, Bailey’s, half & half.",
+              "price": 15,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            }
+          ]
+        },
+        {
+          "id": "restaurant-week-winter-2026",
+          "label": "Restaurant Week Winter 2026 (3 courses for $45 — dinner only)",
+          "items": [
+            {
+              "id": "restaurant-week-winter-2026",
+              "name": "Restaurant Week Winter 2026",
+              "description": "Fixed-price menu: 3 courses for $45 (dinner only). Itemized prices not listed on the website.",
+              "price": 45,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
