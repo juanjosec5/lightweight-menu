@@ -1,149 +1,185 @@
 <script setup lang="ts">
-  import { ref, computed, onMounted, watch } from "vue";
-  import MenuItem from "./MenuItem.vue";
-  import { Leaf, Flame, Fish, Shrimp } from "lucide-vue-next";
-  import type { Category, Label } from "@/types/menu";
+import { ref, computed, onMounted, watch, nextTick } from "vue";
+import MenuItem from "./MenuItem.vue";
+import { Leaf, Flame, Fish, Shrimp } from "lucide-vue-next";
+import type { Category, Label } from "@/types/menu";
 
-  const props = withDefaults(
-    defineProps<{
-      category: Category;
-      currency: string;
-      locale: string;
-      reverse?: boolean;
-      menuId?: string;
-      activeItemId?: string | null;
-    }>(),
-    { reverse: false }
+const props = withDefaults(
+  defineProps<{
+    category: Category;
+    currency: string;
+    locale: string;
+    reverse?: boolean;
+    menuId?: string;
+    activeItemId?: string | null;
+  }>(),
+  { reverse: false }
+);
+
+const labelsMap = computed<Record<Label, { icon: any; text: string; class: string }>>(() => ({
+  spicy: {
+    icon: Flame,
+    text: props.locale === "en-US" ? "spicy" : "picante",
+    class: "spicy",
+  },
+  vegetarian: {
+    icon: Leaf,
+    text: props.locale === "en-US" ? "vegetarian" : "vegetariano",
+    class: "vegetarian",
+  },
+  fish: {
+    icon: Fish,
+    text: props.locale === "en-US" ? "fish" : "pescado",
+    class: "fish",
+  },
+  shrimp: {
+    icon: Shrimp,
+    text: props.locale === "en-US" ? "shrimp" : "camarón",
+    class: "shrimp",
+  },
+}));
+
+const expanded = ref(false);
+const canLoadThumbs = ref(false);
+const bodyEl = ref<HTMLElement | null>(null);
+const btnEl = ref<HTMLElement | null>(null);
+const isAnimating = ref(false);
+
+const itemIdSet = computed(() => {
+  const set = new Set<string>();
+  props.category.items?.forEach((it) => set.add(it.id));
+  props.category.sections?.forEach((sec) => sec.items?.forEach((it) => set.add(it.id)));
+  return set;
+});
+
+const hasItem = (id: string | null | undefined): boolean => !!id && itemIdSet.value.has(id);
+
+const visibleItems = computed(() => props.category.items?.filter((it) => it.display !== false) ?? []);
+
+const visibleSectionItems = (items: any[] | undefined) =>
+  (items as any[] | undefined)?.filter((it) => it.display !== false) ?? [];
+
+const openBody = (after?: () => void) => {
+  const el = bodyEl.value;
+  if (!el) return;
+
+  isAnimating.value = true;
+  el.style.maxHeight = el.scrollHeight + "px";
+
+  const done = () => {
+    el.style.maxHeight = "none";
+    isAnimating.value = false;
+    canLoadThumbs.value = true;
+    requestAnimationFrame(() => after?.());
+  };
+
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+
+  if (prefersReducedMotion) {
+    done();
+    return;
+  }
+
+  el.addEventListener(
+    "transitionend",
+    (e) => {
+      if (e.propertyName !== "max-height") return;
+      done();
+    },
+    { once: true }
   );
+};
 
-  const LABELS_MAP = {
-    spicy: { icon: Flame, text: `${props.locale === 'en-US' ? 'spicy' : 'picante'}`, class: "spicy" },
-    vegetarian: { icon: Leaf, text: `${props.locale === 'en-US' ? 'vegetarian' : 'vegetariano'}`, class: "vegetarian" },
-    fish: { icon: Fish, text: `${props.locale === 'en-US' ? 'fish' : 'pescado'}`, class: "fish" },
-    shrimp: { icon: Shrimp, text: `${props.locale === 'en-US' ? 'shrimp' : 'camarón'}`, class: "shrimp" },
-  };
+const closeBody = () => {
+  const el = bodyEl.value;
+  if (!el) return;
 
-  const expanded = ref(false);
-  const canLoadThumbs = ref(false);
-  const bodyEl = ref<HTMLElement | null>(null);
-  const btnEl = ref<HTMLElement | null>(null);
-  const isAnimating = ref(false);
+  isAnimating.value = true;
 
-  const hasItem = (id: string | null | undefined): boolean => {
-    if (!id) return false;
-
-    if (props.category.items?.some((it) => it.id === id)) {
-      return true;
-    }
-
-    if (
-      props.category.sections?.some((sec) =>
-        sec.items.some((it) => it.id === id)
-      )
-    ) {
-      return true;
-    }
-
-    return false;
-  };
-
-  const ensureOpenAndScrollTo = (id: string) => {
-    const scroll = () => {
-      const node = document.getElementById(id);
-      if (!node) return;
-      node.scrollIntoView({ behavior: "smooth", block: "start" });
-      node.classList.add("highlight");
-      setTimeout(() => node.classList.remove("highlight"), 2000);
-    };
-
-    if (!expanded.value) {
-      expanded.value = true;
-      openBody(() => {
-        // one extra frame ensures layout is settled
-        requestAnimationFrame(scroll);
-      });
-    } else {
-      canLoadThumbs.value = true ;
-      requestAnimationFrame(scroll);
-    }
-  };
-
-  const categoryLabels = computed(() => {
-    const set = new Set<Label>();
-
-    props.category.items?.forEach((it) =>
-      it.labels?.forEach((l) => set.add(l))
-    );
-
-    props.category.sections?.forEach((sec) =>
-      sec.items.forEach((it) => it.labels?.forEach((l) => set.add(l)))
-    );
-    return [...set].map((l) => LABELS_MAP[l]).filter(Boolean);
-  });
-
-  const visibleItems = computed(() => props.category.items?.filter((it) => it.display !== false) ?? [])
-
-  const openBody = (after?: () => void) => {
-    const el = bodyEl.value;
-    if (!el) return;
-    isAnimating.value = true;
+  if (el.style.maxHeight === "none") {
     el.style.maxHeight = el.scrollHeight + "px";
-    el.addEventListener(
-      "transitionend",
-      (e) => {
-        if (e.propertyName !== "max-height") return;
-        el.style.maxHeight = "none";
-        isAnimating.value = false;
-        canLoadThumbs.value = true;
-        // run after the panel is fully open
-        requestAnimationFrame(() => after?.());
-      },
-      { once: true }
-    );
-  };
+  }
 
-  const closeBody = () => {
-    const el = bodyEl.value;
-    if (!el) return;
-    isAnimating.value = true;
-    // If currently 'none', fix to current px so we can animate down
-    if (el.style.maxHeight === "none") {
-      el.style.maxHeight = el.scrollHeight + "px";
-    }
-    // Force reflow to ensure transition kicks in
-    void el.offsetHeight;
-    el.style.maxHeight = "0px";
-    el.addEventListener(
-      "transitionend",
-      () => {
-        isAnimating.value = false;
-      },
-      { once: true }
-    );
+  void el.offsetHeight;
+  el.style.maxHeight = "0px";
+
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+
+  if (prefersReducedMotion) {
+    isAnimating.value = false;
     btnEl.value?.focus();
-  };
+    return;
+  }
 
-  const toggleContent = () => {
-    if (isAnimating.value) return;
-
-    expanded.value = !expanded.value;
-    expanded.value ? openBody() : closeBody();
-  };
-
-  onMounted(() => {
-    if (hasItem(props.activeItemId)) {
-      ensureOpenAndScrollTo(props.activeItemId as string);
-    }
-  });
-
-  watch(
-    () => props.activeItemId,
-    (newId) => {
-      if (hasItem(newId)) {
-        ensureOpenAndScrollTo(newId as string);
-      }
-    }
+  el.addEventListener(
+    "transitionend",
+    () => {
+      isAnimating.value = false;
+    },
+    { once: true }
   );
+
+  btnEl.value?.focus();
+};
+
+const toggleContent = () => {
+  if (isAnimating.value) return;
+
+  expanded.value = !expanded.value;
+  expanded.value ? openBody() : closeBody();
+};
+
+const ensureOpenAndScrollTo = async (id: string | null | undefined) => {
+  if (!id || isAnimating.value) return;
+
+  const scroll = () => {
+    const node = document.getElementById(id);
+    if (!node) return;
+    node.scrollIntoView({ behavior: "smooth", block: "start" });
+    node.classList.add("highlight");
+    setTimeout(() => node.classList.remove("highlight"), 2000);
+  };
+
+  if (!expanded.value) {
+    expanded.value = true;
+    openBody(async () => {
+      await nextTick();
+      requestAnimationFrame(scroll);
+    });
+  } else {
+    canLoadThumbs.value = true;
+    await nextTick();
+    requestAnimationFrame(scroll);
+  }
+};
+
+const categoryLabels = computed(() => {
+  const set = new Set<Label>();
+
+  props.category.items?.forEach((it) => it.labels?.forEach((l) => set.add(l)));
+  props.category.sections?.forEach((sec) => sec.items?.forEach((it) => it.labels?.forEach((l) => set.add(l))));
+
+  return [...set].map((l) => labelsMap.value[l]).filter(Boolean);
+});
+
+onMounted(() => {
+  if (hasItem(props.activeItemId)) {
+    ensureOpenAndScrollTo(props.activeItemId);
+  }
+});
+
+watch(
+  () => props.activeItemId,
+  (newId) => {
+    if (hasItem(newId)) {
+      ensureOpenAndScrollTo(newId);
+    }
+  }
+);
 </script>
 
 <template>
@@ -158,17 +194,12 @@
           :disabled="isAnimating"
           ref="btnEl"
         >
-          <span :class="['arrow', { 'arrow--expanded': expanded }]"
-            >&#8595;</span
-          >
-          <h3 class="cat__title-text">
-            {{ category.label }}
-          </h3>
+          <span :class="['arrow', { 'arrow--expanded': expanded }]">&#8595;</span>
+          <h3 class="cat__title-text">{{ category.label }}</h3>
         </button>
       </div>
-      <div class="cat-body" ref="bodyEl">
-        <!-- Flat items -->
 
+      <div class="cat-body" ref="bodyEl">
         <ul class="labels-list" v-if="categoryLabels.length">
           <li v-for="l in categoryLabels" :key="l.class">
             <span class="badge">
@@ -177,6 +208,7 @@
             </span>
           </li>
         </ul>
+
         <div v-if="category.items?.length" class="cat-items">
           <menu-item
             v-for="it in visibleItems"
@@ -188,18 +220,15 @@
             :can-load-thumbs="canLoadThumbs"
           />
         </div>
-        <!-- Grouped sections -->
+
         <div v-if="category.sections?.length" class="cat-sections">
-          <div
-            v-for="sec in category.sections"
-            :key="sec.id"
-            class="cat-section"
-          >
+          <div v-for="sec in category.sections" :key="sec.id" class="cat-section">
             <span class="section__title-wrapper">
               <h4 class="section__title">{{ sec.label }}</h4>
             </span>
+
             <menu-item
-              v-for="it in sec.items"
+              v-for="it in visibleSectionItems(sec.items)"
               :key="it.id"
               :item="it"
               :currency="currency"
@@ -210,16 +239,14 @@
           </div>
         </div>
 
-        <p
-          v-if="!category.items?.length && !category.sections?.length"
-          class="muted"
-        >
+        <p v-if="!category.items?.length && !category.sections?.length" class="muted">
           Sin ítems por ahora.
         </p>
       </div>
     </div>
   </section>
 </template>
+
 
 <style scoped lang="scss">
   @use "sass:color";
@@ -334,7 +361,7 @@
       color: var(--fg);
     }
 
-    &:focus {
+    &:focus { 
       outline: 3px solid var(--bg);
       outline-offset: 2px;
     }

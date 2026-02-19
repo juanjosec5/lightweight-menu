@@ -1,26 +1,16 @@
 <script setup lang="ts">
-import {
-  watch,
-  ref,
-  computed,
-  onMounted,
-  onBeforeUnmount,
-  nextTick,
-} from "vue";
+import { watch, ref, computed, onMounted, onBeforeUnmount, nextTick } from "vue";
 import { useMenu } from "@/composables/useMenu";
 import { useMenuFromUrl } from "@/composables/useMenuFromUrl";
 import { useTheme } from "@/composables/useTheme";
 import MenuCategory from "@/components/MenuCategory.vue";
 import { Sun, Moon } from "lucide-vue-next";
-import { type BrandColors } from "./types/menu";
+import type { RestaurantMenu, BrandColors } from "@/types/menu";
 
 const menus = import.meta.glob("../public/menus/*.json");
 
 const prettifyName = (name: string) =>
-  name
-    .replace(/[-_]/g, " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase())
-    .trim();
+  name.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()).trim();
 
 const KNOWN_MENUS = Object.keys(menus).map((m) =>
   m.split("/").pop()?.replace(".json", "")
@@ -40,191 +30,162 @@ const SOCIAL_MEDIA_ICONS: Record<string, string> = {
 };
 
 const selectedMenuId = ref<string | null>(null);
-const selectedMenu = computed(() => {
-  const all = data.value?.menus ?? [];
-  return (
-    all.find((m: any) => m.id === selectedMenuId.value) ?? all[0] ?? null
-  );
-});
-
 const activeItemId = ref<string | null>(null);
 const headerRef = ref<HTMLElement | null>(null);
-const toolbarTitle = ref("");
 
-const updateActiveFromHash = () => {
-  activeItemId.value = (window.location.hash || "").replace(/^#/, "");
-};
+const selectedMenu = computed(() => {
+  const all = data.value?.menus ?? [];
+  return all.find((m) => m.id === selectedMenuId.value) ?? all[0] ?? null;
+});
 
 const logoUrl = computed(() => {
   const r = data.value?.restaurant;
-  if (!r) return null;
-  if (!r.logo) return null;
-  // Append updatedAt as a query param to force reload if logo changes
-  const v = encodeURIComponent(r.updatedAt || "");
-
+  if (!r?.logo) return null;
+  const v = encodeURIComponent(r.updatedAt); // updatedAt should be required per schema
   return `${r.logo}${r.logo.includes("?") ? "&" : "?"}v=${v}`;
 });
 
+const toolbarLogoSrc = ref<string | null>(null);
 
-type GtagFn = (...args: any[]) => void;
+const updateActiveFromHash = () => {
+  activeItemId.value = (window.location.hash || "").replace(/^#/, "") || null;
+};
+
+type GtagFn = (command: "event", eventName: string, params: Record<string, unknown>) => void;
 
 const getGtag = (): GtagFn | null => {
   const w = window as unknown as { gtag?: GtagFn };
   return typeof w.gtag === "function" ? w.gtag : null;
 };
 
-// prevents double-firing when reactive state changes
 const lastMenuRenderEventKey = ref<string | null>(null);
 
 const trackMenuRendered = (payload: {
-  menu_file_id: string;      // query param menu=...
-  restaurant_id: string;     // from JSON
-  selected_menu_id: string;  // if restaurant has multiple menus
+  menu_file_id: string;
+  restaurant_id: string;
+  selected_menu_id: string;
 }) => {
   const gtag = getGtag();
   if (!gtag) return;
-
   gtag("event", "menu_rendered", payload);
 };
 
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        toolbarTitle.value = data.value?.restaurant?.logo || "";
-      } else {
-        toolbarTitle.value = "";
-      }
-    });
-  },
-  {
-    threshold: 0,
-    rootMargin: "-64px 0px 0px 0px",
-  }
-);
-
-const menuHasItem = (menu: any, id: string): boolean => {
-  if (!menu || !id) return false;
-
-  for (const cat of menu.categories ?? []) {
-    if (cat.items?.some((it: any) => it.id === id)) return true;
-
-    if (
-      cat.sections?.some((sec: any) =>
-        sec.items?.some((it: any) => it.id === id)
-      )
-    ) {
-      return true;
-    }
-  }
-  return false;
-};
-
-// Find which menu contains the item id
-const findMenuIdForItem = (id: string): string | null => {
-  const all = data.value?.menus ?? [];
-  for (const m of all) {
-    if (menuHasItem(m, id)) return m.id;
-  }
-  return null;
-};
-
-function applyBranding(opts?: {
-  theme?: "dark" | "light";
-  colors?: BrandColors;
-}) {
+function applyBranding(opts?: { theme?: "dark" | "light"; colors?: BrandColors }) {
   const root = document.documentElement;
 
-  // 1) Theme lock (disables your toggle in UI)
-  if (opts?.theme) {
-    root.setAttribute("data-theme", opts.theme);
-  } else {
-    // if you want to re-enable system behavior when no theme is set:
-    root.removeAttribute("data-theme");
-  }
+  if (opts?.theme) root.setAttribute("data-theme", opts.theme);
+  else root.removeAttribute("data-theme");
 
-  // 2) Color overrides (only set what’s provided)
   const map: Record<string, string | undefined> = {
     "--fg": opts?.colors?.fg,
     "--bg": opts?.colors?.bg,
     "--action": opts?.colors?.action,
-    "--muted": opts?.colors?.muted
+    "--muted": opts?.colors?.muted,
   };
+
   Object.entries(map).forEach(([k, v]) => {
     if (v) root.style.setProperty(k, v);
     else root.style.removeProperty(k);
   });
 
-  // 3) Optional: set browser UI theme color (nice touch on mobile)
-  const meta = document.querySelector(
-    'meta[name="theme-color"]'
-  ) as HTMLMetaElement | null;
-  if (meta)
-    meta.content = getComputedStyle(root).getPropertyValue("--fg").trim();
+  const meta = document.querySelector('meta[name="theme-color"]') as HTMLMetaElement | null;
+  if (meta) meta.content = getComputedStyle(root).getPropertyValue("--fg").trim();
 }
+
+const itemToMenuId = computed(() => {
+  const map = new Map<string, string>();
+  const all = data.value?.menus ?? [];
+
+  for (const m of all) {
+    for (const cat of m.categories ?? []) {
+      for (const it of cat.items ?? []) map.set(it.id, m.id);
+      for (const sec of cat.sections ?? []) {
+        for (const it of sec.items ?? []) map.set(it.id, m.id);
+      }
+    }
+  }
+
+  return map;
+});
+
+const findMenuIdForItem = (id: string) => itemToMenuId.value.get(id) ?? null;
+
+let observer: IntersectionObserver | null = null;
+let onPageShow: ((e: PageTransitionEvent) => void) | null = null;
+let observingHeader = false;
 
 onMounted(() => {
   updateActiveFromHash();
   window.addEventListener("hashchange", updateActiveFromHash);
 
-  const onPageShow = (e: PageTransitionEvent) => {
+  onPageShow = (e) => {
     if (!window.location.hash) return;
-
-    if (e.persisted) {
-      setTimeout(() => updateActiveFromHash(), 0);
-    }
+    if (e.persisted) setTimeout(updateActiveFromHash, 0);
   };
   window.addEventListener("pageshow", onPageShow);
 
-  onBeforeUnmount(() => {
-    window.removeEventListener("hashchange", updateActiveFromHash);
-    window.removeEventListener("pageshow", onPageShow);
-    observer?.disconnect();
-  });
+  observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        toolbarLogoSrc.value = entry.isIntersecting ? null : logoUrl.value;
+      }
+    },
+    { threshold: 0, rootMargin: "-64px 0px 0px 0px" }
+  );
 });
 
-// When your menu `data` changes, apply branding
-watch(data, async (menu) => {
-  await nextTick();
-  if (!menu?.restaurant) {
-    applyBranding(undefined); // reset to defaults
-    return;
-  }
-  const r = menu.restaurant as {
-    theme?: "dark" | "light";
-    colors?: BrandColors;
-  };
-  applyBranding({ theme: r.theme, colors: r.colors });
+onBeforeUnmount(() => {
+  window.removeEventListener("hashchange", updateActiveFromHash);
+  if (onPageShow) window.removeEventListener("pageshow", onPageShow);
+  observer?.disconnect();
 });
 
-watch(data, async (menu) => {
-  if (!menu) return;
-
-  // default selection (first menu) if not set yet
-  if (!selectedMenuId.value) {
-    selectedMenuId.value = menu.menus?.[0]?.id ?? null;
+// reset when menu file id changes
+watch(
+  () => menuId.value,
+  () => {
+    selectedMenuId.value = null;
+    lastMenuRenderEventKey.value = null;
+    observingHeader = false;
   }
+);
 
-  await nextTick();
-  if (headerRef.value) observer.observe(headerRef.value);
+// unified data watcher (branding + selection + observer + hash handling)
+watch(
+  data,
+  async (menu) => {
+    await nextTick();
 
-  // if there’s a hash item, switch to the menu that contains it
-  if (activeItemId.value) {
-    const hit = findMenuIdForItem(activeItemId.value);
-    if (hit && hit !== selectedMenuId.value) {
-      selectedMenuId.value = hit;
-      // wait for categories of the new menu to render
-      await nextTick();
+    if (!menu?.restaurant) {
+      applyBranding();
+      return;
     }
-  }
-});
+
+    applyBranding({ theme: menu.restaurant.theme, colors: menu.restaurant.colors });
+
+    if (!selectedMenuId.value) {
+      selectedMenuId.value = menu.menus?.[0]?.id ?? null;
+    }
+
+    if (observer && headerRef.value && !observingHeader) {
+      observer.observe(headerRef.value);
+      observingHeader = true;
+    }
+
+    const id = activeItemId.value;
+    if (id) {
+      const hit = findMenuIdForItem(id);
+      if (hit && hit !== selectedMenuId.value) {
+        selectedMenuId.value = hit;
+        await nextTick();
+      }
+    }
+  },
+  { immediate: true }
+);
 
 watch(activeItemId, async (id) => {
-  if (!id || !data.value?.menus?.length) return;
-  // if current selected menu already has it, do nothing
-  if (selectedMenu.value && menuHasItem(selectedMenu.value, id)) return;
-
+  if (!id || !selectedMenu.value) return;
   const hit = findMenuIdForItem(id);
   if (hit && hit !== selectedMenuId.value) {
     selectedMenuId.value = hit;
@@ -232,43 +193,41 @@ watch(activeItemId, async (id) => {
   }
 });
 
-watch(
-  () => ({
-    menuFileId: menuId,
-    restaurantId: data.value?.restaurant?.id ?? null,
-    selectedMenuId: selectedMenuId.value,
-    isReady:
-      !loading.value &&
-      !error.value &&
-      !!data.value?.restaurant &&
-      !!selectedMenu.value &&
-      (selectedMenu.value?.categories?.length ?? 0) > 0,
-  }),
-  async (s) => {
-    if (!s.isReady || !s.menuFileId || !s.restaurantId || !s.selectedMenuId) return;
+const isReady = computed(() => {
+  return (
+    !loading.value &&
+    !error.value &&
+    !!data.value?.restaurant &&
+    !!selectedMenu.value &&
+    (selectedMenu.value.categories?.length ?? 0) > 0
+  );
+});
 
-    // Make sure DOM has updated with the menu content
+watch(
+  [() => menuId.value, () => data.value?.restaurant.id ?? null, () => selectedMenuId.value, isReady],
+  async ([menuFileId, restaurantId, selId, ready]) => {
+    if (!ready || !menuFileId || !restaurantId || !selId) return;
+
     await nextTick();
 
-    const key = `${s.menuFileId}|${s.restaurantId}|${s.selectedMenuId}`;
+    const key = `${menuFileId}|${restaurantId}|${selId}`;
     if (lastMenuRenderEventKey.value === key) return;
     lastMenuRenderEventKey.value = key;
 
     trackMenuRendered({
-      menu_file_id: s.menuFileId,
-      restaurant_id: s.restaurantId,
-      selected_menu_id: s.selectedMenuId,
+      menu_file_id: menuFileId,
+      restaurant_id: restaurantId,
+      selected_menu_id: selId,
     });
   },
   { flush: "post" }
 );
-
 </script>
 
 <template>
   <main class="wrap">
     <div :class="['toolbar', { 'shadow-light': !theme, 'shadow-dark': theme }]">
-      <img v-if="toolbarTitle" :src="toolbarTitle" :alt="`Logo for ${data?.restaurant.name}`">
+      <img v-if="toolbarLogoSrc" :src="toolbarLogoSrc" :alt="`Logo for ${data?.restaurant?.name ?? 'restaurant'}`" />
       <!-- <h1 class="toolbar-title">{{ toolbarTitle }}</h1> -->
       <button v-if="!data?.restaurant.theme" :aria-label="`toggle to ${theme ? 'light' : 'dark'} theme`"
         class="toolbar-button theme-toggle" @click="toggle" type="button">
@@ -317,7 +276,7 @@ watch(
           <ul>
             <li v-for="link in data?.socialMedia" :key="link.url">
               <a :href="link.url" target="_blank" rel="noopener noreferrer">
-                <i :class="SOCIAL_MEDIA_ICONS[link.name]"></i>
+                <i :class="SOCIAL_MEDIA_ICONS[link.name] ?? 'fa-solid fa-link fa-lg'"></i>
               </a>
             </li>
           </ul>
@@ -325,7 +284,8 @@ watch(
       </template>
 
       <a v-if="data?.restaurant.address" :href="data.restaurant.address" class="location-link" target="_blank"
-        rel="noopener noreferrer">{{ data?.restaurant?.locale === 'es-CO' ? 'Nuestra ubicación' : 'Our location' }} <i class="fa-solid fa-location-dot"></i></a>
+        rel="noopener noreferrer">{{ data?.restaurant?.locale === 'es-CO' ? 'Nuestra ubicación' : 'Our location' }} <i
+          class="fa-solid fa-location-dot"></i></a>
 
       <template v-if="data?.additionalLinks">
         <nav class="additional-links" aria-label="Additional Links">
@@ -364,9 +324,9 @@ watch(
     <small v-if="data" class="muted">
       Última actualización:
       {{
-        new Date(data.restaurant.updatedAt).toLocaleDateString(
-          data.restaurant.locale
-        )
+        data.restaurant.updatedAt
+          ? new Date(data.restaurant.updatedAt).toLocaleDateString(data.restaurant.locale)
+          : ""
       }}
     </small>
   </main>

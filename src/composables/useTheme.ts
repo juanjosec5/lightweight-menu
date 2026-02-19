@@ -1,5 +1,5 @@
 // src/composables/useTheme.ts
-import { ref, onMounted, computed, onBeforeUnmount } from "vue"
+import { ref } from "vue"
 
 export type Theme = "light" | "dark";
 

@@ -1,23 +1,14 @@
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
+import { ref, computed, watch, onBeforeUnmount } from "vue";
 import { formatPrice } from "@/utils/formatPrice";
 import { Flame, Leaf, Fish, Link, X, Shrimp } from "lucide-vue-next";
+import type { Item } from "@/types/menu";
 
 type PriceMap = Record<string, number | string>;
+type Price = number | PriceMap;
 
 const props = defineProps<{
-  item: {
-    id: string;
-    name: string;
-    ingredientsType?: string | null;
-    ingredients: string[];
-    description?: string;
-    image?: { src: string; alt?: string };
-    // ⬇️ allow number OR map of label -> number|string
-    price: number | PriceMap;
-    labels?: string[];
-    imageThumbnail?: { src: string; alt?: string };
-  };
+  item: Item & { price: Price }; // keep union locally for now
   currency: string;
   locale: string;
   menuId?: string;
@@ -29,7 +20,7 @@ const showModal = ref(false);
 
 const ingredientsList = computed(() => {
   if (!props.item?.ingredientsType) return [];
-  const lines = props.item?.ingredients ?? [];
+  const lines = props.item.ingredients ?? [];
   return lines.map((line) => {
     const i = line.indexOf(":");
     if (i === -1) return { label: "", value: line.trim() };
@@ -37,21 +28,31 @@ const ingredientsList = computed(() => {
   });
 });
 
-const LABEL_MAP: Record<string, any> = {
+const LABEL_MAP: Record<string, { icon: any; class: string }> = {
   spicy: { icon: Flame, class: "spicy" },
   vegetarian: { icon: Leaf, class: "vegetarian" },
   fish: { icon: Fish, class: "fish" },
   shrimp: { icon: Shrimp, class: "shrimp" },
 };
 
-// --- price helpers ---
-const isPriceObject = computed(
-  () => typeof props.item.price === "object" && props.item.price !== null
+const ICON_LABELS = new Set(Object.keys(LABEL_MAP));
+
+const iconLabels = computed(() =>
+  (props.item.labels ?? [])
+    .filter((l): l is string => typeof l === "string")
+    .filter((l) => ICON_LABELS.has(l))
 );
+
+// --- price helpers ---
+const isPriceObject = computed(() => {
+  const p = props.item.price;
+  return typeof p === "object" && p !== null && !Array.isArray(p);
+});
 
 const priceLines = computed(() => {
   if (!isPriceObject.value) return [];
   const p = props.item.price as PriceMap;
+
   return Object.entries(p).map(([label, val]) => ({
     label,
     value:
@@ -63,6 +64,7 @@ const priceLines = computed(() => {
 
 const buildShareUrl = (itemId: string) => {
   if (!props.menuId) return window.location.href;
+
   const url = new URL(window.location.href);
   url.searchParams.set("menu", props.menuId);
   url.hash = itemId;
@@ -71,14 +73,19 @@ const buildShareUrl = (itemId: string) => {
 
 const onShareClick = async (e: MouseEvent) => {
   e.stopPropagation();
+
   const link = buildShareUrl(props.item.id);
-  history.replaceState({}, "", `#${props.item.id}`);
+  history.replaceState({}, "", link);
+
   try {
     if (navigator.share) {
       await navigator.share({ title: props.item.name, url: link });
       return;
     }
-  } catch { }
+  } catch {
+    // ignore share cancellation/errors and fall back
+  }
+
   try {
     await navigator.clipboard.writeText(link);
   } catch {
@@ -86,15 +93,33 @@ const onShareClick = async (e: MouseEvent) => {
   }
 };
 
-const toggleModal = () => (showModal.value = !showModal.value);
+const openDialog = () => {
+  const dlg = dialogRef.value;
+  if (!dlg) return;
 
-const handleKeydown = (e: KeyboardEvent) => {
-  if (e.key === "Escape" && showModal.value) toggleModal();
+  // use native dialog API when available for proper modal behavior
+  if (typeof dlg.showModal === "function") {
+    dlg.showModal();
+  } else {
+    // fallback: at least keep state consistent
+    dlg.setAttribute("open", "");
+  }
+
+  showModal.value = true;
+};
+
+const closeDialog = () => {
+  const dlg = dialogRef.value;
+  if (dlg?.open) dlg.close();
+  showModal.value = false;
 };
 
 watch(showModal, (val) => {
-  if (!dialogRef.value) return;
   document.documentElement.classList.toggle("no-scroll", val);
+});
+
+onBeforeUnmount(() => {
+  document.documentElement.classList.remove("no-scroll");
 });
 </script>
 
@@ -103,21 +128,24 @@ watch(showModal, (val) => {
     <div class="item__body">
       <span class="item__header">
         <h4 class="item__title">{{ item.name }}</h4>
-        <ul v-if="item.labels?.length" class="mi-labels">
-          <li v-for="b in item.labels" :key="b" class="badge">
-            <component :is="LABEL_MAP[b]?.icon" :class="LABEL_MAP[b]?.class" size="20" />
+
+        <ul v-if="iconLabels.length" class="mi-labels">
+          <li v-for="b in iconLabels" :key="b" class="badge">
+            <component :is="LABEL_MAP[b].icon" :class="LABEL_MAP[b].class" :size="20" />
           </li>
         </ul>
       </span>
 
       <ul v-if="item.ingredientsType" class="item__ingredients-list">
         <li v-for="(it, index) in ingredientsList" :key="index">
-          <p><strong>{{ it.label }}:</strong> {{ it.value }}</p>
+          <p><strong v-if="it.label">{{ it.label }}:</strong> {{ it.value }}</p>
         </li>
       </ul>
-      <p v-else-if="item.ingredients?.length && !item.ingredientsType" class="item__ingredients">
+
+      <p v-else-if="item.ingredients?.length" class="item__ingredients">
         {{ item.ingredients.join(", ") }}
       </p>
+
       <p v-if="item.description" class="item__desc">{{ item.description }}</p>
 
       <!-- single price -->
@@ -134,29 +162,51 @@ watch(showModal, (val) => {
       </div>
     </div>
 
-    <button @click.prevent="onShareClick" class="share-button" :aria-label="`Share link to ${item.name}`">
+    <button
+      @click.prevent="onShareClick"
+      class="share-button"
+      type="button"
+      :aria-label="`Share link to ${item.name}`"
+    >
       <component :is="Link" :size="20" />
     </button>
 
-    <button v-if="item.imageThumbnail?.src" type="button" class="thumb" :aria-label="`Ver imagen de ${item.name}`"
-      @click="showModal = true">
-      <img v-if="canLoadThumbs" :src="item.imageThumbnail.src" :alt="item.imageThumbnail.alt || item.name"
-        loading="lazy" />
+    <button
+      v-if="item.imageThumbnail?.src"
+      type="button"
+      class="thumb"
+      :aria-label="`Ver imagen de ${item.name}`"
+      @click="openDialog"
+    >
+      <img
+        v-if="canLoadThumbs"
+        :src="item.imageThumbnail.src"
+        :alt="item.imageThumbnail.alt || item.name"
+        loading="lazy"
+      />
     </button>
 
-    <dialog ref="dialogRef" class="img-dialog" :open="showModal" @keydown="handleKeydown">
+    <dialog ref="dialogRef" class="img-dialog" @close="showModal = false">
       <form method="dialog">
-        <button class="img-dialog__close" aria-label="Cerrar" @click="showModal = false">
+        <button class="img-dialog__close" aria-label="Cerrar" @click.prevent="closeDialog">
           <component class="img-dialog__close-button" :is="X" :size="28" />
         </button>
       </form>
+
       <div class="img-dialog__img-wrapper">
-        <img v-show="showModal" class="img-dialog__img" :src="item.image?.src" :alt="item.image?.alt || item.name" />
+        <img
+          v-if="showModal && item.image?.src"
+          class="img-dialog__img"
+          :src="item.image.src"
+          :alt="item.image.alt || item.name"
+        />
       </div>
+
       <p class="img-dialog__caption">{{ item.image?.alt || item.name }}</p>
     </dialog>
   </article>
 </template>
+
 
 <style scoped lang="scss">
 .mi-labels {

@@ -1,32 +1,73 @@
-export function useMenuFromUrl(knownMenus: string[]) {
+// src/composables/useMenuFromUrl.ts
+import { ref, computed, onMounted, onBeforeUnmount } from "vue";
+
+const slugify = (s: string) =>
+  s
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
+
+const readMenuParam = () => {
   const params = new URLSearchParams(window.location.search);
-  const raw = (params.get("menu") || "").trim();
+  return (params.get("menu") || "").trim();
+};
 
-  const slugify = (s: string) =>
-    s
-      .toLowerCase()
-      .trim()
-      .replace(/\s+/g, "-")
-      .replace(/[^a-z0-9-]/g, "");
+export function useMenuFromUrl(knownMenus: string[]) {
+  const rawMenuParam = ref<string>("");
 
-  const normalized = raw ? slugify(raw) : "";
+  const syncFromUrl = () => {
+    const raw = readMenuParam();
+    rawMenuParam.value = raw;
 
-  const isKnown = normalized ? knownMenus.includes(normalized) : false;
-  const isMissingParam = raw.length === 0;
-  const menuId = isMissingParam ? "" : isKnown ? normalized : "";
-  const invalidMenu = !isMissingParam && !isKnown;
+    // normalize the URL once if user provided non-slug value
+    const normalized = raw ? slugify(raw) : "";
+    if (raw && normalized && normalized !== raw) {
+      const url = new URL(window.location.href);
+      url.pathname = import.meta.env.BASE_URL;
+      url.searchParams.set("menu", normalized);
+      window.history.replaceState({}, "", url.toString());
+      rawMenuParam.value = normalized; // keep state aligned with URL
+    }
+  };
 
-  if (raw && normalized && normalized !== raw) {
+  const menuId = computed(() => {
+    const raw = rawMenuParam.value;
+    if (!raw) return "";
+    const normalized = slugify(raw);
+    return knownMenus.includes(normalized) ? normalized : "";
+  });
+
+  const isMissingParam = computed(() => rawMenuParam.value.length === 0);
+  const invalidMenu = computed(() => !isMissingParam.value && menuId.value === "");
+
+  // Optional helper to navigate within the SPA without reloading
+  const setMenuId = (next: string, opts?: { replace?: boolean }) => {
+    const normalized = slugify(next);
     const url = new URL(window.location.href);
 
     url.pathname = import.meta.env.BASE_URL;
     url.searchParams.set("menu", normalized);
-    window.history.replaceState({}, "", url.toString());
-  }
+
+    if (opts?.replace) window.history.replaceState({}, "", url.toString());
+    else window.history.pushState({}, "", url.toString());
+
+    rawMenuParam.value = normalized;
+  };
+
+  onMounted(() => {
+    syncFromUrl();
+    window.addEventListener("popstate", syncFromUrl);
+  });
+
+  onBeforeUnmount(() => {
+    window.removeEventListener("popstate", syncFromUrl);
+  });
 
   return {
-    menuId: menuId,
-    invalidMenu: invalidMenu,
-    isMissingParam: isMissingParam,
+    menuId,          // computed<string>
+    invalidMenu,     // computed<boolean>
+    isMissingParam,  // computed<boolean>
+    setMenuId,       // optional helper
   };
 }
