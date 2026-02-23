@@ -1,0 +1,575 @@
+{
+  "$schema": "../../src/schemas/restaurant-menu.schema.json",
+  "version": 1,
+  "restaurant": {
+    "id": "nicolas-ni-dejas-colar",
+    "name": "Nicolas ni dejas colar",
+    "logo": "",
+    "subtitle": "",
+    "address": "",
+    "description": "",
+    "currency": "COP",
+    "locale": "es-CO",
+    "theme": "light",
+    "colors": {
+      "fg": "#111111",
+      "bg": "#ffffff",
+      "action": "#111111",
+      "muted": "#f2f2f2"
+    },
+    "updatedAt": "2026-02-22T00:00:00.000Z"
+  },
+  "socialMedia": [],
+  "additionalLinks": [],
+  "menus": [
+    {
+      "id": "default",
+      "label": "",
+      "categories": [
+        {
+          "id": "bocados",
+          "label": "Bocados",
+          "items": [
+            {
+              "id": "pancitos-con-mermelada-de-tocineta",
+              "name": "Pancitos con mermelada de tocineta",
+              "description": null,
+              "price": 12000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "chorizos-coctel",
+              "name": "Chorizos cóctel",
+              "description": null,
+              "price": 18000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "salchipapas",
+              "name": "Salchipapas",
+              "description": null,
+              "price": 13000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "costipapa",
+              "name": "Costipapa",
+              "description": null,
+              "price": 18000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "chuletines",
+              "name": "Chuletines",
+              "description": null,
+              "price": 18000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "canastas-de-platano-con-costilla-y-pollo-desmechado",
+              "name": "Canastas de plátano con costilla y pollo desmechado",
+              "description": null,
+              "price": 18000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "empanaditas-chilenas",
+              "name": "Empanaditas chilenas",
+              "description": null,
+              "price": 18000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "porcion-de-papas",
+              "name": "Porción de papas",
+              "description": null,
+              "price": 8000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            }
+          ]
+        },
+        {
+          "id": "postres",
+          "label": "Postres",
+          "items": [
+            {
+              "id": "torta-de-almojabana",
+              "name": "Torta de Almojábana",
+              "description": null,
+              "price": 13000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "cheesecake",
+              "name": "Cheesecake",
+              "description": null,
+              "price": 16000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "brownie-con-helado",
+              "name": "Brownie con Helado",
+              "description": null,
+              "price": 14000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "torta-del-dia",
+              "name": "Torta del día",
+              "description": null,
+              "price": 10000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "wafflebano-con-arequipe",
+              "name": "Wafflebano con Arequipe",
+              "description": null,
+              "price": 10000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "wafflebano-con-helado",
+              "name": "Wafflebano con Helado",
+              "description": null,
+              "price": 14000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            }
+          ]
+        },
+        {
+          "id": "platos-fuertes",
+          "label": "Platos Fuertes",
+          "items": [
+            {
+              "id": "hamburguesa-de-la-casa",
+              "name": "Hamburguesa de La Casa",
+              "description": "Pan vienés, carne artesanal, mermelada de tocineta, lechuga, tomate y doble queso mozzarella.",
+              "price": 28000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "hamburguesa-carnivora",
+              "name": "Hamburguesa Carnívora",
+              "description": "Pan vienés, doble carne artesanal, tocineta, queso crema y queso cheddar.",
+              "price": 32000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "sandwich-de-costilla",
+              "name": "Sandwich de costilla",
+              "description": "Pan de quinoa, costilla desmechada y reducida en sus jugos, lechuga, tomate, queso mozzarella y papas rústicas.",
+              "price": 24000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "sandwich-de-pollo",
+              "name": "Sandwich de pollo",
+              "description": "Pan de quinoa, pollo desmechado, lechuga, tomate, queso mozzarella y papas rústicas.",
+              "price": 24000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "sandwich-de-omelette",
+              "name": "Sandwich de omelette",
+              "description": "Pan de quinoa, omelette, tocineta, queso mozzarella y papas rústicas.",
+              "price": 20000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "pasta-carbonara",
+              "name": "Pasta carbonara",
+              "description": "Receta italiana.",
+              "price": 28000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            }
+          ]
+        },
+        {
+          "id": "bebidas-calientes",
+          "label": "Bebidas Calientes",
+          "items": [
+            {
+              "id": "americano",
+              "name": "Americano",
+              "description": null,
+              "price": 5500,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "espresso-ristretto-lungo-macchiato",
+              "name": "Espresso, ristretto, lungo o macchiato",
+              "description": null,
+              "price": 4500,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "cappuccino-tradicional",
+              "name": "Cappuccino tradicional",
+              "description": null,
+              "price": 9000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "cappuccino-saborizado",
+              "name": "Cappuccino con (Amaretto, Baileys, Vainilla o Caramelo)",
+              "description": null,
+              "price": 13000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "cappuccino-especial-3-leches",
+              "name": "Cappuccino Especial (3 leches)",
+              "description": null,
+              "price": 15000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "mocaccino",
+              "name": "Mocaccino",
+              "description": null,
+              "price": 10000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "chocolate",
+              "name": "Chocolate (agua o leche)",
+              "description": null,
+              "price": 10000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "coladita",
+              "name": "Coladita",
+              "description": null,
+              "price": 12000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "chai",
+              "name": "Chai",
+              "description": null,
+              "price": 11000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "cappuchai",
+              "name": "Cappuchai",
+              "description": null,
+              "price": 13000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "cremado-de-oreo",
+              "name": "Cremado de oreo",
+              "description": null,
+              "price": 12000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "cafe-bombon",
+              "name": "Café Bombón",
+              "description": null,
+              "price": 9000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "latte-matcha",
+              "name": "Latte Matcha",
+              "description": null,
+              "price": 12000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            }
+          ]
+        },
+        {
+          "id": "bebidas-calientes-con-licor",
+          "label": "Bebidas Calientes (Con licor)",
+          "items": [
+            {
+              "id": "carajillo",
+              "name": "Carajillo",
+              "description": null,
+              "price": 13000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "vino-caliente",
+              "name": "Vino caliente",
+              "description": null,
+              "price": 15000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            }
+          ]
+        },
+        {
+          "id": "bebidas-frias",
+          "label": "Bebidas Frías",
+          "items": [
+            {
+              "id": "malteada-de-cafe",
+              "name": "Malteada de Café",
+              "description": null,
+              "price": 20000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "granizado-de-cafe",
+              "name": "Granizado de Café",
+              "description": null,
+              "price": 15000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "ice-lemon-coffee",
+              "name": "Ice Lemon Coffee",
+              "description": null,
+              "price": 10000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "latte-frio",
+              "name": "Latte Frío",
+              "description": null,
+              "price": 12000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "afogato",
+              "name": "Afogato",
+              "description": null,
+              "price": 14000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "chai-frio",
+              "name": "Chai Frío",
+              "description": null,
+              "price": 13000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "soda-italiana-frutos-rojos",
+              "name": "Soda Italiana Frutos Rojos",
+              "description": null,
+              "price": 12000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "soda-italiana-frutos-amarillos",
+              "name": "Soda Italiana Frutos Amarillos",
+              "description": null,
+              "price": 12000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "soda-italiana-tamarindo",
+              "name": "Soda Italiana Tamarindo",
+              "description": null,
+              "price": 14000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "coca-cola-o-ginger",
+              "name": "Coca Cola o Ginger",
+              "description": null,
+              "price": 6000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            }
+          ]
+        },
+        {
+          "id": "bebidas-frias-con-licor",
+          "label": "Bebidas Frías (Con licor)",
+          "items": [
+            {
+              "id": "mojito",
+              "name": "Mojito",
+              "description": null,
+              "price": 24000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "tinto-de-verano",
+              "name": "Tinto de Verano",
+              "description": null,
+              "price": 15000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "granizado-de-vino",
+              "name": "Granizado de vino",
+              "description": null,
+              "price": 14000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "gintonic",
+              "name": "Gintonic",
+              "description": null,
+              "price": 20000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "caipirina",
+              "name": "Caipiriña",
+              "description": null,
+              "price": 18000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "shot-licor-2-oz",
+              "name": "Shot licor 2 oz",
+              "description": null,
+              "price": 10000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "cerveza-artesanal",
+              "name": "Cerveza artesanal",
+              "description": null,
+              "price": 14000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "cerveza-nacional",
+              "name": "Cerveza nacional",
+              "description": null,
+              "price": 8000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            }
+          ]
+        },
+        {
+          "id": "filtrados-y-metodos",
+          "label": "Filtrados y Métodos",
+          "items": [
+            {
+              "id": "filtrados-y-metodos-dos-tazas",
+              "name": "Filtrados y Métodos (Dos tazas)",
+              "description": null,
+              "price": 18000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            },
+            {
+              "id": "filtrados-y-metodos-una-taza",
+              "name": "Filtrados y Métodos (Una taza)",
+              "description": null,
+              "price": 12000,
+              "labels": null,
+              "image": { "src": "", "alt": "" },
+              "imageThumbnail": { "src": "", "alt": "" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
