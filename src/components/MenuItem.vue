@@ -127,13 +127,27 @@ onBeforeUnmount(() => {
   <article class="item" :id="item.id">
     <div class="item__body">
       <span class="item__header">
-        <h4 class="item__title">{{ item.name }}</h4>
+        <h4 class="item__title">{{ item.name }}<span>
+            <ul v-if="iconLabels.length" class="mi-labels">
+              <li v-for="b in iconLabels" :key="b" class="badge">
+                <component :is="LABEL_MAP[b].icon" :class="LABEL_MAP[b].class" :size="20" />
+              </li>
+            </ul>
+          </span></h4>
+        <div class="item__price-wrapper">
+          <!-- single price -->
+          <strong v-if="!isPriceObject" class="item__price">
+            {{ formatPrice(item.price as number, currency, locale) }}
+          </strong>
 
-        <ul v-if="iconLabels.length" class="mi-labels">
-          <li v-for="b in iconLabels" :key="b" class="badge">
-            <component :is="LABEL_MAP[b].icon" :class="LABEL_MAP[b].class" :size="20" />
-          </li>
-        </ul>
+          <!-- multiple options -->
+          <div v-else class="item__price-multi">
+            <p v-for="line in priceLines" :key="line.label" class="item__price-row">
+              <span class="opt">{{ line.label }}</span>
+              <span class="val">{{ line.value }}</span>
+            </p>
+          </div>
+        </div>
       </span>
 
       <ul v-if="item.ingredientsType" class="item__ingredients-list">
@@ -145,46 +159,25 @@ onBeforeUnmount(() => {
       <p v-else-if="item.ingredients?.length" class="item__ingredients">
         {{ item.ingredients.join(", ") }}
       </p>
-
-      <p v-if="item.description" class="item__desc">{{ item.description }}</p>
-
-      <!-- single price -->
-      <strong v-if="!isPriceObject" class="item__price">
-        {{ formatPrice(item.price as number, currency, locale) }}
-      </strong>
-
-      <!-- multiple options -->
-      <div v-else class="item__price-multi">
-        <p v-for="line in priceLines" :key="line.label" class="item__price-row">
-          <span class="opt">{{ line.label }}</span>
-          <span class="val">{{ line.value }}</span>
-        </p>
-      </div>
     </div>
 
-    <button
+    <!-- <button
       @click.prevent="onShareClick"
       class="share-button"
       type="button"
       :aria-label="`Share link to ${item.name}`"
     >
       <component :is="Link" :size="20" />
-    </button>
+    </button> -->
 
-    <button
-      v-if="item.imageThumbnail?.src"
-      type="button"
-      class="thumb"
-      :aria-label="`Ver imagen de ${item.name}`"
-      @click="openDialog"
-    >
-      <img
-        v-if="canLoadThumbs"
-        :src="item.imageThumbnail.src"
-        :alt="item.imageThumbnail.alt || item.name"
-        loading="lazy"
-      />
-    </button>
+    <div class="item__desc-section">
+      <button v-if="item.imageThumbnail?.src" type="button" class="thumb" :aria-label="`Ver imagen de ${item.name}`"
+        @click="openDialog">
+        <img v-if="canLoadThumbs" :src="item.imageThumbnail.src" :alt="item.imageThumbnail.alt || item.name"
+          loading="lazy" />
+      </button>
+      <p v-if="item.description" class="item__desc">{{ item.description }}</p>
+    </div>
 
     <dialog ref="dialogRef" class="img-dialog" @close="showModal = false">
       <form method="dialog">
@@ -194,12 +187,8 @@ onBeforeUnmount(() => {
       </form>
 
       <div class="img-dialog__img-wrapper">
-        <img
-          v-if="showModal && item.image?.src"
-          class="img-dialog__img"
-          :src="item.image.src"
-          :alt="item.image.alt || item.name"
-        />
+        <img v-if="showModal && item.image?.src" class="img-dialog__img" :src="item.image.src"
+          :alt="item.image.alt || item.name" />
       </div>
 
       <p class="img-dialog__caption">{{ item.image?.alt || item.name }}</p>
@@ -210,6 +199,8 @@ onBeforeUnmount(() => {
 
 <style scoped lang="scss">
 .mi-labels {
+  list-style: none;
+  padding: 0;
   display: flex;
   gap: 0.5rem;
   margin: 0;
@@ -256,11 +247,11 @@ onBeforeUnmount(() => {
 
 .item__header {
   display: flex;
-  align-items: center;
-  place-content: flex-start;
-  gap: 8px;
-  margin: 0 0 1.5rem 0;
-  width: calc(100% - 56px);
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0 0 1rem 0;
+  gap: 1rem;
+  width: 100%;
 
   ul {
     list-style: none;
@@ -287,10 +278,17 @@ onBeforeUnmount(() => {
 }
 
 .item__title {
+  display: flex;
+  gap: .5rem;
   text-align: left;
   margin: 0;
   font-weight: 600;
   font-size: 1.1rem;
+
+  span {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .item__ingredients,
@@ -298,7 +296,14 @@ onBeforeUnmount(() => {
   margin: 0 0 6px;
   color: hsla(var(--bg), 0.7);
   text-align: left;
-  padding-right: 3rem;
+  // padding-right: 3rem;
+}
+
+.item__desc-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: auto;
 }
 
 .item__price {
@@ -335,11 +340,12 @@ onBeforeUnmount(() => {
   overflow: hidden;
   padding: 0;
   cursor: zoom-in;
-  height: 80px;
-  width: 80px;
+  flex-shrink: 0;
+  height: 160px;
+  width: 160px;
 
   img {
-    object-fit: none;
+    object-fit: cover;
     width: 100%;
     height: 100%;
   }

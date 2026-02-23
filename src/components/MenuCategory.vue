@@ -293,7 +293,7 @@ watch(
     font-size: 1.5rem;
     position: absolute;
     top: 0.8rem;
-    right: 2rem;
+    right: 1.5rem;
     cursor: pointer;
     transition: transform 0.5s ease;
 
@@ -351,7 +351,9 @@ watch(
     text-align: left;
 
     &-text {
+      width: calc(100% - 2rem);
       margin: 0;
+      white-space: break-spaces;
       font-size: 1.25rem;
       font-weight: 600;
     }

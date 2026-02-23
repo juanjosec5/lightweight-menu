@@ -1,0 +1,111 @@
+{
+  "$schema": "../../src/schemas/restaurant-menu.schema.json",
+  "version": 1,
+  "restaurant": {
+    "id": "elsa-cafe",
+    "name": "Elsa Café",
+    "logo": "",
+    "subtitle": "Cali, Colombia",
+    "description": "",
+    "currency": "COP",
+    "locale": "es-CO",
+    "theme": "light",
+    "colors": {
+      "fg": "#111111",
+      "bg": "#ffffff",
+      "action": "#111111",
+      "muted": "#f2f2f2"
+    },
+    "updatedAt": "2026-02-19T00:00:00.000Z"
+  },
+  "socialMedia": [],
+  "additionalLinks": [],
+  "menus": [
+    {
+      "id": "default",
+      "label": "Carta",
+      "categories": [
+        {
+          "id": "entradas-snacks",
+          "label": "Entradas / Snacks para Compartir",
+          "items": [
+            { "id": "queso-fundido-salchicha", "name": "Queso fundido con salchicha", "description": null, "price": 30000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "desgranado-camarones", "name": "Desgranado con camarones", "description": null, "price": 36000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "calamares-ginger-mango-biche", "name": "Calamares al ginger y mango biche", "description": null, "price": 42000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "raviolis-choclo-queso", "name": "Raviolis rellenos con choclo asado y queso fresco", "description": null, "price": 12000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "remolachas-de-fuego", "name": "Las remolachas de fuego", "description": "Con manzana, menta y queso feta.", "price": 45600, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "pandebonos-horno-lena", "name": "Pandebonos al horno de leña (x7)", "description": null, "price": 30000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "papas-nativas-bravas", "name": "Papas nativas bravas", "description": null, "price": 24000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "empanadas-camaron", "name": "Empanadas de camarón (x4)", "description": null, "price": 28800, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "chicharron-pina", "name": "Chicharrón con piña", "description": null, "price": 30000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "pate-trucha-ahumada", "name": "Paté de trucha ahumada con tostadas", "description": null, "price": 24000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "aborrajados-jaiba", "name": "Aborrajados de jaiba (x3)", "description": null, "price": 78000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } }
+          ]
+        },
+        {
+          "id": "platos-fuertes",
+          "label": "Platos Fuertes",
+          "items": [
+            { "id": "tallarines-pesto-pollo", "name": "Tallarines al pesto con pollo", "description": null, "price": 36000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "lasagna-bolonesa", "name": "Lasagna de boloñesa fresca", "description": null, "price": 42000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "tubos-pasta-parmesano", "name": "Tubos de pasta en crema de parmesano", "description": null, "price": 24000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "braseado-res-vegetales", "name": "Braseado de res con vegetales", "description": null, "price": 42000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "lechon-dorado-polenta", "name": "Lechón dorado con polenta y ensalada", "description": null, "price": 45600, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "orzo-marinero", "name": "Orzo marinero", "description": "Pulpo, camarón y mejillones.", "price": 67200, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "pollo-brasa-ensalada", "name": "Pollo a la brasa con ensalada y champiñones", "description": null, "price": 42000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } }
+          ]
+        },
+        {
+          "id": "pizzas",
+          "label": "Pizzas",
+          "items": [
+            { "id": "pizza-margarita", "name": "Pizza margarita", "description": "Tomate y mozzarella.", "price": 57000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "pizza-tocineta-rugula", "name": "Pizza tocineta y rúgula", "description": null, "price": 60000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "pizza-blanca-portobellos", "name": "Pizza blanca con portobellos", "description": null, "price": 67500, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "pizza-griega", "name": "Pizza griega", "description": "Aceituna kalamata y queso feta.", "price": 49500, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "pizza-papa-nativa-chorizo", "name": "Pizza papa nativa con chorizo", "description": null, "price": 67500, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "pizza-chorizo-espanol", "name": "Pizza chorizo español y mozzarella", "description": null, "price": 60000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } }
+          ]
+        },
+        {
+          "id": "postres",
+          "label": "Postres",
+          "items": [
+            { "id": "brownie-helado", "name": "Brownie con helado", "description": null, "price": 14400, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } }
+          ]
+        },
+        {
+          "id": "cafe-bebidas",
+          "label": "Café y Bebidas",
+          "items": [
+            { "id": "cafe-americano", "name": "Café americano", "description": null, "price": 9600, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "cappuccino", "name": "Cappuccino", "description": null, "price": 9600, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "sangria", "name": "Sangría de lulo o frutillas", "description": null, "price": 31800, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "aguas-saborizadas", "name": "Aguas saborizadas", "description": "Sandía, pepino limón hierbabuena o jamaica.", "price": 9500, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "mojito-sin-licor", "name": "Mojito sin licor", "description": null, "price": 18000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "soda-italiana", "name": "Soda italiana", "description": null, "price": 18000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } }
+          ]
+        },
+        {
+          "id": "cocteleria",
+          "label": "Coctelería",
+          "items": [
+            { "id": "lychee-fresa-envenenada", "name": "Lychee fresa envenenada", "description": null, "price": 29400, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "mojito-con-alcohol", "name": "Mojito con alcohol", "description": null, "price": 33600, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } }
+          ]
+        },
+        {
+          "id": "cervezas",
+          "label": "Cervezas",
+          "items": [
+            { "id": "club-colombia-dorada", "name": "Club Colombia Dorada 330 ml", "description": null, "price": 12000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "aguila-light", "name": "Águila Light 330 ml", "description": null, "price": 10800, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "bbc-variedades", "name": "BBC (Monserrate Roja / Cajicá Miel / Lager)", "description": null, "price": 12000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "corona", "name": "Corona 330 ml", "description": null, "price": 12000, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } },
+            { "id": "stella-artois", "name": "Stella Artois 330 ml", "description": null, "price": 14400, "labels": null, "image": { "src": "", "alt": "" }, "imageThumbnail": { "src": "", "alt": "" } }
+          ]
+        }
+      ]
+    }
+  ]
+}
