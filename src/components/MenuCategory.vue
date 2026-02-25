@@ -186,14 +186,8 @@ watch(
   <section :id="category.id" :class="['cat', { 'cat--reverse': reverse }]">
     <div class="cat-content">
       <div class="cat-header">
-        <button
-          @click="toggleContent"
-          class="cat__title"
-          :aria-label="`Mostrar menu de ${category.label}`"
-          :aria-expanded="expanded"
-          :disabled="isAnimating"
-          ref="btnEl"
-        >
+        <button @click="toggleContent" class="cat__title" :aria-label="`Mostrar menu de ${category.label}`"
+          :aria-expanded="expanded" :disabled="isAnimating" ref="btnEl">
           <span :class="['arrow', { 'arrow--expanded': expanded }]">&#8595;</span>
           <h3 class="cat__title-text">{{ category.label }}</h3>
         </button>
@@ -208,34 +202,40 @@ watch(
             </span>
           </li>
         </ul>
-
+        <!-- Category items and sections -->
         <div v-if="category.items?.length" class="cat-items">
-          <menu-item
-            v-for="it in visibleItems"
-            :key="it.id"
-            :item="it"
-            :currency="currency"
-            :locale="locale"
-            :menu-id="menuId"
-            :can-load-thumbs="canLoadThumbs"
-          />
+          <menu-item v-for="it in visibleItems" :key="it.id" :item="it" :currency="currency" :locale="locale"
+            :menu-id="menuId" :can-load-thumbs="canLoadThumbs" />
         </div>
+        <!-- Additional Information -->
+        <div v-if="category.additionalInformation?.length" class="cat-additional-info">
+          <div v-for="block in category.additionalInformation" :key="block.id" class="info-block">
+            <h4 v-if="block.title" class="info-block__title">
+              {{ block.title }}
+            </h4>
 
+            <p v-if="block.type === 'text'">
+              {{ block.description }}
+            </p>
+
+            <ul v-if="block.type === 'list' && block.items?.length" class="additional-info__list">
+              <li v-for="item in block.items" :key="item.id">
+                <strong>{{ item.label }}</strong>
+                <span v-if="item.description">
+                  {{ item.description }}
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
         <div v-if="category.sections?.length" class="cat-sections">
           <div v-for="sec in category.sections" :key="sec.id" class="cat-section">
             <span class="section__title-wrapper">
               <h4 class="section__title">{{ sec.label }}</h4>
             </span>
 
-            <menu-item
-              v-for="it in visibleSectionItems(sec.items)"
-              :key="it.id"
-              :item="it"
-              :currency="currency"
-              :locale="locale"
-              :menu-id="menuId"
-              :can-load-thumbs="canLoadThumbs"
-            />
+            <menu-item v-for="it in visibleSectionItems(sec.items)" :key="it.id" :item="it" :currency="currency"
+              :locale="locale" :menu-id="menuId" :can-load-thumbs="canLoadThumbs" />
           </div>
         </div>
 
@@ -249,147 +249,176 @@ watch(
 
 
 <style scoped lang="scss">
-  @use "sass:color";
+@use "sass:color";
 
-  .labels-list {
-    list-style: none;
-    display: flex;
-    justify-content: flex-start;
-    gap: 1rem;
-    padding: 0;
-    margin: 0;
-    margin-top: 1rem;
+.labels-list {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  margin-top: 1rem;
 
-    & + div.cat-items {
-      margin-top: 0;
-    }
+  &+div.cat-items {
+    margin-top: 0;
   }
+}
 
-  .spicy {
-    color: red;
-  }
+.spicy {
+  color: red;
+}
 
-  .vegetarian {
-    color: green;
-  }
+.vegetarian {
+  color: green;
+}
 
-  .fish {
-    color: lightseagreen;
-  }
+.fish {
+  color: lightseagreen;
+}
 
-  .shrimp {
-    color: lightcoral;
-  }
+.shrimp {
+  color: lightcoral;
+}
 
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-  }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
 
-  .arrow {
-    font-size: 1.5rem;
-    position: absolute;
-    top: 0.8rem;
-    right: 1.5rem;
-    cursor: pointer;
+.arrow {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0.8rem;
+  right: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+
+  &--expanded {
+    transform: rotate(180deg);
     transition: transform 0.5s ease;
+  }
+}
 
-    &--expanded {
-      transform: rotate(180deg);
-      transition: transform 0.5s ease;
-    }
+.cat {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 1rem;
+
+  &-header {
+    position: sticky;
+    top: var(--toolbar-h);
+    /* sits right below your fixed toolbar */
+    z-index: 3;
+    /* above body content, below toolbar if toolbar has higher z */
+    background: var(--fg);
+    /* avoid text/content bleeding under it */
+    /* optional spacing so it doesn’t jump when sticking */
+    padding-block: 0.25rem;
+    transition: background-color 0.5s ease-in-out;
   }
 
-  .cat {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 1rem;
-
-    &-header {
-      position: sticky;
-      top: var(--toolbar-h); /* sits right below your fixed toolbar */
-      z-index: 3; /* above body content, below toolbar if toolbar has higher z */
-      background: var(--fg); /* avoid text/content bleeding under it */
-      /* optional spacing so it doesn’t jump when sticking */
-      padding-block: 0.25rem;
-      transition: background-color 0.5s ease-in-out;
-    }
-
-    &-items {
-      margin-top: 2rem;
-    }
-
-    &-content {
-      position: relative;
-    }
-
-    &-body {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      max-height: 0;
-      margin-top: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease;
-    }
+  &-items {
+    margin-top: 2rem;
   }
 
-  .cat__title {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    border: 2px solid var(--muted);
-    color: var(--bg);
-    padding: 0.75rem;
-    border-radius: 0.25rem;
-    text-align: left;
-
-    &-text {
-      width: calc(100% - 2rem);
-      margin: 0;
-      white-space: break-spaces;
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-
-    &:active {
-      background-color: var(--action);
-      color: var(--fg);
-    }
-
-    &:focus { 
-      outline: 3px solid var(--bg);
-      outline-offset: 2px;
-    }
-  }
-
-  .muted {
-    color: var(--muted);
-    font-style: italic;
-  }
-
-  .section__title-wrapper {
-    display: flex;
+  &-content {
     position: relative;
   }
 
-  .section__title {
-    text-align: left;
+  &-body {
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    margin-top: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+}
+
+.cat__title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border: 2px solid var(--muted);
+  color: var(--bg);
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  text-align: left;
+
+  &-text {
+    width: calc(100% - 2rem);
+    margin: 0;
+    white-space: break-spaces;
     font-size: 1.25rem;
-    margin-block: 2.5rem 2rem;
-    color: var(--bg);
+    font-weight: 600;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .arrow,
-    .cat-body {
-      transition: none;
+  &:active {
+    background-color: var(--action);
+    color: var(--fg);
+  }
+
+  &:focus {
+    outline: 3px solid var(--bg);
+    outline-offset: 2px;
+  }
+}
+
+.muted {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.section__title-wrapper {
+  display: flex;
+  position: relative;
+}
+
+.section__title {
+  text-align: left;
+  font-size: 1.25rem;
+  margin-block: 2.5rem 2rem;
+  color: var(--bg);
+}
+
+.additional-info__list {
+  list-style: none;
+  padding-left: 0;
+  // margin: 0.5rem 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    strong {
+      flex-shrink: 0;
+    }
+
+    span {
+      text-align: left;
     }
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .arrow,
+  .cat-body {
+    transition: none;
+  }
+}
 </style>

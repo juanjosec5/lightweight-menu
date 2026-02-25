@@ -1,0 +1,616 @@
+{
+  "$schema": "../../src/schemas/restaurant-menu.schema.json",
+  "version": 1,
+  "restaurant": {
+    "id": "crocant-tour",
+    "name": "Crocant Tour",
+    "logo": "https://storage.googleapis.com/lightweight-menu/crocant-tour/logo/Screenshot%202026-02-24%20at%209.00.57%E2%80%AFPM.png",
+    "subtitle": "",
+    "address": "https://maps.app.goo.gl/9jWBNe1inqdkugLP8",
+    "description": "Salsas artesanales, texturas y olores irresistibles, que generan la combinación perfecta en cada plato.",
+    "currency": "COP",
+    "locale": "es-CO",
+    "theme": "dark",
+    "colors": {
+      "fg": "#000",
+      "bg": "##f0f0f0",
+      "action": "##fda900",
+      "muted": "#6e0b12"
+    },
+    "updatedAt": "2026-02-24T00:00:00.000Z"
+  },
+  "socialMedia": [
+    {
+      "name": "instagram",
+      "url": "https://www.instagram.com/crocant_tour/"
+    },
+    {
+      "name": "facebook",
+      "url": "https://www.facebook.com/p/Crocant_tour-100089944059832/"
+    }
+  ],
+  "additionalLinks": [],
+  "menus": [
+    {
+      "id": "default",
+      "label": "",
+      "categories": [
+        {
+          "id": "entradas",
+          "label": "Entradas",
+          "items": [
+            {
+              "id": "porcion-de-papa-rustica",
+              "name": "Porción de papa rústica",
+              "description": null,
+              "price": 6000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "porcion-de-papa-amarilla",
+              "name": "Porción de papa amarilla",
+              "description": null,
+              "price": 8000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "porcion-de-yuca-frita",
+              "name": "Porción de yuca frita",
+              "description": null,
+              "price": 7000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "aritos-de-cebolla",
+              "name": "Aritos de cebolla",
+              "description": null,
+              "price": 8000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "aborrajados-x3",
+              "name": "Aborrajados x3",
+              "description": null,
+              "price": 11000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "2-chorizos-artesanales",
+              "name": "2 Chorizos artesanales",
+              "description": "Argentinos o antioqueños. Con chips de plátano y casco de limón.",
+              "price": 16000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "alitas",
+          "label": "Alitas",
+          "additionalInformation": [
+            {
+              "id": "salsas",
+              "title": "Salsas disponibles",
+              "type": "list",
+              "items": [
+                {
+                  "id": "bbq",
+                  "label": "BBQ",
+                  "description": "Auténtico sabor artesanal con un ligero toque ahumado y dulce."
+                },
+                {
+                  "id": "maracuya",
+                  "label": "Maracuyá",
+                  "description": "Salsa a base del fruto natural con características cítricas."
+                },
+                {
+                  "id": "lulo-panela",
+                  "label": "Lulo Panela",
+                  "description": "Salsa a base del fruto natural con el dulce sabor de la panela."
+                },
+                {
+                  "id": "bbq-picante",
+                  "label": "BBQ Picante",
+                  "description": "Sabor artesanal con un ligero toque ahumado, dulce y picante."
+                },
+                {
+                  "id": "tocineta",
+                  "label": "Tocineta",
+                  "description": "Salsa a base de tocineta con un ligero toque de maicitos ahumados."
+                },
+                {
+                  "id": "miel-mostaza",
+                  "label": "Miel Mostaza",
+                  "description": "Suave y cremosa salsa elaborada con mostaza, miel pura y pimienta molida."
+                },
+                {
+                  "id": "lemon-pepper",
+                  "label": "Lemon Pepper",
+                  "description": "Sabor tradicional del limón y la pimienta para obtener una explosión de sabores."
+                },
+                {
+                  "id": "naranja-picante",
+                  "label": "Naranja Picante",
+                  "description": "Salsa a base del fruto natural acompañada de tajín para una combinación picante."
+                },
+                {
+                  "id": "maple-parmesano",
+                  "label": "Maple Parmesano",
+                  "description": "Salsa a base de miel de maple acompañada de queso parmesano."
+                },
+                {
+                  "id": "sabor-del-mes",
+                  "label": "Sabor del mes",
+                  "description": "Pregunta por la deliciosa salsa que tenemos en este mes."
+                }
+              ]
+            }
+          ],
+          "items": [
+            {
+              "id": "alitas-x6",
+              "name": "Alitas x6",
+              "description": null,
+              "price": 22000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "alitas-x10",
+              "name": "Alitas x10",
+              "description": null,
+              "price": 29000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "alitas-x14",
+              "name": "Alitas x14",
+              "description": null,
+              "price": 38500,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "tostitour",
+          "label": "Tostitour",
+          "items": [
+            {
+              "id": "tostipollo",
+              "name": "Tostipollo",
+              "description": "Tostada acompañada de pollo desmechado, pico de gallo, guacamole, tocineta, trozos de chorizo artesanal, maicitos y salsa de la casa.",
+              "price": 22000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "tosticarnE",
+              "name": "Tosticarné",
+              "description": "Tostada acompañada de carne desmechada con birria, pico de gallo, guacamole, tocineta, trozos de chorizo artesanal, maicitos y salsa de la casa.",
+              "price": 22000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "tostitour-mixta",
+              "name": "Tostitour Mixta",
+              "description": "Tostada acompañada de pollo desmechado, carne desmechada con birria, pico de gallo, guacamole, tocineta, trozos de chorizo artesanal, maicitos y salsa de la casa.",
+              "price": 29000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "costillon",
+          "label": "Costillón",
+          "items": [
+            {
+              "id": "costillon-tour",
+              "name": "Costillón Tour",
+              "description": "500 gr de costilla seleccionada Baby Back, acompañado de ensalada fresca, papa rústica, yuca frita, cascos de limón y salsa verde de la casa.",
+              "price": 33000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "bowltour",
+          "label": "Bowltour",
+          "items": [
+            {
+              "id": "bowltour",
+              "name": "Bowltour",
+              "description": "Papa rústica, papa amarilla, carne desmechada en criolla, pollo crispy, chorizo, madurito y maicitos. Opcional: guacamole y pico de gallo.",
+              "price": 24000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "crocantenders",
+          "label": "Crocantenders",
+          "items": [
+            {
+              "id": "tenders-x12",
+              "name": "Tenders x12",
+              "description": "Tiras de pollo apanado con salsa de la casa y papa rústica.",
+              "price": 22000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "limonadas",
+          "label": "Limonadas",
+          "items": [
+            {
+              "id": "limonada-natural",
+              "name": "Limonada natural",
+              "description": null,
+              "price": 7000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "limonada-cerezada",
+              "name": "Limonada cerezada",
+              "description": null,
+              "price": 11000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "limonada-de-coco",
+              "name": "Limonada de coco",
+              "description": null,
+              "price": 13000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "jugos-naturales",
+          "label": "Jugos Naturales",
+          "items": [
+            {
+              "id": "jugos-en-agua",
+              "name": "Jugos en agua",
+              "description": null,
+              "price": 7000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "jugos-en-leche",
+              "name": "Jugos en leche",
+              "description": null,
+              "price": 8000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "micheladas",
+          "label": "Micheladas",
+          "items": [
+            {
+              "id": "michelada-mango-biche",
+              "name": "Michelada mango biche",
+              "description": null,
+              "price": 10000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "michelada-maracuya",
+              "name": "Michelada maracuyá",
+              "description": null,
+              "price": 10000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "corona-michelada",
+              "name": "Corona michelada",
+              "description": "Mango biche o maracuyá.",
+              "price": 12000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "cervezas",
+          "label": "Cervezas",
+          "items": [
+            {
+              "id": "aguila",
+              "name": "Águila",
+              "description": null,
+              "price": 7000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "club-colombia",
+              "name": "Club Colombia",
+              "description": null,
+              "price": 7000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "corona",
+              "name": "Corona",
+              "description": null,
+              "price": 9000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            }
+          ]
+        },
+        {
+          "id": "extras",
+          "label": "Extra",
+          "items": [
+            {
+              "id": "botella-de-agua",
+              "name": "Botella de agua",
+              "description": null,
+              "price": 4000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "coca-cola",
+              "name": "Coca Cola",
+              "description": null,
+              "price": 5000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "te-hatsu",
+              "name": "Té Hatsu",
+              "description": null,
+              "price": 6000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            },
+            {
+              "id": "soda-hatsu",
+              "name": "Soda Hatsu",
+              "description": null,
+              "price": 6000,
+              "labels": null,
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

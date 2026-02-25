@@ -4,22 +4,31 @@
   "restaurant": {
     "id": "nicolas-ni-dejas-colar",
     "name": "Nicolas ni dejas colar",
-    "logo": "",
+    "logo": "https://storage.googleapis.com/lightweight-menu/nicolas-ni-dejas-colar/logo/nicolas-ni-dejas-colar.jpeg",
     "subtitle": "",
-    "address": "",
+    "address": "https://maps.app.goo.gl/Vegxj1JuSpsBPx827",
     "description": "",
     "currency": "COP",
     "locale": "es-CO",
-    "theme": "light",
+    "theme": "",
     "colors": {
-      "fg": "#111111",
-      "bg": "#ffffff",
-      "action": "#111111",
-      "muted": "#f2f2f2"
+      "fg": "#f0f0f0",
+      "bg": "#111",
+      "action": "#1a251d",
+      "muted": "#1a251d"
     },
     "updatedAt": "2026-02-22T00:00:00.000Z"
   },
-  "socialMedia": [],
+  "socialMedia": [
+        {
+      "name": "instagram",
+      "url": "https://www.instagram.com/nicolarcafe/"
+    },
+    {
+      "name": "facebook",
+      "url": "https://www.facebook.com/p/Nicolás-Ni-Dejás-Colar-61565441407033/"
+    }
+  ],
   "additionalLinks": [],
   "menus": [
     {

@@ -14,6 +14,18 @@ export type MenuImage = {
   alt?: string | null;
 };
 
+export type CategoryInformationBlock = {
+  id: string
+  title?: string
+  description?: string
+  type?: "list" | "text"
+  items?: {
+    id: string
+    label: string
+    description?: string
+  }[]
+}
+
 export interface Item {
   id: string;
   name: string;
@@ -40,6 +52,7 @@ export interface Category {
   items?: Item[];
   sections?: Section[];
   image?: string;
+  additionalInformation?: CategoryInformationBlock[]
 }
 
 export interface RestaurantInfo {
