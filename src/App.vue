@@ -236,8 +236,8 @@ watch(
     </div>
 
     <section v-if="isMissingParam" class="welcome">
-      <h2>Bienvenido</h2>
-      <p>Por favor, selecciona un menú para empezar:</p>
+      <h2>Bienvenido!</h2>
+      <p>selecciona un menú de la lista para empezar!</p>
       <ul class="main-menus">
         <li v-for="m in KNOWN_MENUS" :key="m">
           <a :href="`?menu=${m}`">{{ prettifyName(m) }}</a>
@@ -338,7 +338,23 @@ watch(
   display: flex;
   flex-direction: column;
   place-items: flex-start;
-  gap: 1rem;
+  gap: .75rem;
+
+  li {
+    a {
+      display: block;
+      text-decoration: none;
+      color: var(--bg);
+      font-weight: 500;
+      font-size: 1.25rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        color: var(--action);
+        transform: translateX(7px);
+      }
+    }
+  }
 }
 
 .menus-nav {
