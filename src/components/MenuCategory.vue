@@ -361,7 +361,7 @@ watch(
   }
 
   &:active {
-    background-color: var(--action);
+    background-color: var(--muted);
     color: var(--fg);
   }
 

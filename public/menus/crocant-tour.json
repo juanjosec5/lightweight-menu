@@ -13,8 +13,8 @@
     "theme": "dark",
     "colors": {
       "fg": "#000",
-      "bg": "##f0f0f0",
-      "action": "##fda900",
+      "bg": "#fda900",
+      "action": "#fda900",
       "muted": "#6e0b12"
     },
     "updatedAt": "2026-02-24T00:00:00.000Z"
