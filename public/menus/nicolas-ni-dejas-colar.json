@@ -19,12 +19,12 @@
     "description": "",
     "currency": "COP",
     "locale": "es-CO",
-    "theme": "",
+    "theme": "light",
     "colors": {
-      "fg": "#f0f0f0",
-      "bg": "#111",
-      "action": "#1a251d",
-      "muted": "#1a251d"
+      "fg": "#fff",
+      "bg": "#654337",
+      "action": "#648058",
+      "muted": "#648058"
     },
     "updatedAt": "2026-02-22T00:00:00.000Z"
   },
