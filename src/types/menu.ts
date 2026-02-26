@@ -14,6 +14,15 @@ export type MenuImage = {
   alt?: string | null;
 };
 
+type Location = {
+  id: string;
+  label: string;
+  city: string;
+  country: string;
+  address: string;
+  mapUrl: string;
+}
+
 export type CategoryInformationBlock = {
   id: string
   title?: string
@@ -60,7 +69,7 @@ export interface RestaurantInfo {
   name: string;
   logo?: string;
   subtitle?: string;
-  address?: string;
+  locations?: Location[];
   description?: string | null;
 
   currency: string;
@@ -79,6 +88,7 @@ export interface RestaurantMenu {
   socialMedia?: {
     name: string;
     url: string;
+    label?: string;
   }[];
 
   additionalLinks?: {

@@ -21,7 +21,8 @@
         "additionalProperties": false,
         "properties": {
           "name": { "type": "string", "minLength": 1 },
-          "url": { "type": "string", "format": "uri" }
+          "url": { "type": "string", "format": "uri" },
+          "label": { "type": "string" }
         }
       }
     },
@@ -55,7 +56,7 @@
         "logo": { "type": "string" },
         "subtitle": { "type": "string" },
         "description": { "type": "string" },
-        "address": { "type": "string" },
+        "locations": { "type": "array" },
         "currency": { "type": "string", "minLength": 1 },
         "locale": { "type": "string", "minLength": 1 },
         "theme": { "type": "string", "enum": ["light", "dark"] },

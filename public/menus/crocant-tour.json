@@ -6,8 +6,17 @@
     "name": "Crocant Tour",
     "logo": "https://storage.googleapis.com/lightweight-menu/crocant-tour/logo/Screenshot%202026-02-24%20at%209.00.57%E2%80%AFPM.png",
     "subtitle": "",
-    "address": "https://maps.app.goo.gl/9jWBNe1inqdkugLP8",
     "description": "Salsas artesanales, texturas y olores irresistibles, que generan la combinación perfecta en cada plato.",
+    "locations": [
+      {
+        "id": "main-location",
+        "city": "Buga",
+        "country": "Colombia",
+        "label": "Nuestra ubicación",
+        "address": "Cl. 0 Sur #5-15, Buga, Valle del Cauca",
+        "mapUrl": "https://maps.app.goo.gl/9jWBNe1inqdkugLP8"
+      }
+    ],
     "currency": "COP",
     "locale": "es-CO",
     "theme": "dark",

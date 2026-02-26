@@ -6,7 +6,16 @@
     "name": "Nicolas ni dejas colar",
     "logo": "https://storage.googleapis.com/lightweight-menu/nicolas-ni-dejas-colar/logo/nicolas-ni-dejas-colar.jpeg",
     "subtitle": "",
-    "address": "https://maps.app.goo.gl/Vegxj1JuSpsBPx827",
+    "locations": [
+      {
+        "id": "main-location",
+        "city": "La Habana",
+        "country": "Colombia",
+        "label": "Nuestra ubicación",
+        "address": "Cl. 2d #8 - 09, La Habana, Buga",
+        "mapUrl": "https://maps.app.goo.gl/Vegxj1JuSpsBPx827"
+      }
+    ],
     "description": "",
     "currency": "COP",
     "locale": "es-CO",
@@ -20,7 +29,7 @@
     "updatedAt": "2026-02-22T00:00:00.000Z"
   },
   "socialMedia": [
-        {
+    {
       "name": "instagram",
       "url": "https://www.instagram.com/nicolarcafe/"
     },
@@ -45,8 +54,14 @@
               "description": null,
               "price": 12000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "chorizos-coctel",
@@ -54,8 +69,14 @@
               "description": null,
               "price": 18000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "salchipapas",
@@ -63,8 +84,14 @@
               "description": null,
               "price": 13000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "costipapa",
@@ -72,8 +99,14 @@
               "description": null,
               "price": 18000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "chuletines",
@@ -81,8 +114,14 @@
               "description": null,
               "price": 18000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "canastas-de-platano-con-costilla-y-pollo-desmechado",
@@ -90,8 +129,14 @@
               "description": null,
               "price": 18000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "empanaditas-chilenas",
@@ -99,8 +144,14 @@
               "description": null,
               "price": 18000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "porcion-de-papas",
@@ -108,8 +159,14 @@
               "description": null,
               "price": 8000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             }
           ]
         },
@@ -123,8 +180,14 @@
               "description": null,
               "price": 13000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "cheesecake",
@@ -132,8 +195,14 @@
               "description": null,
               "price": 16000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "brownie-con-helado",
@@ -141,8 +210,14 @@
               "description": null,
               "price": 14000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "torta-del-dia",
@@ -150,8 +225,14 @@
               "description": null,
               "price": 10000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "wafflebano-con-arequipe",
@@ -159,8 +240,14 @@
               "description": null,
               "price": 10000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "wafflebano-con-helado",
@@ -168,8 +255,14 @@
               "description": null,
               "price": 14000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             }
           ]
         },
@@ -183,8 +276,14 @@
               "description": "Pan vienés, carne artesanal, mermelada de tocineta, lechuga, tomate y doble queso mozzarella.",
               "price": 28000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "hamburguesa-carnivora",
@@ -192,8 +291,14 @@
               "description": "Pan vienés, doble carne artesanal, tocineta, queso crema y queso cheddar.",
               "price": 32000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "sandwich-de-costilla",
@@ -201,8 +306,14 @@
               "description": "Pan de quinoa, costilla desmechada y reducida en sus jugos, lechuga, tomate, queso mozzarella y papas rústicas.",
               "price": 24000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "sandwich-de-pollo",
@@ -210,8 +321,14 @@
               "description": "Pan de quinoa, pollo desmechado, lechuga, tomate, queso mozzarella y papas rústicas.",
               "price": 24000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "sandwich-de-omelette",
@@ -219,8 +336,14 @@
               "description": "Pan de quinoa, omelette, tocineta, queso mozzarella y papas rústicas.",
               "price": 20000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "pasta-carbonara",
@@ -228,8 +351,14 @@
               "description": "Receta italiana.",
               "price": 28000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             }
           ]
         },
@@ -243,8 +372,14 @@
               "description": null,
               "price": 5500,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "espresso-ristretto-lungo-macchiato",
@@ -252,8 +387,14 @@
               "description": null,
               "price": 4500,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "cappuccino-tradicional",
@@ -261,8 +402,14 @@
               "description": null,
               "price": 9000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "cappuccino-saborizado",
@@ -270,8 +417,14 @@
               "description": null,
               "price": 13000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "cappuccino-especial-3-leches",
@@ -279,8 +432,14 @@
               "description": null,
               "price": 15000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "mocaccino",
@@ -288,8 +447,14 @@
               "description": null,
               "price": 10000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "chocolate",
@@ -297,8 +462,14 @@
               "description": null,
               "price": 10000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "coladita",
@@ -306,8 +477,14 @@
               "description": null,
               "price": 12000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "chai",
@@ -315,8 +492,14 @@
               "description": null,
               "price": 11000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "cappuchai",
@@ -324,8 +507,14 @@
               "description": null,
               "price": 13000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "cremado-de-oreo",
@@ -333,8 +522,14 @@
               "description": null,
               "price": 12000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "cafe-bombon",
@@ -342,8 +537,14 @@
               "description": null,
               "price": 9000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "latte-matcha",
@@ -351,8 +552,14 @@
               "description": null,
               "price": 12000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             }
           ]
         },
@@ -366,8 +573,14 @@
               "description": null,
               "price": 13000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "vino-caliente",
@@ -375,8 +588,14 @@
               "description": null,
               "price": 15000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             }
           ]
         },
@@ -390,8 +609,14 @@
               "description": null,
               "price": 20000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "granizado-de-cafe",
@@ -399,8 +624,14 @@
               "description": null,
               "price": 15000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "ice-lemon-coffee",
@@ -408,8 +639,14 @@
               "description": null,
               "price": 10000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "latte-frio",
@@ -417,8 +654,14 @@
               "description": null,
               "price": 12000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "afogato",
@@ -426,8 +669,14 @@
               "description": null,
               "price": 14000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "chai-frio",
@@ -435,8 +684,14 @@
               "description": null,
               "price": 13000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "soda-italiana-frutos-rojos",
@@ -444,8 +699,14 @@
               "description": null,
               "price": 12000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "soda-italiana-frutos-amarillos",
@@ -453,8 +714,14 @@
               "description": null,
               "price": 12000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "soda-italiana-tamarindo",
@@ -462,8 +729,14 @@
               "description": null,
               "price": 14000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "coca-cola-o-ginger",
@@ -471,8 +744,14 @@
               "description": null,
               "price": 6000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             }
           ]
         },
@@ -486,8 +765,14 @@
               "description": null,
               "price": 24000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "tinto-de-verano",
@@ -495,8 +780,14 @@
               "description": null,
               "price": 15000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "granizado-de-vino",
@@ -504,8 +795,14 @@
               "description": null,
               "price": 14000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "gintonic",
@@ -513,8 +810,14 @@
               "description": null,
               "price": 20000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "caipirina",
@@ -522,8 +825,14 @@
               "description": null,
               "price": 18000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "shot-licor-2-oz",
@@ -531,8 +840,14 @@
               "description": null,
               "price": 10000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "cerveza-artesanal",
@@ -540,8 +855,14 @@
               "description": null,
               "price": 14000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "cerveza-nacional",
@@ -549,8 +870,14 @@
               "description": null,
               "price": 8000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             }
           ]
         },
@@ -564,8 +891,14 @@
               "description": null,
               "price": 18000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             },
             {
               "id": "filtrados-y-metodos-una-taza",
@@ -573,8 +906,14 @@
               "description": null,
               "price": 12000,
               "labels": null,
-              "image": { "src": "", "alt": "" },
-              "imageThumbnail": { "src": "", "alt": "" }
+              "image": {
+                "src": "",
+                "alt": ""
+              },
+              "imageThumbnail": {
+                "src": "",
+                "alt": ""
+              }
             }
           ]
         }

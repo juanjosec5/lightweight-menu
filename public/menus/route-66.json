@@ -1,0 +1,968 @@
+{
+    "$schema": "../../src/schemas/restaurant-menu.schema.json",
+    "version": 1,
+    "restaurant": {
+        "id": "route-66",
+        "name": "Route 66",
+        "logo": "https://storage.googleapis.com/lightweight-menu/route-66/logo/route-66-logo.png",
+        "subtitle": "Tenemos más de 13 años brindando la mejor experiencia rock en la sucursal del cielo",
+        "locations": [
+            {
+                "id": "main-location",
+                "city": "Cali",
+                "country": "Colombia",
+                "label": "Sede Norte",
+                "address": "Avenida 9N #20N-14, Cali, Valle del Cauca",
+                "mapUrl": "https://maps.app.goo.gl/Jr9Zmhzo6kaPgs7g8"
+            },
+            {
+                "id": "main-location",
+                "city": "Cali",
+                "country": "Colombia",
+                "label": "Sede sur",
+                "address": "Cra 66 11-60, Cali, Valle del Cauca",
+                "mapUrl": "https://maps.app.goo.gl/v72AWWvZhn8WTdX27"
+            }
+        ],
+        "description": "",
+        "currency": "COP",
+        "locale": "es-CO",
+        "theme": "dark",
+        "colors": {
+            "fg": "#0b0b0b",
+            "bg": "#f0f0f0",
+            "action": "#ffc247",
+            "muted": "#ffc247"
+        },
+        "updatedAt": "2026-02-25T00:00:00.000Z"
+    },
+    "socialMedia": [
+        {
+            "name": "instagram",
+            "url": "https://www.instagram.com/route66barcali/"
+        },
+        {
+            "name": "facebook",
+            "url": "https://www.facebook.com/p/Crocant_tour-100089944059832/"
+        },
+        {
+            "name": "whatsapp",
+            "url": "https://api.whatsapp.com/send?phone=573116098287",
+            "label": "Sur"
+        },
+        {
+            "name": "whatsapp",
+            "url": "https://api.whatsapp.com/send?phone=573116098287",
+            "label": "Norte"
+        }
+    ],
+    "additionalLinks": [],
+    "menus": [
+        {
+            "id": "default",
+            "label": "",
+            "categories": [
+                {
+                    "id": "entradas",
+                    "label": "Entradas",
+                    "items": [
+                        {
+                            "id": "flagstaff",
+                            "name": "Flagstaff",
+                            "description": "Bocaditos de salmón apanados rellenos de queso mozzarella, salsa de la casa.",
+                            "price": 29000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "kingman",
+                            "name": "Kingman",
+                            "description": "Mini hamburguesas con cheddar y BBQ, papas a la francesa.",
+                            "price": 26000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "holbrook",
+                            "name": "Holbrook",
+                            "description": "Deditos de queso estilo americano envueltos en jamón, miel mostaza.",
+                            "price": 24000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "spiral-fries",
+                            "name": "Papas en espiral",
+                            "description": "Con queso cheddar y salsa de ajo.",
+                            "price": 22000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "onion-rings",
+                            "name": "Aros de cebolla",
+                            "description": "Apanados con BBQ, miel mostaza, ciruela y ajo.",
+                            "price": 21000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "lasana",
+                    "label": "Lasaña",
+                    "additionalInformation": [
+                        {
+                            "id": "nota-lasana",
+                            "title": "Incluye",
+                            "type": "text",
+                            "description": "Todas con pasta, mozzarella, parmesano gratinado y pan francés."
+                        }
+                    ],
+                    "items": [
+                        {
+                            "id": "elk-city",
+                            "name": "Elk City",
+                            "description": "Lasaña boloñesa clásica.",
+                            "price": 34000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "las-vegas",
+                            "name": "Las Vegas",
+                            "description": "Pollo, jamón y tocineta en salsa bernesa.",
+                            "price": 35000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "santa-monica",
+                            "name": "Santa Monica",
+                            "description": "Verduras en salsa napolitana.",
+                            "price": 32000,
+                            "labels": [
+                                "vegetariano"
+                            ],
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "bristow",
+                            "name": "Bristow",
+                            "description": "Boloñesa con jalapeños.",
+                            "price": 34000,
+                            "labels": [
+                                "picante"
+                            ],
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "winslow",
+                            "name": "Winslow",
+                            "description": "Estilo mexicano con frijol, carne y pico de gallo.",
+                            "price": 38000,
+                            "labels": [
+                                "picante"
+                            ],
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "clinton",
+                            "name": "Clinton",
+                            "description": "Pollo desmechado y champiñones en salsa bernesa.",
+                            "price": 34000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "hamburguesas",
+                    "label": "Hamburguesas",
+                    "additionalInformation": [
+                        {
+                            "id": "nota-hamburguesas",
+                            "title": "Incluye",
+                            "type": "text",
+                            "description": "Carne 200 g, papas a la francesa incluidas."
+                        }
+                    ],
+                    "items": [
+                        {
+                            "id": "route-66-burger",
+                            "name": "Route 66",
+                            "description": "Doble carne res/pollo, doble queso, tocineta, BBQ.",
+                            "price": 41000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "illinois",
+                            "name": "Illinois",
+                            "description": "Doble carne res, pollo, queso y vegetales.",
+                            "price": 41000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "arizona",
+                            "name": "Arizona",
+                            "description": "Res con piña asada y queso mozzarella.",
+                            "price": 33000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "oklahoma",
+                            "name": "Oklahoma",
+                            "description": "Res con BBQ y cebolla caramelizada.",
+                            "price": 33000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "albuquerque",
+                            "name": "Albuquerque",
+                            "description": "Rellena de queso mozzarella y pesto.",
+                            "price": 34000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "st-louis",
+                            "name": "St. Louis",
+                            "description": "Clásica americana con tocineta.",
+                            "price": 33000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "los-angeles",
+                            "name": "Los Ángeles",
+                            "description": "Pechuga de pollo a la plancha.",
+                            "price": 33000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "chicago",
+                            "name": "Chicago",
+                            "description": "Res con pepinillos y cebolla crujiente.",
+                            "price": 33000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "kansas",
+                            "name": "Kansas",
+                            "description": "Res con aros de cebolla y cheddar.",
+                            "price": 34000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "texas",
+                            "name": "Texas",
+                            "description": "Res con frijol, jalapeños y pico de gallo.",
+                            "price": 34000,
+                            "labels": [
+                                "picante"
+                            ],
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "springfield",
+                            "name": "Springfield",
+                            "description": "Hamburguesa de garbanzos en pan pita.",
+                            "price": 29000,
+                            "labels": [
+                                "vegetariano"
+                            ],
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "sandwiches",
+                    "label": "Sándwiches",
+                    "items": [
+                        {
+                            "id": "stroud",
+                            "name": "Stroud",
+                            "description": "Costilla de cerdo desmechada BBQ y teriyaki.",
+                            "price": 30000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "mohave",
+                            "name": "Mohave",
+                            "description": "Roast beef con salsa de soya y vino tinto.",
+                            "price": 33000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "grand-canyon",
+                            "name": "Grand Canyon",
+                            "description": "Carne desmechada en salsa buffalo.",
+                            "price": 33000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "totem-pole",
+                            "name": "Totem Pole",
+                            "description": "Cerdo desmechado miel mostaza y piña.",
+                            "price": 32000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "jasper",
+                            "name": "Jasper",
+                            "description": "Club de pollo clásico.",
+                            "price": 28000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "costillas",
+                    "label": "Costillas",
+                    "items": [
+                        {
+                            "id": "pork-250",
+                            "name": "Pork 250 g",
+                            "description": "Costilla en salsa BBQ, buffalo o ciruelas.",
+                            "price": 30000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "pork-500",
+                            "name": "Pork 500 g",
+                            "description": "Costilla en salsa a elección.",
+                            "price": 53000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "alitas-y-boneless",
+                    "label": "Alitas y Boneless",
+                    "additionalInformation": [
+                        {
+                            "id": "nota-alitas-boneless",
+                            "title": "Incluye",
+                            "type": "text",
+                            "description": "Incluyen sour cream, zanahoria y apio."
+                        },
+                        {
+                            "id": "salsas-alitas",
+                            "title": "Salsas",
+                            "type": "list",
+                            "items": [
+                                {
+                                    "id": "bbq",
+                                    "label": "BBQ",
+                                    "description": null
+                                },
+                                {
+                                    "id": "buffalo",
+                                    "label": "Buffalo",
+                                    "description": null
+                                },
+                                {
+                                    "id": "cowboy",
+                                    "label": "Cowboy",
+                                    "description": null
+                                },
+                                {
+                                    "id": "honey-bbq",
+                                    "label": "Honey BBQ",
+                                    "description": null
+                                },
+                                {
+                                    "id": "miel-mostaza",
+                                    "label": "Miel Mostaza",
+                                    "description": null
+                                },
+                                {
+                                    "id": "ciruela",
+                                    "label": "Ciruela",
+                                    "description": null
+                                },
+                                {
+                                    "id": "agridulce",
+                                    "label": "Agridulce",
+                                    "description": null
+                                },
+                                {
+                                    "id": "limon-pimienta",
+                                    "label": "Limón Pimienta",
+                                    "description": null
+                                },
+                                {
+                                    "id": "miel-ajonjoli",
+                                    "label": "Miel Ajonjolí",
+                                    "description": null
+                                },
+                                {
+                                    "id": "route-66",
+                                    "label": "Route 66",
+                                    "description": null
+                                }
+                            ]
+                        }
+                    ],
+                    "items": [
+                        {
+                            "id": "alitas-6",
+                            "name": "6 unidades",
+                            "description": null,
+                            "price": 29000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "alitas-12",
+                            "name": "12 unidades",
+                            "description": null,
+                            "price": 50000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "boneless",
+                            "name": "Boneless",
+                            "description": "Desde",
+                            "price": 31000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "boneless-route-66",
+                            "name": "Boneless Route 66",
+                            "description": "Hasta",
+                            "price": 56000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "nachos-y-tacos",
+                    "label": "Nachos y Tacos",
+                    "sections": [
+                        {
+                            "id": "nachos",
+                            "label": "Nachos",
+                            "items": [
+                                {
+                                    "id": "nachos-route-66",
+                                    "name": "Route 66",
+                                    "description": "Cerdo BBQ, quesos, guacamole, sour cream.",
+                                    "price": 41000,
+                                    "labels": null,
+                                    "image": {
+                                        "src": "",
+                                        "alt": ""
+                                    },
+                                    "imageThumbnail": {
+                                        "src": "",
+                                        "alt": ""
+                                    }
+                                },
+                                {
+                                    "id": "nachos-mixtos",
+                                    "name": "Mixtos",
+                                    "description": "Carne y pollo desmechado.",
+                                    "price": 37000,
+                                    "labels": null,
+                                    "image": {
+                                        "src": "",
+                                        "alt": ""
+                                    },
+                                    "imageThumbnail": {
+                                        "src": "",
+                                        "alt": ""
+                                    }
+                                },
+                                {
+                                    "id": "nachos-chili",
+                                    "name": "Chili",
+                                    "description": "Chili tradicional con carne.",
+                                    "price": 38000,
+                                    "labels": null,
+                                    "image": {
+                                        "src": "",
+                                        "alt": ""
+                                    },
+                                    "imageThumbnail": {
+                                        "src": "",
+                                        "alt": ""
+                                    }
+                                },
+                                {
+                                    "id": "nachos-classic",
+                                    "name": "Classic",
+                                    "description": "Guacamole, frijol, pico de gallo.",
+                                    "price": 29000,
+                                    "labels": null,
+                                    "image": {
+                                        "src": "",
+                                        "alt": ""
+                                    },
+                                    "imageThumbnail": {
+                                        "src": "",
+                                        "alt": ""
+                                    }
+                                },
+                                {
+                                    "id": "nachos-cheddar",
+                                    "name": "Cheddar",
+                                    "description": "Queso cheddar.",
+                                    "price": 28000,
+                                    "labels": null,
+                                    "image": {
+                                        "src": "",
+                                        "alt": ""
+                                    },
+                                    "imageThumbnail": {
+                                        "src": "",
+                                        "alt": ""
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "tacos",
+                            "label": "Tacos",
+                            "items": [
+                                {
+                                    "id": "tacos-missouri",
+                                    "name": "Missouri",
+                                    "description": "Carne y pollo desmechado.",
+                                    "price": 33000,
+                                    "labels": null,
+                                    "image": {
+                                        "src": "",
+                                        "alt": ""
+                                    },
+                                    "imageThumbnail": {
+                                        "src": "",
+                                        "alt": ""
+                                    }
+                                },
+                                {
+                                    "id": "tacos-tulsa",
+                                    "name": "Tulsa",
+                                    "description": "Verduras asadas y queso.",
+                                    "price": 28000,
+                                    "labels": [
+                                        "vegetariano"
+                                    ],
+                                    "image": {
+                                        "src": "",
+                                        "alt": ""
+                                    },
+                                    "imageThumbnail": {
+                                        "src": "",
+                                        "alt": ""
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "ensaladas",
+                    "label": "Ensaladas",
+                    "items": [
+                        {
+                            "id": "joplin",
+                            "name": "Joplin",
+                            "description": "Pollo salteado, aguacate y parmesano.",
+                            "price": 29000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "cuervo",
+                            "name": "Cuervo",
+                            "description": "Pollo grillado, guacamole y totopos.",
+                            "price": 30000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "california",
+                            "name": "California",
+                            "description": "Lomo de cerdo con miel mostaza.",
+                            "price": 28000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "gardner",
+                            "name": "Gardner",
+                            "description": "Ensalada fresca con maíz y mozzarella.",
+                            "price": 25000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "postres",
+                    "label": "Postres",
+                    "items": [
+                        {
+                            "id": "brownie-con-helado",
+                            "name": "Brownie con helado",
+                            "description": null,
+                            "price": 13000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "cheesecake",
+                            "name": "Cheesecake",
+                            "description": "Oreo o frutos rojos.",
+                            "price": 13000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "combos-y-samplers",
+                    "label": "Combos y Samplers",
+                    "items": [
+                        {
+                            "id": "mississippi",
+                            "name": "Mississippi",
+                            "description": "Boneless, nachos, deditos y calamares.",
+                            "price": 74000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "hurricane",
+                            "name": "Hurricane",
+                            "description": "Costillas, alitas, nachos, tacos y papas.",
+                            "price": 74000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        },
+                        {
+                            "id": "colorado-city",
+                            "name": "Colorado City",
+                            "description": "Costillas, pollo, lomo y chorizo.",
+                            "price": 79000,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": ""
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": ""
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

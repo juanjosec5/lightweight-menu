@@ -6,7 +6,16 @@
         "name": "Bella Vita",
         "logo": "https://storage.googleapis.com/lightweight-menu/bella-vita/logo/bella-vita-logo.png",
         "subtitle": "El lugar y ambiente perfecto para disfrutar de un buen café",
-        "address": "https://maps.app.goo.gl/ycay8kxd6rso7U367",
+        "locations": [
+            {
+                "id": "main-location",
+                "city": "Buga",
+                "country": "Colombia",
+                "label": "Nuestra ubicación",
+                "address": "Calle 4 # 3-24, Buga, Valle del Cauca",
+                "mapUrl": "https://maps.app.goo.gl/ycay8kxd6rso7U367"
+            }
+        ],
         "description": "",
         "currency": "COP",
         "locale": "es-CO",

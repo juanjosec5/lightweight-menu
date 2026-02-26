@@ -257,7 +257,7 @@ watch(
 
     <template v-else>
       <header v-if="data" class="hdr" ref="headerRef">
-        <img v-if="logoUrl" :src="logoUrl" :alt="data.restaurant.name + ' logo'" width="240" height="120"
+        <img v-if="logoUrl" class="logo-image" :src="logoUrl" :alt="data.restaurant.name + ' logo'"
           loading="eager" fetchpriority="high" decoding="async" />
         <h1 v-if="!logoUrl">{{ data.restaurant.name }}</h1>
         <p v-if="data.restaurant.subtitle" class="sub">
@@ -278,14 +278,19 @@ watch(
               <a :href="link.url" target="_blank" rel="noopener noreferrer">
                 <i :class="SOCIAL_MEDIA_ICONS[link.name] ?? 'fa-solid fa-link fa-lg'"></i>
               </a>
+              <small v-if="link.label">{{ link.label }}</small>
             </li>
           </ul>
         </nav>
       </template>
 
-      <a v-if="data?.restaurant.address" :href="data.restaurant.address" class="location-link" target="_blank"
-        rel="noopener noreferrer">{{ data?.restaurant?.locale === 'es-CO' ? 'Nuestra ubicación' : 'Our location' }} <i
-          class="fa-solid fa-location-dot"></i></a>
+      <div v-if="data?.restaurant?.locations?.length" class="locations">
+        <a v-for="location in data.restaurant.locations" :key="location.id" :href="location.mapUrl"
+          class="location-link" target="_blank" rel="noopener noreferrer">
+          {{ location.label || `${location.city}, ${location.country}` }}
+          <i class="fa-solid fa-location-dot"></i>
+        </a>
+      </div>
 
       <template v-if="data?.additionalLinks">
         <nav class="additional-links" aria-label="Additional Links">
@@ -333,6 +338,13 @@ watch(
 </template>
 
 <style scoped lang="scss">
+.locations {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
 .main-menus {
   list-style: none;
   display: flex;
@@ -505,6 +517,13 @@ watch(
 
 .muted {
   color: var(--bg);
+}
+
+.logo-image {
+  max-width: 240px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
 }
 
 .error {
