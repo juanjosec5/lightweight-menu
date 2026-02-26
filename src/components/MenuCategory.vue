@@ -45,6 +45,41 @@ const bodyEl = ref<HTMLElement | null>(null);
 const btnEl = ref<HTMLElement | null>(null);
 const isAnimating = ref(false);
 
+/**
+ * Analytics: fire category_opened when a category transitions closed -> open,
+ * but stop tracking after the user has opened the same category 3 times.
+ */
+type GtagFn = (...args: any[]) => void;
+
+const getGtag = (): GtagFn | null => {
+  const w = window as unknown as { gtag?: GtagFn };
+  return typeof w.gtag === "function" ? w.gtag : null;
+};
+
+const categoryOpenCounts = ref<Record<string, number>>({});
+
+const trackCategoryOpened = () => {
+  const gtag = getGtag();
+  if (!gtag) return;
+
+  gtag("event", "category_opened", {
+    category_id: props.category.id,
+    category_label: props.category.label,
+    menu_file_id: props.menuId ?? "",
+  });
+};
+
+const incrementOpenCountAndTrack = () => {
+  const id = props.category.id;
+  const current = categoryOpenCounts.value[id] ?? 0;
+
+  // guard: only track first 3 opens per category (per page session)
+  if (current >= 3) return;
+
+  categoryOpenCounts.value[id] = current + 1;
+  trackCategoryOpened();
+};
+
 const itemIdSet = computed(() => {
   const set = new Set<string>();
   props.category.items?.forEach((it) => set.add(it.id));
@@ -177,6 +212,16 @@ watch(
   (newId) => {
     if (hasItem(newId)) {
       ensureOpenAndScrollTo(newId);
+    }
+  }
+);
+
+// Analytics trigger: track when category becomes expanded (closed -> open)
+watch(
+  () => expanded.value,
+  (isOpen, wasOpen) => {
+    if (!wasOpen && isOpen) {
+      incrementOpenCountAndTrack();
     }
   }
 );
