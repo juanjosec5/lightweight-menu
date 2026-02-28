@@ -3,13 +3,40 @@
   "restaurant": {
     "id": "unblended-coffee",
     "name": "Unblended Coffee",
-    "logo": "",
+    "logo": "https://storage.googleapis.com/lightweight-menu/unblended/logo/unblended_logo-white.png",
     "subtitle": "Specialty Coffee Selection",
     "description": "Seasonal Colombian coffees organized by variety, process, and flavor profile. Prices are set container price ($/lb). For more information on prices please contact us directly.",
     "currency": "USD",
     "locale": "en-US",
-    "updatedAt": "2025-09-05T03:28:37.882Z"
+    "updatedAt": "2025-09-05T03:28:37.882Z",
+    "locations": [
+      {
+        "id": "main-location",
+        "city": "Medellín",
+        "country": "Colombia",
+        "label": "Our Location",
+        "address": "Cra. 50 #34-62, Medellín, Antioquia",
+        "mapUrl": "https://maps.app.goo.gl/E5ANibfhEeHn2Qir6"
+      }
+    ],
+    "theme": "dark",
+    "colors": {
+      "fg": "#0B2214",
+      "bg": "#E6E5DA",
+      "action": "#0B2214",
+      "muted": "#E6E5DA"
+    }
   },
+  "socialMedia": [
+    {
+      "name": "instagram",
+      "url": "https://www.instagram.com/unblendedcoffee"
+    },
+    {
+      "name": "facebook",
+      "url": "https://www.facebook.com/unblendedcoffee/?locale=es_LA"
+    }
+  ],
   "menus": [
     {
       "id": "default",
@@ -233,6 +260,7 @@
               "id": "arnulfo-caro-chiroso-washed-lot-3",
               "name": "Arnulfo Caro — Chiroso (Washed) Lot 3",
               "ingredientsType": "list",
+              "display": false,
               "ingredients": [
                 "Producer: Arnulfo Caro",
                 "Variety: Chiroso",
