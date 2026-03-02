@@ -1,0 +1,283 @@
+{
+  "version": 1,
+  "restaurant": {
+    "id": "diletto-art-shop",
+    "name": "Diletto Art Shop",
+    "logo": "",
+    "subtitle": "",
+    "description": "",
+    "currency": "USD",
+    "locale": "en-US",
+    "theme": "light",
+    "colors": {
+      "fg": "#000000",
+      "bg": "#ffffff",
+      "action": "#c8a96a",
+      "muted": "#f3f3f3"
+    },
+    "updatedAt": "2026-02-28T00:00:00.000Z"
+  },
+  "socialMedia": [],
+  "additionalLinks": [],
+  "menus": [
+    {
+      "id": "default",
+      "label": "",
+      "categories": [
+        {
+          "id": "nuestras-obras",
+          "label": "Nuestras Obras",
+          "items": [
+            {
+              "id": "la-creacion",
+              "name": "La Creación",
+              "description": null,
+              "price": {
+                "Caja x 3 clásicos": 25,
+                "Caja x 10 minis": 25
+              },
+              "labels": null
+            },
+            {
+              "id": "renacimiento",
+              "name": "Renacimiento",
+              "description": null,
+              "price": {
+                "Caja x 6 clásicos": 42,
+                "Caja x 20 minis": 42
+              },
+              "labels": null
+            },
+            {
+              "id": "arte-moderno",
+              "name": "Arte Moderno",
+              "description": null,
+              "price": {
+                "Caja x 12 clásicos": 66,
+                "Caja x 30 minis": 66
+              },
+              "labels": null
+            },
+            {
+              "id": "clasica",
+              "name": "Clásica",
+              "description": null,
+              "price": {
+                "Caja x 20 clásicos": 105,
+                "Caja x 48 minis": 105
+              },
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "arma-tu-obra",
+          "label": "Arma tu obra",
+          "items": [
+            {
+              "id": "bites",
+              "name": "Bites",
+              "description": "Mínimo 5 unidades.",
+              "price": 2,
+              "labels": null
+            },
+            {
+              "id": "clasicos-individual",
+              "name": "Clásicos",
+              "description": "Mínimo 3 unidades.",
+              "price": 6,
+              "labels": null
+            },
+            {
+              "id": "grandes",
+              "name": "Grandes",
+              "description": null,
+              "price": 8,
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "postres",
+          "label": "Postres",
+          "items": [
+            {
+              "id": "helado",
+              "name": "Helado",
+              "description": null,
+              "price": 10,
+              "labels": null
+            },
+            {
+              "id": "malteada-alfajor",
+              "name": "Malteada de alfajor",
+              "description": null,
+              "price": 22,
+              "labels": null
+            },
+            {
+              "id": "alfajor-cuchareable",
+              "name": "Alfajor cuchareable",
+              "description": "Pregunta por sabores de temporada.",
+              "price": 20,
+              "labels": null
+            },
+            {
+              "id": "cookielletto",
+              "name": "Cookielletto",
+              "description": "Galleta de alfajor. Pregunta por sabores de temporada.",
+              "price": 12,
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "bebidas-calientes",
+          "label": "Bebidas Calientes",
+          "items": [
+            {
+              "id": "capuchino",
+              "name": "Capuchino",
+              "description": null,
+              "price": 8,
+              "labels": null
+            },
+            {
+              "id": "americano",
+              "name": "Americano",
+              "description": null,
+              "price": 6,
+              "labels": null
+            },
+            {
+              "id": "chai-latte",
+              "name": "Chai Latte",
+              "description": null,
+              "price": 11,
+              "labels": null
+            },
+            {
+              "id": "dirty-chai-coffee",
+              "name": "Dirty Chai Coffee",
+              "description": null,
+              "price": 12,
+              "labels": null
+            },
+            {
+              "id": "espresso",
+              "name": "Espresso",
+              "description": null,
+              "price": 5,
+              "labels": null
+            },
+            {
+              "id": "matcha-latte",
+              "name": "Matcha Latte",
+              "description": null,
+              "price": 12,
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "bebidas-frias",
+          "label": "Bebidas Frías",
+          "items": [
+            {
+              "id": "agua-botella",
+              "name": "Agua en botella",
+              "description": null,
+              "price": 6,
+              "labels": null
+            },
+            {
+              "id": "chai-iced-latte",
+              "name": "Chai Iced Latte",
+              "description": null,
+              "price": 16,
+              "labels": null
+            },
+            {
+              "id": "iced-coffee-latte",
+              "name": "Iced Coffee Latte",
+              "description": null,
+              "price": 14,
+              "labels": null
+            },
+            {
+              "id": "matcha-iced-latte",
+              "name": "Matcha Iced Latte",
+              "description": null,
+              "price": 16,
+              "labels": null
+            },
+            {
+              "id": "vainilla-iced-latte",
+              "name": "Vainilla Iced Latte",
+              "description": null,
+              "price": 16,
+              "labels": null
+            },
+            {
+              "id": "soda",
+              "name": "Soda",
+              "description": "Frutos amarillos o rojos.",
+              "price": 18.5,
+              "labels": null
+            }
+          ]
+        },
+        {
+          "id": "comida-salada",
+          "label": "Comida Salada",
+          "sections": [
+            {
+              "id": "sandwich",
+              "label": "Sandwich",
+              "items": [
+                {
+                  "id": "la-mona-lisa",
+                  "name": "La Mona Lisa",
+                  "description": "Pesto, jamón serrano, tomates secos, rúgula, queso mozzarella.",
+                  "price": 28.5,
+                  "labels": null
+                },
+                {
+                  "id": "el-grito",
+                  "name": "El Grito",
+                  "description": "Jamón al horno, queso provolone, queso gouda, rúgula, salsa de la casa.",
+                  "price": 28.5,
+                  "labels": null
+                },
+                {
+                  "id": "sol-naciente",
+                  "name": "Sol Naciente",
+                  "description": "Salami, chorizo español, peperoni, salsa napolitana, queso holandés.",
+                  "price": 28.5,
+                  "labels": null
+                }
+              ]
+            },
+            {
+              "id": "croquetas",
+              "label": "Croquetas",
+              "items": [
+                {
+                  "id": "croquetas",
+                  "name": "Croquetas",
+                  "description": "Sabores: Samba, 4 quesos, Mexicana, Pollo, Italianísima, Cubana.",
+                  "price": {
+                    "6 unidades": 28,
+                    "12 unidades": 46,
+                    "20 unidades": 68
+                  },
+                  "labels": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

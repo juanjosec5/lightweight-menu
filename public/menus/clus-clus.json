@@ -1,0 +1,372 @@
+{
+    "version": 1,
+    "restaurant": {
+        "id": "clus-clus-cafeteria",
+        "name": "Clus Clus Cafetería",
+        "logo": "https://storage.googleapis.com/lightweight-menu/clus-clus/logo/clus-clus.png",
+        "subtitle": "",
+        "description": "Café de especialidad, desayunos, almuerzos, tentempiés",
+        "currency": "COP",
+        "locale": "es-CO",
+        "theme": "light",
+        "locations": [
+            {
+                "city": "Medellín",
+                "country": "Colombia",
+                "label": "Our Location",
+                "address": "One Plaza, Av. El Poblado #5A-113 Local 119, El Poblado",
+                "mapUrl": "https://maps.app.goo.gl/3WQkaFZQJStgQWTz5"
+            }
+        ],
+        "socialMedia": [
+            {
+                "name": "instagram",
+                "url": "https://www.instagram.com/clusclus.cafeteria/"
+            }
+        ],
+        "colors": {
+            "fg": "#f5f5f0",
+            "bg": "#1e3a8a",
+            "action": "#1e3a8a",
+            "muted": "#1e3a8a"
+        },
+        "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    "menus": [
+        {
+            "id": "default",
+            "label": "",
+            "categories": [
+                {
+                    "id": "cafe-especialidad",
+                    "label": "Café de Especialidad",
+                    "sections": [
+                        {
+                            "id": "espresso",
+                            "label": "A base de espresso",
+                            "items": [
+                                {
+                                    "id": "espresso",
+                                    "name": "Espresso",
+                                    "description": null,
+                                    "price": 8000,
+                                    "labels": null
+                                },
+                                {
+                                    "id": "americano",
+                                    "name": "Americano",
+                                    "description": null,
+                                    "price": 8000,
+                                    "labels": null
+                                },
+                                {
+                                    "id": "cortado",
+                                    "name": "Cortado",
+                                    "description": null,
+                                    "price": 9500,
+                                    "labels": null
+                                },
+                                {
+                                    "id": "capuccino",
+                                    "name": "Capuccino",
+                                    "description": null,
+                                    "price": 11000,
+                                    "labels": null
+                                },
+                                {
+                                    "id": "flat-white",
+                                    "name": "Flat White",
+                                    "description": null,
+                                    "price": 13000,
+                                    "labels": null
+                                },
+                                {
+                                    "id": "latte",
+                                    "name": "Latte",
+                                    "description": null,
+                                    "price": 14000,
+                                    "labels": null
+                                }
+                            ]
+                        },
+                        {
+                            "id": "filtrado",
+                            "label": "Filtrado Natural",
+                            "items": [
+                                {
+                                    "id": "pourover",
+                                    "name": "Pourover",
+                                    "description": "Kinto | Kalita | V60 | Blue Bottle",
+                                    "price": {
+                                        "1 taza": 12000,
+                                        "2 tazas": 18000
+                                    },
+                                    "labels": null
+                                },
+                                {
+                                    "id": "chemex",
+                                    "name": "Chemex",
+                                    "description": "4 tazas",
+                                    "price": 38000,
+                                    "labels": null
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "otras-bebidas",
+                    "label": "Otras Bebidas",
+                    "sections": [
+                        {
+                            "id": "bebidas-calientes",
+                            "label": "Bebidas Calientes",
+                            "items": [
+                                {
+                                    "id": "aguapanela",
+                                    "name": "Aguapanela",
+                                    "description": null,
+                                    "price": 7000,
+                                    "labels": null
+                                },
+                                {
+                                    "id": "chocolate-agua",
+                                    "name": "Chocolate en agua",
+                                    "description": null,
+                                    "price": 9000,
+                                    "labels": null
+                                },
+                                {
+                                    "id": "chocolate-leche",
+                                    "name": "Chocolate en leche",
+                                    "description": null,
+                                    "price": 10000,
+                                    "labels": null
+                                },
+                                {
+                                    "id": "matcha-latte",
+                                    "name": "Matcha Latte",
+                                    "description": null,
+                                    "price": 15000,
+                                    "labels": null
+                                },
+                                {
+                                    "id": "chai-latte",
+                                    "name": "Chai Latte",
+                                    "description": null,
+                                    "price": 15000,
+                                    "labels": null
+                                }
+                            ]
+                        },
+                        {
+                            "id": "bebidas-frias",
+                            "label": "Bebidas Frías",
+                            "items": [
+                                {
+                                    "id": "coldbrew",
+                                    "name": "Coldbrew",
+                                    "description": null,
+                                    "price": 14000,
+                                    "labels": null
+                                },
+                                {
+                                    "id": "latte-frio",
+                                    "name": "Latte frío",
+                                    "description": null,
+                                    "price": 14000,
+                                    "labels": null
+                                },
+                                {
+                                    "id": "matcha-frio",
+                                    "name": "Matcha frío",
+                                    "description": null,
+                                    "price": 15000,
+                                    "labels": null
+                                },
+                                {
+                                    "id": "chai-frio",
+                                    "name": "Chai frío",
+                                    "description": null,
+                                    "price": 15000,
+                                    "labels": null
+                                },
+                                {
+                                    "id": "jugo-naranja",
+                                    "name": "Jugo de naranja",
+                                    "description": null,
+                                    "price": 10000,
+                                    "labels": null
+                                },
+                                {
+                                    "id": "kombucha",
+                                    "name": "Kombucha",
+                                    "description": null,
+                                    "price": 16000,
+                                    "labels": null
+                                },
+                                {
+                                    "id": "vino-blanco",
+                                    "name": "Vino blanco",
+                                    "description": null,
+                                    "price": 22000,
+                                    "labels": null
+                                },
+                                {
+                                    "id": "vino-tinto",
+                                    "name": "Vino tinto",
+                                    "description": null,
+                                    "price": 22000,
+                                    "labels": null
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "desayuno",
+                    "label": "Desayuno",
+                    "items": [
+                        {
+                            "id": "huevos-cremosos",
+                            "name": "Huevos cremosos",
+                            "description": "Pan masa madre, ghee, salsa macha.",
+                            "price": 25000,
+                            "labels": null
+                        },
+                        {
+                            "id": "huevos-fritos",
+                            "name": "Huevos fritos",
+                            "description": "Pan masa madre, Parmigiano.",
+                            "price": 24000,
+                            "labels": null
+                        },
+                        {
+                            "id": "huevos-tomatina",
+                            "name": "Huevos tomatina",
+                            "description": "Tomates rostizados, ricotta, pan masa madre.",
+                            "price": 25000,
+                            "labels": null
+                        },
+                        {
+                            "id": "tostada-aguacate",
+                            "name": "Tostada aguacate",
+                            "description": "Pan semillas, queso asado, dukkah, limón.",
+                            "price": 23000,
+                            "labels": [
+                                "vegetariano"
+                            ]
+                        },
+                        {
+                            "id": "arepa-mote",
+                            "name": "Arepa mote",
+                            "description": "Ricotta, dukkah, aove.",
+                            "price": 18000,
+                            "labels": [
+                                "vegetariano"
+                            ]
+                        },
+                        {
+                            "id": "granola",
+                            "name": "Granola",
+                            "description": "Yogurt griego, nueces, semillas, manzana horneada.",
+                            "price": 25000,
+                            "labels": null
+                        },
+                        {
+                            "id": "pancake",
+                            "name": "Pancake zanahoria",
+                            "description": "Miel, yogurt, tonka.",
+                            "price": 25000,
+                            "labels": null
+                        }
+                    ]
+                },
+                {
+                    "id": "almuerzo",
+                    "label": "Almuerzo",
+                    "items": [
+                        {
+                            "id": "sopa-temporada",
+                            "name": "Sopa de temporada",
+                            "description": "Con pan masa madre.",
+                            "price": 18000,
+                            "labels": null
+                        },
+                        {
+                            "id": "sanduche-alla-norma",
+                            "name": "Sánduche alla norma",
+                            "description": "Berenjena, ricotta, albahaca.",
+                            "price": 28000,
+                            "labels": [
+                                "vegetariano"
+                            ]
+                        },
+                        {
+                            "id": "sanduche-verde",
+                            "name": "Sánduche verde",
+                            "description": "Pollo, green goddess, aguacate.",
+                            "price": 28000,
+                            "labels": null
+                        },
+                        {
+                            "id": "ensalada-ccesar",
+                            "name": "Ensalada CCCesar",
+                            "description": "Cogollos, Parmigiano, pan tostado.",
+                            "price": 28000,
+                            "labels": null
+                        }
+                    ]
+                },
+                {
+                    "id": "parva",
+                    "label": "Un Clus-Clus",
+                    "items": [
+                        {
+                            "id": "pan-yuca",
+                            "name": "Pan de yuca",
+                            "description": null,
+                            "price": 7000,
+                            "labels": null
+                        },
+                        {
+                            "id": "almojabana",
+                            "name": "Almojábana",
+                            "description": null,
+                            "price": 7000,
+                            "labels": null
+                        },
+                        {
+                            "id": "galleta-cc",
+                            "name": "Galleta CC",
+                            "description": "Marañones, chocolate 70%, sal.",
+                            "price": 9000,
+                            "labels": null
+                        },
+                        {
+                            "id": "galleta-miso",
+                            "name": "Galleta miso",
+                            "description": "Mantequilla de maní, ajonjolí.",
+                            "price": 9000,
+                            "labels": null
+                        },
+                        {
+                            "id": "panecillo-canela",
+                            "name": "Panecillo canela",
+                            "description": null,
+                            "price": 7000,
+                            "labels": null
+                        },
+                        {
+                            "id": "panecillo-cardamomo",
+                            "name": "Panecillo cardamomo",
+                            "description": null,
+                            "price": 7000,
+                            "labels": null
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
