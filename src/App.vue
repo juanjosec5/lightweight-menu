@@ -229,11 +229,11 @@ watch(
       <img v-if="toolbarLogoSrc" :src="toolbarLogoSrc" :alt="`Logo for ${data?.restaurant?.name ?? 'restaurant'}`" />
       <button v-if="!data?.restaurant.theme" :aria-label="`toggle to ${theme ? 'light' : 'dark'} theme`"
         class="toolbar-button theme-toggle" @click="toggle" type="button">
-        <font-awesome-icon :icon="theme === 'dark' ? ['fas','sun'] : ['fas','moon']" class="theme-icon" />
+        <font-awesome-icon :icon="theme === 'dark' ? ['fas', 'sun'] : ['fas', 'moon']" class="theme-icon" />
       </button>
     </div>
 
-    
+
 
     <section v-if="isMissingParam" class="welcome">
       <h2>Bienvenido!</h2>
@@ -257,8 +257,8 @@ watch(
 
     <template v-else>
       <header v-if="data" class="hdr" ref="headerRef">
-        <img v-if="logoUrl" class="logo-image" :src="logoUrl" :alt="data.restaurant.name + ' logo'"
-          loading="eager" fetchpriority="high" decoding="async" />
+        <img v-if="logoUrl" class="logo-image" :src="logoUrl" :alt="data.restaurant.name + ' logo'" loading="eager"
+          fetchpriority="high" decoding="async" />
         <h1 v-if="!logoUrl">{{ data.restaurant.name }}</h1>
         <p v-if="data.restaurant.subtitle" class="sub">
           {{ data.restaurant.subtitle }}
@@ -276,7 +276,7 @@ watch(
           <ul>
             <li v-for="link in data?.socialMedia" :key="link.url">
               <a :href="link.url" target="_blank" rel="noopener noreferrer">
-                <font-awesome-icon :icon="SOCIAL_MEDIA_ICONS[link.name] ?? ['fas','link']" />
+                <font-awesome-icon :icon="SOCIAL_MEDIA_ICONS[link.name] ?? ['fas', 'link']" />
               </a>
               <small v-if="link.label">{{ link.label }}</small>
             </li>
@@ -288,7 +288,7 @@ watch(
         <a v-for="location in data.restaurant.locations" :key="location.id" :href="location.mapUrl"
           class="location-link" target="_blank" rel="noopener noreferrer">
           {{ location.label || `${location.city}, ${location.country}` }}
-          <font-awesome-icon :icon="['fas','location-dot']" class="theme-icon" />
+          <font-awesome-icon :icon="['fas', 'location-dot']" class="theme-icon" />
         </a>
       </div>
 
@@ -306,7 +306,7 @@ watch(
 
       <template v-if="(data?.menus?.length ?? 0) > 1">
         <nav class="menus-nav" role="tablist" aria-label="Restaurant Menus">
-          <p class="menus-nav__heading">Our menus:</p>
+          <p class="menus-nav__heading">{{ data?.restaurant?.locale === 'es-CO' ? 'Nuestros Menú' : 'Our Menus' }}</p>
           <button v-for="m in data?.menus" :key="m.id" type="button" role="tab" :aria-selected="m.id === selectedMenuId"
             :class="[
               'menus-nav__button',
@@ -379,7 +379,7 @@ watch(
   border-bottom: 1px solid var(--muted);
 
   &__heading {
-    margin-bottom: 0;
+    margin: 0;
   }
 
   &__button {

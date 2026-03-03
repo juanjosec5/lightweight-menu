@@ -19,10 +19,10 @@
         "description": "Es el lugar, es el momento.",
         "currency": "COP",
         "locale": "es-CO",
-        "theme": "light",
+        "theme": "dark",
         "colors": {
-            "fg": "#F5F0E8",
-            "bg": "#8B3A2A",
+            "fg": "#8B3A2A",
+            "bg": "#F5F0E8",
             "action": "#c77663",
             "muted": "#C4907A"
         },
@@ -40,6 +40,135 @@
     ],
     "additionalLinks": [],
     "menus": [
+        {
+            "id": "mini-carta",
+            "label": "Mini Carta",
+            "categories": [
+                {
+                    "id": "mini-para-comenzar",
+                    "label": "Para Comenzar",
+                    "items": [
+                        {
+                            "id": "crudo-de-pescado",
+                            "name": "Crudo de Pescado",
+                            "description": "Lenguado, aguachile, semillas de calabaza, uvas verdes",
+                            "price": 31900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Crudo de Pescado"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Crudo de Pescado"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "mini-para-continuar",
+                    "label": "Para Continuar",
+                    "items": [
+                        {
+                            "id": "pad-thai-pollo",
+                            "name": "Pad Thai - Pollo",
+                            "description": null,
+                            "price": 52900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pad Thai Pollo"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pad Thai Pollo"
+                            }
+                        },
+                        {
+                            "id": "pad-thai-tofu",
+                            "name": "Pad Thai - Tofú",
+                            "description": null,
+                            "price": 49900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pad Thai Tofú"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pad Thai Tofú"
+                            }
+                        },
+                        {
+                            "id": "pad-thai-langostino",
+                            "name": "Pad Thai - Langostino",
+                            "description": null,
+                            "price": 68900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pad Thai Langostino"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pad Thai Langostino"
+                            }
+                        },
+                        {
+                            "id": "pad-thai-mixto",
+                            "name": "Pad Thai - Mixto",
+                            "description": null,
+                            "price": 59900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pad Thai Mixto"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pad Thai Mixto"
+                            }
+                        },
+                        {
+                            "id": "lasana-ideal",
+                            "name": "Lasaña Ideal para Compartir (2-3 pax)",
+                            "description": "Boloñesa, mozzarella fior di latte, pecorino romano, pomodoro, ricotta y pan ciabatta",
+                            "price": 76900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Lasaña Ideal"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Lasaña Ideal"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "mini-para-endulzar",
+                    "label": "Para Endulzar",
+                    "items": [
+                        {
+                            "id": "galleta-ideal-mini",
+                            "name": "Galleta Ideal",
+                            "description": "Galleta con chips de chocolate, helado de vainilla, cereal crunch y salted caramel",
+                            "price": 29900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Galleta Ideal"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Galleta Ideal"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
         {
             "id": "brunch",
             "label": "Brunch",
@@ -1366,135 +1495,6 @@
                         },
                         {
                             "id": "galleta-ideal",
-                            "name": "Galleta Ideal",
-                            "description": "Galleta con chips de chocolate, helado de vainilla, cereal crunch y salted caramel",
-                            "price": 29900,
-                            "labels": null,
-                            "image": {
-                                "src": "",
-                                "alt": "Galleta Ideal"
-                            },
-                            "imageThumbnail": {
-                                "src": "",
-                                "alt": "Galleta Ideal"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "mini-carta",
-            "label": "Mini Carta",
-            "categories": [
-                {
-                    "id": "mini-para-comenzar",
-                    "label": "Para Comenzar",
-                    "items": [
-                        {
-                            "id": "crudo-de-pescado",
-                            "name": "Crudo de Pescado",
-                            "description": "Lenguado, aguachile, semillas de calabaza, uvas verdes",
-                            "price": 31900,
-                            "labels": null,
-                            "image": {
-                                "src": "",
-                                "alt": "Crudo de Pescado"
-                            },
-                            "imageThumbnail": {
-                                "src": "",
-                                "alt": "Crudo de Pescado"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": "mini-para-continuar",
-                    "label": "Para Continuar",
-                    "items": [
-                        {
-                            "id": "pad-thai-pollo",
-                            "name": "Pad Thai - Pollo",
-                            "description": null,
-                            "price": 52900,
-                            "labels": null,
-                            "image": {
-                                "src": "",
-                                "alt": "Pad Thai Pollo"
-                            },
-                            "imageThumbnail": {
-                                "src": "",
-                                "alt": "Pad Thai Pollo"
-                            }
-                        },
-                        {
-                            "id": "pad-thai-tofu",
-                            "name": "Pad Thai - Tofú",
-                            "description": null,
-                            "price": 49900,
-                            "labels": null,
-                            "image": {
-                                "src": "",
-                                "alt": "Pad Thai Tofú"
-                            },
-                            "imageThumbnail": {
-                                "src": "",
-                                "alt": "Pad Thai Tofú"
-                            }
-                        },
-                        {
-                            "id": "pad-thai-langostino",
-                            "name": "Pad Thai - Langostino",
-                            "description": null,
-                            "price": 68900,
-                            "labels": null,
-                            "image": {
-                                "src": "",
-                                "alt": "Pad Thai Langostino"
-                            },
-                            "imageThumbnail": {
-                                "src": "",
-                                "alt": "Pad Thai Langostino"
-                            }
-                        },
-                        {
-                            "id": "pad-thai-mixto",
-                            "name": "Pad Thai - Mixto",
-                            "description": null,
-                            "price": 59900,
-                            "labels": null,
-                            "image": {
-                                "src": "",
-                                "alt": "Pad Thai Mixto"
-                            },
-                            "imageThumbnail": {
-                                "src": "",
-                                "alt": "Pad Thai Mixto"
-                            }
-                        },
-                        {
-                            "id": "lasana-ideal",
-                            "name": "Lasaña Ideal para Compartir (2-3 pax)",
-                            "description": "Boloñesa, mozzarella fior di latte, pecorino romano, pomodoro, ricotta y pan ciabatta",
-                            "price": 76900,
-                            "labels": null,
-                            "image": {
-                                "src": "",
-                                "alt": "Lasaña Ideal"
-                            },
-                            "imageThumbnail": {
-                                "src": "",
-                                "alt": "Lasaña Ideal"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": "mini-para-endulzar",
-                    "label": "Para Endulzar",
-                    "items": [
-                        {
-                            "id": "galleta-ideal-mini",
                             "name": "Galleta Ideal",
                             "description": "Galleta con chips de chocolate, helado de vainilla, cereal crunch y salted caramel",
                             "price": 29900,
