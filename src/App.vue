@@ -227,7 +227,6 @@ watch(
   <main class="wrap">
     <div :class="['toolbar', { 'shadow-light': !theme, 'shadow-dark': theme }]">
       <img v-if="toolbarLogoSrc" :src="toolbarLogoSrc" :alt="`Logo for ${data?.restaurant?.name ?? 'restaurant'}`" />
-      <!-- <h1 class="toolbar-title">{{ toolbarTitle }}</h1> -->
       <button v-if="!data?.restaurant.theme" :aria-label="`toggle to ${theme ? 'light' : 'dark'} theme`"
         class="toolbar-button theme-toggle" @click="toggle" type="button">
         <font-awesome-icon :icon="theme === 'dark' ? ['fas','sun'] : ['fas','moon']" class="theme-icon" />
@@ -289,7 +288,7 @@ watch(
         <a v-for="location in data.restaurant.locations" :key="location.id" :href="location.mapUrl"
           class="location-link" target="_blank" rel="noopener noreferrer">
           {{ location.label || `${location.city}, ${location.country}` }}
-          <i class="fa-solid fa-location-dot"></i>
+          <font-awesome-icon :icon="['fas','location-dot']" class="theme-icon" />
         </a>
       </div>
 
