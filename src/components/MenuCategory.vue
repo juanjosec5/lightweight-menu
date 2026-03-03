@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch, nextTick } from "vue";
 import MenuItem from "./MenuItem.vue";
-import { Leaf, Flame, Fish, Shrimp } from "lucide-vue-next";
 import type { Category, Label } from "@/types/menu";
 
 const props = withDefaults(
@@ -18,22 +17,22 @@ const props = withDefaults(
 
 const labelsMap = computed<Record<Label, { icon: any; text: string; class: string }>>(() => ({
   spicy: {
-    icon: Flame,
+    icon: ['fas', 'fire'],
     text: props.locale === "en-US" ? "spicy" : "picante",
     class: "spicy",
   },
   vegetarian: {
-    icon: Leaf,
+    icon: ['fas', 'leaf'],
     text: props.locale === "en-US" ? "vegetarian" : "vegetariano",
     class: "vegetarian",
   },
   fish: {
-    icon: Fish,
+    icon: ['fas', 'fish'],
     text: props.locale === "en-US" ? "fish" : "pescado",
     class: "fish",
   },
   shrimp: {
-    icon: Shrimp,
+    icon: ['fas', 'shrimp'],
     text: props.locale === "en-US" ? "shrimp" : "camarón",
     class: "shrimp",
   },
@@ -242,7 +241,7 @@ watch(
         <ul class="labels-list" v-if="categoryLabels.length">
           <li v-for="l in categoryLabels" :key="l.class">
             <span class="badge">
-              <component :is="l.icon" :class="l.class" :size="20" />
+              <font-awesome-icon :icon="l.icon" :class="l.class" />
               {{ l.text }}
             </span>
           </li>

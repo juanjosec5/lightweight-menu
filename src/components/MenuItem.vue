@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, watch, onBeforeUnmount } from "vue";
 import { formatPrice } from "@/utils/formatPrice";
-import { Flame, Leaf, Fish, Link, X, Shrimp } from "lucide-vue-next";
 import type { Item } from "@/types/menu";
 
 type PriceMap = Record<string, number | string>;
@@ -28,20 +27,50 @@ const ingredientsList = computed(() => {
   });
 });
 
-const LABEL_MAP: Record<string, { icon: any; class: string }> = {
-  spicy: { icon: Flame, class: "spicy" },
-  vegetarian: { icon: Leaf, class: "vegetarian" },
-  fish: { icon: Fish, class: "fish" },
-  shrimp: { icon: Shrimp, class: "shrimp" },
+const LABEL_MAP = computed<Record<string, { icon: any; text: string; class: string }>>(() => ({
+  spicy: {
+    icon: ["fas", "fire"], // consider ["fas","flame"] depending on what you registered
+    text: props.locale === "en-US" ? "spicy" : "picante",
+    class: "spicy",
+  },
+  vegetarian: {
+    icon: ["fas", "leaf"],
+    text: props.locale === "en-US" ? "vegetarian" : "vegetariano",
+    class: "vegetarian",
+  },
+  fish: {
+    icon: ["fas", "fish"],
+    text: props.locale === "en-US" ? "fish" : "pescado",
+    class: "fish",
+  },
+  shrimp: {
+    icon: ["fas", "shrimp"],
+    text: props.locale === "en-US" ? "shrimp" : "camarón",
+    class: "shrimp",
+  },
+}));
+
+const normalizeLabel = (l: unknown) =>
+  typeof l === "string" ? l.trim().toLowerCase() : null;
+
+// optional: if your backend uses Spanish labels, add aliases
+const LABEL_ALIASES: Record<string, string> = {
+  picante: "spicy",
+  vegetariano: "vegetarian",
+  pescado: "fish",
+  camaron: "shrimp",
+  "camarón": "shrimp",
 };
 
-const ICON_LABELS = new Set(Object.keys(LABEL_MAP));
+const iconLabels = computed(() => {
+  const map = LABEL_MAP.value;
 
-const iconLabels = computed(() =>
-  (props.item.labels ?? [])
-    .filter((l): l is string => typeof l === "string")
-    .filter((l) => ICON_LABELS.has(l))
-);
+  return (props.item.labels ?? [])
+    .map(normalizeLabel)
+    .filter((l): l is string => !!l)
+    .map((l) => LABEL_ALIASES[l] ?? l)
+    .filter((l) => l in map);
+});
 
 // --- price helpers ---
 const isPriceObject = computed(() => {
@@ -130,7 +159,7 @@ onBeforeUnmount(() => {
         <h4 class="item__title">{{ item.name }}<span>
             <ul v-if="iconLabels.length" class="mi-labels">
               <li v-for="b in iconLabels" :key="b" class="badge">
-                <component :is="LABEL_MAP[b].icon" :class="LABEL_MAP[b].class" :size="20" />
+                <font-awesome-icon :icon="LABEL_MAP[b].icon" :class="LABEL_MAP[b].class" />
               </li>
             </ul>
           </span></h4>
@@ -182,7 +211,7 @@ onBeforeUnmount(() => {
     <dialog ref="dialogRef" class="img-dialog" @close="showModal = false">
       <form method="dialog">
         <button class="img-dialog__close" aria-label="Cerrar" @click.prevent="closeDialog">
-          <component class="img-dialog__close-button" :is="X" :size="28" />
+           <font-awesome-icon :icon="['fas','close']" class="theme-icon" />
         </button>
       </form>
 

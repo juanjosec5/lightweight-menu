@@ -4,8 +4,7 @@ import { useMenu } from "@/composables/useMenu";
 import { useMenuFromUrl } from "@/composables/useMenuFromUrl";
 import { useTheme } from "@/composables/useTheme";
 import MenuCategory from "@/components/MenuCategory.vue";
-import { Sun, Moon } from "lucide-vue-next";
-import type { RestaurantMenu, BrandColors } from "@/types/menu";
+import type { BrandColors } from "@/types/menu";
 
 const menus = import.meta.glob("../public/menus/*.json");
 
@@ -231,9 +230,11 @@ watch(
       <!-- <h1 class="toolbar-title">{{ toolbarTitle }}</h1> -->
       <button v-if="!data?.restaurant.theme" :aria-label="`toggle to ${theme ? 'light' : 'dark'} theme`"
         class="toolbar-button theme-toggle" @click="toggle" type="button">
-        <component :is="theme ? Sun : Moon" :size="24" />
+        <font-awesome-icon :icon="theme === 'dark' ? ['fas','sun'] : ['fas','moon']" class="theme-icon" />
       </button>
     </div>
+
+    
 
     <section v-if="isMissingParam" class="welcome">
       <h2>Bienvenido!</h2>
