@@ -5,7 +5,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faLeaf, faFish, faShrimp, faFire, faSun, faMoon, faClose, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 // Brands example
-import { faInstagram, faFacebook, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram, faFacebook, faWhatsapp, faTiktok } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
     faLocationDot,
@@ -18,5 +18,6 @@ library.add(
     faShrimp,
     faInstagram,
     faFacebook,
+    faTiktok,
     faWhatsapp
 );

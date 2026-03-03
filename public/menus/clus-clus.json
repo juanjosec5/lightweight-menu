@@ -18,12 +18,6 @@
                 "mapUrl": "https://maps.app.goo.gl/3WQkaFZQJStgQWTz5"
             }
         ],
-        "socialMedia": [
-            {
-                "name": "instagram",
-                "url": "https://www.instagram.com/clusclus.cafeteria/"
-            }
-        ],
         "colors": {
             "fg": "#f5f5f0",
             "bg": "#1e3a8a",
@@ -32,6 +26,16 @@
         },
         "updatedAt": "2026-03-01T00:00:00.000Z"
     },
+        "socialMedia": [
+        {
+            "name": "instagram",
+            "url": "https://www.instagram.com/bellavita.cafebar"
+        },
+        {
+            "name": "tiktok",
+            "url": "https://www.tiktok.com/discover/clus-clus-cafeteria-medellin"
+        }
+    ],
     "menus": [
         {
             "id": "default",
