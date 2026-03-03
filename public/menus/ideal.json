@@ -1,0 +1,2578 @@
+{
+    "$schema": "../../src/schemas/restaurant-menu.schema.json",
+    "version": 1,
+    "restaurant": {
+        "id": "ideal",
+        "name": "Ideal",
+        "logo": "",
+        "subtitle": "Americano Moderno",
+        "locations": [
+            {
+                "id": "main-location",
+                "city": "Bogotá",
+                "country": "Colombia",
+                "label": "Nuestra ubicación",
+                "address": "Av Cl 80 #8 - 34, Bogotá",
+                "mapUrl": "https://maps.app.goo.gl/cRimHF4ABX6AtGmcA"
+            }
+        ],
+        "description": "Es el lugar, es el momento.",
+        "currency": "COP",
+        "locale": "es-CO",
+        "theme": "light",
+        "colors": {
+            "fg": "#F5F0E8",
+            "bg": "#8B3A2A",
+            "action": "#c77663",
+            "muted": "#C4907A"
+        },
+        "updatedAt": "2026-03-02T00:00:00.000Z"
+    },
+    "socialMedia": [
+        {
+            "name": "instagram",
+            "url": "https://www.instagram.com/ideal_bog/"
+        },
+        {
+            "name": "whatsapp",
+            "url": "https://wa.me/573027048882"
+        }
+    ],
+    "additionalLinks": [],
+    "menus": [
+        {
+            "id": "brunch",
+            "label": "Brunch",
+            "categories": [
+                {
+                    "id": "brunch-salty",
+                    "label": "Salty",
+                    "items": [
+                        {
+                            "id": "pigs-in-a-blanket",
+                            "name": "Pigs in a Blanket",
+                            "description": "Salchichitas Koller envueltas en hojaldre",
+                            "price": 35900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pigs in a Blanket"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pigs in a Blanket"
+                            }
+                        },
+                        {
+                            "id": "chicken-and-waffle",
+                            "name": "Chicken and Waffle",
+                            "description": "Pollo apanado, waffles y miel de ajo negro picante",
+                            "price": 35900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Chicken and Waffle"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Chicken and Waffle"
+                            }
+                        },
+                        {
+                            "id": "calentado",
+                            "name": "Calentado",
+                            "description": "Chili con carne, arroz jazmín, hashbrown y huevos fritos con salsa criolla",
+                            "price": 34900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Calentado"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Calentado"
+                            }
+                        },
+                        {
+                            "id": "canasta-de-pan",
+                            "name": "Canasta de Pan",
+                            "description": "Muffin, pan sourdough y pan de queso",
+                            "price": 16900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Canasta de Pan"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Canasta de Pan"
+                            }
+                        },
+                        {
+                            "id": "steak-and-eggs",
+                            "name": "Steak and Eggs",
+                            "description": "220g de lomo, papa rota, huevos fritos y salsa criolla",
+                            "price": 69900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Steak and Eggs"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Steak and Eggs"
+                            }
+                        },
+                        {
+                            "id": "enchiladas",
+                            "name": "Enchiladas",
+                            "description": "Tortillas de maíz rellenas de pollo con chipotle, queso, aguacate y sour cream",
+                            "price": 37900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Enchiladas"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Enchiladas"
+                            }
+                        },
+                        {
+                            "id": "salmon-curado-con-chile",
+                            "name": "Salmón Curado con Chile",
+                            "description": "Gravlax de salmón acompañado de mini alcaparras, cebolla morada y queso philadelphia con eneldo. Con bagels o latkes",
+                            "price": 53900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Salmón Curado con Chile"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Salmón Curado con Chile"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "brunch-eggs",
+                    "label": "Eggs",
+                    "items": [
+                        {
+                            "id": "huevos-cocotte",
+                            "name": "Huevos Cocotte",
+                            "description": "Huevos con salsa trufada y queso Gruyère",
+                            "price": 29900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Huevos Cocotte"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Huevos Cocotte"
+                            }
+                        },
+                        {
+                            "id": "green-shakshuka",
+                            "name": "Green Shakshuka",
+                            "description": "Huevos en ají dulce, jalapeño, cilantro y especias",
+                            "price": 26900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Green Shakshuka"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Green Shakshuka"
+                            }
+                        },
+                        {
+                            "id": "egg-sandwich-slider",
+                            "name": "Egg Sandwich Slider x2",
+                            "description": "Mini sándwiches de huevo revuelto con queso cheddar, tocineta y mayo picante",
+                            "price": 31900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Egg Sandwich Slider x2"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Egg Sandwich Slider x2"
+                            }
+                        },
+                        {
+                            "id": "huevos-al-gusto",
+                            "name": "Huevos al Gusto",
+                            "description": "Escoge 3 toppings: cebolla, tomate, maíz, champiñones, queso mozzarella, espinaca",
+                            "price": 28900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Huevos al Gusto"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Huevos al Gusto"
+                            }
+                        },
+                        {
+                            "id": "huevos-benedictinos",
+                            "name": "Huevos Benedictinos",
+                            "description": "Huevos pochados, English muffin, Canadian bacon, salsa holandesa y papas rotas",
+                            "price": 30900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Huevos Benedictinos"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Huevos Benedictinos"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "brunch-healthy",
+                    "label": "Healthy",
+                    "items": [
+                        {
+                            "id": "avo-toast",
+                            "name": "Avo Toast",
+                            "description": "Tostada de pan de masa madre con aguacate, queso feta y tomates confitados",
+                            "price": 24900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Avo Toast"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Avo Toast"
+                            }
+                        },
+                        {
+                            "id": "avo-toast-con-huevo",
+                            "name": "Avo Toast con Huevo",
+                            "description": "Tostada de pan de masa madre con aguacate, queso feta, tomates confitados y huevo",
+                            "price": 30900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Avo Toast con Huevo"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Avo Toast con Huevo"
+                            }
+                        },
+                        {
+                            "id": "smoothie-bowl",
+                            "name": "Smoothie Bowl",
+                            "description": "Bowl de yogurt con fresa, piña, ciruela y banano acompañado con granola y berries",
+                            "price": 29900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Smoothie Bowl"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Smoothie Bowl"
+                            }
+                        },
+                        {
+                            "id": "chia-pudding-granola-yogurt-griego",
+                            "name": "Chía Pudding, Granola y Yogurt Griego",
+                            "description": "Avena, chía, leche de almendras, granola y mantequilla de almendra",
+                            "price": 26900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Chía Pudding, Granola y Yogurt Griego"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Chía Pudding, Granola y Yogurt Griego"
+                            }
+                        },
+                        {
+                            "id": "pancakes-linaza",
+                            "name": "Pancakes",
+                            "description": "De linaza con mango y arándanos",
+                            "price": 29900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pancakes"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pancakes"
+                            }
+                        },
+                        {
+                            "id": "ricotta-banana-pancakes",
+                            "name": "Ricotta Banana Pancakes",
+                            "description": "Con honeycomb crunch, ricotta y banano",
+                            "price": 30900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Ricotta Banana Pancakes"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Ricotta Banana Pancakes"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "brunch-sweet",
+                    "label": "Sweet",
+                    "items": [
+                        {
+                            "id": "lemon-poppy-seed-pancakes",
+                            "name": "Lemon Poppy Seed Pancakes",
+                            "description": "Pancake de semilla de amapola y limón",
+                            "price": 30900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Lemon Poppy Seed Pancakes"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Lemon Poppy Seed Pancakes"
+                            }
+                        },
+                        {
+                            "id": "pain-perdu-de-croissant",
+                            "name": "Pain Perdu de Croissant",
+                            "description": "Tostada francesa de croissant con salsa inglesa",
+                            "price": 35900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pain Perdu de Croissant"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pain Perdu de Croissant"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "brunch-sides",
+                    "label": "Sides",
+                    "items": [
+                        {
+                            "id": "side-latkes",
+                            "name": "Latkes",
+                            "description": null,
+                            "price": 16900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Latkes"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Latkes"
+                            }
+                        },
+                        {
+                            "id": "side-salchichas-koller",
+                            "name": "Salchichas Koller",
+                            "description": null,
+                            "price": 16900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Salchichas Koller"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Salchichas Koller"
+                            }
+                        },
+                        {
+                            "id": "side-tocineta",
+                            "name": "Tocineta",
+                            "description": null,
+                            "price": 8900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Tocineta"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Tocineta"
+                            }
+                        },
+                        {
+                            "id": "side-salmon-ahumado",
+                            "name": "Salmón Ahumado",
+                            "description": null,
+                            "price": 28900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Salmón Ahumado"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Salmón Ahumado"
+                            }
+                        },
+                        {
+                            "id": "side-pavo",
+                            "name": "Pavo",
+                            "description": null,
+                            "price": 14900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pavo"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pavo"
+                            }
+                        },
+                        {
+                            "id": "side-huevo",
+                            "name": "Huevo",
+                            "description": null,
+                            "price": 6500,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Huevo"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Huevo"
+                            }
+                        },
+                        {
+                            "id": "side-jamon-koller",
+                            "name": "Jamón Koller",
+                            "description": null,
+                            "price": 16900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Jamón Koller"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Jamón Koller"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "comida",
+            "label": "Comida",
+            "categories": [
+                {
+                    "id": "para-comenzar",
+                    "label": "Para Comenzar",
+                    "items": [
+                        {
+                            "id": "pork-belly-bites",
+                            "name": "Pork Belly Bites",
+                            "description": "Crocantes con BBQ de miso y sour cream",
+                            "price": 38900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pork Belly Bites"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pork Belly Bites"
+                            }
+                        },
+                        {
+                            "id": "queso-feta",
+                            "name": "Queso Feta",
+                            "description": "Con jalapeño y miel de peperoncino",
+                            "price": 49900,
+                            "labels": [
+                                "Picante"
+                            ],
+                            "image": {
+                                "src": "",
+                                "alt": "Queso Feta"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Queso Feta"
+                            }
+                        },
+                        {
+                            "id": "steak-tartar",
+                            "name": "Steak Tartar",
+                            "description": "Especial de la casa con nido de papa crocante",
+                            "price": 46900,
+                            "labels": [
+                                "Picante"
+                            ],
+                            "image": {
+                                "src": "",
+                                "alt": "Steak Tartar"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Steak Tartar"
+                            }
+                        },
+                        {
+                            "id": "lobster-and-shrimp-roll",
+                            "name": "Lobster and Shrimp Roll (x1)",
+                            "description": "En pan brioche con ruffle fries",
+                            "price": 39900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Lobster and Shrimp Roll"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Lobster and Shrimp Roll"
+                            }
+                        },
+                        {
+                            "id": "stracciatella",
+                            "name": "Stracciatella",
+                            "description": "Con gazpacho de sandía sobre pan de masa madre",
+                            "price": 44900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Stracciatella"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Stracciatella"
+                            }
+                        },
+                        {
+                            "id": "dip-de-alcachofa",
+                            "name": "Dip de Alcachofa",
+                            "description": "Queso y espinaca. Sujeto a disponibilidad",
+                            "price": 50900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Dip de Alcachofa"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Dip de Alcachofa"
+                            }
+                        },
+                        {
+                            "id": "albondigas",
+                            "name": "Albóndigas",
+                            "description": "Con tzatziki",
+                            "price": 36900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Albóndigas"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Albóndigas"
+                            }
+                        },
+                        {
+                            "id": "calamares-fritos",
+                            "name": "Calamares Fritos",
+                            "description": "Con marinara y sour de mostaza",
+                            "price": 56900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Calamares Fritos"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Calamares Fritos"
+                            }
+                        },
+                        {
+                            "id": "zapallo-con-parmesano-crocante",
+                            "name": "Zapallo con Parmesano Crocante",
+                            "description": "Y salsa de queso de cabra",
+                            "price": 36900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Zapallo con Parmesano Crocante"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Zapallo con Parmesano Crocante"
+                            }
+                        },
+                        {
+                            "id": "berenjenas-parrilladas",
+                            "name": "Berenjenas Parrilladas",
+                            "description": "Con yogurt griego, arándanos, quinoa, pesto y tomates cherry",
+                            "price": 36900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Berenjenas Parrilladas"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Berenjenas Parrilladas"
+                            }
+                        },
+                        {
+                            "id": "tartar-de-atun",
+                            "name": "Tartar de Atún",
+                            "description": "Aguacate en salsa ponzu y crocante de arroz",
+                            "price": 50900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Tartar de Atún"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Tartar de Atún"
+                            }
+                        },
+                        {
+                            "id": "popcorn-shrimp",
+                            "name": "Popcorn Shrimp",
+                            "description": "Camarones témpura con mayonesa de yuzu y salsa agridulce",
+                            "price": 52900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Popcorn Shrimp"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Popcorn Shrimp"
+                            }
+                        },
+                        {
+                            "id": "tacos-de-brisket",
+                            "name": "Tacos de Brisket",
+                            "description": "Carne importada con 12 horas de ahumado, jalapeños y queso pepper jack en tortilla de harina. Precio por unidad / porción x3",
+                            "price": 17900,
+                            "labels": [
+                                "Picante"
+                            ],
+                            "image": {
+                                "src": "",
+                                "alt": "Tacos de Brisket"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Tacos de Brisket"
+                            }
+                        },
+                        {
+                            "id": "buffalo-sliders",
+                            "name": "Buffalo Sliders",
+                            "description": "Pollo crocante en salsa búfalo y coleslaw. Precio por unidad / porción x3",
+                            "price": 13900,
+                            "labels": [
+                                "Picante"
+                            ],
+                            "image": {
+                                "src": "",
+                                "alt": "Buffalo Sliders"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Buffalo Sliders"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "para-continuar-carnes",
+                    "label": "Para Continuar - Carnes y Proteínas",
+                    "items": [
+                        {
+                            "id": "hamburguesa-ideal-sencilla",
+                            "name": "Hamburguesa Ideal",
+                            "description": "Con papas fritas. Disponible sencilla o doble",
+                            "price": 47900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Hamburguesa Ideal"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Hamburguesa Ideal"
+                            }
+                        },
+                        {
+                            "id": "rib-eye",
+                            "name": "Rib Eye",
+                            "description": "600g de ojo de bife americano con mantequilla de ajos negros, tuétano a la parrilla, papas fritas y ensalada de la casa. Sujeto a disponibilidad",
+                            "price": 279900,
+                            "labels": [
+                                "Importado"
+                            ],
+                            "image": {
+                                "src": "",
+                                "alt": "Rib Eye"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Rib Eye"
+                            }
+                        },
+                        {
+                            "id": "lomo-a-la-parrilla",
+                            "name": "Lomo a la Parrilla",
+                            "description": "Medallón 220g con tomates confitados, jus y papas fósforo al romero",
+                            "price": 79900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Lomo a la Parrilla"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Lomo a la Parrilla"
+                            }
+                        },
+                        {
+                            "id": "strip-loin",
+                            "name": "Strip Loin",
+                            "description": "Certified Angus 300g con papas y ensalada",
+                            "price": 148900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Strip Loin"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Strip Loin"
+                            }
+                        },
+                        {
+                            "id": "pollo-al-horno",
+                            "name": "Pollo al Horno",
+                            "description": "Al horno ahumado con salsa cayena, papas crocantes con queso de cabra y ensalada de la casa",
+                            "price": 69900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pollo al Horno"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pollo al Horno"
+                            }
+                        },
+                        {
+                            "id": "butter-chicken",
+                            "name": "Butter Chicken",
+                            "description": "Con arroz jazmín y pan Naan",
+                            "price": 59900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Butter Chicken"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Butter Chicken"
+                            }
+                        },
+                        {
+                            "id": "baby-back-ribs",
+                            "name": "Baby Back Ribs",
+                            "description": "Con coleslaw y salsa BBQ",
+                            "price": 67900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Baby Back Ribs"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Baby Back Ribs"
+                            }
+                        },
+                        {
+                            "id": "salmon-a-la-parrilla",
+                            "name": "Salmón a la Parrilla",
+                            "description": "200g de salmón a la parrilla. Escoge tu side favorito",
+                            "price": 78900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Salmón a la Parrilla"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Salmón a la Parrilla"
+                            }
+                        },
+                        {
+                            "id": "lomo-risoni",
+                            "name": "Lomo Risoni",
+                            "description": "Lomo a la parrilla con risoni trufado",
+                            "price": 84900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Lomo Risoni"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Lomo Risoni"
+                            }
+                        },
+                        {
+                            "id": "lomo-en-salsa-mostaza",
+                            "name": "Lomo en Salsa Mostaza",
+                            "description": "Acompañado con papas rotas",
+                            "price": 79900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Lomo en Salsa Mostaza"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Lomo en Salsa Mostaza"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "para-continuar-pastas",
+                    "label": "Para Continuar - Pastas y Arroces",
+                    "items": [
+                        {
+                            "id": "spicy-rigatoni",
+                            "name": "Spicy Rigatoni",
+                            "description": "Disponible en pasta de arroz integral sin gluten +$3.000",
+                            "price": 45900,
+                            "labels": [
+                                "Picante"
+                            ],
+                            "image": {
+                                "src": "",
+                                "alt": "Spicy Rigatoni"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Spicy Rigatoni"
+                            }
+                        },
+                        {
+                            "id": "risoni-trufado",
+                            "name": "Risoni Trufado",
+                            "description": "Parmigiano reggiano trufado, granapadano y Tartufata",
+                            "price": 52900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Risoni Trufado"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Risoni Trufado"
+                            }
+                        },
+                        {
+                            "id": "vongole-ideal",
+                            "name": "Vongole Ideal",
+                            "description": "Pasta ligeramente picante con almejas, vino blanco, perejil, tomates cherry, aceite de oliva extra virgen y peperoncino. Disponible sin gluten +$3.000",
+                            "price": 54900,
+                            "labels": [
+                                "Picante"
+                            ],
+                            "image": {
+                                "src": "",
+                                "alt": "Vongole Ideal"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Vongole Ideal"
+                            }
+                        },
+                        {
+                            "id": "pasta-de-alcachofa",
+                            "name": "Pasta de Alcachofa",
+                            "description": "Disponible sin gluten +$3.000. También sin picante",
+                            "price": 45900,
+                            "labels": [
+                                "Vegana",
+                                "Picante"
+                            ],
+                            "image": {
+                                "src": "",
+                                "alt": "Pasta de Alcachofa"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pasta de Alcachofa"
+                            }
+                        },
+                        {
+                            "id": "chili-con-carne",
+                            "name": "Chili con Carne",
+                            "description": "Con arroz, queso cheddar, sour cream y totopos",
+                            "price": 42900,
+                            "labels": [
+                                "Picante"
+                            ],
+                            "image": {
+                                "src": "",
+                                "alt": "Chili con Carne"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Chili con Carne"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "para-continuar-mariscos",
+                    "label": "Para Continuar - Mariscos y Pescados",
+                    "items": [
+                        {
+                            "id": "cioppino",
+                            "name": "Cioppino",
+                            "description": "Estofado de mariscos en salsa marinara con sourdough. Tiempo de preparación aprox. 30 minutos",
+                            "price": 69900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Cioppino"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Cioppino"
+                            }
+                        },
+                        {
+                            "id": "pescado-marroqui",
+                            "name": "Pescado Marroquí",
+                            "description": "Sobre salsa a base de tomates, con especias acompañado de cous cous",
+                            "price": 68900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pescado Marroquí"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pescado Marroquí"
+                            }
+                        },
+                        {
+                            "id": "pesca-del-dia-entera",
+                            "name": "Pesca del Día Entera",
+                            "description": "Para compartir. Marinada con salsa de chipotle y piña, tortillas de maíz morado, aguacate tatemado y cebolla encurtida. A disponibilidad del día",
+                            "price": 79900,
+                            "labels": [
+                                "Picante"
+                            ],
+                            "image": {
+                                "src": "",
+                                "alt": "Pesca del Día Entera"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pesca del Día Entera"
+                            }
+                        },
+                        {
+                            "id": "mejillones-ideal",
+                            "name": "Mejillones Ideal",
+                            "description": "Vino blanco, crema de leche, cebolla, pepperoncino",
+                            "price": 62900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Mejillones Ideal"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Mejillones Ideal"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "ensaladas",
+                    "label": "Ensaladas",
+                    "items": [
+                        {
+                            "id": "ensalada-cesar",
+                            "name": "Ensalada César",
+                            "description": "Cogollos de tudela, aderezo césar, tostadas rotas, queso parmesano, limón amarillo",
+                            "price": 30900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Ensalada César"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Ensalada César"
+                            }
+                        },
+                        {
+                            "id": "ensalada-de-queso-azul",
+                            "name": "Ensalada de Queso Azul",
+                            "description": "Mix asiático, nueces pecanas garrapiñadas, queso azul, peras en reducción de vino tinto, cebolla puerro frita, vinagreta de balsámico",
+                            "price": 34900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Ensalada de Queso Azul"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Ensalada de Queso Azul"
+                            }
+                        },
+                        {
+                            "id": "ensalada-de-radicchio",
+                            "name": "Ensalada de Radicchio",
+                            "description": "Rábanos y toronja fresca, con queso de cabra y praliné",
+                            "price": 30900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Ensalada de Radicchio"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Ensalada de Radicchio"
+                            }
+                        },
+                        {
+                            "id": "ensalada-de-langostinos",
+                            "name": "Ensalada de Langostinos",
+                            "description": "Brócolini, marañones, ahuyama al horno, quinua",
+                            "price": 58900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Ensalada de Langostinos"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Ensalada de Langostinos"
+                            }
+                        },
+                        {
+                            "id": "bowl-vegetariano",
+                            "name": "Bowl Vegetariano",
+                            "description": "Quinua, rúgula, hummus, sweet potato fries, aguacate, mix de tomates cherry con tofu parrillado. También sin picante",
+                            "price": 32900,
+                            "labels": [
+                                "Picante"
+                            ],
+                            "image": {
+                                "src": "",
+                                "alt": "Bowl Vegetariano"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Bowl Vegetariano"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "sopas",
+                    "label": "Sopas",
+                    "items": [
+                        {
+                            "id": "chicken-noodle",
+                            "name": "Chicken Noodle",
+                            "description": null,
+                            "price": 24900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Chicken Noodle"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Chicken Noodle"
+                            }
+                        },
+                        {
+                            "id": "clam-chowder",
+                            "name": "Clam Chowder",
+                            "description": null,
+                            "price": 34900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Clam Chowder"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Clam Chowder"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "para-acompanar",
+                    "label": "Para Acompañar",
+                    "items": [
+                        {
+                            "id": "coles-de-bruselas",
+                            "name": "Coles de Bruselas",
+                            "description": "Con ajo negro y tahini",
+                            "price": 30900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Coles de Bruselas"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Coles de Bruselas"
+                            }
+                        },
+                        {
+                            "id": "pure-de-la-casa",
+                            "name": "Puré de la Casa",
+                            "description": "Con sal Maldon",
+                            "price": 15900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Puré de la Casa"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Puré de la Casa"
+                            }
+                        },
+                        {
+                            "id": "sweet-potato-fries",
+                            "name": "Sweet Potato Fries",
+                            "description": "Con wasabi mayo",
+                            "price": 24900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Sweet Potato Fries"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Sweet Potato Fries"
+                            }
+                        },
+                        {
+                            "id": "ensalada-de-la-casa",
+                            "name": "Ensalada de la Casa",
+                            "description": "Guisantes, aguacate, quinua crocante, eneldo y miel mostaza",
+                            "price": 16900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Ensalada de la Casa"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Ensalada de la Casa"
+                            }
+                        },
+                        {
+                            "id": "baked-potato",
+                            "name": "Baked Potato",
+                            "description": "Con sour cream, queso cheddar fundido y tocineta",
+                            "price": 18900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Baked Potato"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Baked Potato"
+                            }
+                        },
+                        {
+                            "id": "risotto-al-limon",
+                            "name": "Risotto al Limón",
+                            "description": null,
+                            "price": 32900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Risotto al Limón"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Risotto al Limón"
+                            }
+                        },
+                        {
+                            "id": "papas-trufadas",
+                            "name": "Papas Trufadas",
+                            "description": null,
+                            "price": 30900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Papas Trufadas"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Papas Trufadas"
+                            }
+                        },
+                        {
+                            "id": "risoni-trufado-side",
+                            "name": "Risoni Trufado",
+                            "description": null,
+                            "price": 32900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Risoni Trufado"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Risoni Trufado"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "para-endulzar",
+                    "label": "Para Endulzar",
+                    "items": [
+                        {
+                            "id": "frangipane-de-agraz-almendras",
+                            "name": "Frangipane de Agraz & Almendras",
+                            "description": "Con helado",
+                            "price": 28900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Frangipane de Agraz & Almendras"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Frangipane de Agraz & Almendras"
+                            }
+                        },
+                        {
+                            "id": "pecan-pie",
+                            "name": "Pecan Pie",
+                            "description": "Caliente con helado",
+                            "price": 30900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pecan Pie"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pecan Pie"
+                            }
+                        },
+                        {
+                            "id": "brownie-smores",
+                            "name": "Brownie S'mores",
+                            "description": "Con helado",
+                            "price": 29900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Brownie S'mores"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Brownie S'mores"
+                            }
+                        },
+                        {
+                            "id": "granita-ideal",
+                            "name": "Granita Ideal",
+                            "description": "Con cava y panna cotta",
+                            "price": 24900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Granita Ideal"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Granita Ideal"
+                            }
+                        },
+                        {
+                            "id": "oreo-cheesecake",
+                            "name": "Oreo Cheesecake",
+                            "description": "Con salted caramel",
+                            "price": 29900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Oreo Cheesecake"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Oreo Cheesecake"
+                            }
+                        },
+                        {
+                            "id": "torta-nemesis",
+                            "name": "Torta Nemesis",
+                            "description": "Torta de chocolate acompañada de helado de vainilla",
+                            "price": 30900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Torta Nemesis"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Torta Nemesis"
+                            }
+                        },
+                        {
+                            "id": "galleta-ideal",
+                            "name": "Galleta Ideal",
+                            "description": "Galleta con chips de chocolate, helado de vainilla, cereal crunch y salted caramel",
+                            "price": 29900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Galleta Ideal"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Galleta Ideal"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "mini-carta",
+            "label": "Mini Carta",
+            "categories": [
+                {
+                    "id": "mini-para-comenzar",
+                    "label": "Para Comenzar",
+                    "items": [
+                        {
+                            "id": "crudo-de-pescado",
+                            "name": "Crudo de Pescado",
+                            "description": "Lenguado, aguachile, semillas de calabaza, uvas verdes",
+                            "price": 31900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Crudo de Pescado"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Crudo de Pescado"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "mini-para-continuar",
+                    "label": "Para Continuar",
+                    "items": [
+                        {
+                            "id": "pad-thai-pollo",
+                            "name": "Pad Thai - Pollo",
+                            "description": null,
+                            "price": 52900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pad Thai Pollo"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pad Thai Pollo"
+                            }
+                        },
+                        {
+                            "id": "pad-thai-tofu",
+                            "name": "Pad Thai - Tofú",
+                            "description": null,
+                            "price": 49900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pad Thai Tofú"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pad Thai Tofú"
+                            }
+                        },
+                        {
+                            "id": "pad-thai-langostino",
+                            "name": "Pad Thai - Langostino",
+                            "description": null,
+                            "price": 68900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pad Thai Langostino"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pad Thai Langostino"
+                            }
+                        },
+                        {
+                            "id": "pad-thai-mixto",
+                            "name": "Pad Thai - Mixto",
+                            "description": null,
+                            "price": 59900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pad Thai Mixto"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pad Thai Mixto"
+                            }
+                        },
+                        {
+                            "id": "lasana-ideal",
+                            "name": "Lasaña Ideal para Compartir (2-3 pax)",
+                            "description": "Boloñesa, mozzarella fior di latte, pecorino romano, pomodoro, ricotta y pan ciabatta",
+                            "price": 76900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Lasaña Ideal"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Lasaña Ideal"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "mini-para-endulzar",
+                    "label": "Para Endulzar",
+                    "items": [
+                        {
+                            "id": "galleta-ideal-mini",
+                            "name": "Galleta Ideal",
+                            "description": "Galleta con chips de chocolate, helado de vainilla, cereal crunch y salted caramel",
+                            "price": 29900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Galleta Ideal"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Galleta Ideal"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "bebidas",
+            "label": "Bebidas",
+            "categories": [
+                {
+                    "id": "cocteles",
+                    "label": "Cocteles",
+                    "items": [
+                        {
+                            "id": "chamoy",
+                            "name": "Chamoy",
+                            "description": "Tequila Olmeca, Mezcal Unión, tamarindo, housemade chamoy y sal de jamaica",
+                            "price": 46900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Chamoy"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Chamoy"
+                            }
+                        },
+                        {
+                            "id": "latin-pisco",
+                            "name": "Latin Pisco",
+                            "description": "Pisco Quebranta, reducción de prosecco y uvas blancas, bitter de lúpulo, clara y zumo de limón",
+                            "price": 35900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Latin Pisco"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Latin Pisco"
+                            }
+                        },
+                        {
+                            "id": "margarita-de-ruibarbo",
+                            "name": "Margarita de Ruibarbo",
+                            "description": "Tequila Cazadores, ruibarbo, zumo de toronja, zumo de limón, sal de jamaica",
+                            "price": 39900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Margarita de Ruibarbo"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Margarita de Ruibarbo"
+                            }
+                        },
+                        {
+                            "id": "manglar-mule",
+                            "name": "Manglar Mule",
+                            "description": "Viche Monte Manglar, sirope lulo-limonaria, jengibre, zumo de limón, soda",
+                            "price": 40900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Manglar Mule"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Manglar Mule"
+                            }
+                        },
+                        {
+                            "id": "guava-spritz",
+                            "name": "Guava Spritz",
+                            "description": "Tanqueray gin, dulce de guayaba, bitter de eucalipto, zumo de limón y vino espumante",
+                            "price": 40900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Guava Spritz"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Guava Spritz"
+                            }
+                        },
+                        {
+                            "id": "golden-berry-fizzy",
+                            "name": "Golden Berry Fizzy",
+                            "description": "Bombay, uchuvas dulces, limonaria, zumo de limón y vino espumante",
+                            "price": 40900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Golden Berry Fizzy"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Golden Berry Fizzy"
+                            }
+                        },
+                        {
+                            "id": "lulo-caipirinha",
+                            "name": "Lulo Caipirinha",
+                            "description": "Cachaça, cascos de lulo y limón y azúcar",
+                            "price": 35900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Lulo Caipirinha"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Lulo Caipirinha"
+                            }
+                        },
+                        {
+                            "id": "jarra-de-mango-chamoy",
+                            "name": "Jarra de Mango Chamoy (x4)",
+                            "description": "Refajo de la casa, Tequila Cazadores, licor de naranja, limón y paletas enchiladas de mango y chamoy",
+                            "price": 92900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Jarra de Mango Chamoy"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Jarra de Mango Chamoy"
+                            }
+                        },
+                        {
+                            "id": "negroni-ideal",
+                            "name": "Negroni Ideal",
+                            "description": "Bombay Sapphire, campari, Lillet rose, housemade óleo aromático y fake de naranja",
+                            "price": 42900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Negroni Ideal"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Negroni Ideal"
+                            }
+                        },
+                        {
+                            "id": "pink-flower-paloma",
+                            "name": "Pink Flower Paloma",
+                            "description": "Tequila Patrón, Triple Sec, Ancho Reyes, soda toronja y jamaica",
+                            "price": 55900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Pink Flower Paloma"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Pink Flower Paloma"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "mocktails",
+                    "label": "Mocktails",
+                    "items": [
+                        {
+                            "id": "cosmo-mocktail",
+                            "name": "Cosmo",
+                            "description": "Óleo toronja spice, zumo de toronja y limón, jugo de arándanos",
+                            "price": 23900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Cosmo"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Cosmo"
+                            }
+                        },
+                        {
+                            "id": "no-groni",
+                            "name": "No-Groni",
+                            "description": "Dry gin, bitter alcohol free, reducción de vermouth rosso",
+                            "price": 23900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "No-Groni"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "No-Groni"
+                            }
+                        },
+                        {
+                            "id": "paloma-mocktail",
+                            "name": "Paloma",
+                            "description": "Soda de toronja, agave, zumo de limón, gotas de Mezcal Unión, tajín",
+                            "price": 23900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Paloma"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Paloma"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "rones-aguardientes",
+                    "label": "Rones & Aguardientes",
+                    "items": [
+                        {
+                            "id": "zacapa-23",
+                            "name": "Zacapa 23",
+                            "description": null,
+                            "price": 49900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Zacapa 23"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Zacapa 23"
+                            }
+                        },
+                        {
+                            "id": "la-hechicera",
+                            "name": "La Hechicera",
+                            "description": null,
+                            "price": 50900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "La Hechicera"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "La Hechicera"
+                            }
+                        },
+                        {
+                            "id": "santa-teresa-1796",
+                            "name": "Santa Teresa 1796",
+                            "description": null,
+                            "price": 43900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Santa Teresa 1796"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Santa Teresa 1796"
+                            }
+                        },
+                        {
+                            "id": "bacardi-8",
+                            "name": "Bacardí 8",
+                            "description": null,
+                            "price": 35900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Bacardí 8"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Bacardí 8"
+                            }
+                        },
+                        {
+                            "id": "monte-manglar",
+                            "name": "Monte Manglar",
+                            "description": null,
+                            "price": 30900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Monte Manglar"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Monte Manglar"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "tequila-mezcal",
+                    "label": "Tequila + Mezcal",
+                    "items": [
+                        {
+                            "id": "don-julio-70",
+                            "name": "Don Julio 70",
+                            "description": null,
+                            "price": 71900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Don Julio 70"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Don Julio 70"
+                            }
+                        },
+                        {
+                            "id": "don-julio-blanco",
+                            "name": "Don Julio Blanco",
+                            "description": null,
+                            "price": 49900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Don Julio Blanco"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Don Julio Blanco"
+                            }
+                        },
+                        {
+                            "id": "don-julio-reposado",
+                            "name": "Don Julio Reposado",
+                            "description": null,
+                            "price": 53900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Don Julio Reposado"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Don Julio Reposado"
+                            }
+                        },
+                        {
+                            "id": "patron-silver",
+                            "name": "Patrón Silver",
+                            "description": null,
+                            "price": 50900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Patrón Silver"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Patrón Silver"
+                            }
+                        },
+                        {
+                            "id": "patron-reposado",
+                            "name": "Patrón Reposado",
+                            "description": null,
+                            "price": 52900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Patrón Reposado"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Patrón Reposado"
+                            }
+                        },
+                        {
+                            "id": "patron-cristalino",
+                            "name": "Patrón Cristalino",
+                            "description": null,
+                            "price": 68900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Patrón Cristalino"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Patrón Cristalino"
+                            }
+                        },
+                        {
+                            "id": "maestro-dobel-diamante",
+                            "name": "Maestro Dobel Diamante",
+                            "description": null,
+                            "price": 66900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Maestro Dobel Diamante"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Maestro Dobel Diamante"
+                            }
+                        },
+                        {
+                            "id": "cazadores-blanco",
+                            "name": "Cazadores Blanco",
+                            "description": null,
+                            "price": 36900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Cazadores Blanco"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Cazadores Blanco"
+                            }
+                        },
+                        {
+                            "id": "400-conejos",
+                            "name": "400 Conejos",
+                            "description": null,
+                            "price": 49900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "400 Conejos"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "400 Conejos"
+                            }
+                        },
+                        {
+                            "id": "union",
+                            "name": "Unión",
+                            "description": null,
+                            "price": 42900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Unión"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Unión"
+                            }
+                        },
+                        {
+                            "id": "ojo-de-tigre",
+                            "name": "Ojo de Tigre",
+                            "description": null,
+                            "price": 50900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Ojo de Tigre"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Ojo de Tigre"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "aperitivos-digestivos",
+                    "label": "Aperitivos + Digestivos",
+                    "items": [
+                        {
+                            "id": "limoncello",
+                            "name": "Limoncello",
+                            "description": null,
+                            "price": 27900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Limoncello"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Limoncello"
+                            }
+                        },
+                        {
+                            "id": "licor-43",
+                            "name": "Licor 43",
+                            "description": null,
+                            "price": 26900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Licor 43"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Licor 43"
+                            }
+                        },
+                        {
+                            "id": "jerez-tio-pepe",
+                            "name": "Jerez Tío Pepe",
+                            "description": null,
+                            "price": 23900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Jerez Tío Pepe"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Jerez Tío Pepe"
+                            }
+                        },
+                        {
+                            "id": "st-germain-spritz",
+                            "name": "St Germain Spritz",
+                            "description": null,
+                            "price": 39900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "St Germain Spritz"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "St Germain Spritz"
+                            }
+                        },
+                        {
+                            "id": "aperol-spritz",
+                            "name": "Aperol Spritz",
+                            "description": null,
+                            "price": 36900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Aperol Spritz"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Aperol Spritz"
+                            }
+                        },
+                        {
+                            "id": "baileys",
+                            "name": "Baileys",
+                            "description": null,
+                            "price": 24900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Baileys"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Baileys"
+                            }
+                        },
+                        {
+                            "id": "disaronno",
+                            "name": "Disaronno",
+                            "description": null,
+                            "price": 29900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Disaronno"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Disaronno"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "ginebras",
+                    "label": "Ginebras",
+                    "items": [
+                        {
+                            "id": "tanqueray-london-dry",
+                            "name": "Tanqueray London Dry",
+                            "description": null,
+                            "price": 38900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Tanqueray London Dry"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Tanqueray London Dry"
+                            }
+                        },
+                        {
+                            "id": "bombay-sapphire",
+                            "name": "Bombay Sapphire",
+                            "description": null,
+                            "price": 39900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Bombay Sapphire"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Bombay Sapphire"
+                            }
+                        },
+                        {
+                            "id": "beefeater-london-dry",
+                            "name": "Beefeater London Dry",
+                            "description": null,
+                            "price": 37900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Beefeater London Dry"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Beefeater London Dry"
+                            }
+                        },
+                        {
+                            "id": "monkey-47",
+                            "name": "Monkey 47",
+                            "description": null,
+                            "price": 58900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Monkey 47"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Monkey 47"
+                            }
+                        },
+                        {
+                            "id": "malfy-limone",
+                            "name": "Malfy Limone",
+                            "description": null,
+                            "price": 49900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Malfy Limone"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Malfy Limone"
+                            }
+                        },
+                        {
+                            "id": "malfy-rosa",
+                            "name": "Malfy Rosa",
+                            "description": null,
+                            "price": 49900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Malfy Rosa"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Malfy Rosa"
+                            }
+                        },
+                        {
+                            "id": "hendricks",
+                            "name": "Hendrick's",
+                            "description": null,
+                            "price": 45900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Hendrick's"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Hendrick's"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "vodka",
+                    "label": "Vodka",
+                    "items": [
+                        {
+                            "id": "grey-goose",
+                            "name": "Grey Goose",
+                            "description": null,
+                            "price": 43900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Grey Goose"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Grey Goose"
+                            }
+                        },
+                        {
+                            "id": "absolut",
+                            "name": "Absolut",
+                            "description": null,
+                            "price": 30900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Absolut"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Absolut"
+                            }
+                        },
+                        {
+                            "id": "titos",
+                            "name": "Tito's",
+                            "description": null,
+                            "price": 36900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Tito's"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Tito's"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "whiskey-single-malt",
+                    "label": "Whiskey - Single Malt",
+                    "items": [
+                        {
+                            "id": "the-glenlivet-15",
+                            "name": "The Glenlivet 15 años",
+                            "description": null,
+                            "price": 58900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "The Glenlivet 15 años"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "The Glenlivet 15 años"
+                            }
+                        },
+                        {
+                            "id": "the-glenlivet-12",
+                            "name": "The Glenlivet 12 años",
+                            "description": null,
+                            "price": 46900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "The Glenlivet 12 años"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "The Glenlivet 12 años"
+                            }
+                        },
+                        {
+                            "id": "macallan-12",
+                            "name": "Macallan 12 años Double Cask",
+                            "description": null,
+                            "price": 72900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Macallan 12 años Double Cask"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Macallan 12 años Double Cask"
+                            }
+                        },
+                        {
+                            "id": "talisker-10",
+                            "name": "Talisker 10 años",
+                            "description": null,
+                            "price": 54900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Talisker 10 años"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Talisker 10 años"
+                            }
+                        },
+                        {
+                            "id": "glenfiddich-12",
+                            "name": "Glenfiddich 12 años",
+                            "description": null,
+                            "price": 38900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Glenfiddich 12 años"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Glenfiddich 12 años"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "whiskey-blended-scotch",
+                    "label": "Whiskey - Blended Scotch",
+                    "items": [
+                        {
+                            "id": "dewars-15",
+                            "name": "Dewars 15",
+                            "description": null,
+                            "price": 42900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Dewars 15"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Dewars 15"
+                            }
+                        },
+                        {
+                            "id": "chivas-extra-13",
+                            "name": "Chivas Extra 13",
+                            "description": null,
+                            "price": 39900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Chivas Extra 13"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Chivas Extra 13"
+                            }
+                        },
+                        {
+                            "id": "chivas-12",
+                            "name": "Chivas 12 años",
+                            "description": null,
+                            "price": 38900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Chivas 12 años"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Chivas 12 años"
+                            }
+                        },
+                        {
+                            "id": "monkey-shoulder",
+                            "name": "Monkey Shoulder",
+                            "description": null,
+                            "price": 41900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Monkey Shoulder"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Monkey Shoulder"
+                            }
+                        },
+                        {
+                            "id": "jameson-irish",
+                            "name": "Jameson Irish",
+                            "description": null,
+                            "price": 32900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Jameson Irish"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Jameson Irish"
+                            }
+                        },
+                        {
+                            "id": "johnnie-walker-black-label",
+                            "name": "Johnnie Walker Black Label",
+                            "description": null,
+                            "price": 38900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Johnnie Walker Black Label"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Johnnie Walker Black Label"
+                            }
+                        },
+                        {
+                            "id": "buchanans-two-souls",
+                            "name": "Buchanan's Two Souls",
+                            "description": null,
+                            "price": 45900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Buchanan's Two Souls"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Buchanan's Two Souls"
+                            }
+                        },
+                        {
+                            "id": "buchanans-18",
+                            "name": "Buchanan's 18",
+                            "description": null,
+                            "price": 69900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Buchanan's 18"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Buchanan's 18"
+                            }
+                        },
+                        {
+                            "id": "buchanans-12",
+                            "name": "Buchanan's 12",
+                            "description": null,
+                            "price": 38900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Buchanan's 12"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Buchanan's 12"
+                            }
+                        },
+                        {
+                            "id": "old-parr-12",
+                            "name": "Old Parr 12",
+                            "description": null,
+                            "price": 34900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Old Parr 12"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Old Parr 12"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "whiskey-americano",
+                    "label": "Whiskey - Americano",
+                    "items": [
+                        {
+                            "id": "bulleit-bourbon",
+                            "name": "Bulleit Bourbon",
+                            "description": null,
+                            "price": 35900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Bulleit Bourbon"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Bulleit Bourbon"
+                            }
+                        },
+                        {
+                            "id": "bulleit-rye",
+                            "name": "Bulleit Rye",
+                            "description": null,
+                            "price": 38900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Bulleit Rye"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Bulleit Rye"
+                            }
+                        },
+                        {
+                            "id": "jack-daniels",
+                            "name": "Jack Daniels",
+                            "description": null,
+                            "price": 32900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Jack Daniels"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Jack Daniels"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "cognac",
+                    "label": "Cognac",
+                    "items": [
+                        {
+                            "id": "hennessy-vs",
+                            "name": "Hennessy VS",
+                            "description": null,
+                            "price": 44900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Hennessy VS"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Hennessy VS"
+                            }
+                        },
+                        {
+                            "id": "grand-marnier",
+                            "name": "Grand Marnier",
+                            "description": null,
+                            "price": 38900,
+                            "labels": null,
+                            "image": {
+                                "src": "",
+                                "alt": "Grand Marnier"
+                            },
+                            "imageThumbnail": {
+                                "src": "",
+                                "alt": "Grand Marnier"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
