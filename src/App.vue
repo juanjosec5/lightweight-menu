@@ -20,7 +20,7 @@ const { data, loading, error } = useMenu(menuId);
 const { theme, toggle } = useTheme();
 
 const SOCIAL_MEDIA_ICONS: Record<string, string> = {
-  facebook: "fa-brands fa-facebook-f fa-lg",
+  facebook: "fa-brands fa-facebook fa-lg",
   instagram: "fa-brands fa-instagram fa-lg",
   twitter: "fa-brands fa-twitter fa-lg",
   tiktok: "fa-brands fa-tiktok fa-lg",
@@ -276,7 +276,7 @@ watch(
           <ul>
             <li v-for="link in data?.socialMedia" :key="link.url">
               <a :href="link.url" target="_blank" rel="noopener noreferrer">
-                <i :class="SOCIAL_MEDIA_ICONS[link.name] ?? 'fa-solid fa-link fa-lg'"></i>
+                <font-awesome-icon :icon="SOCIAL_MEDIA_ICONS[link.name] ?? ['fas','link']" />
               </a>
               <small v-if="link.label">{{ link.label }}</small>
             </li>
