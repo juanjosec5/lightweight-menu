@@ -129,7 +129,7 @@ onMounted(() => {
         toolbarLogoSrc.value = entry.isIntersecting ? null : logoUrl.value;
       }
     },
-    { threshold: 0, rootMargin: "-64px 0px 0px 0px" }
+    { threshold: 0, rootMargin: "-50px 0px 0px 0px" }
   );
 });
 
