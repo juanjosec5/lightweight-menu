@@ -248,7 +248,7 @@ watch(
     <section v-else-if="invalidMenu" class="error">
       <h2>El menú solicitado no existe</h2>
       <p>Verifica la URL o usa uno de estos IDs válidos:</p>
-      <ul>
+      <ul class="main-menus">
         <li v-for="m in KNOWN_MENUS" :key="m">
           <a :href="`?menu=${m}`">{{ m }}</a>
         </li>
