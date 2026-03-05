@@ -257,11 +257,9 @@ watch(
             <h4 v-if="block.title" class="info-block__title">
               {{ block.title }}
             </h4>
-
             <p v-if="block.type === 'text'">
               {{ block.description }}
             </p>
-
             <ul v-if="block.type === 'list' && block.items?.length" class="additional-info__list">
               <li v-for="item in block.items" :key="item.id">
                 <strong>{{ item.label }}</strong>
