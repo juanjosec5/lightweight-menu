@@ -292,10 +292,10 @@ watch(
         </a>
       </div>
 
-      <template v-if="data?.additionalLinks">
+      <template v-if="(data?.additionalLinks?.length ?? 0) > 0">
         <nav class="additional-links" aria-label="Additional Links">
           <ul>
-            <li v-for="link in data.additionalLinks" :key="link.url">
+            <li v-for="link in data?.additionalLinks" :key="link.url">
               <a :href="link.url" target="_blank" rel="noopener noreferrer">
                 {{ link.label }}
               </a>
