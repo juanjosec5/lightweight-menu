@@ -23,8 +23,6 @@ export function useMenu(slug: Ref<string | null>) {
       .eq('slug', id)
       .eq('is_published', true)
       .order('sort_order', { referencedTable: 'menus' })
-      .order('sort_order', { referencedTable: 'categories' })
-      .order('sort_order', { referencedTable: 'items' })
       .order('sort_order', { referencedTable: 'social_links' })
       .single()
 
@@ -32,6 +30,13 @@ export function useMenu(slug: Ref<string | null>) {
       error.value = err?.code === 'PGRST116' ? 'Menú no encontrado' : (err?.message ?? 'Error al cargar el menú')
     } else {
       document.title = result.name
+      // Sort nested resources that can't be ordered via referencedTable (too deep)
+      result.menus?.forEach((m: any) => {
+        m.categories?.sort((a: any, b: any) => a.sort_order - b.sort_order)
+        m.categories?.forEach((c: any) => {
+          c.items?.sort((a: any, b: any) => a.sort_order - b.sort_order)
+        })
+      })
       data.value = result as unknown as MenuData
     }
 
