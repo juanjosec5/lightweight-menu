@@ -1,70 +1,47 @@
-// src/composables/useMenu.ts
-import { ref, watch, unref, type MaybeRef, onBeforeUnmount } from "vue";
-import type { RestaurantMenu } from "@/types/menu";
+import { ref, watch, type Ref } from 'vue'
+import { supabase } from '@/lib/supabase'
+import type { MenuData } from '@/types/menu'
 
-function buildAssetUrl(pathname: string) {
-  const base = new URL(import.meta.env.BASE_URL, window.location.origin);
-  return new URL(pathname.replace(/^\/+/, ""), base).toString();
-}
+export function useMenu(slug: Ref<string | null>) {
+  const data = ref<MenuData | null>(null)
+  const loading = ref(false)
+  const error = ref<string | null>(null)
 
-const toErrorMessage = (e: unknown) =>
-  e instanceof Error ? e.message : "Failed to load menu";
+  async function load(id: string) {
+    loading.value = true
+    error.value = null
+    data.value = null
 
-export function useMenu(menuId: MaybeRef<string>) {
-  const data = ref<RestaurantMenu | null>(null);
-  const loading = ref(false);
-  const error = ref<string | null>(null);
+    const { data: result, error: err } = await supabase
+      .from('restaurants')
+      .select(`
+        *,
+        menus(*, categories(*, items(*, item_labels(*)))),
+        restaurant_locations(*),
+        social_links(*)
+      `)
+      .eq('slug', id)
+      .eq('is_published', true)
+      .order('sort_order', { referencedTable: 'menus' })
+      .order('sort_order', { referencedTable: 'categories' })
+      .order('sort_order', { referencedTable: 'items' })
+      .order('sort_order', { referencedTable: 'social_links' })
+      .single()
 
-  let controller: AbortController | null = null;
-
-  const load = async (id: string) => {
-    controller?.abort();
-    controller = new AbortController();
-
-    loading.value = true;
-    error.value = null;
-    data.value = null;
-
-    try {
-      const url = buildAssetUrl(`menus/${id}.json`);
-      const res = await fetch(url, { cache: "no-cache", signal: controller.signal });
-
-      if (!res.ok) throw new Error(`Menu "${id}" not found (HTTP ${res.status})`);
-
-      const parsed = (await res.json()) as RestaurantMenu;
-
-      // minimal safety checks (optional but recommended)
-      if (!parsed?.restaurant?.name) throw new Error("Invalid menu JSON: missing restaurant.name");
-      if (!Array.isArray(parsed.menus)) throw new Error("Invalid menu JSON: missing menus[]");
-
-      data.value = parsed;
-      document.title = `Menu ${parsed.restaurant.name}`;
-    } catch (e: unknown) {
-      // ignore aborts to avoid flashing errors during fast navigation
-      if ((e as any)?.name === "AbortError") return;
-      error.value = toErrorMessage(e);
-    } finally {
-      loading.value = false;
+    if (err || !result) {
+      error.value = err?.code === 'PGRST116' ? 'Menú no encontrado' : (err?.message ?? 'Error al cargar el menú')
+    } else {
+      document.title = result.name
+      data.value = result as unknown as MenuData
     }
-  };
 
-  watch(
-    () => (unref(menuId) ?? "").trim(),
-    async (id) => {
-      if (!id) {
-        data.value = null;
-        loading.value = false;
-        error.value = "Missing menu id";
-        return;
-      }
-      await load(id);
-    },
-    { immediate: true }
-  );
+    loading.value = false
+  }
 
-  onBeforeUnmount(() => {
-    controller?.abort();
-  });
+  watch(slug, (id) => {
+    if (id) load(id)
+    else { data.value = null; error.value = null }
+  }, { immediate: true })
 
-  return { data, loading, error, reload: () => load((unref(menuId) ?? "").trim()) };
+  return { data, loading, error }
 }
