@@ -3,6 +3,7 @@ import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { useMenu } from '@/composables/useMenu'
 import { useTheme } from '@/composables/useTheme'
 import MenuCategory from '@/components/MenuCategory.vue'
+import CategoryNav from '@/components/CategoryNav.vue'
 import { getGtag } from '@/utils/gtag'
 import { supabase } from '@/lib/supabase'
 import type { MenuData, Platform } from '@/types/menu'
@@ -240,6 +241,12 @@ onBeforeUnmount(() => {
           {{ m.label }}
         </button>
       </nav>
+
+      <!-- Category quickjump -->
+      <CategoryNav
+        v-if="selectedMenu && selectedMenu.categories.filter(c => c.is_active).length > 1"
+        :categories="selectedMenu.categories.filter(c => c.is_active)"
+      />
 
       <!-- Categories -->
       <div v-if="selectedMenu" class="category-wrapper">
