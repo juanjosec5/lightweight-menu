@@ -38,6 +38,7 @@ const activeItemId = ref<string | null>(location.hash.replace(/^#/, '') || null)
 const lastTrackedKey = ref<string | null>(null)
 
 const activeMenus = computed(() => data.value?.menus.filter(m => m.is_active) ?? [])
+const searchQuery = ref('')
 
 const selectedMenu = computed(() => {
   const all = activeMenus.value
@@ -242,6 +243,16 @@ onBeforeUnmount(() => {
         </button>
       </nav>
 
+      <!-- Search -->
+      <div v-if="selectedMenu" class="search-bar">
+        <input
+          v-model="searchQuery"
+          class="search-input"
+          type="search"
+          placeholder="Buscar en el menú…"
+          aria-label="Buscar en el menú"
+        />
+      </div>
       <!-- Category quickjump -->
       <CategoryNav
         v-if="selectedMenu && selectedMenu.categories.filter(c => c.is_active).length > 1"
@@ -257,6 +268,7 @@ onBeforeUnmount(() => {
           :currency="data.currency"
           :locale="data.locale"
           :active-item-id="activeItemId"
+          :search-query="searchQuery"
         />
       </div>
 
@@ -397,6 +409,25 @@ onBeforeUnmount(() => {
 
     &--active { background-color: var(--action); }
   }
+}
+
+.search-bar {
+  padding: 0 0.25rem;
+}
+
+.search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.6rem 1rem;
+  border-radius: 99px;
+  border: 1px solid var(--muted);
+  background: transparent;
+  color: var(--bg);
+  font-size: 0.9rem;
+  outline: none;
+
+  &::placeholder { color: var(--muted); }
+  &:focus { border-color: var(--bg); }
 }
 
 .state-msg { text-align: center; margin-top: 2rem; }
