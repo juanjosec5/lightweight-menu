@@ -1,368 +1,176 @@
-<script setup lang="ts">
-import { ref, computed, watch, onBeforeUnmount } from "vue";
-import { formatPrice } from "@/utils/formatPrice";
-import type { Item } from "@/types/menu";
+<script lang="ts">
+import type { Label } from '@/types/menu'
 
-type PriceMap = Record<string, number | string>;
-type Price = number | PriceMap;
+type LabelMeta = { icon: [string, string]; class: string; text: string }
+
+// Module-level constant — shared across all MenuItem instances
+const LABEL_MAP: Record<Label, LabelMeta> = {
+  spicy:           { icon: ['fas', 'fire'], class: 'spicy',      text: 'Picante' },
+  vegetarian:      { icon: ['fas', 'leaf'], class: 'vegetarian', text: 'Vegetariano' },
+  vegan:           { icon: ['fas', 'leaf'], class: 'vegetarian', text: 'Vegano' },
+  'contains-fish': { icon: ['fas', 'fish'], class: 'fish',       text: 'Contiene pescado' },
+  'gluten-free':   { icon: ['fas', 'leaf'], class: 'vegetarian', text: 'Sin gluten' },
+  'contains-nuts': { icon: ['fas', 'fire'], class: 'spicy',      text: 'Contiene nueces' },
+  'dairy-free':    { icon: ['fas', 'leaf'], class: 'vegetarian', text: 'Sin lácteos' },
+}
+</script>
+
+<script setup lang="ts">
+import { ref, computed, onBeforeUnmount } from 'vue'
+import { formatPrice } from '@/utils/formatPrice'
+import type { Item } from '@/types/menu'
 
 const props = defineProps<{
-  item: Item & { price: Price }; // keep union locally for now
-  currency: string;
-  locale: string;
-  menuId?: string;
-  canLoadThumbs?: boolean;
-}>();
+  item: Item
+  currency: string
+  locale: string
+  canLoadThumbs?: boolean
+}>()
 
-const dialogRef = ref<HTMLDialogElement | null>(null);
-const showModal = ref(false);
+const dialogRef = ref<HTMLDialogElement | null>(null)
+const showModal = ref(false)
 
-const ingredientsList = computed(() => {
-  if (!props.item?.ingredientsType) return [];
-  const lines = props.item.ingredients ?? [];
-  return lines.map((line) => {
-    const i = line.indexOf(":");
-    if (i === -1) return { label: "", value: line.trim() };
-    return { label: line.slice(0, i).trim(), value: line.slice(i + 1).trim() };
-  });
-});
+const iconLabels = computed(() =>
+  props.item.item_labels
+    .map(l => l.label)
+    .filter(l => l in LABEL_MAP)
+    .map(l => ({ key: l, ...LABEL_MAP[l] }))
+)
 
-const LABEL_MAP = computed<Record<string, { icon: any; text: string; class: string }>>(() => ({
-  spicy: {
-    icon: ["fas", "fire"], // consider ["fas","flame"] depending on what you registered
-    text: props.locale === "en-US" ? "spicy" : "picante",
-    class: "spicy",
-  },
-  vegetarian: {
-    icon: ["fas", "leaf"],
-    text: props.locale === "en-US" ? "vegetarian" : "vegetariano",
-    class: "vegetarian",
-  },
-  fish: {
-    icon: ["fas", "fish"],
-    text: props.locale === "en-US" ? "fish" : "pescado",
-    class: "fish",
-  },
-  shrimp: {
-    icon: ["fas", "shrimp"],
-    text: props.locale === "en-US" ? "shrimp" : "camarón",
-    class: "shrimp",
-  },
-}));
+function openDialog() {
+  const dlg = dialogRef.value
+  if (!dlg) return
+  typeof dlg.showModal === 'function' ? dlg.showModal() : dlg.setAttribute('open', '')
+  showModal.value = true
+  document.documentElement.classList.add('no-scroll')
+}
 
-const normalizeLabel = (l: unknown) =>
-  typeof l === "string" ? l.trim().toLowerCase() : null;
-
-// optional: if your backend uses Spanish labels, add aliases
-const LABEL_ALIASES: Record<string, string> = {
-  picante: "spicy",
-  vegetariano: "vegetarian",
-  pescado: "fish",
-  camaron: "shrimp",
-  "camarón": "shrimp",
-};
-
-const iconLabels = computed(() => {
-  const map = LABEL_MAP.value;
-
-  return (props.item.labels ?? [])
-    .map(normalizeLabel)
-    .filter((l): l is string => !!l)
-    .map((l) => LABEL_ALIASES[l] ?? l)
-    .filter((l) => l in map);
-});
-
-// --- price helpers ---
-const isPriceObject = computed(() => {
-  const p = props.item.price;
-  return typeof p === "object" && p !== null && !Array.isArray(p);
-});
-
-const priceLines = computed(() => {
-  if (!isPriceObject.value) return [];
-  const p = props.item.price as PriceMap;
-
-  return Object.entries(p).map(([label, val]) => ({
-    label,
-    value:
-      typeof val === "number"
-        ? formatPrice(val, props.currency, props.locale)
-        : String(val),
-  }));
-});
-
-const buildShareUrl = (itemId: string) => {
-  if (!props.menuId) return window.location.href;
-
-  const url = new URL(window.location.href);
-  url.searchParams.set("menu", props.menuId);
-  url.hash = itemId;
-  return url.toString();
-};
-
-const onShareClick = async (e: MouseEvent) => {
-  e.stopPropagation();
-
-  const link = buildShareUrl(props.item.id);
-  history.replaceState({}, "", link);
-
-  try {
-    if (navigator.share) {
-      await navigator.share({ title: props.item.name, url: link });
-      return;
-    }
-  } catch {
-    // ignore share cancellation/errors and fall back
-  }
-
-  try {
-    await navigator.clipboard.writeText(link);
-  } catch {
-    prompt("Copia el enlace:", link);
-  }
-};
-
-const openDialog = () => {
-  const dlg = dialogRef.value;
-  if (!dlg) return;
-
-  // use native dialog API when available for proper modal behavior
-  if (typeof dlg.showModal === "function") {
-    dlg.showModal();
-  } else {
-    // fallback: at least keep state consistent
-    dlg.setAttribute("open", "");
-  }
-
-  showModal.value = true;
-};
-
-const closeDialog = () => {
-  const dlg = dialogRef.value;
-  if (dlg?.open) dlg.close();
-  showModal.value = false;
-};
-
-watch(showModal, (val) => {
-  document.documentElement.classList.toggle("no-scroll", val);
-});
+function closeDialog() {
+  const dlg = dialogRef.value
+  if (dlg?.open) dlg.close()
+  showModal.value = false
+  document.documentElement.classList.remove('no-scroll')
+}
 
 onBeforeUnmount(() => {
-  document.documentElement.classList.remove("no-scroll");
-});
+  document.documentElement.classList.remove('no-scroll')
+})
 </script>
 
 <template>
   <article class="item" :id="item.id">
     <div class="item__body">
       <span class="item__header">
-        <h4 class="item__title">{{ item.name }}<span>
-            <ul v-if="iconLabels.length" class="mi-labels">
-              <li v-for="b in iconLabels" :key="b" class="badge">
-                <font-awesome-icon :icon="LABEL_MAP[b].icon" :class="LABEL_MAP[b].class" />
-              </li>
-            </ul>
-          </span></h4>
-        <div class="item__price-wrapper">
-          <!-- single price -->
-          <strong v-if="!isPriceObject" class="item__price">
-            {{ formatPrice(item.price as number, currency, locale) }}
-          </strong>
-
-          <!-- multiple options -->
-          <div v-else class="item__price-multi">
-            <p v-for="line in priceLines" :key="line.label" class="item__price-row">
-              <span class="opt">{{ line.label }}</span>
-              <span class="val">{{ line.value }}</span>
-            </p>
-          </div>
-        </div>
+        <h4 class="item__title">
+          {{ item.name }}
+          <span v-if="iconLabels.length" class="item__labels">
+            <font-awesome-icon
+              v-for="l in iconLabels"
+              :key="l.key"
+              :icon="l.icon"
+              :class="l.class"
+              :title="l.text"
+            />
+          </span>
+        </h4>
+        <strong v-if="item.price != null" class="item__price">
+          {{ formatPrice(item.price, currency, locale) }}
+        </strong>
       </span>
 
-      <ul v-if="item.ingredientsType" class="item__ingredients-list">
-        <li v-for="(it, index) in ingredientsList" :key="index">
-          <p><strong v-if="it.label">{{ it.label }}:</strong> {{ it.value }}</p>
-        </li>
-      </ul>
-
-      <p v-else-if="item.ingredients?.length" class="item__ingredients">
-        {{ item.ingredients.join(", ") }}
-      </p>
-    </div>
-
-    <!-- <button
-      @click.prevent="onShareClick"
-      class="share-button"
-      type="button"
-      :aria-label="`Share link to ${item.name}`"
-    >
-      <component :is="Link" :size="20" />
-    </button> -->
-
-    <div class="item__desc-section">
-      <button v-if="item.imageThumbnail?.src" type="button" class="thumb" :aria-label="`Ver imagen de ${item.name}`"
-        @click="openDialog">
-        <img v-if="canLoadThumbs" :src="item.imageThumbnail.src" :alt="item.imageThumbnail.alt || item.name"
-          loading="lazy" />
-      </button>
       <p v-if="item.description" class="item__desc">{{ item.description }}</p>
     </div>
 
-    <dialog ref="dialogRef" class="img-dialog" @close="showModal = false">
-      <form method="dialog">
-        <button class="img-dialog__close" aria-label="Cerrar" @click.prevent="closeDialog">
-           <font-awesome-icon :icon="['fas','close']" class="theme-icon" />
-        </button>
-      </form>
+    <div v-if="item.thumbnail_url || item.image_url" class="item__media">
+      <button
+        type="button"
+        class="thumb"
+        :aria-label="`Ver imagen de ${item.name}`"
+        @click="openDialog"
+      >
+        <img
+          v-if="canLoadThumbs"
+          :src="item.thumbnail_url ?? item.image_url!"
+          :alt="item.name"
+          loading="lazy"
+        />
+      </button>
+    </div>
 
-      <div class="img-dialog__img-wrapper">
-        <img v-if="showModal && item.image?.src" class="img-dialog__img" :src="item.image.src"
-          :alt="item.image.alt || item.name" />
-      </div>
-
-      <p class="img-dialog__caption">{{ item.image?.alt || item.name }}</p>
+    <dialog ref="dialogRef" class="img-dialog" @close="closeDialog">
+      <button class="img-dialog__close" aria-label="Cerrar" @click="closeDialog">
+        <font-awesome-icon :icon="['fas', 'close']" />
+      </button>
+      <img
+        v-if="showModal && item.image_url"
+        class="img-dialog__img"
+        :src="item.image_url"
+        :alt="item.name"
+      />
+      <p class="img-dialog__caption">{{ item.name }}</p>
     </dialog>
   </article>
 </template>
 
-
 <style scoped lang="scss">
-.mi-labels {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 0.5rem;
-  margin: 0;
-}
-
-.share-button {
-  height: fit-content;
-  position: absolute;
-  right: 0;
-  color: var(--bg);
-}
-
-.spicy {
-  color: red;
-}
-
-.vegetarian {
-  color: green;
-}
-
-.fish {
-  color: lightseagreen;
-}
-
-.shrimp {
-  color: lightcoral;
-}
-
 .item {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  padding-block: 0 1rem;
-  margin-block: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
   border-bottom: 1px solid var(--muted);
   scroll-margin-top: calc(var(--toolbar-h) + 3.25rem);
+}
 
-  &__body {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.item__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .item__header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin: 0 0 1rem 0;
   gap: 1rem;
-  width: 100%;
-
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-}
-
-.item__ingredients-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  place-items: flex-start;
-  margin: 0;
-  padding: 0;
-  gap: .5rem;
-
-  li:last-child {
-    margin-bottom: .5rem;
-  }
-
-  p {
-    margin: 0;
-  }
 }
 
 .item__title {
   display: flex;
-  gap: .5rem;
-  text-align: left;
+  align-items: center;
+  gap: 0.5rem;
   margin: 0;
   font-weight: 600;
   font-size: 1.1rem;
-
-  span {
-    display: flex;
-    align-items: center;
-  }
-}
-
-.item__ingredients,
-.item__desc {
-  margin: 0 0 6px;
-  color: hsla(var(--bg), 0.7);
   text-align: left;
-  // padding-right: 3rem;
 }
 
-.item__desc-section {
+.item__labels {
   display: flex;
-  justify-content: space-between;
-  gap: 1.5rem;
-  margin-top: auto;
+  gap: 0.35rem;
+  align-items: center;
 }
 
 .item__price {
   white-space: nowrap;
-  align-self: flex-end;
+  flex-shrink: 0;
 }
 
-/* multi-price block */
-.item__price-multi {
-  display: grid;
-  gap: 0.25rem;
-  align-self: flex-end;
-  text-align: right;
-}
-
-.item__price-row {
+.item__desc {
   margin: 0;
+  color: var(--muted);
+  text-align: left;
+  font-size: 0.9rem;
 }
 
-.item__price-row .opt {
-  font-weight: 600;
-  margin-right: .5rem;
-}
-
-.item__price-row .val {
-  white-space: nowrap;
+.item__media {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .thumb {
-  display: flex;
   border: 0;
   background: transparent;
   border-radius: 8px;
@@ -377,46 +185,51 @@ onBeforeUnmount(() => {
     object-fit: cover;
     width: 100%;
     height: 100%;
+    display: block;
   }
 }
 
+// Label icon colors
+.spicy      { color: red; }
+.vegetarian { color: green; }
+.fish       { color: lightseagreen; }
+
+// Dialog
 .img-dialog {
   border: none;
   border-radius: 0.75rem;
   z-index: 100;
-}
 
-.img-dialog[open] {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 780px;
-  gap: 0.5rem;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-
-  form {
-    align-self: flex-end;
+  &[open] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 780px;
+    gap: 0.5rem;
+    position: fixed;
+    inset: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
   }
-}
 
-.img-dialog__img {
-  object-fit: contain;
-  width: 100%;
-}
+  &__close {
+    align-self: flex-end;
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+  }
 
-.img-dialog__close {
-  border: none;
-  background: transparent;
-  font-size: 1.5rem;
-  cursor: pointer;
+  &__img {
+    object-fit: contain;
+    width: 100%;
+  }
 
-  &-button {
-    color: var(--bg);
+  &__caption {
+    color: white;
+    font-size: 0.875rem;
   }
 }
 </style>

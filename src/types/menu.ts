@@ -1,104 +1,76 @@
-export type BrandColors = Partial<{
-  fg: string;
-  bg: string;
-  action: string;
-  muted: string;
-}>;
+export type Label =
+  | 'vegetarian'
+  | 'vegan'
+  | 'gluten-free'
+  | 'spicy'
+  | 'contains-nuts'
+  | 'contains-fish'
+  | 'dairy-free'
 
-// JSON labels are not consistent / are marketing tags (e.g. "Nuevo", "Recomendado").
-// Keep it flexible.
-export type Label = string;
-
-export type MenuImage = {
-  src: string;
-  alt?: string | null;
-};
-
-type Location = {
-  id: string;
-  label: string;
-  city: string;
-  country: string;
-  address: string;
-  mapUrl: string;
-}
-
-export type CategoryInformationBlock = {
-  id: string
-  title?: string
-  description?: string
-  type?: "list" | "text"
-  items?: {
-    id: string
-    label: string
-    description?: string
-  }[]
-}
+export type Platform = 'instagram' | 'facebook' | 'tiktok' | 'website' | 'custom'
 
 export interface Item {
-  id: string;
-  name: string;
-  ingredients?: string[];
-  ingredientsType?: string | null;
-  description?: string | null;
-  price: number;
-  labels?: string[] | null;
-  display?: boolean;
-  image?: { src: string; alt?: string | null };
-  imageThumbnail?: { src: string; alt?: string | null };
-}
-
-
-export interface Section {
-  id: string;
-  label: string;
-  items: Item[];
+  id: string
+  slug: string
+  name: string
+  description: string | null
+  price: number | null
+  is_available: boolean
+  image_url: string | null
+  thumbnail_url: string | null
+  sort_order: number
+  item_labels: { label: Label }[]
 }
 
 export interface Category {
-  id: string;
-  label: string;
-  items?: Item[];
-  sections?: Section[];
-  image?: string;
-  additionalInformation?: CategoryInformationBlock[]
+  id: string
+  slug: string
+  label: string
+  availability_note: string | null
+  sort_order: number
+  is_active: boolean
+  items: Item[]
 }
 
-export interface RestaurantInfo {
-  id: string;
-  name: string;
-  logo?: string;
-  subtitle?: string;
-  locations?: Location[];
-  description?: string | null;
-
-  currency: string;
-  locale: string;
-
-  theme?: "light" | "dark";
-  colors?: BrandColors;
-
-  updatedAt: string;
+export interface Menu {
+  id: string
+  slug: string
+  label: string
+  sort_order: number
+  is_active: boolean
+  categories: Category[]
 }
 
-export interface RestaurantMenu {
-  version: number;
-  restaurant: RestaurantInfo;
+export interface RestaurantLocation {
+  id: string
+  address: string | null
+  city: string | null
+  lat: number | null
+  lng: number | null
+  phone: string | null
+  hours_note: string | null
+}
 
-  socialMedia?: {
-    name: string;
-    url: string;
-    label?: string;
-  }[];
+export interface SocialLink {
+  id: string
+  platform: Platform
+  url: string
+  sort_order: number
+}
 
-  additionalLinks?: {
-    label: string;
-    url: string;
-  }[];
-
-  menus: {
-    id: string;
-    label: string;
-    categories: Category[];
-  }[];
+export interface MenuData {
+  id: string
+  slug: string
+  name: string
+  subtitle: string | null
+  description: string | null
+  logo_url: string | null
+  currency: string
+  locale: string
+  theme: 'light' | 'dark' | null
+  colors: { fg: string; bg: string; action: string; muted: string } | null
+  updated_at: string
+  menus: Menu[]
+  restaurant_locations: RestaurantLocation[]
+  social_links: SocialLink[]
 }

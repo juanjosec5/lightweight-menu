@@ -1,402 +1,268 @@
 <script setup lang="ts">
-import { watch, ref, computed, onMounted, onBeforeUnmount, nextTick } from "vue";
-import { useMenu } from "@/composables/useMenu";
-import { useMenuFromUrl } from "@/composables/useMenuFromUrl";
-import { useTheme } from "@/composables/useTheme";
-import MenuCategory from "@/components/MenuCategory.vue";
-import type { BrandColors } from "@/types/menu";
+import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { useMenu } from '@/composables/useMenu'
+import { useTheme } from '@/composables/useTheme'
+import MenuCategory from '@/components/MenuCategory.vue'
+import { getGtag } from '@/utils/gtag'
+import { supabase } from '@/lib/supabase'
+import type { MenuData, Platform } from '@/types/menu'
 
-const menus = import.meta.glob("../public/menus/*.json");
+// ── URL param ──────────────────────────────────────────────────────────
+const slug = ref<string | null>(new URLSearchParams(location.search).get('menu'))
 
-const prettifyName = (name: string) =>
-  name.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()).trim();
+// ── Directory (shown when no slug) ─────────────────────────────────────
+type RestaurantEntry = { name: string; slug: string; logo_url: string | null; subtitle: string | null }
+const directory = ref<RestaurantEntry[]>([])
 
-const KNOWN_MENUS = Object.keys(menus).map((m) =>
-  m.split("/").pop()?.replace(".json", "")
-) as string[];
-
-const { menuId, invalidMenu, isMissingParam } = useMenuFromUrl(KNOWN_MENUS);
-const { data, loading, error } = useMenu(menuId);
-const { theme, toggle } = useTheme();
-
-const SOCIAL_MEDIA_ICONS: Record<string, string> = {
-  facebook: "fa-brands fa-facebook fa-lg",
-  instagram: "fa-brands fa-instagram fa-lg",
-  twitter: "fa-brands fa-twitter fa-lg",
-  tiktok: "fa-brands fa-tiktok fa-lg",
-  whatsapp: "fa-brands fa-whatsapp fa-lg",
-  youtube: "fa-brands fa-youtube fa-lg",
-};
-
-const selectedMenuId = ref<string | null>(null);
-const activeItemId = ref<string | null>(null);
-const headerRef = ref<HTMLElement | null>(null);
-
-const selectedMenu = computed(() => {
-  const all = data.value?.menus ?? [];
-  return all.find((m) => m.id === selectedMenuId.value) ?? all[0] ?? null;
-});
-
-const logoUrl = computed(() => {
-  const r = data.value?.restaurant;
-  if (!r?.logo) return null;
-  const v = encodeURIComponent(r.updatedAt); // updatedAt should be required per schema
-  return `${r.logo}${r.logo.includes("?") ? "&" : "?"}v=${v}`;
-});
-
-const toolbarLogoSrc = ref<string | null>(null);
-
-const updateActiveFromHash = () => {
-  activeItemId.value = (window.location.hash || "").replace(/^#/, "") || null;
-};
-
-type GtagFn = (command: "event", eventName: string, params: Record<string, unknown>) => void;
-
-const getGtag = (): GtagFn | null => {
-  const w = window as unknown as { gtag?: GtagFn };
-  return typeof w.gtag === "function" ? w.gtag : null;
-};
-
-const lastMenuRenderEventKey = ref<string | null>(null);
-
-const trackMenuRendered = (payload: {
-  menu_file_id: string;
-  restaurant_id: string;
-  selected_menu_id: string;
-}) => {
-  const gtag = getGtag();
-  if (!gtag) return;
-  gtag("event", "menu_rendered", payload);
-};
-
-function applyBranding(opts?: { theme?: "dark" | "light"; colors?: BrandColors }) {
-  const root = document.documentElement;
-
-  if (opts?.theme) root.setAttribute("data-theme", opts.theme);
-  else root.removeAttribute("data-theme");
-
-  const map: Record<string, string | undefined> = {
-    "--fg": opts?.colors?.fg,
-    "--bg": opts?.colors?.bg,
-    "--action": opts?.colors?.action,
-    "--muted": opts?.colors?.muted,
-  };
-
-  Object.entries(map).forEach(([k, v]) => {
-    if (v) root.style.setProperty(k, v);
-    else root.style.removeProperty(k);
-  });
-
-  const meta = document.querySelector('meta[name="theme-color"]') as HTMLMetaElement | null;
-  if (meta) meta.content = getComputedStyle(root).getPropertyValue("--fg").trim();
+async function loadDirectory() {
+  const { data: rows } = await supabase
+    .from('restaurants')
+    .select('name, slug, logo_url, subtitle')
+    .eq('is_published', true)
+    .order('name')
+  if (rows) directory.value = rows as RestaurantEntry[]
 }
 
-const itemToMenuId = computed(() => {
-  const map = new Map<string, string>();
-  const all = data.value?.menus ?? [];
+function goToMenu(s: string) {
+  location.href = `?menu=${s}`
+}
 
-  for (const m of all) {
-    for (const cat of m.categories ?? []) {
-      for (const it of cat.items ?? []) map.set(it.id, m.id);
-      for (const sec of cat.sections ?? []) {
-        for (const it of sec.items ?? []) map.set(it.id, m.id);
-      }
+// ── Data ───────────────────────────────────────────────────────────────
+const { data, loading, error } = useMenu(slug)
+const { theme, toggle } = useTheme()
+
+// ── Menu tab selection ─────────────────────────────────────────────────
+const selectedMenuId = ref<string | null>(null)
+const activeItemId = ref<string | null>(location.hash.replace(/^#/, '') || null)
+const lastTrackedKey = ref<string | null>(null)
+
+const activeMenus = computed(() => data.value?.menus.filter(m => m.is_active) ?? [])
+
+const selectedMenu = computed(() => {
+  const all = activeMenus.value
+  return all.find(m => m.id === selectedMenuId.value) ?? all[0] ?? null
+})
+
+// ── Logo / header ref ─────────────────────────────────────────────────
+const headerRef = ref<HTMLElement | null>(null)
+const toolbarLogo = ref<string | null>(null)
+let observer: IntersectionObserver | null = null
+
+// ── Branding ──────────────────────────────────────────────────────────
+function applyBranding(d: MenuData | null) {
+  const root = document.documentElement
+  if (!d) {
+    root.removeAttribute('data-theme')
+    ;['--fg', '--bg', '--action', '--muted'].forEach(k => root.style.removeProperty(k))
+    return
+  }
+
+  if (d.theme) root.setAttribute('data-theme', d.theme)
+  else root.removeAttribute('data-theme')
+
+  if (d.colors) {
+    root.style.setProperty('--fg', d.colors.fg)
+    root.style.setProperty('--bg', d.colors.bg)
+    root.style.setProperty('--action', d.colors.action)
+    root.style.setProperty('--muted', d.colors.muted)
+  } else {
+    ;['--fg', '--bg', '--action', '--muted'].forEach(k => root.style.removeProperty(k))
+  }
+
+  const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')
+  if (meta) meta.content = getComputedStyle(root).getPropertyValue('--fg').trim()
+}
+
+watch(data, async (d) => {
+  applyBranding(d)
+  if (!d) return
+  if (!selectedMenuId.value) selectedMenuId.value = activeMenus.value[0]?.id ?? null
+
+  await nextTick()
+
+  if (observer && headerRef.value) observer.observe(headerRef.value)
+
+  // auto-select the right menu tab for hash-linked item
+  if (activeItemId.value) {
+    for (const m of activeMenus.value) {
+      const found = m.categories.some(c => c.items.some(i => i.id === activeItemId.value))
+      if (found) { selectedMenuId.value = m.id; break }
     }
   }
 
-  return map;
-});
+  // track menu_rendered once per slug+menu combination
+  const key = `${d.slug}|${selectedMenuId.value}`
+  if (lastTrackedKey.value !== key) {
+    lastTrackedKey.value = key
+    getGtag()?.('event', 'menu_rendered', {
+      restaurant_slug: d.slug,
+      restaurant_name: d.name,
+      selected_menu_id: selectedMenuId.value,
+    })
+  }
+}, { immediate: true })
 
-const findMenuIdForItem = (id: string) => itemToMenuId.value.get(id) ?? null;
+// ── Locations ─────────────────────────────────────────────────────────
+const locationLabel = (loc: MenuData['restaurant_locations'][number]) =>
+  [loc.address, loc.city].filter(Boolean).join(', ')
 
-let observer: IntersectionObserver | null = null;
-let onPageShow: ((e: PageTransitionEvent) => void) | null = null;
-let observingHeader = false;
+const locationMapUrl = (loc: MenuData['restaurant_locations'][number]) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(locationLabel(loc))}`
+
+// ── Social link icons ─────────────────────────────────────────────────
+const SOCIAL_ICONS: Record<Platform, [string, string] | null> = {
+  instagram: ['fab', 'instagram'],
+  facebook:  ['fab', 'facebook'],
+  tiktok:    ['fab', 'tiktok'],
+  website:   null,
+  custom:    null,
+}
+
+// ── Hash navigation ───────────────────────────────────────────────────
+function onHashChange() {
+  activeItemId.value = location.hash.replace(/^#/, '') || null
+}
 
 onMounted(() => {
-  updateActiveFromHash();
-  window.addEventListener("hashchange", updateActiveFromHash);
-
-  onPageShow = (e) => {
-    if (!window.location.hash) return;
-    if (e.persisted) setTimeout(updateActiveFromHash, 0);
-  };
-  window.addEventListener("pageshow", onPageShow);
+  if (!slug.value) loadDirectory()
+  window.addEventListener('hashchange', onHashChange)
 
   observer = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        toolbarLogoSrc.value = entry.isIntersecting ? null : logoUrl.value;
-      }
-    },
-    { threshold: 0, rootMargin: "-50px 0px 0px 0px" }
-  );
-});
+    ([entry]) => { toolbarLogo.value = entry.isIntersecting ? null : (data.value?.logo_url ?? null) },
+    { threshold: 0, rootMargin: '-50px 0px 0px 0px' }
+  )
+})
 
 onBeforeUnmount(() => {
-  window.removeEventListener("hashchange", updateActiveFromHash);
-  if (onPageShow) window.removeEventListener("pageshow", onPageShow);
-  observer?.disconnect();
-});
-
-// reset when menu file id changes
-watch(
-  () => menuId.value,
-  () => {
-    selectedMenuId.value = null;
-    lastMenuRenderEventKey.value = null;
-    observingHeader = false;
-  }
-);
-
-// unified data watcher (branding + selection + observer + hash handling)
-watch(
-  data,
-  async (menu) => {
-    await nextTick();
-
-    if (!menu?.restaurant) {
-      applyBranding();
-      return;
-    }
-
-    applyBranding({ theme: menu.restaurant.theme, colors: menu.restaurant.colors });
-
-    if (!selectedMenuId.value) {
-      selectedMenuId.value = menu.menus?.[0]?.id ?? null;
-    }
-
-    if (observer && headerRef.value && !observingHeader) {
-      observer.observe(headerRef.value);
-      observingHeader = true;
-    }
-
-    const id = activeItemId.value;
-    if (id) {
-      const hit = findMenuIdForItem(id);
-      if (hit && hit !== selectedMenuId.value) {
-        selectedMenuId.value = hit;
-        await nextTick();
-      }
-    }
-  },
-  { immediate: true }
-);
-
-watch(activeItemId, async (id) => {
-  if (!id || !selectedMenu.value) return;
-  const hit = findMenuIdForItem(id);
-  if (hit && hit !== selectedMenuId.value) {
-    selectedMenuId.value = hit;
-    await nextTick();
-  }
-});
-
-const isReady = computed(() => {
-  return (
-    !loading.value &&
-    !error.value &&
-    !!data.value?.restaurant &&
-    !!selectedMenu.value &&
-    (selectedMenu.value.categories?.length ?? 0) > 0
-  );
-});
-
-watch(
-  [() => menuId.value, () => data.value?.restaurant.id ?? null, () => selectedMenuId.value, isReady],
-  async ([menuFileId, restaurantId, selId, ready]) => {
-    if (!ready || !menuFileId || !restaurantId || !selId) return;
-
-    await nextTick();
-
-    const key = `${menuFileId}|${restaurantId}|${selId}`;
-    if (lastMenuRenderEventKey.value === key) return;
-    lastMenuRenderEventKey.value = key;
-
-    trackMenuRendered({
-      menu_file_id: menuFileId,
-      restaurant_id: restaurantId,
-      selected_menu_id: selId,
-    });
-  },
-  { flush: "post" }
-);
+  window.removeEventListener('hashchange', onHashChange)
+  observer?.disconnect()
+})
 </script>
 
 <template>
+  <!-- Toolbar -->
+  <div :class="['toolbar', theme === 'dark' ? 'shadow-dark' : 'shadow-light']">
+    <img v-if="toolbarLogo" :src="toolbarLogo" :alt="data?.name" />
+    <button
+      v-if="!data?.theme"
+      class="toolbar-button theme-toggle"
+      type="button"
+      :aria-label="`Cambiar a tema ${theme === 'dark' ? 'claro' : 'oscuro'}`"
+      @click="toggle"
+    >
+      <font-awesome-icon :icon="theme === 'dark' ? ['fas', 'sun'] : ['fas', 'moon']" />
+    </button>
+  </div>
+
   <main class="wrap">
-    <div :class="['toolbar', { 'shadow-light': !theme, 'shadow-dark': theme }]">
-      <img v-if="toolbarLogoSrc" :src="toolbarLogoSrc" :alt="`Logo for ${data?.restaurant?.name ?? 'restaurant'}`" />
-      <button v-if="!data?.restaurant.theme" :aria-label="`toggle to ${theme ? 'light' : 'dark'} theme`"
-        class="toolbar-button theme-toggle" @click="toggle" type="button">
-        <font-awesome-icon :icon="theme === 'dark' ? ['fas', 'sun'] : ['fas', 'moon']" class="theme-icon" />
-      </button>
-    </div>
+    <!-- Loading -->
+    <p v-if="loading" class="state-msg">Cargando…</p>
 
-
-
-    <section v-if="isMissingParam" class="welcome">
-      <h2>Bienvenido!</h2>
-      <p>selecciona un menú de la lista para empezar!</p>
-      <ul class="main-menus">
-        <li v-for="m in KNOWN_MENUS" :key="m">
-          <a :href="`?menu=${m}`">{{ prettifyName(m) }}</a>
+    <!-- No menu param — directory -->
+    <section v-else-if="!slug" class="directory">
+      <h2 class="directory__title">Menús disponibles</h2>
+      <ul class="directory__list">
+        <li v-for="r in directory" :key="r.slug">
+          <button type="button" class="directory__item" @click="goToMenu(r.slug)">
+            <img v-if="r.logo_url" :src="r.logo_url" :alt="r.name" class="directory__logo" />
+            <span v-else class="directory__initials">{{ r.name.charAt(0) }}</span>
+            <span class="directory__info">
+              <strong class="directory__name">{{ r.name }}</strong>
+              <span v-if="r.subtitle" class="directory__sub">{{ r.subtitle }}</span>
+            </span>
+          </button>
         </li>
       </ul>
     </section>
 
-    <section v-else-if="invalidMenu" class="error">
-      <h2>El menú solicitado no existe</h2>
-      <p>Verifica la URL o usa uno de estos IDs válidos:</p>
-      <ul class="main-menus">
-        <li v-for="m in KNOWN_MENUS" :key="m">
-          <a :href="`?menu=${m}`">{{ m }}</a>
-        </li>
-      </ul>
+    <!-- Error -->
+    <section v-else-if="error" class="error">
+      <h2>{{ error }}</h2>
+      <p>Verifica que la URL sea correcta.</p>
     </section>
 
-    <template v-else>
-      <header v-if="data" class="hdr" ref="headerRef">
-        <img v-if="logoUrl" class="logo-image" :src="logoUrl" :alt="data.restaurant.name + ' logo'" loading="eager"
-          fetchpriority="high" decoding="async" />
-        <h1 v-if="!logoUrl">{{ data.restaurant.name }}</h1>
-        <p v-if="data.restaurant.subtitle" class="sub">
-          {{ data.restaurant.subtitle }}
-        </p>
-        <p v-if="data.restaurant.description" class="desc">
-          {{ data.restaurant.description }}
-        </p>
+    <!-- Menu content -->
+    <template v-else-if="data">
+      <!-- Restaurant header -->
+      <header ref="headerRef" class="hdr">
+        <img
+          v-if="data.logo_url"
+          class="logo-image"
+          :src="data.logo_url"
+          :alt="`${data.name} logo`"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <h1 v-else>{{ data.name }}</h1>
+        <p v-if="data.subtitle" class="sub">{{ data.subtitle }}</p>
+        <p v-if="data.description" class="desc">{{ data.description }}</p>
       </header>
 
-      <p v-if="loading">Cargando…</p>
-      <p v-if="error">Error: {{ error }}</p>
+      <!-- Social links -->
+      <nav v-if="data.social_links.length" class="social-links" aria-label="Redes sociales">
+        <ul>
+          <li v-for="link in data.social_links" :key="link.id">
+            <a :href="link.url" target="_blank" rel="noopener noreferrer">
+              <font-awesome-icon v-if="SOCIAL_ICONS[link.platform]" :icon="SOCIAL_ICONS[link.platform]!" />
+              <span v-else>{{ link.platform }}</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-      <template v-if="data?.socialMedia && data?.socialMedia.length > 0">
-        <nav class="social-media-links">
-          <ul>
-            <li v-for="link in data?.socialMedia" :key="link.url">
-              <a :href="link.url" target="_blank" rel="noopener noreferrer">
-                <font-awesome-icon :icon="SOCIAL_MEDIA_ICONS[link.name] ?? ['fas', 'link']" />
-              </a>
-              <small v-if="link.label">{{ link.label }}</small>
-            </li>
-          </ul>
-        </nav>
-      </template>
-
-      <div v-if="data?.restaurant?.locations?.length" class="locations">
-        <a v-for="location in data.restaurant.locations" :key="location.id" :href="location.mapUrl"
-          class="location-link" target="_blank" rel="noopener noreferrer">
-          {{ location.label || `${location.city}, ${location.country}` }}
-          <font-awesome-icon :icon="['fas', 'location-dot']" class="theme-icon" />
+      <!-- Locations -->
+      <div v-if="data.restaurant_locations.length" class="locations">
+        <a
+          v-for="loc in data.restaurant_locations"
+          :key="loc.id"
+          class="location-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          :href="locationMapUrl(loc)"
+        >
+          {{ locationLabel(loc) }}
+          <font-awesome-icon :icon="['fas', 'location-dot']" />
         </a>
       </div>
 
-      <template v-if="(data?.additionalLinks?.length ?? 0) > 0">
-        <nav class="additional-links" aria-label="Additional Links">
-          <ul>
-            <li v-for="link in data?.additionalLinks" :key="link.url">
-              <a :href="link.url" target="_blank" rel="noopener noreferrer">
-                {{ link.label }}
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </template>
+      <!-- Menu tabs -->
+      <nav v-if="activeMenus.length > 1" class="menus-nav" role="tablist" aria-label="Menús del restaurante">
+        <p class="menus-nav__heading">Nuestros Menús</p>
+        <button
+          v-for="m in activeMenus"
+          :key="m.id"
+          type="button"
+          role="tab"
+          :aria-selected="m.id === selectedMenuId"
+          :class="['menus-nav__button', { 'menus-nav__button--active': m.id === selectedMenuId }]"
+          @click="selectedMenuId = m.id"
+        >
+          {{ m.label }}
+        </button>
+      </nav>
 
-      <template v-if="(data?.menus?.length ?? 0) > 1">
-        <nav class="menus-nav" role="tablist" aria-label="Restaurant Menus">
-          <p class="menus-nav__heading">{{ data?.restaurant?.locale === 'es-CO' ? 'Nuestros Menú' : 'Our Menus' }}</p>
-          <button v-for="m in data?.menus" :key="m.id" type="button" role="tab" :aria-selected="m.id === selectedMenuId"
-            :class="[
-              'menus-nav__button',
-              { 'menus-nav__button--active': m.id === selectedMenuId },
-            ]" @click="selectedMenuId = m.id">
-            {{ m.label }}
-          </button>
-        </nav>
-      </template>
+      <!-- Categories -->
+      <div v-if="selectedMenu" class="category-wrapper">
+        <MenuCategory
+          v-for="cat in selectedMenu.categories.filter(c => c.is_active)"
+          :key="`${selectedMenuId}-${cat.id}`"
+          :category="cat"
+          :currency="data.currency"
+          :locale="data.locale"
+          :active-item-id="activeItemId"
+        />
+      </div>
 
-      <template v-if="selectedMenu && selectedMenu.categories?.length">
-        <div class="category-wrapper">
-          <menu-category v-for="cat in selectedMenu.categories" :key="`${selectedMenuId}-${cat.id}`" :category="cat"
-            :currency="data!.restaurant.currency" :locale="data!.restaurant.locale" :active-item-id="activeItemId"
-            :menu-id="data!.restaurant.id" />
-        </div>
-      </template>
+      <!-- Footer -->
+      <small class="updated-at">
+        Última actualización:
+        {{ new Date(data.updated_at).toLocaleDateString(data.locale) }}
+      </small>
     </template>
-
-    <small v-if="data" class="muted">
-      Última actualización:
-      {{
-        data.restaurant.updatedAt
-          ? new Date(data.restaurant.updatedAt).toLocaleDateString(data.restaurant.locale)
-          : ""
-      }}
-    </small>
   </main>
 </template>
 
 <style scoped lang="scss">
-.locations {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.main-menus {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  place-items: flex-start;
-  gap: .75rem;
-
-  li {
-    a {
-      display: block;
-      text-decoration: none;
-      color: var(--bg);
-      font-weight: 500;
-      font-size: 1.25rem;
-      transition: color 0.3s ease, transform 0.3s ease;
-
-      &:hover {
-        color: var(--action);
-        transform: translateX(7px);
-      }
-    }
-  }
-}
-
-.menus-nav {
-  display: flex;
-  box-sizing: border-box;
-  gap: 1rem;
-  flex-direction: column;
-  place-content: center;
-  padding-bottom: 2rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid var(--muted);
-
-  &__heading {
-    margin: 0;
-  }
-
-  &__button {
-    border: 2px solid var(--muted);
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    color: var(--bg);
-    width: 100%;
-    transition: background-color 0.3s ease-in-out;
-
-    &--active {
-      background-color: var(--action);
-    }
-  }
-}
-
 .toolbar {
   position: fixed;
   display: flex;
@@ -412,72 +278,27 @@ watch(
   transition: background-color 0.5s ease-in-out;
   height: var(--toolbar-h);
 
-  img {
-    height: 100%;
-  }
+  img { height: 100%; }
+}
 
-  &-title {
-    margin: 0;
-    font-size: 1.5rem;
-  }
+.toolbar-button {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: var(--bg);
+  transition: background-color 0.3s ease;
+  position: absolute;
+  right: 0.75rem;
 
-  &-button {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    color: var(--bg);
-    transition: background-color 0.3s ease;
-
-    &:active {
-      background-color: var(--action);
-    }
-
-    &:focus {
-      outline: 3px solid var(--bg);
-      background-color: var(--action);
-      outline-offset: 2px;
-    }
-  }
-
-  &-inicio {
-    font-weight: 600;
-    background: transparent;
-    color: var(--bg);
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    text-align: center;
-    transition: background-color 0.3s ease;
-
-    &:active {
-      background-color: var(--action);
-    }
-
-    &:focus {
-      outline: 3px solid var(--bg);
-      background-color: var(--action);
-      outline-offset: 2px;
-    }
-  }
+  &:active { background-color: var(--action); }
+  &:focus { outline: 3px solid var(--bg); background-color: var(--action); outline-offset: 2px; }
 }
 
 .shadow-light {
   box-shadow: -1px 4px 9px 0px rgba(92, 92, 92, 0.75);
-  -webkit-box-shadow: -1px 4px 9px 0px rgba(92, 92, 92, 0.75);
-  -moz-box-shadow: -1px 4px 9px 0px rgba(92, 92, 92, 0.75);
 }
-
 .shadow-dark {
   box-shadow: -1px 4px 9px 0px rgba(31, 31, 31, 0.75);
-  -webkit-box-shadow: -1px 4px 9px 0px rgba(31, 31, 31, 0.75);
-  -moz-box-shadow: -1px 4px 9px 0px rgba(31, 31, 31, 0.75);
-}
-
-.theme-toggle {
-  top: 1rem;
-  right: 1rem;
-  outline: none;
-  position: absolute;
-  top: 0.75rem;
 }
 
 .wrap {
@@ -492,31 +313,14 @@ watch(
 .hdr {
   display: flex;
   flex-direction: column;
-  place-items: center;
+  align-items: center;
   gap: 0.5rem;
+
+  h1 { margin: 0; }
 }
 
-.hdr h1 {
-  margin: 0;
-}
-
-.sub {
-  margin: 0.25rem 0;
-  color: var(--bg);
-}
-
-.desc {
-  box-sizing: border-box;
-  margin: 0.25rem 0 0;
-  color: var(--bg);
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  max-width: 100%;
-}
-
-.muted {
-  color: var(--bg);
-}
+.sub { margin: 0.25rem 0; color: var(--bg); }
+.desc { margin: 0; color: var(--bg); word-wrap: break-word; max-width: 100%; }
 
 .logo-image {
   max-width: 240px;
@@ -525,91 +329,160 @@ watch(
   height: auto;
 }
 
-.error {
-  text-align: center;
-  margin-top: 2rem;
-  color: #a00000;
-}
-
-.error ul {
-  list-style: none;
-  padding: 0;
-}
-
-.error a {
-  text-decoration: underline;
-}
-
-.social-media-links {
+.social-links {
   ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
     gap: 1rem;
     justify-content: center;
-    margin: 0;
   }
 
   a {
     display: inline-block;
     text-decoration: none;
     color: var(--bg);
-    font-weight: 600;
-    width: fit-content;
+    font-size: 1.35rem;
+    transition: color 0.2s ease;
 
-    i {
-      transition: color 0.3s ease;
-    }
-
-    &:hover i {
-      color: var(--action);
-    }
+    &:hover { color: var(--action); }
   }
 }
 
-.additional-links {
-  ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin: 0 auto;
-    width: fit-content;
-  }
-
-  a {
-    display: inline-block;
-    text-decoration: none;
-    color: var(--bg);
-    font-weight: 600;
-    width: fit-content;
-    margin: 0 auto;
-
-    i {
-      margin-left: 0.25rem;
-    }
-
-    &:hover {
-      color: var(--action);
-    }
-  }
+.locations {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .location-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   text-decoration: none;
   color: var(--bg);
   font-weight: 600;
   width: fit-content;
   margin: 0 auto;
 
-  i {
-    margin-left: 0.25rem;
+  &:hover { color: var(--action); }
+}
+
+.menus-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--muted);
+
+  &__heading { margin: 0; }
+
+  &__button {
+    border: 2px solid var(--muted);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    color: var(--bg);
+    width: 100%;
+    transition: background-color 0.3s ease-in-out;
+
+    &--active { background-color: var(--action); }
+  }
+}
+
+.state-msg { text-align: center; margin-top: 2rem; }
+
+.welcome, .error {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.directory {
+  margin-top: 2rem;
+
+  &__title {
+    text-align: center;
+    margin: 0 0 1.5rem;
   }
 
-  &:hover {
-    color: var(--action);
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
   }
+
+  &__item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--muted);
+    border-radius: 0.5rem;
+    background: transparent;
+    color: var(--bg);
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.2s ease;
+
+    &:hover { background-color: color-mix(in srgb, var(--muted) 20%, transparent); }
+    &:active { background-color: color-mix(in srgb, var(--muted) 40%, transparent); }
+  }
+
+  &__logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  &__initials {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    background: var(--muted);
+    color: var(--fg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+  }
+
+  &__name {
+    font-size: 1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__sub {
+    font-size: 0.8rem;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.updated-at {
+  color: var(--muted);
+  text-align: center;
+  padding: 1rem 0 2rem;
 }
 </style>

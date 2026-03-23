@@ -1,365 +1,173 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, watch, nextTick } from "vue";
-import MenuItem from "./MenuItem.vue";
-import type { Category, Label } from "@/types/menu";
+import { ref, computed, onMounted, watch, nextTick } from 'vue'
+import MenuItem from './MenuItem.vue'
+import { getGtag } from '@/utils/gtag'
+import type { Category } from '@/types/menu'
 
-const props = withDefaults(
-  defineProps<{
-    category: Category;
-    currency: string;
-    locale: string;
-    reverse?: boolean;
-    menuId?: string;
-    activeItemId?: string | null;
-  }>(),
-  { reverse: false }
-);
+const props = defineProps<{
+  category: Category
+  currency: string
+  locale: string
+  activeItemId?: string | null
+}>()
 
-const labelsMap = computed<Record<Label, { icon: any; text: string; class: string }>>(() => ({
-  spicy: {
-    icon: ['fas', 'fire'],
-    text: props.locale === "en-US" ? "spicy" : "picante",
-    class: "spicy",
-  },
-  vegetarian: {
-    icon: ['fas', 'leaf'],
-    text: props.locale === "en-US" ? "vegetarian" : "vegetariano",
-    class: "vegetarian",
-  },
-  fish: {
-    icon: ['fas', 'fish'],
-    text: props.locale === "en-US" ? "fish" : "pescado",
-    class: "fish",
-  },
-  shrimp: {
-    icon: ['fas', 'shrimp'],
-    text: props.locale === "en-US" ? "shrimp" : "camarón",
-    class: "shrimp",
-  },
-}));
+const expanded = ref(false)
+const canLoadThumbs = ref(false)
+const bodyEl = ref<HTMLElement | null>(null)
+const btnEl = ref<HTMLElement | null>(null)
+const isAnimating = ref(false)
 
-const expanded = ref(false);
-const canLoadThumbs = ref(false);
-const bodyEl = ref<HTMLElement | null>(null);
-const btnEl = ref<HTMLElement | null>(null);
-const isAnimating = ref(false);
+const visibleItems = computed(() => props.category.items.filter(it => it.is_available))
 
-/**
- * Analytics: fire category_opened when a category transitions closed -> open,
- * but stop tracking after the user has opened the same category 3 times.
- */
-type GtagFn = (...args: any[]) => void;
+const openCount = ref(0)
 
-const getGtag = (): GtagFn | null => {
-  const w = window as unknown as { gtag?: GtagFn };
-  return typeof w.gtag === "function" ? w.gtag : null;
-};
+const itemIds = computed(() => new Set(props.category.items.map(it => it.id)))
+const hasItem = (id: string | null | undefined) => !!id && itemIds.value.has(id)
 
-const categoryOpenCounts = ref<Record<string, number>>({});
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
 
-const trackCategoryOpened = () => {
-  const gtag = getGtag();
-  if (!gtag) return;
+function openBody(after?: () => void) {
+  const el = bodyEl.value
+  if (!el) return
+  isAnimating.value = true
+  el.style.maxHeight = el.scrollHeight + 'px'
 
-  gtag("event", "category_opened", {
-    category_id: props.category.id,
-    category_label: props.category.label,
-    menu_file_id: props.menuId ?? "",
-  });
-};
-
-const incrementOpenCountAndTrack = () => {
-  const id = props.category.id;
-  const current = categoryOpenCounts.value[id] ?? 0;
-
-  // guard: only track first 3 opens per category (per page session)
-  if (current >= 3) return;
-
-  categoryOpenCounts.value[id] = current + 1;
-  trackCategoryOpened();
-};
-
-const itemIdSet = computed(() => {
-  const set = new Set<string>();
-  props.category.items?.forEach((it) => set.add(it.id));
-  props.category.sections?.forEach((sec) => sec.items?.forEach((it) => set.add(it.id)));
-  return set;
-});
-
-const hasItem = (id: string | null | undefined): boolean => !!id && itemIdSet.value.has(id);
-
-const visibleItems = computed(() => props.category.items?.filter((it) => it.display !== false) ?? []);
-
-const visibleSectionItems = (items: any[] | undefined) =>
-  (items as any[] | undefined)?.filter((it) => it.display !== false) ?? [];
-
-const openBody = (after?: () => void) => {
-  const el = bodyEl.value;
-  if (!el) return;
-
-  isAnimating.value = true;
-  el.style.maxHeight = el.scrollHeight + "px";
-
-  const done = () => {
-    el.style.maxHeight = "none";
-    isAnimating.value = false;
-    canLoadThumbs.value = true;
-    requestAnimationFrame(() => after?.());
-  };
-
-  const prefersReducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
-
-  if (prefersReducedMotion) {
-    done();
-    return;
+  if (prefersReducedMotion()) {
+    el.style.maxHeight = 'none'
+    isAnimating.value = false
+    canLoadThumbs.value = true
+    requestAnimationFrame(() => after?.())
+    return
   }
 
-  el.addEventListener(
-    "transitionend",
-    (e) => {
-      if (e.propertyName !== "max-height") return;
-      done();
-    },
-    { once: true }
-  );
-};
+  el.addEventListener('transitionend', (e) => {
+    if (e.propertyName !== 'max-height') return
+    el.style.maxHeight = 'none'
+    isAnimating.value = false
+    canLoadThumbs.value = true
+    requestAnimationFrame(() => after?.())
+  }, { once: true })
+}
 
-const closeBody = () => {
-  const el = bodyEl.value;
-  if (!el) return;
+function closeBody() {
+  const el = bodyEl.value
+  if (!el) return
+  isAnimating.value = true
 
-  isAnimating.value = true;
+  if (el.style.maxHeight === 'none') el.style.maxHeight = el.scrollHeight + 'px'
+  void el.offsetHeight
+  el.style.maxHeight = '0px'
 
-  if (el.style.maxHeight === "none") {
-    el.style.maxHeight = el.scrollHeight + "px";
+  if (prefersReducedMotion()) {
+    isAnimating.value = false
+    btnEl.value?.focus()
+    return
   }
 
-  void el.offsetHeight;
-  el.style.maxHeight = "0px";
+  el.addEventListener('transitionend', () => {
+    isAnimating.value = false
+  }, { once: true })
 
-  const prefersReducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  btnEl.value?.focus()
+}
 
-  if (prefersReducedMotion) {
-    isAnimating.value = false;
-    btnEl.value?.focus();
-    return;
-  }
+function toggleContent() {
+  if (isAnimating.value) return
+  expanded.value = !expanded.value
+  expanded.value ? openBody() : closeBody()
+}
 
-  el.addEventListener(
-    "transitionend",
-    () => {
-      isAnimating.value = false;
-    },
-    { once: true }
-  );
-
-  btnEl.value?.focus();
-};
-
-const toggleContent = () => {
-  if (isAnimating.value) return;
-
-  expanded.value = !expanded.value;
-  expanded.value ? openBody() : closeBody();
-};
-
-const ensureOpenAndScrollTo = async (id: string | null | undefined) => {
-  if (!id || isAnimating.value) return;
-
+async function ensureOpenAndScrollTo(id: string) {
   const scroll = () => {
-    const node = document.getElementById(id);
-    if (!node) return;
-    node.scrollIntoView({ behavior: "smooth", block: "start" });
-    node.classList.add("highlight");
-    setTimeout(() => node.classList.remove("highlight"), 2000);
-  };
+    const node = document.getElementById(id)
+    if (!node) return
+    node.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    node.classList.add('highlight')
+    setTimeout(() => node.classList.remove('highlight'), 2000)
+  }
 
   if (!expanded.value) {
-    expanded.value = true;
+    expanded.value = true
     openBody(async () => {
-      await nextTick();
-      requestAnimationFrame(scroll);
-    });
+      await nextTick()
+      requestAnimationFrame(scroll)
+    })
   } else {
-    canLoadThumbs.value = true;
-    await nextTick();
-    requestAnimationFrame(scroll);
+    canLoadThumbs.value = true
+    await nextTick()
+    requestAnimationFrame(scroll)
   }
-};
-
-const categoryLabels = computed(() => {
-  const set = new Set<Label>();
-
-  props.category.items?.forEach((it) => it.labels?.forEach((l) => set.add(l)));
-  props.category.sections?.forEach((sec) => sec.items?.forEach((it) => it.labels?.forEach((l) => set.add(l))));
-
-  return [...set].map((l) => labelsMap.value[l]).filter(Boolean);
-});
+}
 
 onMounted(() => {
-  if (hasItem(props.activeItemId)) {
-    ensureOpenAndScrollTo(props.activeItemId);
-  }
-});
+  if (hasItem(props.activeItemId)) ensureOpenAndScrollTo(props.activeItemId!)
+})
 
-watch(
-  () => props.activeItemId,
-  (newId) => {
-    if (hasItem(newId)) {
-      ensureOpenAndScrollTo(newId);
-    }
-  }
-);
+watch(() => props.activeItemId, (id) => {
+  if (hasItem(id)) ensureOpenAndScrollTo(id!)
+})
 
-// Analytics trigger: track when category becomes expanded (closed -> open)
-watch(
-  () => expanded.value,
-  (isOpen, wasOpen) => {
-    if (!wasOpen && isOpen) {
-      incrementOpenCountAndTrack();
-    }
+// track category_opened — max 3 times per category per session
+watch(expanded, (isOpen, wasOpen) => {
+  if (!wasOpen && isOpen && openCount.value < 3) {
+    openCount.value++
+    getGtag()?.('event', 'category_opened', {
+      category_id: props.category.id,
+      category_label: props.category.label,
+    })
   }
-);
+})
 </script>
 
 <template>
-  <section :id="category.id" :class="['cat', { 'cat--reverse': reverse }]">
+  <section :id="category.id" class="cat">
     <div class="cat-content">
       <div class="cat-header">
-        <button @click="toggleContent" class="cat__title" :aria-label="`Mostrar menu de ${category.label}`"
-          :aria-expanded="expanded" :disabled="isAnimating" ref="btnEl">
-          <span :class="['arrow', { 'arrow--expanded': expanded }]">&#8595;</span>
+        <button
+          ref="btnEl"
+          class="cat__title"
+          :aria-label="`Mostrar ${category.label}`"
+          :aria-expanded="expanded"
+          :disabled="isAnimating"
+          @click="toggleContent"
+        >
           <h3 class="cat__title-text">{{ category.label }}</h3>
+          <span :class="['arrow', { 'arrow--expanded': expanded }]">&#8595;</span>
         </button>
+        <p v-if="category.availability_note" class="cat__note">{{ category.availability_note }}</p>
       </div>
 
-      <div class="cat-body" ref="bodyEl">
-        <ul class="labels-list" v-if="categoryLabels.length">
-          <li v-for="l in categoryLabels" :key="l.class">
-            <span class="badge">
-              <font-awesome-icon :icon="l.icon" :class="l.class" />
-              {{ l.text }}
-            </span>
-          </li>
-        </ul>
-        <!-- Category items and sections -->
-        <div v-if="category.items?.length" class="cat-items">
-          <menu-item v-for="it in visibleItems" :key="it.id" :item="it" :currency="currency" :locale="locale"
-            :menu-id="menuId" :can-load-thumbs="canLoadThumbs" />
+      <div ref="bodyEl" class="cat-body">
+        <div v-if="visibleItems.length" class="cat-items">
+          <MenuItem
+            v-for="item in visibleItems"
+            :key="item.id"
+            :item="item"
+            :currency="currency"
+            :locale="locale"
+            :can-load-thumbs="canLoadThumbs"
+          />
         </div>
-        <!-- Additional Information -->
-        <div v-if="category.additionalInformation?.length" class="cat-additional-info">
-          <div v-for="block in category.additionalInformation" :key="block.id" class="info-block">
-            <h4 v-if="block.title" class="info-block__title">
-              {{ block.title }}
-            </h4>
-            <p v-if="block.type === 'text'">
-              {{ block.description }}
-            </p>
-            <ul v-if="block.type === 'list' && block.items?.length" class="additional-info__list">
-              <li v-for="item in block.items" :key="item.id">
-                <strong>{{ item.label }}</strong>
-                <span v-if="item.description">
-                  {{ item.description }}
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div v-if="category.sections?.length" class="cat-sections">
-          <div v-for="sec in category.sections" :key="sec.id" class="cat-section">
-            <span class="section__title-wrapper">
-              <h4 class="section__title">{{ sec.label }}</h4>
-            </span>
-
-            <menu-item v-for="it in visibleSectionItems(sec.items)" :key="it.id" :item="it" :currency="currency"
-              :locale="locale" :menu-id="menuId" :can-load-thumbs="canLoadThumbs" />
-          </div>
-        </div>
-
-        <p v-if="!category.items?.length && !category.sections?.length" class="muted">
-          Sin ítems por ahora.
-        </p>
+        <p v-else class="muted">Sin ítems disponibles.</p>
       </div>
     </div>
   </section>
 </template>
 
-
 <style scoped lang="scss">
-@use "sass:color";
-
-.labels-list {
-  list-style: none;
-  display: flex;
-  justify-content: flex-start;
-  gap: 1rem;
-  padding: 0;
-  margin: 0;
-  margin-top: 1rem;
-
-  &+div.cat-items {
-    margin-top: 0;
-  }
-}
-
-.spicy {
-  color: red;
-}
-
-.vegetarian {
-  color: green;
-}
-
-.fish {
-  color: lightseagreen;
-}
-
-.shrimp {
-  color: lightcoral;
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-.arrow {
-  font-size: 1.5rem;
-  position: absolute;
-  top: 0.8rem;
-  right: 1.5rem;
-  cursor: pointer;
-  transition: transform 0.5s ease;
-
-  &--expanded {
-    transform: rotate(180deg);
-    transition: transform 0.5s ease;
-  }
-}
-
 .cat {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
   margin-bottom: 1rem;
+
+  &-content {
+    position: relative;
+  }
 
   &-header {
     position: sticky;
     top: var(--toolbar-h);
-    /* sits right below your fixed toolbar */
     z-index: 3;
-    /* above body content, below toolbar if toolbar has higher z */
     background: var(--fg);
-    /* avoid text/content bleeding under it */
-    /* optional spacing so it doesn’t jump when sticking */
     padding-block: 0.25rem;
     transition: background-color 0.5s ease-in-out;
   }
@@ -368,15 +176,10 @@ watch(
     margin-top: 2rem;
   }
 
-  &-content {
-    position: relative;
-  }
-
   &-body {
     display: flex;
     flex-direction: column;
     max-height: 0;
-    margin-top: 0;
     overflow: hidden;
     transition: max-height 0.5s ease;
   }
@@ -402,65 +205,32 @@ watch(
     font-weight: 600;
   }
 
-  &:active {
-    background-color: var(--muted);
-    color: var(--fg);
-  }
+  &:active { background-color: var(--muted); color: var(--fg); }
+  &:focus { outline: 3px solid var(--bg); outline-offset: 2px; }
+}
 
-  &:focus {
-    outline: 3px solid var(--bg);
-    outline-offset: 2px;
-  }
+.cat__note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0.25rem 0.75rem 0;
+  text-align: left;
+}
+
+.arrow {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  transition: transform 0.5s ease;
+
+  &--expanded { transform: rotate(180deg); }
 }
 
 .muted {
   color: var(--muted);
   font-style: italic;
-}
-
-.section__title-wrapper {
-  display: flex;
-  position: relative;
-}
-
-.section__title {
-  text-align: left;
-  font-size: 1.25rem;
-  margin-block: 2.5rem 2rem;
-  color: var(--bg);
-}
-
-.additional-info__list {
-  list-style: none;
-  padding-left: 0;
-  // margin: 0.5rem 0 0 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  justify-content: flex-start;
-  align-items: flex-start;
-
-  li {
-    margin-bottom: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    strong {
-      flex-shrink: 0;
-    }
-
-    span {
-      text-align: left;
-    }
-  }
+  margin-top: 1.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
-
-  .arrow,
-  .cat-body {
-    transition: none;
-  }
+  .arrow, .cat-body { transition: none; }
 }
 </style>
