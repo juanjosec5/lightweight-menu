@@ -3,6 +3,7 @@ import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { useMenu } from '@/composables/useMenu'
 import { useTheme } from '@/composables/useTheme'
 import MenuCategory from '@/components/MenuCategory.vue'
+import MenuSkeleton from '@/components/MenuSkeleton.vue'
 import { getGtag } from '@/utils/gtag'
 import { supabase } from '@/lib/supabase'
 import type { MenuData, Platform } from '@/types/menu'
@@ -157,7 +158,7 @@ onBeforeUnmount(() => {
 
   <main class="wrap">
     <!-- Loading -->
-    <p v-if="loading" class="state-msg">Cargando…</p>
+    <MenuSkeleton v-if="loading" />
 
     <!-- No menu param — directory -->
     <section v-else-if="!slug" class="directory">
@@ -252,6 +253,11 @@ onBeforeUnmount(() => {
           aria-label="Buscar en el menú"
         />
       </div>
+      <!-- Category quickjump -->
+      <CategoryNav
+        v-if="selectedMenu && selectedMenu.categories.filter(c => c.is_active).length > 1"
+        :categories="selectedMenu.categories.filter(c => c.is_active)"
+      />
 
       <!-- Categories -->
       <div v-if="selectedMenu" class="category-wrapper">
