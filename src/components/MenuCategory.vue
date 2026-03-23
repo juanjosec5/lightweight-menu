@@ -9,6 +9,7 @@ const props = defineProps<{
   currency: string
   locale: string
   activeItemId?: string | null
+  searchQuery?: string
 }>()
 
 const expanded = ref(false)
@@ -17,7 +18,15 @@ const bodyEl = ref<HTMLElement | null>(null)
 const btnEl = ref<HTMLElement | null>(null)
 const isAnimating = ref(false)
 
-const visibleItems = computed(() => props.category.items.filter(it => it.is_available))
+const visibleItems = computed(() => {
+  const q = props.searchQuery?.trim().toLowerCase()
+  const available = props.category.items.filter(it => it.is_available)
+  if (!q) return available
+  return available.filter(it =>
+    it.name.toLowerCase().includes(q) ||
+    (it.description?.toLowerCase().includes(q) ?? false)
+  )
+})
 
 const openCount = ref(0)
 
@@ -106,6 +115,13 @@ onMounted(() => {
 
 watch(() => props.activeItemId, (id) => {
   if (hasItem(id)) ensureOpenAndScrollTo(id!)
+})
+
+watch(() => props.searchQuery, (q) => {
+  if (q && visibleItems.value.length > 0 && !expanded.value) {
+    expanded.value = true
+    openBody()
+  }
 })
 
 // track category_opened — max 3 times per category per session
