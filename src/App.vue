@@ -242,6 +242,12 @@ onBeforeUnmount(() => {
         </button>
       </nav>
 
+      <!-- Category quickjump -->
+      <CategoryNav
+        v-if="selectedMenu && selectedMenu.categories.filter(c => c.is_active).length > 1"
+        :categories="selectedMenu.categories.filter(c => c.is_active)"
+      />
+
       <!-- Categories -->
       <div v-if="selectedMenu" class="category-wrapper">
         <MenuCategory
