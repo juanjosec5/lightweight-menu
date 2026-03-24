@@ -210,7 +210,8 @@ watch(expanded, (isOpen, wasOpen) => {
   border: 2px solid var(--muted);
   color: var(--bg);
   padding: 0.75rem;
-  border-radius: 0.25rem;
+  border-radius: var(--radius);
+  background: var(--category, var(--fg));
   text-align: left;
 
   &-text {

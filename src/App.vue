@@ -55,7 +55,7 @@ function applyBranding(d: MenuData | null) {
   const root = document.documentElement
   if (!d) {
     root.removeAttribute('data-theme')
-    ;['--fg', '--bg', '--action', '--muted'].forEach(k => root.style.removeProperty(k))
+    ;['--fg', '--bg', '--action', '--muted', '--price', '--card', '--category', '--tab', '--radius'].forEach(k => root.style.removeProperty(k))
     return
   }
 
@@ -67,9 +67,20 @@ function applyBranding(d: MenuData | null) {
     root.style.setProperty('--bg', d.colors.bg)
     root.style.setProperty('--action', d.colors.action)
     root.style.setProperty('--muted', d.colors.muted)
+    if (d.colors.price) root.style.setProperty('--price', d.colors.price)
+    else root.style.removeProperty('--price')
+    if (d.colors.card) root.style.setProperty('--card', d.colors.card)
+    else root.style.removeProperty('--card')
+    if (d.colors.category) root.style.setProperty('--category', d.colors.category)
+    else root.style.removeProperty('--category')
+    if (d.colors.tab) root.style.setProperty('--tab', d.colors.tab)
+    else root.style.removeProperty('--tab')
   } else {
-    ;['--fg', '--bg', '--action', '--muted'].forEach(k => root.style.removeProperty(k))
+    ;['--fg', '--bg', '--action', '--muted', '--price', '--card', '--category', '--tab'].forEach(k => root.style.removeProperty(k))
   }
+
+  const radiusMap: Record<string, string> = { sharp: '2px', rounded: '8px', pill: '9999px' }
+  root.style.setProperty('--radius', radiusMap[d.border_radius ?? 'rounded'] ?? '8px')
 
   const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')
   if (meta) meta.content = getComputedStyle(root).getPropertyValue('--fg').trim()
@@ -401,13 +412,13 @@ onBeforeUnmount(() => {
   &__button {
     border: 2px solid var(--muted);
     padding: 0.75rem;
-    border-radius: 0.5rem;
+    border-radius: var(--radius);
     font-size: 1rem;
     color: var(--bg);
     width: 100%;
     transition: background-color 0.3s ease-in-out;
 
-    &--active { background-color: var(--action); }
+    &--active { background-color: var(--tab, var(--action)); }
   }
 }
 

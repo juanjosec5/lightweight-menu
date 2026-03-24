@@ -68,7 +68,8 @@ export interface MenuData {
   currency: string
   locale: string
   theme: 'light' | 'dark' | null
-  colors: { fg: string; bg: string; action: string; muted: string } | null
+  colors: { fg: string; bg: string; action: string; muted: string; price?: string; card?: string; category?: string; tab?: string } | null
+  border_radius: 'sharp' | 'rounded' | 'pill' | null
   updated_at: string
   menus: Menu[]
   restaurant_locations: RestaurantLocation[]
