@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { defineAsyncComponent, onMounted, onBeforeUnmount, ref, computed, watch, nextTick } from 'vue'
+import { useI18n } from 'vue-i18n'
+import SignupSection from './SignupSection.vue'
 
 const AdminDemo    = defineAsyncComponent(() => import('./AdminDemo.vue'))
 const MobileAdminDemo = defineAsyncComponent(() => import('./MobileAdminDemo.vue'))
+
+const { locale } = useI18n()
 
 // ── Language ────────────────────────────────────────────────────────────────
 const lang = ref<'es' | 'en'>('es')
@@ -29,7 +33,10 @@ onMounted(() => {
   })
 })
 
-watch(lang, (v) => localStorage.setItem('lwm-lang', v))
+watch(lang, (v) => {
+  localStorage.setItem('lwm-lang', v)
+  locale.value = v
+})
 
 onBeforeUnmount(() => {
   revealObserver?.disconnect()
@@ -134,6 +141,20 @@ const translations = {
       copyright: '© 2025 LWM Admin. Hecho en Colombia.',
     },
     waMessage: 'Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20Lightweight%20Menu',
+    signup: {
+      badge: 'Empieza gratis',
+      headline: 'Tu menú digital,\nlisto hoy.',
+      sub: 'Crea tu cuenta y publica tu menú el mismo día. El primer mes es completamente gratis, sin tarjeta de crédito.',
+      restaurantLabel: 'Nombre de tu restaurante',
+      restaurantPlaceholder: 'Ej: Café Nicolás',
+      emailLabel: 'Tu correo electrónico',
+      emailPlaceholder: 'hola@mirestaurante.com',
+      cta: 'Crear mi menú gratis →',
+      sending: 'Enviando...',
+      fine: 'Te enviaremos un enlace mágico. Sin contraseña, sin complicaciones.',
+      sentTitle: '¡Revisa tu correo!',
+      sentSub: 'Enviamos un enlace a {email}. Haz clic en él para empezar a construir tu menú.',
+    },
   },
   en: {
     nav: {
@@ -230,6 +251,20 @@ const translations = {
       copyright: '© 2025 LWM Admin. Made in Colombia.',
     },
     waMessage: 'Hi%2C%20I%27m%20interested%20in%20learning%20more%20about%20Lightweight%20Menu',
+    signup: {
+      badge: 'Start for free',
+      headline: 'Your digital menu,\nlive today.',
+      sub: 'Create your account and publish your menu the same day. The first month is completely free, no credit card required.',
+      restaurantLabel: 'Your restaurant name',
+      restaurantPlaceholder: 'e.g. Bistro Nicolas',
+      emailLabel: 'Your email address',
+      emailPlaceholder: 'hello@myrestaurant.com',
+      cta: 'Create my free menu →',
+      sending: 'Sending...',
+      fine: 'We\'ll send you a magic link. No password, no hassle.',
+      sentTitle: 'Check your inbox!',
+      sentSub: 'We sent a link to {email}. Click it to start building your menu.',
+    },
   },
 }
 
@@ -292,9 +327,7 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
             </p>
             <div class="flex flex-col sm:flex-row gap-5">
               <a
-                :href="WA_URL"
-                target="_blank"
-                rel="noopener"
+                href="#empieza-gratis"
                 class="bg-primary text-on-primary px-10 py-5 rounded-lg font-extrabold text-lg hover:brightness-110 transition-all glow-primary text-center font-headline"
               >{{ t.hero.ctaPrimary }}</a>
               <a
@@ -529,6 +562,9 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
         </div>
       </section>
 
+      <!-- ── Signup ───────────────────────────────────────────────────── -->
+      <SignupSection />
+
       <!-- ── Pricing ──────────────────────────────────────────────────── -->
       <section id="precios" class="py-32 relative">
         <div class="max-w-5xl mx-auto px-6">
@@ -650,22 +686,31 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
     </main>
 
     <!-- ── Footer ─────────────────────────────────────────────────────── -->
-    <footer class="bg-[#131313] w-full py-16 px-12 border-t border-white/5">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between gap-16 mb-20">
-          <div class="max-w-xs">
-            <div class="text-2xl font-black text-white tracking-tighter mb-6 font-headline">LWM Admin</div>
-            <p class="text-neutral-500 text-sm leading-relaxed font-light uppercase tracking-widest">{{ t.footer.tagline }}</p>
+    <footer class="bg-[#131313] w-full py-12 px-6 border-t border-white/5">
+      <div class="max-w-4xl mx-auto">
+
+        <!-- Top row: logo + nav links -->
+        <div class="flex flex-col sm:flex-row sm:items-start gap-8 mb-10">
+
+          <!-- Brand -->
+          <div class="flex-1">
+            <div class="text-lg font-black text-white tracking-tighter mb-3 font-headline">LWM Admin</div>
+            <p class="text-neutral-500 text-sm leading-relaxed font-light max-w-xs">{{ t.footer.tagline }}</p>
           </div>
-          <div class="flex flex-col gap-5">
-            <h4 class="text-xs uppercase tracking-[0.2em] text-lime-500 font-black mb-2">{{ t.footer.product }}</h4>
-            <a class="text-neutral-500 hover:text-white transition-all text-sm uppercase tracking-widest font-medium" href="#caracteristicas">{{ t.footer.features }}</a>
-            <a class="text-neutral-500 hover:text-white transition-all text-sm uppercase tracking-widest font-medium" href="#demo">Demo</a>
-            <a class="text-neutral-500 hover:text-white transition-all text-sm uppercase tracking-widest font-medium" href="#como-funciona">{{ t.footer.howItWorks }}</a>
+
+          <!-- Nav links -->
+          <div class="flex flex-col gap-2">
+            <span class="text-xs font-black text-lime-500 uppercase tracking-widest mb-1 font-headline">{{ t.footer.product }}</span>
+            <a class="text-neutral-400 hover:text-white transition-colors text-sm font-medium" href="#caracteristicas">{{ t.footer.features }}</a>
+            <a class="text-neutral-400 hover:text-white transition-colors text-sm font-medium" href="#demo">Demo</a>
+            <a class="text-neutral-400 hover:text-white transition-colors text-sm font-medium" href="#como-funciona">{{ t.footer.howItWorks }}</a>
+            <a class="text-neutral-400 hover:text-white transition-colors text-sm font-medium" href="#precios">{{ t.nav.pricing }}</a>
           </div>
         </div>
-        <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p class="text-xs uppercase tracking-[0.3em] text-neutral-600 font-medium">{{ t.footer.copyright }}</p>
+
+        <!-- Bottom bar: copyright + lang toggle -->
+        <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p class="text-xs text-neutral-600">{{ t.footer.copyright }}</p>
           <div class="flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg p-1">
             <button
               @click="lang = 'es'"
@@ -679,6 +724,7 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
             >EN</button>
           </div>
         </div>
+
       </div>
     </footer>
   </div>
