@@ -59,3 +59,15 @@ html.no-scroll,
 html.no-scroll body {
   overflow: hidden;
 }
+
+/* Landing page — escape the #app container constraints */
+body.landing-active {
+  display: block;
+  background-color: #0a0a0a;
+}
+
+body.landing-active #app {
+  max-width: unset;
+  padding: 0;
+  text-align: left;
+}

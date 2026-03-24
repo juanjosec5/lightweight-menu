@@ -4,29 +4,12 @@ import { useMenu } from '@/composables/useMenu'
 import { useTheme } from '@/composables/useTheme'
 import MenuCategory from '@/components/MenuCategory.vue'
 import MenuSkeleton from '@/components/MenuSkeleton.vue'
+import LandingPage from '@/components/LandingPage.vue'
 import { getGtag } from '@/utils/gtag'
-import { supabase } from '@/lib/supabase'
 import type { MenuData, Platform } from '@/types/menu'
 
 // ── URL param ──────────────────────────────────────────────────────────
 const slug = ref<string | null>(new URLSearchParams(location.search).get('menu'))
-
-// ── Directory (shown when no slug) ─────────────────────────────────────
-type RestaurantEntry = { name: string; slug: string; logo_url: string | null; subtitle: string | null }
-const directory = ref<RestaurantEntry[]>([])
-
-async function loadDirectory() {
-  const { data: rows } = await supabase
-    .from('restaurants')
-    .select('name, slug, logo_url, subtitle')
-    .eq('is_published', true)
-    .order('name')
-  if (rows) directory.value = rows as RestaurantEntry[]
-}
-
-function goToMenu(s: string) {
-  location.href = `?menu=${s}`
-}
 
 // ── Data ───────────────────────────────────────────────────────────────
 const { data, loading, error } = useMenu(slug)
@@ -137,7 +120,6 @@ function onHashChange() {
 }
 
 onMounted(() => {
-  if (!slug.value) loadDirectory()
   window.addEventListener('hashchange', onHashChange)
 
   observer = new IntersectionObserver(
@@ -153,8 +135,11 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <!-- Toolbar -->
-  <div :class="['toolbar', theme === 'dark' ? 'shadow-dark' : 'shadow-light']">
+  <!-- Landing page — shown when no ?menu= param -->
+  <LandingPage v-if="!slug" />
+
+  <!-- Toolbar — only shown for actual menus -->
+  <div v-if="slug" :class="['toolbar', theme === 'dark' ? 'shadow-dark' : 'shadow-light']">
     <img v-if="toolbarLogo" :src="toolbarLogo" :alt="data?.name" />
     <button
       v-if="!data?.theme"
@@ -167,26 +152,9 @@ onBeforeUnmount(() => {
     </button>
   </div>
 
-  <main class="wrap">
+  <main v-if="slug" class="wrap">
     <!-- Loading -->
     <MenuSkeleton v-if="loading" />
-
-    <!-- No menu param — directory -->
-    <section v-else-if="!slug" class="directory">
-      <h2 class="directory__title">Menús disponibles</h2>
-      <ul class="directory__list">
-        <li v-for="r in directory" :key="r.slug">
-          <button type="button" class="directory__item" @click="goToMenu(r.slug)">
-            <img v-if="r.logo_url" :src="r.logo_url" :alt="r.name" class="directory__logo" />
-            <span v-else class="directory__initials">{{ r.name.charAt(0) }}</span>
-            <span class="directory__info">
-              <strong class="directory__name">{{ r.name }}</strong>
-              <span v-if="r.subtitle" class="directory__sub">{{ r.subtitle }}</span>
-            </span>
-          </button>
-        </li>
-      </ul>
-    </section>
 
     <!-- Error -->
     <section v-else-if="error" class="error">
@@ -448,86 +416,6 @@ onBeforeUnmount(() => {
   margin-top: 2rem;
 }
 
-.directory {
-  margin-top: 2rem;
-
-  &__title {
-    text-align: center;
-    margin: 0 0 1.5rem;
-  }
-
-  &__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  &__item {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--muted);
-    border-radius: 0.5rem;
-    background: transparent;
-    color: var(--bg);
-    cursor: pointer;
-    text-align: left;
-    transition: background-color 0.2s ease;
-
-    &:hover { background-color: color-mix(in srgb, var(--muted) 20%, transparent); }
-    &:active { background-color: color-mix(in srgb, var(--muted) 40%, transparent); }
-  }
-
-  &__logo {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    border-radius: 4px;
-    flex-shrink: 0;
-  }
-
-  &__initials {
-    width: 48px;
-    height: 48px;
-    border-radius: 4px;
-    background: var(--muted);
-    color: var(--fg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  &__info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    min-width: 0;
-  }
-
-  &__name {
-    font-size: 1rem;
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  &__sub {
-    font-size: 0.8rem;
-    color: var(--muted);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
 
 .updated-at {
   color: var(--muted);
