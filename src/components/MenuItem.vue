@@ -122,6 +122,8 @@ onBeforeUnmount(() => {
   margin-bottom: 2rem;
   border-bottom: 1px solid var(--muted);
   scroll-margin-top: calc(var(--toolbar-h) + 3.25rem);
+  background: var(--card, transparent);
+  border-radius: var(--radius);
 }
 
 .item__body {
@@ -156,6 +158,7 @@ onBeforeUnmount(() => {
 .item__price {
   white-space: nowrap;
   flex-shrink: 0;
+  color: var(--price, var(--bg));
 }
 
 .item__desc {
@@ -173,7 +176,7 @@ onBeforeUnmount(() => {
 .thumb {
   border: 0;
   background: transparent;
-  border-radius: 8px;
+  border-radius: var(--radius);
   overflow: hidden;
   padding: 0;
   cursor: zoom-in;

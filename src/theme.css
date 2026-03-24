@@ -4,6 +4,7 @@
   --bg: #252525;
   --action: #dbdbdb;
   --muted: color-mix(in srgb, var(--fg) 50%, var(--bg));
+  --radius: 8px;
 }
 
 /* Dark override */
