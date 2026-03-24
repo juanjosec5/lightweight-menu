@@ -106,14 +106,15 @@ const translations = {
         'Perfil de restaurante completo',
       ],
       planPrice: '$120.000 COP / mes',
-      planUsd: '≈ $47 USD / mes',
+      planUsd: '≈ $32 USD / mes*',
       planFine: 'Primer mes gratis. Pago mensual por transferencia bancaria. Cancela cuando quieras.',
       setupTitle: 'Configuración inicial',
       setupBadge: 'Pago único · Opcional',
       setupDesc: '¿Prefieres que nos encarguemos de todo? Creamos tu restaurante, cargamos tus platos, descripciones, precios, etiquetas e imágenes. Tu menú listo desde el primer día.',
       setupPrice: 'Desde $150.000 COP',
-      setupUsd: '≈ $58 USD',
+      setupUsd: '≈ $40 USD*',
       setupFine: 'Pago único por transferencia bancaria. Precio según volumen de platos e imágenes.',
+      usdNote: '*Valor aproximado. La conversión varía según la tasa de cambio del día.',
       diyTitle: '¿Prefieres configurarlo tú mismo?',
       diyDesc: 'Crea tu cuenta, agrega tus platos y publica tu menú hoy. El primer mes es completamente gratis, sin límites.',
       diyCtaPrimary: 'Empieza gratis →',
@@ -201,14 +202,15 @@ const translations = {
         'Complete restaurant profile',
       ],
       planPrice: '$120.000 COP / month',
-      planUsd: '≈ $47 USD / month',
+      planUsd: '≈ $32 USD / month*',
       planFine: 'First month free. Monthly payment by bank transfer. Cancel anytime.',
       setupTitle: 'Initial setup',
       setupBadge: 'One-time · Optional',
       setupDesc: 'Prefer we handle everything? We create your restaurant, load your dishes, descriptions, prices, labels and images. Your menu ready from day one.',
       setupPrice: 'From $150.000 COP',
-      setupUsd: '≈ $58 USD',
+      setupUsd: '≈ $40 USD*',
       setupFine: 'One-time payment by bank transfer. Price based on volume of dishes and images.',
+      usdNote: '*Approximate value. Conversion varies with the daily exchange rate.',
       diyTitle: 'Prefer to set it up yourself?',
       diyDesc: 'Create your account, add your dishes and publish your menu today. The first month is completely free, no limits.',
       diyCtaPrimary: 'Start free →',
@@ -606,6 +608,10 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
             </div>
 
           </div>
+
+          <p class="text-center text-xs text-on-surface-variant/40 font-light mb-16 -mt-10">
+            {{ t.pricing.usdNote }}
+          </p>
 
           <!-- DIY callout -->
           <div class="text-center glass-card rounded-2xl p-10 reveal">
