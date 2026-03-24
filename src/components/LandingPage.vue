@@ -466,9 +466,6 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
             <div class="relative z-10 hidden md:block">
               <AdminDemo />
             </div>
-            <div class="relative z-10 flex justify-center md:hidden">
-              <MobileAdminDemo />
-            </div>
           </div>
         </div>
       </section>
