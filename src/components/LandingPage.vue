@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineAsyncComponent, onMounted, onBeforeUnmount, ref, computed, watch } from 'vue'
+import { defineAsyncComponent, onMounted, onBeforeUnmount, ref, computed, watch, nextTick } from 'vue'
 
 const AdminDemo    = defineAsyncComponent(() => import('./AdminDemo.vue'))
 const MobileAdminDemo = defineAsyncComponent(() => import('./MobileAdminDemo.vue'))
@@ -7,16 +7,32 @@ const MobileAdminDemo = defineAsyncComponent(() => import('./MobileAdminDemo.vue
 // ── Language ────────────────────────────────────────────────────────────────
 const lang = ref<'es' | 'en'>('es')
 
+let revealObserver: IntersectionObserver | null = null
+
 onMounted(() => {
   const saved = localStorage.getItem('lwm-lang')
   if (saved === 'es' || saved === 'en') lang.value = saved
   document.documentElement.classList.add('dark')
   document.body.classList.add('landing-active')
+
+  // Scroll-reveal: fade + slide up each .reveal element once on entry
+  nextTick(() => {
+    revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible')
+          revealObserver!.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.1 })
+    document.querySelectorAll('.reveal').forEach(el => revealObserver!.observe(el))
+  })
 })
 
 watch(lang, (v) => localStorage.setItem('lwm-lang', v))
 
 onBeforeUnmount(() => {
+  revealObserver?.disconnect()
   document.documentElement.classList.remove('dark')
   document.body.classList.remove('landing-active')
 })
@@ -193,7 +209,7 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
     <main class="pt-32 mesh-bg">
 
       <!-- ── Hero ─────────────────────────────────────────────────────── -->
-      <section id="como-funciona" class="max-w-7xl mx-auto px-6 py-12 lg:py-20 relative">
+      <section id="como-funciona" class="max-w-7xl mx-auto px-6 py-12 lg:py-20 relative reveal">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <div class="lg:col-span-6 relative z-10">
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-[10px] font-black tracking-[0.2em] uppercase mb-6 font-headline">
@@ -301,7 +317,7 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
       <section id="caracteristicas" class="py-32 relative">
         <div class="max-w-7xl mx-auto px-6">
           <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-            <div class="max-w-2xl">
+            <div class="max-w-2xl reveal">
               <h2 class="font-extrabold text-4xl lg:text-5xl text-white mb-6 tracking-tighter font-headline">{{ t.bento.h2 }}</h2>
               <p class="text-on-surface-variant text-lg font-light">{{ t.bento.sub }}</p>
             </div>
@@ -309,7 +325,7 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
 
           <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
             <!-- Large card -->
-            <div class="md:col-span-8 glass-card p-10 rounded-2xl flex flex-col justify-between group overflow-hidden relative">
+            <div class="md:col-span-8 glass-card p-10 rounded-2xl flex flex-col justify-between group overflow-hidden relative reveal reveal-d1">
               <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[80px] -mr-32 -mt-32 pointer-events-none"></div>
               <div class="relative z-10">
                 <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-8 border border-primary/20">
@@ -325,7 +341,7 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
             </div>
 
             <!-- Green card -->
-            <div class="md:col-span-4 bg-primary p-10 rounded-2xl flex flex-col justify-between hover:scale-[1.02] transition-all duration-500 overflow-hidden relative">
+            <div class="md:col-span-4 bg-primary p-10 rounded-2xl flex flex-col justify-between hover:scale-[1.02] transition-all duration-500 overflow-hidden relative reveal reveal-d2">
               <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent pointer-events-none"></div>
               <div class="relative z-10">
                 <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center text-on-primary mb-8">
@@ -337,7 +353,7 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
             </div>
 
             <!-- Small cards -->
-            <div class="md:col-span-4 glass-card p-8 rounded-2xl hover:border-primary/30 transition-all group">
+            <div class="md:col-span-4 glass-card p-8 rounded-2xl hover:border-primary/30 transition-all group reveal reveal-d1">
               <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center text-white mb-6 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
                 <span class="material-symbols-outlined">storefront</span>
               </div>
@@ -345,7 +361,7 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
               <p class="text-on-surface-variant leading-relaxed text-sm font-light">{{ t.bento.card3Desc }}</p>
             </div>
 
-            <div class="md:col-span-4 glass-card p-8 rounded-2xl hover:border-primary/30 transition-all group">
+            <div class="md:col-span-4 glass-card p-8 rounded-2xl hover:border-primary/30 transition-all group reveal reveal-d2">
               <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center text-white mb-6 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
                 <span class="material-symbols-outlined">restaurant_menu</span>
               </div>
@@ -353,7 +369,7 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
               <p class="text-on-surface-variant leading-relaxed text-sm font-light">{{ t.bento.card4Desc }}</p>
             </div>
 
-            <div class="md:col-span-4 glass-card p-8 rounded-2xl hover:border-primary/30 transition-all group">
+            <div class="md:col-span-4 glass-card p-8 rounded-2xl hover:border-primary/30 transition-all group reveal reveal-d3">
               <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center text-white mb-6 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
                 <span class="material-symbols-outlined">qr_code_2</span>
               </div>
@@ -368,7 +384,7 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
       <section id="demo" class="py-32 relative overflow-hidden">
         <div class="absolute inset-0 bg-white/[0.02] -skew-y-2 pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-          <div class="text-center mb-16">
+          <div class="text-center mb-16 reveal">
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-[10px] font-black tracking-[0.2em] uppercase mb-6 font-headline">
               {{ t.demo.badge }}
             </div>
@@ -392,7 +408,7 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
       <section class="py-32 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div class="relative">
-            <div class="relative mx-auto w-full" style="max-width: 320px;">
+            <div class="relative mx-auto w-full reveal" style="max-width: 320px;">
               <div class="absolute -inset-20 bg-primary/20 blur-[120px] rounded-full pointer-events-none"></div>
               <div class="relative z-10">
                 <MobileAdminDemo />
@@ -400,7 +416,7 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
             </div>
           </div>
 
-          <div class="relative z-10">
+          <div class="relative z-10 reveal reveal-d1">
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-[10px] font-black tracking-[0.2em] uppercase mb-8 font-headline">
               <span class="material-symbols-outlined" style="font-size: 14px;">smartphone</span>
               {{ t.mobile.badge }}
@@ -428,7 +444,7 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
       <!-- ── Analytics teaser ───────────────────────────────────────────── -->
       <section class="py-32 relative">
         <div class="absolute inset-0 bg-white/[0.02] -skew-y-3 pointer-events-none"></div>
-        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal">
           <div class="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mx-auto mb-10 border border-primary/20 glow-primary">
             <span class="material-symbols-outlined text-4xl">insights</span>
           </div>
@@ -449,7 +465,7 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
 
       <!-- ── Final CTA ──────────────────────────────────────────────────── -->
       <section class="py-32 px-6">
-        <div class="max-w-6xl mx-auto bg-[#1a1a1a] border border-white/10 rounded-[2.5rem] p-16 text-center relative overflow-hidden shadow-2xl">
+        <div class="max-w-6xl mx-auto bg-[#1a1a1a] border border-white/10 rounded-[2.5rem] p-16 text-center relative overflow-hidden shadow-2xl reveal">
           <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[150px] -mr-[250px] -mt-[250px] pointer-events-none"></div>
           <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/5 blur-[120px] -ml-[200px] -mb-[200px] pointer-events-none"></div>
           <div class="relative z-10">
@@ -595,4 +611,11 @@ html { scroll-behavior: smooth; }
 .hpp-dot-d  { width:4px; height:4px; border-radius:50%; background:#d1d5db; flex-shrink:0; }
 .hpp-bar    { height:6px; background:#f3f4f6; border-radius:2px; flex:1; }
 .hpp-price  { height:6px; background:#e5e7eb; border-radius:2px; width:28px; }
+
+/* ── Scroll-reveal ─────────────────────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
 </style>
