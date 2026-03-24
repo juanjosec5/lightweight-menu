@@ -1,7 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const showDrawer = ref(true)
+type View = 'edit' | 'editor' | 'drawer'
+const view = ref<View>('edit')
+
+const dietTags = [
+  { id: 'veg', label: '🌿 Vegetariano' },
+  { id: 'vegan', label: '🌱 Vegano' },
+  { id: 'gluten', label: '🌽 Sin gluten' },
+  { id: 'spicy', label: '🌶 Picante' },
+  { id: 'nuts', label: '🥜 Nueces' },
+  { id: 'fish', label: '🐟 Pescado' },
+  { id: 'dairy', label: '🥛 Sin lácteos' },
+]
 
 const categories = [
   {
@@ -11,9 +22,6 @@ const categories = [
       { id: 'c2', name: 'Salchipapas', price: '$ 13.500' },
       { id: 'c3', name: 'Costipapa', price: '$ 18.000' },
       { id: 'c4', name: 'Chuletines', price: '$ 18.000' },
-      { id: 'c5', name: 'Canastas de plátano con costilla', price: '$ 18.000' },
-      { id: 'c6', name: 'Empanaditas chilenas', price: '$ 18.000' },
-      { id: 'c7', name: 'Porción de papas', price: '$ 8.000' },
     ],
   },
   { id: 'postres', label: 'Postres', count: 6, items: [] },
@@ -26,8 +34,118 @@ const categories = [
   <div class="phone-shell">
     <div class="phone-screen">
 
+      <!-- ── Edit item form ──────────────────────────────────────── -->
+      <div v-if="view === 'edit'" class="edit-view">
+        <!-- Header -->
+        <div class="edit-header">
+          <button class="back-btn" @click="view = 'editor'">←</button>
+          <span class="edit-title">Editar plato</span>
+          <button class="close-btn" @click="view = 'editor'">✕</button>
+        </div>
+
+        <!-- Scrollable form body -->
+        <div class="edit-body">
+          <div class="field-group">
+            <label class="field-label">NOMBRE</label>
+            <div class="field-input">Costipapa</div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">DESCRIPCIÓN</label>
+            <div class="field-textarea">Costilla ahumada con papas criollas al grill y hogao casero.</div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group field-half">
+              <label class="field-label">PRECIO</label>
+              <div class="field-input">$ 18.000</div>
+            </div>
+            <div class="field-group field-half">
+              <label class="field-label">VISIBILIDAD</label>
+              <div class="visibility-toggle">
+                <span class="vis-dot"></span>
+                <span class="vis-label">Visible</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">ETIQUETAS DIETÉTICAS</label>
+            <div class="tag-grid">
+              <span
+                v-for="tag in dietTags"
+                :key="tag.id"
+                class="diet-tag"
+              >{{ tag.label }}</span>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">FOTO</label>
+            <div class="photo-upload">
+              <span class="upload-icon">📷</span>
+              <span class="upload-hint">Toca para subir</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky footer -->
+        <div class="edit-footer">
+          <button class="btn-delete">Eliminar</button>
+          <button class="btn-save" @click="view = 'editor'">Guardar plato</button>
+        </div>
+      </div>
+
+      <!-- ── Menu Editor ────────────────────────────────────────── -->
+      <div v-else-if="view === 'editor'" class="editor">
+        <!-- Mobile topbar -->
+        <div class="mob-topbar">
+          <button class="hamburger" @click="view = 'drawer'">≡</button>
+          <span class="mob-logo">⚡ LWM</span>
+          <div style="width:28px;"></div>
+        </div>
+
+        <div class="editor-body">
+          <h1 class="page-title">Menu base</h1>
+          <div class="action-row">
+            <button class="btn-ghost">Vista previa ↗</button>
+            <button class="btn-outline">+ Agregar categoría</button>
+            <button class="btn-dark">Publicar cambios</button>
+          </div>
+
+          <div class="cat-list">
+            <div v-for="cat in categories" :key="cat.id" class="cat-card">
+              <div class="cat-header">
+                <span class="handle">⠿</span>
+                <span class="chevron">∨</span>
+                <span class="cat-name">{{ cat.label }}</span>
+                <span class="cat-count">{{ cat.count }} platos</span>
+                <span class="icon-btn">👁</span>
+                <span class="icon-btn">···</span>
+                <span class="icon-btn">🗑</span>
+              </div>
+              <template v-if="cat.items.length">
+                <div
+                  v-for="item in cat.items"
+                  :key="item.id"
+                  class="item-row"
+                  @click="view = 'edit'"
+                  style="cursor:pointer"
+                >
+                  <span class="handle" style="font-size:11px;color:#d1d5db;">⠿</span>
+                  <span class="avail-dot"></span>
+                  <span class="item-name">{{ item.name }}</span>
+                  <span class="item-price">{{ item.price }}</span>
+                </div>
+                <div class="add-item">+ Agregar plato</div>
+              </template>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- ── Drawer ─────────────────────────────────────────────── -->
-      <div v-if="showDrawer" class="drawer">
+      <div v-else class="drawer">
         <div class="drawer-top">
           <span class="drawer-logo">⚡ LWM Admin</span>
         </div>
@@ -56,49 +174,7 @@ const categories = [
         </div>
 
         <div class="drawer-bottom">
-          <button class="logout-btn" @click="showDrawer = false">Cerrar sesión →</button>
-        </div>
-      </div>
-
-      <!-- ── Menu Editor ────────────────────────────────────────── -->
-      <div v-else class="editor">
-        <!-- Mobile topbar -->
-        <div class="mob-topbar">
-          <button class="hamburger" @click="showDrawer = true">≡</button>
-          <span class="mob-logo">⚡ LWM</span>
-          <div style="width:28px;"></div>
-        </div>
-
-        <div class="editor-body">
-          <h1 class="page-title">Menu base</h1>
-          <div class="action-row">
-            <button class="btn-ghost">Vista previa ↗</button>
-            <button class="btn-outline">+ Agregar categoría</button>
-            <button class="btn-dark">Publicar cambios</button>
-          </div>
-
-          <div class="cat-list">
-            <div v-for="cat in categories" :key="cat.id" class="cat-card">
-              <div class="cat-header">
-                <span class="handle">⠿</span>
-                <span class="chevron">∨</span>
-                <span class="cat-name">{{ cat.label }}</span>
-                <span class="cat-count">{{ cat.count }} platos</span>
-                <span class="icon-btn">👁</span>
-                <span class="icon-btn">···</span>
-                <span class="icon-btn">🗑</span>
-              </div>
-              <template v-if="cat.items.length">
-                <div v-for="item in cat.items" :key="item.id" class="item-row">
-                  <span class="handle" style="font-size:11px;color:#d1d5db;">⠿</span>
-                  <span class="avail-dot"></span>
-                  <span class="item-name">{{ item.name }}</span>
-                  <span class="item-price">{{ item.price }}</span>
-                </div>
-                <div class="add-item">+ Agregar plato</div>
-              </template>
-            </div>
-          </div>
+          <button class="logout-btn" @click="view = 'editor'">Cerrar sesión →</button>
         </div>
       </div>
 
@@ -128,6 +204,166 @@ const categories = [
   position: relative;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 13px;
+}
+
+/* ── Edit form ── */
+.edit-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #f4f4f5;
+}
+
+.edit-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: #fff;
+  border-bottom: 1px solid #e4e4e7;
+  flex-shrink: 0;
+}
+
+.back-btn, .close-btn {
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  color: #374151;
+  cursor: pointer;
+  padding: 0;
+  width: 28px;
+}
+
+.edit-title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #111;
+}
+
+.edit-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 14px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field-group { display: flex; flex-direction: column; gap: 4px; }
+
+.field-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: #9ca3af;
+  letter-spacing: 0.1em;
+}
+
+.field-input {
+  background: #fff;
+  border: 1px solid #e4e4e7;
+  border-radius: 7px;
+  padding: 8px 10px;
+  font-size: 12.5px;
+  color: #111;
+}
+
+.field-textarea {
+  background: #fff;
+  border: 1px solid #e4e4e7;
+  border-radius: 7px;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: #374151;
+  line-height: 1.5;
+  min-height: 52px;
+}
+
+.field-row { display: flex; gap: 8px; }
+.field-half { flex: 1; }
+
+.visibility-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid #e4e4e7;
+  border-radius: 7px;
+  padding: 8px 10px;
+}
+
+.vis-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #84CC16;
+  flex-shrink: 0;
+}
+
+.vis-label { font-size: 12px; color: #111; font-weight: 500; }
+
+.tag-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.diet-tag {
+  padding: 4px 8px;
+  border: 1px solid #e4e4e7;
+  border-radius: 20px;
+  font-size: 10.5px;
+  color: #374151;
+  background: #fff;
+  white-space: nowrap;
+}
+
+.photo-upload {
+  border: 1.5px dashed #d1d5db;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.upload-icon { font-size: 20px; }
+.upload-hint { font-size: 11px; color: #9ca3af; font-weight: 500; }
+
+.edit-footer {
+  display: flex;
+  gap: 8px;
+  padding: 12px 14px 20px;
+  background: #fff;
+  border-top: 1px solid #e4e4e7;
+  flex-shrink: 0;
+}
+
+.btn-delete {
+  flex: 1;
+  padding: 9px;
+  border-radius: 7px;
+  border: 1px solid #fca5a5;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ef4444;
+  cursor: pointer;
+}
+
+.btn-save {
+  flex: 2;
+  padding: 9px;
+  border-radius: 7px;
+  border: none;
+  background: #111;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
 }
 
 /* ── Drawer ── */
@@ -203,7 +439,6 @@ const categories = [
   flex-direction: column;
   gap: 10px;
 }
-
 
 .logout-btn {
   font-size: 13px;
@@ -338,7 +573,7 @@ const categories = [
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #d1d5db;
+  background: #84CC16;
   flex-shrink: 0;
 }
 
