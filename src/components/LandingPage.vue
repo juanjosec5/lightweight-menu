@@ -3,7 +3,7 @@ import { onMounted, onBeforeUnmount } from 'vue'
 import AdminDemo from './AdminDemo.vue'
 import MobileAdminDemo from './MobileAdminDemo.vue'
 
-const ADMIN_URL = 'https://lightweightmenu-admin.vercel.app'
+const WA_URL = 'https://wa.me/573154019699?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20Lightweight%20Menu'
 
 onMounted(() => {
   document.documentElement.classList.add('dark')
@@ -28,7 +28,7 @@ onBeforeUnmount(() => {
           <a class="font-bold text-sm text-neutral-400 hover:text-white tracking-tight transition-all" style="font-family: 'Manrope', sans-serif;" href="#demo">Demo</a>
         </div>
         <a
-          :href="ADMIN_URL"
+          :href="WA_URL"
           target="_blank"
           rel="noopener"
           class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-extrabold text-sm hover:scale-105 active:scale-95 transition-transform"
@@ -56,7 +56,7 @@ onBeforeUnmount(() => {
             </p>
             <div class="flex flex-col sm:flex-row gap-5">
               <a
-                :href="ADMIN_URL"
+                :href="WA_URL"
                 target="_blank"
                 rel="noopener"
                 class="bg-primary text-on-primary px-10 py-5 rounded-lg font-extrabold text-lg hover:brightness-110 transition-all glow-primary text-center"
@@ -80,17 +80,14 @@ onBeforeUnmount(() => {
             <div class="relative">
               <!-- Desktop mockup -->
               <div class="bg-[#1a1a1a] rounded-xl shadow-2xl overflow-hidden border border-white/10 w-full aspect-[4/3] relative z-0 transform -rotate-3 hover:rotate-0 transition-all duration-700">
-                <img alt="Admin UI" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida/ADBb0uh25xg6vWGgjiXWaaEf_tHQ0ixP2qdbcsuYtcXqpQ7rBbbXYE0YkkKahM7d5l1111P72vDj03deGMdpGCLG-Z-mA8QEf0Ltgd2BFyHfwc9OwVNgCQqiAnx4f5c1KGwkwDpP7ilBdYaVRFS_YR6_xZkqx-ZY6PhoMqfUztXieUuahEq6ID_qTDLXs_X5LxDHj5-7uJsDXogWCND7ZIVJSDRBYP68BKfMY1f3zn3BoKNGWrk-w8wpxGL8urMT0E1PyOktYOev0jFnhZs" />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent"></div>
+                <div style="position:absolute;top:0;left:0;transform:scale(0.6);transform-origin:top left;pointer-events:none;width:1050px;">
+                  <AdminDemo />
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent pointer-events-none"></div>
               </div>
               <!-- Phone mockup -->
-              <div class="absolute -right-4 -bottom-12 w-1/2 max-w-[260px] z-10 transform rotate-6 group-hover:rotate-3 transition-all duration-700">
-                <div class="bg-[#050505] rounded-[2.5rem] p-3 shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] border-[6px] border-[#1a1a1a]">
-                  <div class="bg-black rounded-[2rem] h-[400px] overflow-hidden relative">
-                    <img alt="Mobile UI" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugALkOVy45Aw5PW9zojUTk7UoQbWYUcXsVIJWByFAZ2GMVREloKM5L2NvxAuvJpPL9vg88A8kfm0T9tX_tFKxUotmycCezt4DSnQ_Km41a4alR4IHN1Dc2OSlpdAj-vwP1PLxokbdC3wW4DHlkPxqlhjFj6NYjvI1aBspZJF03yLqI0yIkx4zqkP0bXVWJ_Uan9IDm_EkThYE57LdclL72SfC0vZyjZE6kBVgFGOXAljtI0CzqWXPaJT8Kh2Rf7cG9NqNHkBFjfl84" />
-                    <div class="absolute inset-0 bg-primary/5 pointer-events-none"></div>
-                  </div>
-                </div>
+              <div class="absolute -right-4 -bottom-12 w-1/2 max-w-[260px] z-10 transform rotate-6 group-hover:rotate-3 transition-all duration-700" style="pointer-events:none;">
+                <MobileAdminDemo />
               </div>
             </div>
           </div>
@@ -178,8 +175,11 @@ onBeforeUnmount(() => {
 
           <div class="relative">
             <div class="absolute -inset-10 bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
-            <div class="relative z-10">
+            <div class="relative z-10 hidden md:block">
               <AdminDemo />
+            </div>
+            <div class="relative z-10 flex justify-center md:hidden">
+              <MobileAdminDemo />
             </div>
           </div>
         </div>
@@ -215,7 +215,7 @@ onBeforeUnmount(() => {
               </li>
             </ul>
             <a
-              :href="ADMIN_URL"
+              :href="WA_URL"
               target="_blank"
               rel="noopener"
               class="inline-block bg-white/5 border border-white/10 text-white px-10 py-5 rounded-lg font-extrabold text-lg hover:bg-primary hover:text-on-primary hover:border-primary transition-all duration-300"
@@ -262,7 +262,7 @@ onBeforeUnmount(() => {
               Únete a restaurantes colombianos que ya están modernizando su atención al cliente con LWM Admin.
             </p>
             <a
-              :href="ADMIN_URL"
+              :href="WA_URL"
               target="_blank"
               rel="noopener"
               class="inline-block bg-primary text-on-primary px-12 py-6 rounded-lg font-black text-xl hover:scale-105 transition-transform glow-primary"
