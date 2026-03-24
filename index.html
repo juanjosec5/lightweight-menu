@@ -55,15 +55,10 @@
 </head>
 
 <body>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GYQR8S9HJK"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-GYQR8S9HJK');
-  </script>
+  <!-- Google tag (gtag.js) — config deferred to script onload, off the critical path -->
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GYQR8S9HJK"
+    onload="gtag('js',new Date());gtag('config','G-GYQR8S9HJK')"></script>
   <div id="app"></div>
   <script type="module" src="/src/main.ts"></script>
 </body>

@@ -167,8 +167,8 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
         </div>
 
         <div class="flex items-center gap-3">
-          <!-- Language toggle -->
-          <div class="flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg p-1">
+          <!-- Language toggle — hidden on mobile, shown in footer instead -->
+          <div class="hidden md:flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg p-1">
             <button
               @click="lang = 'es'"
               class="px-2.5 py-1 rounded-md text-xs font-bold tracking-widest transition-all font-headline"
@@ -485,6 +485,18 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
         </div>
         <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p class="text-xs uppercase tracking-[0.3em] text-neutral-600 font-medium">{{ t.footer.copyright }}</p>
+          <div class="flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg p-1">
+            <button
+              @click="lang = 'es'"
+              class="px-2.5 py-1 rounded-md text-xs font-bold tracking-widest transition-all font-headline"
+              :class="lang === 'es' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white'"
+            >ES</button>
+            <button
+              @click="lang = 'en'"
+              class="px-2.5 py-1 rounded-md text-xs font-bold tracking-widest transition-all font-headline"
+              :class="lang === 'en' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white'"
+            >EN</button>
+          </div>
         </div>
       </div>
     </footer>
