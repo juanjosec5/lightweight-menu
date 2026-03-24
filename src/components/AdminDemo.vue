@@ -68,7 +68,7 @@ function selectItem(item: Item) {
 
           <div class="section-label">RESTAURANTE</div>
           <div class="restaurant-picker">
-            Nicolas ni dejas colar
+            Bocatería El Sabor
             <span style="color:#9ca3af;font-size:10px;">▾</span>
           </div>
 

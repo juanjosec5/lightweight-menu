@@ -35,7 +35,7 @@ const categories = [
         <div class="drawer-section">
           <p class="section-label">RESTAURANTE</p>
           <div class="restaurant-picker">
-            Nicolas ni dejas colar
+            Bocatería El Sabor
             <span style="color:#9ca3af;font-size:11px;">⌄</span>
           </div>
         </div>
@@ -56,10 +56,6 @@ const categories = [
         </div>
 
         <div class="drawer-bottom">
-          <div class="lang-toggle">
-            <button class="lang-btn lang-btn--active">ES</button>
-            <button class="lang-btn">EN</button>
-          </div>
           <button class="logout-btn" @click="showDrawer = false">Cerrar sesión →</button>
         </div>
       </div>
@@ -208,28 +204,6 @@ const categories = [
   gap: 10px;
 }
 
-.lang-toggle {
-  display: flex;
-  gap: 6px;
-}
-
-.lang-btn {
-  flex: 1;
-  padding: 8px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  border: 1px solid #e4e4e7;
-  background: #fff;
-  color: #374151;
-  cursor: pointer;
-}
-
-.lang-btn--active {
-  background: #111;
-  color: #fff;
-  border-color: #111;
-}
 
 .logout-btn {
   font-size: 13px;
