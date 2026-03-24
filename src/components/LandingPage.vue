@@ -44,56 +44,89 @@ const translations = {
       howItWorks: 'Cómo funciona',
       features: 'Características',
       demo: 'Demo',
-      cta: 'Solicita tu menú',
+      pricing: 'Precios',
+      cta: 'Habla con nosotros',
     },
     hero: {
-      badge: 'SaaS para Restaurantes',
-      headlineAccent: 'listo',
+      badge: 'Menús digitales para restaurantes',
       headlinePre: 'Tu menú digital,',
-      headlinePost: 'en segundos.',
-      sub: 'La forma más rápida y elegante para que los restaurantes digitalicen su servicio sin fricción tecnológica.',
-      ctaPrimary: 'Empieza ahora',
-      ctaSecondary: 'Ver demo',
+      headlineAccent: 'carga antes de que',
+      headlinePost: 'cambien de opinión.',
+      sub: 'La única plataforma donde tú mismo gestionas tu menú desde el celular — sin saber de tecnología, sin esperar a nadie.',
+      ctaPrimary: 'Crea tu menú hoy',
+      ctaSecondary: 'Ver demo en vivo',
     },
     bento: {
-      h2: 'Todo lo que necesitas para digitalizar tu mesa.',
-      sub: 'Diseñado para ser intuitivo, potente y sobre todo, extremadamente rápido.',
-      card1Title: 'Menú digital en segundos',
-      card1Desc: 'Crea tu restaurante, añade platos y publica al instante. Tu menú vive en una URL compartible y código QR listo para imprimir.',
-      tag1: 'Instantáneo',
-      card2Title: 'Editor Visual',
-      card2Desc: 'Reordena categorías y platos visualmente con drag-and-drop.',
-      card3Title: 'Perfil de restaurante',
-      card3Desc: 'Tu logo, redes y ubicación integrados elegantemente en el menú digital.',
-      card4Title: 'Múltiples menús',
-      card4Desc: 'Gestión centralizada para desayunos, almuerzos, cenas y licores.',
-      card5Title: 'Generador de QR',
-      card5Desc: 'Códigos listos para imprimir con estilos personalizados para tu marca.',
+      h2: 'Todo lo que necesitas.\nNada de lo que no necesitas.',
+      sub: 'Cada función fue diseñada para un dueño de restaurante ocupado, no para un equipo de tecnología.',
+      card1Title: 'Tu menú, publicado hoy',
+      card1Desc: 'Crea tu restaurante, agrega tus platos y comparte el enlace o el QR el mismo día. Sin instalaciones. Sin configuraciones complicadas.',
+      tag1: 'Listo hoy',
+      card2Title: 'Editor visual',
+      card2Desc: 'Mueve, edita y reorganiza tu menú arrastrando con el dedo. Tan fácil como ordenar fotos en tu galería.',
+      card3Title: 'Tu marca, en cada menú',
+      card3Desc: 'Logo, redes sociales y dirección visibles para cada cliente que escanee tu código QR.',
+      card4Title: 'Varios menús, un solo lugar',
+      card4Desc: 'Desayunos, almuerzos, cenas, bebidas — cada uno con sus propias categorías, todos desde el mismo panel.',
+      card5Title: 'Código QR listo para imprimir',
+      card5Desc: 'Descarga tu QR en segundos y ponlo en la mesa, la carta o la vitrina. Sin aplicaciones adicionales para el cliente.',
     },
     demo: {
-      badge: 'Demo interactiva',
-      h2: 'Así de fácil se gestiona tu menú.',
-      sub: 'Haz clic en un plato para editarlo. Esto es exactamente lo que verás cuando administres tu restaurante.',
+      badge: 'Pruébalo ahora',
+      h2: 'Así se ve administrar tu menú.',
+      sub: 'Esto no es una simulación — es el admin real. Haz clic en cualquier plato y edítalo.',
     },
     mobile: {
-      badge: 'OPTIMIZADO PARA MÓVIL',
-      h2: 'Gestiona tu menú desde donde estés.',
-      sub: '¿No tienes computador? No hay problema. Nuestra plataforma está optimizada para que hagas cambios táctiles mientras atiendes tu negocio. Cambia un precio u oculta un plato agotado en segundos.',
-      features: ['Edición táctil intuitiva', 'Carga fotos directamente de tu cámara', 'Cambios en tiempo real'],
-      cta: 'Empieza a editar hoy',
+      badge: 'HECHO PARA EL CELULAR',
+      h2: 'Actualiza tu menú\nentre mesa y mesa.',
+      sub: 'Agotaste un plato, cambió un precio, quieres agregar algo nuevo — hazlo en segundos desde tu celular, sin interrumpir la operación.',
+      features: ['Edita con el pulgar, sin mouse ni teclado', 'Sube fotos directo desde tu cámara', 'Los cambios se ven al instante en el menú'],
+      cta: 'Ver cómo funciona →',
     },
     analytics: {
-      h2: 'Analíticas sencillas',
-      sub: 'Descubre cuántas personas escanean y ven tu menú cada día. Toma decisiones basadas en datos reales para hacer crecer tu restaurante.',
+      h2: '¿Cuánta gente está viendo tu menú?',
+      sub: 'Mira cuántas personas escanean tu QR cada día. Sencillo, directo, útil. Sin dashboards complicados.',
+    },
+    pricing: {
+      headline: 'Un solo plan.',
+      headlineAccent: 'Todo incluido.',
+      sub: 'Sin niveles confusos. Sin funciones escondidas. Todo lo que tu restaurante necesita, en un precio claro.',
+      trialBadge: 'El primer mes es gratis. Sin tarjeta de crédito. Sin permanencia.',
+      planTitle: 'Plan completo',
+      planBadge: 'Todo incluido',
+      planFeatures: [
+        'Menús ilimitados',
+        'Categorías y platos ilimitados',
+        'Carga de fotos por plato',
+        'Código QR listo para imprimir, siempre',
+        'Editor visual con drag-and-drop',
+        'Gestión desde el celular',
+        'Actualizaciones en tiempo real',
+        'Analíticas de escaneos',
+        'Perfil de restaurante completo',
+      ],
+      planPrice: '$120.000 COP / mes',
+      planUsd: '≈ $47 USD / mes',
+      planFine: 'Primer mes gratis. Pago mensual por transferencia bancaria. Cancela cuando quieras.',
+      setupTitle: 'Configuración inicial',
+      setupBadge: 'Pago único · Opcional',
+      setupDesc: '¿Prefieres que nos encarguemos de todo? Creamos tu restaurante, cargamos tus platos, descripciones, precios, etiquetas e imágenes. Tu menú listo desde el primer día.',
+      setupPrice: 'Desde $150.000 COP',
+      setupUsd: '≈ $58 USD',
+      setupFine: 'Pago único por transferencia bancaria. Precio según volumen de platos e imágenes.',
+      diyTitle: '¿Prefieres configurarlo tú mismo?',
+      diyDesc: 'Crea tu cuenta, agrega tus platos y publica tu menú hoy. El primer mes es completamente gratis, sin límites.',
+      diyCtaPrimary: 'Empieza gratis →',
+      diyCtaSecondary: '¿Listo para empezar? Escríbenos por WhatsApp y te explicamos cómo funciona el pago.',
     },
     cta: {
-      h2pre: '¿Listo para llevar tu menú',
-      h2accent: 'al siguiente nivel?',
-      sub: 'Únete a restaurantes de todo el mundo que ya están modernizando su atención al cliente con LWM Admin.',
-      button: 'Solicita tu menú ahora',
+      h2pre: 'Tu menú digital,',
+      h2accent: 'listo hoy.',
+      sub: 'Escríbenos y en menos de 24 horas tienes tu menú publicado, con QR listo para poner en las mesas.',
+      button: 'Escríbenos por WhatsApp →',
     },
     footer: {
-      tagline: 'Simplificando la gestión digital de menús para restaurantes en todo el mundo.',
+      tagline: 'Menús digitales rápidos. Para restaurantes reales.',
       product: 'Producto',
       features: 'Características',
       howItWorks: 'Cómo funciona',
@@ -106,56 +139,89 @@ const translations = {
       howItWorks: 'How it works',
       features: 'Features',
       demo: 'Demo',
-      cta: 'Request your menu',
+      pricing: 'Pricing',
+      cta: 'Talk to us',
     },
     hero: {
-      badge: 'SaaS for Restaurants',
-      headlineAccent: 'ready',
+      badge: 'Digital menus for restaurants',
       headlinePre: 'Your digital menu,',
-      headlinePost: 'in seconds.',
-      sub: 'The fastest and most elegant way for restaurants to digitize their service without any technical friction.',
-      ctaPrimary: 'Get started',
-      ctaSecondary: 'See demo',
+      headlineAccent: 'loads before they',
+      headlinePost: 'change their mind.',
+      sub: 'The only platform where you manage your own menu from your phone — no tech knowledge needed, no waiting on anyone.',
+      ctaPrimary: 'Create your menu today',
+      ctaSecondary: 'See live demo',
     },
     bento: {
-      h2: 'Everything you need to take your menu digital.',
-      sub: 'Built to be intuitive, powerful, and above all, extremely fast.',
-      card1Title: 'Digital menu in seconds',
-      card1Desc: 'Create your restaurant, add dishes, and publish instantly. Your menu lives at a shareable URL with a print-ready QR code.',
-      tag1: 'Instant',
-      card2Title: 'Visual Editor',
-      card2Desc: 'Visually reorder categories and dishes with drag-and-drop.',
-      card3Title: 'Restaurant profile',
-      card3Desc: 'Your logo, social links, and location elegantly integrated into your digital menu.',
-      card4Title: 'Multiple menus',
-      card4Desc: 'Centralized management for breakfast, lunch, dinner, and drinks.',
-      card5Title: 'QR Generator',
-      card5Desc: 'Print-ready codes with custom styles that match your brand.',
+      h2: 'Everything you need.\nNothing you don\'t.',
+      sub: 'Every feature was built for a busy restaurant owner, not a tech team.',
+      card1Title: 'Your menu, live today',
+      card1Desc: 'Create your restaurant, add your dishes, and share the link or QR the same day. No setup. No complicated configurations.',
+      tag1: 'Live today',
+      card2Title: 'Visual editor',
+      card2Desc: 'Move, edit and reorganize your menu by dragging with your finger. As easy as sorting photos in your gallery.',
+      card3Title: 'Your brand, on every menu',
+      card3Desc: 'Logo, social media and address visible to every customer who scans your QR code.',
+      card4Title: 'Multiple menus, one place',
+      card4Desc: 'Breakfast, lunch, dinner, drinks — each with their own categories, all from the same dashboard.',
+      card5Title: 'Print-ready QR code',
+      card5Desc: 'Download your QR in seconds and put it on the table, the menu card, or the window. No app required for the customer.',
     },
     demo: {
-      badge: 'Interactive demo',
-      h2: 'Managing your menu is this easy.',
-      sub: 'Click on a dish to edit it. This is exactly what you\'ll see when managing your restaurant.',
+      badge: 'Try it now',
+      h2: 'This is what managing your menu looks like.',
+      sub: 'This is not a simulation — it\'s the real admin. Click any dish and edit it.',
     },
     mobile: {
-      badge: 'MOBILE OPTIMIZED',
-      h2: 'Manage your menu from anywhere.',
-      sub: 'No computer? No problem. Our platform is built for touch so you can make changes while running your business. Update a price or hide a sold-out dish in seconds.',
-      features: ['Intuitive touch editing', 'Upload photos directly from your camera', 'Real-time updates'],
-      cta: 'Start editing today',
+      badge: 'BUILT FOR MOBILE',
+      h2: 'Update your menu\nbetween tables.',
+      sub: 'A dish sold out, a price changed, something new to add — do it in seconds from your phone without stopping the operation.',
+      features: ['Edit with your thumb, no mouse or keyboard', 'Upload photos directly from your camera', 'Changes appear instantly on the menu'],
+      cta: 'See how it works →',
     },
     analytics: {
-      h2: 'Simple analytics',
-      sub: 'Discover how many people scan and view your menu every day. Make data-driven decisions to grow your restaurant.',
+      h2: 'How many people are viewing your menu?',
+      sub: 'See how many people scan your QR every day. Simple, direct, useful. No complicated dashboards.',
+    },
+    pricing: {
+      headline: 'One plan.',
+      headlineAccent: 'Everything included.',
+      sub: 'No confusing tiers. No hidden features. Everything your restaurant needs, at one clear price.',
+      trialBadge: 'First month free. No credit card. No commitment.',
+      planTitle: 'Full plan',
+      planBadge: 'All inclusive',
+      planFeatures: [
+        'Unlimited menus',
+        'Unlimited categories and dishes',
+        'Photo upload per dish',
+        'Print-ready QR code, always',
+        'Visual drag-and-drop editor',
+        'Manage from your phone',
+        'Real-time updates',
+        'Scan analytics',
+        'Complete restaurant profile',
+      ],
+      planPrice: '$120.000 COP / month',
+      planUsd: '≈ $47 USD / month',
+      planFine: 'First month free. Monthly payment by bank transfer. Cancel anytime.',
+      setupTitle: 'Initial setup',
+      setupBadge: 'One-time · Optional',
+      setupDesc: 'Prefer we handle everything? We create your restaurant, load your dishes, descriptions, prices, labels and images. Your menu ready from day one.',
+      setupPrice: 'From $150.000 COP',
+      setupUsd: '≈ $58 USD',
+      setupFine: 'One-time payment by bank transfer. Price based on volume of dishes and images.',
+      diyTitle: 'Prefer to set it up yourself?',
+      diyDesc: 'Create your account, add your dishes and publish your menu today. The first month is completely free, no limits.',
+      diyCtaPrimary: 'Start free →',
+      diyCtaSecondary: 'Ready to get started? Message us on WhatsApp and we\'ll walk you through how payment works.',
     },
     cta: {
-      h2pre: 'Ready to take your menu',
-      h2accent: 'to the next level?',
-      sub: 'Join restaurants around the world already modernizing their customer experience with LWM Admin.',
-      button: 'Request your menu now',
+      h2pre: 'Your digital menu,',
+      h2accent: 'live today.',
+      sub: 'Message us and in less than 24 hours your menu is published, with a QR ready to put on the tables.',
+      button: 'Message us on WhatsApp →',
     },
     footer: {
-      tagline: 'Simplifying digital menu management for restaurants worldwide.',
+      tagline: 'Fast digital menus. For real restaurants.',
       product: 'Product',
       features: 'Features',
       howItWorks: 'How it works',
@@ -180,6 +246,7 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
           <a class="font-bold text-sm text-lime-400 tracking-tight transition-all font-headline" href="#como-funciona">{{ t.nav.howItWorks }}</a>
           <a class="font-bold text-sm text-neutral-400 hover:text-white tracking-tight transition-all font-headline" href="#caracteristicas">{{ t.nav.features }}</a>
           <a class="font-bold text-sm text-neutral-400 hover:text-white tracking-tight transition-all font-headline" href="#demo">{{ t.nav.demo }}</a>
+          <a class="font-bold text-sm text-neutral-400 hover:text-white tracking-tight transition-all font-headline" href="#precios">{{ t.nav.pricing }}</a>
         </div>
 
         <div class="flex items-center gap-3">
@@ -460,6 +527,101 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
             <div class="w-2 h-6 bg-primary/35 rounded-full"></div>
             <div class="w-2 h-12 bg-primary/55 rounded-full"></div>
           </div>
+        </div>
+      </section>
+
+      <!-- ── Pricing ──────────────────────────────────────────────────── -->
+      <section id="precios" class="py-32 relative">
+        <div class="max-w-5xl mx-auto px-6">
+
+          <!-- Header -->
+          <div class="text-center mb-6 reveal">
+            <h2 class="font-extrabold text-4xl lg:text-5xl text-white mb-6 tracking-tighter font-headline">
+              {{ t.pricing.headline }}<br/>
+              <span class="text-primary italic">{{ t.pricing.headlineAccent }}</span>
+            </h2>
+            <p class="text-on-surface-variant text-lg font-light max-w-xl mx-auto">{{ t.pricing.sub }}</p>
+          </div>
+
+          <!-- Free trial badge -->
+          <div class="flex justify-center mb-16 reveal">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary border border-primary/20 rounded-full text-sm font-bold font-headline">
+              <span class="material-symbols-outlined" style="font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+              {{ t.pricing.trialBadge }}
+            </div>
+          </div>
+
+          <!-- Cards -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+
+            <!-- Plan card -->
+            <div class="glass-card rounded-2xl p-10 flex flex-col justify-between border border-primary/30 reveal reveal-d1">
+              <div>
+                <div class="flex flex-col gap-3 mb-8">
+                  <span class="self-start px-3 py-1 bg-primary/10 border border-primary/20 text-primary rounded-full text-xs font-black uppercase tracking-widest font-headline">{{ t.pricing.planBadge }}</span>
+                  <h3 class="font-extrabold text-2xl text-white font-headline">{{ t.pricing.planTitle }}</h3>
+                </div>
+                <ul class="space-y-4 mb-10">
+                  <li
+                    v-for="feature in t.pricing.planFeatures"
+                    :key="feature"
+                    class="flex items-center gap-3 text-on-surface-variant text-sm font-light"
+                  >
+                    <div class="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                      <span class="material-symbols-outlined text-primary" style="font-size: 12px; font-variation-settings: 'FILL' 1;">check</span>
+                    </div>
+                    {{ feature }}
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <div class="border-t border-white/10 pt-8">
+                  <div class="flex items-baseline gap-3 mb-1">
+                    <span class="text-3xl font-black text-white font-headline">{{ t.pricing.planPrice }}</span>
+                  </div>
+                  <div class="text-on-surface-variant text-sm mb-4">{{ t.pricing.planUsd }}</div>
+                  <p class="text-xs text-on-surface-variant/60 font-light">{{ t.pricing.planFine }}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Setup card -->
+            <div class="glass-card rounded-2xl p-10 flex flex-col justify-between reveal reveal-d2">
+              <div>
+                <div class="flex flex-col gap-3 mb-8">
+                  <span class="self-start px-3 py-1 bg-white/5 border border-white/10 text-neutral-400 rounded-full text-xs font-black uppercase tracking-widest font-headline">{{ t.pricing.setupBadge }}</span>
+                  <h3 class="font-extrabold text-2xl text-white font-headline">{{ t.pricing.setupTitle }}</h3>
+                </div>
+                <p class="text-on-surface-variant leading-relaxed font-light mb-10">{{ t.pricing.setupDesc }}</p>
+              </div>
+              <div>
+                <div class="border-t border-white/10 pt-8">
+                  <div class="flex items-baseline gap-3 mb-1">
+                    <span class="text-3xl font-black text-white font-headline">{{ t.pricing.setupPrice }}</span>
+                  </div>
+                  <div class="text-on-surface-variant text-sm mb-4">{{ t.pricing.setupUsd }}</div>
+                  <p class="text-xs text-on-surface-variant/60 font-light">{{ t.pricing.setupFine }}</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- DIY callout -->
+          <div class="text-center glass-card rounded-2xl p-10 reveal">
+            <h4 class="font-bold text-xl text-white mb-4 font-headline">{{ t.pricing.diyTitle }}</h4>
+            <p class="text-on-surface-variant font-light mb-8 max-w-md mx-auto">{{ t.pricing.diyDesc }}</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a
+                :href="WA_URL"
+                target="_blank"
+                rel="noopener"
+                class="bg-primary text-on-primary px-8 py-4 rounded-lg font-extrabold text-base hover:brightness-110 transition-all glow-primary font-headline"
+              >{{ t.pricing.diyCtaPrimary }}</a>
+              <p class="text-on-surface-variant text-sm font-light max-w-xs">{{ t.pricing.diyCtaSecondary }}</p>
+            </div>
+          </div>
+
         </div>
       </section>
 
