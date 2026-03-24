@@ -1,42 +1,192 @@
 <script setup lang="ts">
-import { defineAsyncComponent, onMounted, onBeforeUnmount } from 'vue'
+import { defineAsyncComponent, onMounted, onBeforeUnmount, ref, computed, watch } from 'vue'
 
-// Lazy-load heavy demo components — both are below the fold
-const AdminDemo = defineAsyncComponent(() => import('./AdminDemo.vue'))
+const AdminDemo    = defineAsyncComponent(() => import('./AdminDemo.vue'))
 const MobileAdminDemo = defineAsyncComponent(() => import('./MobileAdminDemo.vue'))
 
-const WA_URL = 'https://wa.me/573154019699?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20Lightweight%20Menu'
+// ── Language ────────────────────────────────────────────────────────────────
+const lang = ref<'es' | 'en'>('es')
 
 onMounted(() => {
+  const saved = localStorage.getItem('lwm-lang')
+  if (saved === 'es' || saved === 'en') lang.value = saved
   document.documentElement.classList.add('dark')
   document.body.classList.add('landing-active')
 })
+
+watch(lang, (v) => localStorage.setItem('lwm-lang', v))
 
 onBeforeUnmount(() => {
   document.documentElement.classList.remove('dark')
   document.body.classList.remove('landing-active')
 })
+
+// ── Translations ─────────────────────────────────────────────────────────────
+const translations = {
+  es: {
+    nav: {
+      howItWorks: 'Cómo funciona',
+      features: 'Características',
+      demo: 'Demo',
+      cta: 'Solicita tu menú',
+    },
+    hero: {
+      badge: 'SaaS para Restaurantes',
+      headlineAccent: 'listo',
+      headlinePre: 'Tu menú digital,',
+      headlinePost: 'en segundos.',
+      sub: 'La forma más rápida y elegante para que los restaurantes digitalicen su servicio sin fricción tecnológica.',
+      ctaPrimary: 'Empieza ahora',
+      ctaSecondary: 'Ver demo',
+    },
+    bento: {
+      h2: 'Todo lo que necesitas para digitalizar tu mesa.',
+      sub: 'Diseñado para ser intuitivo, potente y sobre todo, extremadamente rápido.',
+      card1Title: 'Menú digital en segundos',
+      card1Desc: 'Crea tu restaurante, añade platos y publica al instante. Tu menú vive en una URL compartible y código QR listo para imprimir.',
+      tag1: 'Instantáneo',
+      card2Title: 'Editor Visual',
+      card2Desc: 'Reordena categorías y platos visualmente con drag-and-drop.',
+      card3Title: 'Perfil de restaurante',
+      card3Desc: 'Tu logo, redes y ubicación integrados elegantemente en el menú digital.',
+      card4Title: 'Múltiples menús',
+      card4Desc: 'Gestión centralizada para desayunos, almuerzos, cenas y licores.',
+      card5Title: 'Generador de QR',
+      card5Desc: 'Códigos listos para imprimir con estilos personalizados para tu marca.',
+    },
+    demo: {
+      badge: 'Demo interactiva',
+      h2: 'Así de fácil se gestiona tu menú.',
+      sub: 'Haz clic en un plato para editarlo. Esto es exactamente lo que verás cuando administres tu restaurante.',
+    },
+    mobile: {
+      badge: 'OPTIMIZADO PARA MÓVIL',
+      h2: 'Gestiona tu menú desde donde estés.',
+      sub: '¿No tienes computador? No hay problema. Nuestra plataforma está optimizada para que hagas cambios táctiles mientras atiendes tu negocio. Cambia un precio u oculta un plato agotado en segundos.',
+      features: ['Edición táctil intuitiva', 'Carga fotos directamente de tu cámara', 'Cambios en tiempo real'],
+      cta: 'Empieza a editar hoy',
+    },
+    analytics: {
+      h2: 'Analíticas sencillas',
+      sub: 'Descubre cuántas personas escanean y ven tu menú cada día. Toma decisiones basadas en datos reales para hacer crecer tu restaurante.',
+    },
+    cta: {
+      h2pre: '¿Listo para llevar tu menú',
+      h2accent: 'al siguiente nivel?',
+      sub: 'Únete a restaurantes de todo el mundo que ya están modernizando su atención al cliente con LWM Admin.',
+      button: 'Solicita tu menú ahora',
+    },
+    footer: {
+      tagline: 'Simplificando la gestión digital de menús para restaurantes en todo el mundo.',
+      product: 'Producto',
+      features: 'Características',
+      howItWorks: 'Cómo funciona',
+      copyright: '© 2025 LWM Admin. Hecho en Colombia.',
+    },
+    waMessage: 'Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20Lightweight%20Menu',
+  },
+  en: {
+    nav: {
+      howItWorks: 'How it works',
+      features: 'Features',
+      demo: 'Demo',
+      cta: 'Request your menu',
+    },
+    hero: {
+      badge: 'SaaS for Restaurants',
+      headlineAccent: 'ready',
+      headlinePre: 'Your digital menu,',
+      headlinePost: 'in seconds.',
+      sub: 'The fastest and most elegant way for restaurants to digitize their service without any technical friction.',
+      ctaPrimary: 'Get started',
+      ctaSecondary: 'See demo',
+    },
+    bento: {
+      h2: 'Everything you need to take your menu digital.',
+      sub: 'Built to be intuitive, powerful, and above all, extremely fast.',
+      card1Title: 'Digital menu in seconds',
+      card1Desc: 'Create your restaurant, add dishes, and publish instantly. Your menu lives at a shareable URL with a print-ready QR code.',
+      tag1: 'Instant',
+      card2Title: 'Visual Editor',
+      card2Desc: 'Visually reorder categories and dishes with drag-and-drop.',
+      card3Title: 'Restaurant profile',
+      card3Desc: 'Your logo, social links, and location elegantly integrated into your digital menu.',
+      card4Title: 'Multiple menus',
+      card4Desc: 'Centralized management for breakfast, lunch, dinner, and drinks.',
+      card5Title: 'QR Generator',
+      card5Desc: 'Print-ready codes with custom styles that match your brand.',
+    },
+    demo: {
+      badge: 'Interactive demo',
+      h2: 'Managing your menu is this easy.',
+      sub: 'Click on a dish to edit it. This is exactly what you\'ll see when managing your restaurant.',
+    },
+    mobile: {
+      badge: 'MOBILE OPTIMIZED',
+      h2: 'Manage your menu from anywhere.',
+      sub: 'No computer? No problem. Our platform is built for touch so you can make changes while running your business. Update a price or hide a sold-out dish in seconds.',
+      features: ['Intuitive touch editing', 'Upload photos directly from your camera', 'Real-time updates'],
+      cta: 'Start editing today',
+    },
+    analytics: {
+      h2: 'Simple analytics',
+      sub: 'Discover how many people scan and view your menu every day. Make data-driven decisions to grow your restaurant.',
+    },
+    cta: {
+      h2pre: 'Ready to take your menu',
+      h2accent: 'to the next level?',
+      sub: 'Join restaurants around the world already modernizing their customer experience with LWM Admin.',
+      button: 'Request your menu now',
+    },
+    footer: {
+      tagline: 'Simplifying digital menu management for restaurants worldwide.',
+      product: 'Product',
+      features: 'Features',
+      howItWorks: 'How it works',
+      copyright: '© 2025 LWM Admin. Made in Colombia.',
+    },
+    waMessage: 'Hi%2C%20I%27m%20interested%20in%20learning%20more%20about%20Lightweight%20Menu',
+  },
+}
+
+const t = computed(() => translations[lang.value])
+const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessage}`)
 </script>
 
 <template>
   <div class="dark bg-background text-on-surface font-body overflow-x-hidden">
     <!-- ── TopNavBar ─────────────────────────────────────────────────── -->
     <nav class="fixed top-0 w-full z-50 bg-neutral-950/70 backdrop-blur-xl shadow-[0px_24px_48px_rgba(0,0,0,0.4)]">
-      <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+      <div class="flex justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
         <div class="text-2xl font-black text-white tracking-tighter font-headline">LWM Admin</div>
+
         <div class="hidden md:flex gap-10 items-center">
-          <a class="font-bold text-sm text-lime-400 tracking-tight transition-all font-headline" href="#como-funciona">Cómo funciona</a>
-          <a class="font-bold text-sm text-neutral-400 hover:text-white tracking-tight transition-all font-headline" href="#caracteristicas">Características</a>
-          <a class="font-bold text-sm text-neutral-400 hover:text-white tracking-tight transition-all font-headline" href="#demo">Demo</a>
+          <a class="font-bold text-sm text-lime-400 tracking-tight transition-all font-headline" href="#como-funciona">{{ t.nav.howItWorks }}</a>
+          <a class="font-bold text-sm text-neutral-400 hover:text-white tracking-tight transition-all font-headline" href="#caracteristicas">{{ t.nav.features }}</a>
+          <a class="font-bold text-sm text-neutral-400 hover:text-white tracking-tight transition-all font-headline" href="#demo">{{ t.nav.demo }}</a>
         </div>
-        <a
-          :href="WA_URL"
-          target="_blank"
-          rel="noopener"
-          class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-extrabold text-sm hover:scale-105 active:scale-95 transition-transform font-headline"
-        >
-          Solicita tu menú
-        </a>
+
+        <div class="flex items-center gap-3">
+          <!-- Language toggle -->
+          <div class="flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg p-1">
+            <button
+              @click="lang = 'es'"
+              class="px-2.5 py-1 rounded-md text-xs font-bold tracking-widest transition-all font-headline"
+              :class="lang === 'es' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white'"
+            >ES</button>
+            <button
+              @click="lang = 'en'"
+              class="px-2.5 py-1 rounded-md text-xs font-bold tracking-widest transition-all font-headline"
+              :class="lang === 'en' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white'"
+            >EN</button>
+          </div>
+          <a
+            :href="WA_URL"
+            target="_blank"
+            rel="noopener"
+            class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-extrabold text-sm hover:scale-105 active:scale-95 transition-transform font-headline"
+          >{{ t.nav.cta }}</a>
+        </div>
       </div>
     </nav>
 
@@ -47,13 +197,13 @@ onBeforeUnmount(() => {
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <div class="lg:col-span-6 relative z-10">
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-[10px] font-black tracking-[0.2em] uppercase mb-6 font-headline">
-              SaaS para Restaurantes
+              {{ t.hero.badge }}
             </div>
             <h1 class="font-extrabold text-5xl lg:text-7xl text-white leading-[1.05] tracking-tighter mb-8 font-headline">
-              Tu menú digital, <span class="text-primary text-glow italic">listo</span> en segundos.
+              {{ t.hero.headlinePre }} <span class="text-primary text-glow italic">{{ t.hero.headlineAccent }}</span> {{ t.hero.headlinePost }}
             </h1>
             <p class="text-lg text-on-surface-variant mb-12 max-w-lg leading-relaxed font-light">
-              La forma más rápida y elegante para que los restaurantes colombianos digitalicen su servicio sin fricción tecnológica.
+              {{ t.hero.sub }}
             </p>
             <div class="flex flex-col sm:flex-row gap-5">
               <a
@@ -61,15 +211,13 @@ onBeforeUnmount(() => {
                 target="_blank"
                 rel="noopener"
                 class="bg-primary text-on-primary px-10 py-5 rounded-lg font-extrabold text-lg hover:brightness-110 transition-all glow-primary text-center font-headline"
-              >
-                Empieza ahora
-              </a>
+              >{{ t.hero.ctaPrimary }}</a>
               <a
                 href="#demo"
                 class="flex items-center justify-center gap-3 px-10 py-5 rounded-lg border border-outline font-bold text-lg text-white hover:bg-white/5 transition-all backdrop-blur-sm font-headline"
               >
                 <span class="material-symbols-outlined">play_circle</span>
-                Ver demo
+                {{ t.hero.ctaSecondary }}
               </a>
             </div>
           </div>
@@ -154,8 +302,8 @@ onBeforeUnmount(() => {
         <div class="max-w-7xl mx-auto px-6">
           <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div class="max-w-2xl">
-              <h2 class="font-extrabold text-4xl lg:text-5xl text-white mb-6 tracking-tighter font-headline">Todo lo que necesitas para digitalizar tu mesa.</h2>
-              <p class="text-on-surface-variant text-lg font-light">Diseñado para ser intuitivo, potente y sobre todo, extremadamente rápido.</p>
+              <h2 class="font-extrabold text-4xl lg:text-5xl text-white mb-6 tracking-tighter font-headline">{{ t.bento.h2 }}</h2>
+              <p class="text-on-surface-variant text-lg font-light">{{ t.bento.sub }}</p>
             </div>
           </div>
 
@@ -167,11 +315,11 @@ onBeforeUnmount(() => {
                 <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-8 border border-primary/20">
                   <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
                 </div>
-                <h3 class="font-bold text-3xl text-white mb-4 tracking-tight font-headline">Menú digital en segundos</h3>
-                <p class="text-on-surface-variant leading-relaxed text-lg font-light max-w-lg">Crea tu restaurante, añade platos y publica al instante. Tu menú vive en una URL compartible y código QR listo para imprimir.</p>
+                <h3 class="font-bold text-3xl text-white mb-4 tracking-tight font-headline">{{ t.bento.card1Title }}</h3>
+                <p class="text-on-surface-variant leading-relaxed text-lg font-light max-w-lg">{{ t.bento.card1Desc }}</p>
               </div>
               <div class="mt-12 flex gap-3 relative z-10">
-                <span class="px-4 py-1.5 bg-white/5 border border-white/10 text-white rounded-full text-xs font-bold uppercase tracking-widest">Instantáneo</span>
+                <span class="px-4 py-1.5 bg-white/5 border border-white/10 text-white rounded-full text-xs font-bold uppercase tracking-widest">{{ t.bento.tag1 }}</span>
                 <span class="px-4 py-1.5 bg-primary/10 border border-primary/20 text-primary rounded-full text-xs font-bold uppercase tracking-widest">Cloud Sync</span>
               </div>
             </div>
@@ -183,8 +331,8 @@ onBeforeUnmount(() => {
                 <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center text-on-primary mb-8">
                   <span class="material-symbols-outlined">drag_pan</span>
                 </div>
-                <h3 class="font-bold text-2xl text-on-primary mb-4 tracking-tight font-headline">Editor Visual</h3>
-                <p class="text-on-primary/80 leading-relaxed font-medium">Reordena categorías y platos visualmente con drag-and-drop.</p>
+                <h3 class="font-bold text-2xl text-on-primary mb-4 tracking-tight font-headline">{{ t.bento.card2Title }}</h3>
+                <p class="text-on-primary/80 leading-relaxed font-medium">{{ t.bento.card2Desc }}</p>
               </div>
             </div>
 
@@ -193,24 +341,24 @@ onBeforeUnmount(() => {
               <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center text-white mb-6 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
                 <span class="material-symbols-outlined">storefront</span>
               </div>
-              <h3 class="font-bold text-xl text-white mb-3 font-headline">Perfil de restaurante</h3>
-              <p class="text-on-surface-variant leading-relaxed text-sm font-light">Tu logo, redes y ubicación integrados elegantemente en el menú digital.</p>
+              <h3 class="font-bold text-xl text-white mb-3 font-headline">{{ t.bento.card3Title }}</h3>
+              <p class="text-on-surface-variant leading-relaxed text-sm font-light">{{ t.bento.card3Desc }}</p>
             </div>
 
             <div class="md:col-span-4 glass-card p-8 rounded-2xl hover:border-primary/30 transition-all group">
               <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center text-white mb-6 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
                 <span class="material-symbols-outlined">restaurant_menu</span>
               </div>
-              <h3 class="font-bold text-xl text-white mb-3 font-headline">Múltiples menús</h3>
-              <p class="text-on-surface-variant leading-relaxed text-sm font-light">Gestión centralizada para desayunos, almuerzos, cenas y licores.</p>
+              <h3 class="font-bold text-xl text-white mb-3 font-headline">{{ t.bento.card4Title }}</h3>
+              <p class="text-on-surface-variant leading-relaxed text-sm font-light">{{ t.bento.card4Desc }}</p>
             </div>
 
             <div class="md:col-span-4 glass-card p-8 rounded-2xl hover:border-primary/30 transition-all group">
               <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center text-white mb-6 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
                 <span class="material-symbols-outlined">qr_code_2</span>
               </div>
-              <h3 class="font-bold text-xl text-white mb-3 font-headline">Generador de QR</h3>
-              <p class="text-on-surface-variant leading-relaxed text-sm font-light">Códigos listos para imprimir con estilos personalizados para tu marca.</p>
+              <h3 class="font-bold text-xl text-white mb-3 font-headline">{{ t.bento.card5Title }}</h3>
+              <p class="text-on-surface-variant leading-relaxed text-sm font-light">{{ t.bento.card5Desc }}</p>
             </div>
           </div>
         </div>
@@ -222,19 +370,17 @@ onBeforeUnmount(() => {
         <div class="max-w-7xl mx-auto px-6 relative z-10">
           <div class="text-center mb-16">
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-[10px] font-black tracking-[0.2em] uppercase mb-6 font-headline">
-              Demo interactiva
+              {{ t.demo.badge }}
             </div>
-            <h2 class="font-extrabold text-4xl lg:text-5xl text-white mb-6 tracking-tighter font-headline">Así de fácil se gestiona tu menú.</h2>
-            <p class="text-on-surface-variant text-lg font-light max-w-xl mx-auto">Haz clic en un plato para editarlo. Esto es exactamente lo que verás cuando administres tu restaurante.</p>
+            <h2 class="font-extrabold text-4xl lg:text-5xl text-white mb-6 tracking-tighter font-headline">{{ t.demo.h2 }}</h2>
+            <p class="text-on-surface-variant text-lg font-light max-w-xl mx-auto">{{ t.demo.sub }}</p>
           </div>
 
           <div class="relative">
             <div class="absolute -inset-10 bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
-            <!-- Desktop: full browser-framed admin demo -->
             <div class="relative z-10 hidden md:block">
               <AdminDemo />
             </div>
-            <!-- Mobile: phone-framed admin demo -->
             <div class="relative z-10 flex justify-center md:hidden">
               <MobileAdminDemo />
             </div>
@@ -257,14 +403,12 @@ onBeforeUnmount(() => {
           <div class="relative z-10">
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-[10px] font-black tracking-[0.2em] uppercase mb-8 font-headline">
               <span class="material-symbols-outlined" style="font-size: 14px;">smartphone</span>
-              OPTIMIZADO PARA MÓVIL
+              {{ t.mobile.badge }}
             </div>
-            <h2 class="font-extrabold text-5xl lg:text-6xl text-white mb-8 leading-tight tracking-tighter font-headline">Gestiona tu menú desde donde estés.</h2>
-            <p class="text-on-surface-variant text-xl leading-relaxed mb-10 font-light">
-              ¿No tienes computador? No hay problema. Nuestra plataforma está optimizada para que hagas cambios táctiles mientras atiendes tu negocio. Cambia un precio u oculta un plato agotado en segundos.
-            </p>
+            <h2 class="font-extrabold text-5xl lg:text-6xl text-white mb-8 leading-tight tracking-tighter font-headline">{{ t.mobile.h2 }}</h2>
+            <p class="text-on-surface-variant text-xl leading-relaxed mb-10 font-light">{{ t.mobile.sub }}</p>
             <ul class="space-y-6 mb-12">
-              <li v-for="feat in ['Edición táctil intuitiva', 'Carga fotos directamente de tu cámara', 'Cambios en tiempo real']" :key="feat" class="flex items-center gap-4 text-white font-medium">
+              <li v-for="feat in t.mobile.features" :key="feat" class="flex items-center gap-4 text-white font-medium">
                 <div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                   <span class="material-symbols-outlined text-primary" style="font-size: 14px; font-variation-settings: 'FILL' 1;">check</span>
                 </div>
@@ -276,9 +420,7 @@ onBeforeUnmount(() => {
               target="_blank"
               rel="noopener"
               class="inline-block bg-white/5 border border-white/10 text-white px-10 py-5 rounded-lg font-extrabold text-lg hover:bg-primary hover:text-on-primary hover:border-primary transition-all duration-300 font-headline"
-            >
-              Empieza a editar hoy
-            </a>
+            >{{ t.mobile.cta }}</a>
           </div>
         </div>
       </section>
@@ -290,10 +432,8 @@ onBeforeUnmount(() => {
           <div class="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mx-auto mb-10 border border-primary/20 glow-primary">
             <span class="material-symbols-outlined text-4xl">insights</span>
           </div>
-          <h2 class="font-extrabold text-4xl lg:text-5xl text-white mb-8 tracking-tighter font-headline">Analíticas sencillas</h2>
-          <p class="text-on-surface-variant text-xl leading-relaxed font-light mb-12">
-            Descubre cuántas personas escanean y ven tu menú cada día. Toma decisiones basadas en datos reales para hacer crecer tu restaurante.
-          </p>
+          <h2 class="font-extrabold text-4xl lg:text-5xl text-white mb-8 tracking-tighter font-headline">{{ t.analytics.h2 }}</h2>
+          <p class="text-on-surface-variant text-xl leading-relaxed font-light mb-12">{{ t.analytics.sub }}</p>
           <div class="flex justify-center items-end gap-3 h-16 opacity-40" aria-hidden="true">
             <div class="w-2 h-12 bg-primary/40 rounded-full"></div>
             <div class="w-2 h-16 bg-primary/60 rounded-full"></div>
@@ -314,19 +454,15 @@ onBeforeUnmount(() => {
           <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/5 blur-[120px] -ml-[200px] -mb-[200px] pointer-events-none"></div>
           <div class="relative z-10">
             <h2 class="font-extrabold text-5xl lg:text-6xl text-white mb-8 tracking-tighter leading-tight font-headline">
-              ¿Listo para llevar tu menú <br/> al <span class="text-primary italic">siguiente nivel?</span>
+              {{ t.cta.h2pre }} <br/> <span class="text-primary italic">{{ t.cta.h2accent }}</span>
             </h2>
-            <p class="text-lg text-on-surface-variant mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-              Únete a restaurantes colombianos que ya están modernizando su atención al cliente con LWM Admin.
-            </p>
+            <p class="text-lg text-on-surface-variant mb-12 max-w-2xl mx-auto font-light leading-relaxed">{{ t.cta.sub }}</p>
             <a
               :href="WA_URL"
               target="_blank"
               rel="noopener"
               class="inline-block bg-primary text-on-primary px-12 py-6 rounded-lg font-black text-xl hover:scale-105 transition-transform glow-primary font-headline"
-            >
-              Solicita tu menú ahora
-            </a>
+            >{{ t.cta.button }}</a>
           </div>
         </div>
       </section>
@@ -338,19 +474,17 @@ onBeforeUnmount(() => {
         <div class="flex flex-col md:flex-row justify-between gap-16 mb-20">
           <div class="max-w-xs">
             <div class="text-2xl font-black text-white tracking-tighter mb-6 font-headline">LWM Admin</div>
-            <p class="text-neutral-500 text-sm leading-relaxed font-light uppercase tracking-widest">Simplificando la gestión digital de restaurantes en Colombia.</p>
+            <p class="text-neutral-500 text-sm leading-relaxed font-light uppercase tracking-widest">{{ t.footer.tagline }}</p>
           </div>
           <div class="flex flex-col gap-5">
-            <h4 class="text-xs uppercase tracking-[0.2em] text-lime-500 font-black mb-2">Producto</h4>
-            <a class="text-neutral-500 hover:text-white transition-all text-sm uppercase tracking-widest font-medium" href="#caracteristicas">Características</a>
+            <h4 class="text-xs uppercase tracking-[0.2em] text-lime-500 font-black mb-2">{{ t.footer.product }}</h4>
+            <a class="text-neutral-500 hover:text-white transition-all text-sm uppercase tracking-widest font-medium" href="#caracteristicas">{{ t.footer.features }}</a>
             <a class="text-neutral-500 hover:text-white transition-all text-sm uppercase tracking-widest font-medium" href="#demo">Demo</a>
-            <a class="text-neutral-500 hover:text-white transition-all text-sm uppercase tracking-widest font-medium" href="#como-funciona">Cómo funciona</a>
+            <a class="text-neutral-500 hover:text-white transition-all text-sm uppercase tracking-widest font-medium" href="#como-funciona">{{ t.footer.howItWorks }}</a>
           </div>
         </div>
         <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p class="text-xs uppercase tracking-[0.3em] text-neutral-600 font-medium">
-            © 2025 LWM Admin. Hecho en Colombia.
-          </p>
+          <p class="text-xs uppercase tracking-[0.3em] text-neutral-600 font-medium">{{ t.footer.copyright }}</p>
         </div>
       </div>
     </footer>
@@ -362,10 +496,8 @@ onBeforeUnmount(() => {
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
 
-/* Class-based dark mode */
 @variant dark (&:where(.dark, .dark *));
 
-/* Custom design tokens */
 @theme {
   --color-primary: #84CC16;
   --color-on-primary: #052e16;
@@ -379,10 +511,8 @@ onBeforeUnmount(() => {
   --font-family-body: 'Inter', sans-serif;
 }
 
-/* Replaces 11× repeated inline style="font-family: 'Manrope'" */
 .font-headline { font-family: 'Manrope', sans-serif; }
 
-/* Custom utilities */
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';
   font-weight: normal;
