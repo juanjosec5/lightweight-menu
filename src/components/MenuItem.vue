@@ -59,38 +59,27 @@ onBeforeUnmount(() => {
 
 <template>
   <article class="item" :id="item.id">
-    <div class="item__body">
-      <span class="item__header">
-        <h4 class="item__title">
-          {{ item.name }}
-          <span v-if="iconLabels.length" class="item__labels">
-            <font-awesome-icon
-              v-for="l in iconLabels"
-              :key="l.key"
-              :icon="l.icon"
-              :class="l.class"
-              :title="l.text"
-            />
-          </span>
-        </h4>
-        <div v-if="item.price_options?.length" class="item__prices">
-          <span v-for="opt in item.price_options" :key="opt.label" class="item__price-option">
-            <span class="item__price-label">{{ opt.label }}</span>
-            <strong class="item__price">{{ formatPrice(opt.price, currency, locale) }}</strong>
-          </span>
-        </div>
-        <strong v-else-if="item.price != null" class="item__price">
-          {{ formatPrice(item.price, currency, locale) }}
-        </strong>
+
+    <!-- Full-width title row -->
+    <h4 class="item__title">
+      {{ item.name }}
+      <span v-if="iconLabels.length" class="item__labels">
+        <font-awesome-icon
+          v-for="l in iconLabels"
+          :key="l.key"
+          :icon="l.icon"
+          :class="l.class"
+          :title="l.text"
+        />
       </span>
+    </h4>
 
-      <p v-if="item.description" class="item__desc">{{ item.description }}</p>
-    </div>
-
-    <div v-if="item.thumbnail_url || item.image_url" class="item__media">
+    <!-- Three-column row: thumbnail | description | price -->
+    <div class="item__content">
       <button
+        v-if="item.thumbnail_url || item.image_url"
         type="button"
-        class="thumb"
+        class="item__thumb"
         :aria-label="`Ver imagen de ${item.name}`"
         @click="openDialog"
       >
@@ -101,6 +90,18 @@ onBeforeUnmount(() => {
           loading="lazy"
         />
       </button>
+
+      <p v-if="item.description" class="item__desc">{{ item.description }}</p>
+
+      <div v-if="item.price_options?.length" class="item__prices">
+        <span v-for="opt in item.price_options" :key="opt.label" class="item__price-option">
+          <span class="item__price-label">{{ opt.label }}</span>
+          <strong class="item__price">{{ formatPrice(opt.price, currency, locale) }}</strong>
+        </span>
+      </div>
+      <strong v-else-if="item.price != null" class="item__price">
+        {{ formatPrice(item.price, currency, locale) }}
+      </strong>
     </div>
 
     <dialog ref="dialogRef" class="img-dialog" @close="closeDialog">
@@ -132,19 +133,6 @@ onBeforeUnmount(() => {
   border-radius: var(--radius);
 }
 
-.item__body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.item__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
 .item__title {
   display: flex;
   align-items: center;
@@ -161,13 +149,52 @@ onBeforeUnmount(() => {
   align-items: center;
 }
 
+/* Three-column content row */
+.item__content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.item__thumb {
+  border: 0;
+  background: transparent;
+  border-radius: var(--radius);
+  overflow: hidden;
+  padding: 0;
+  cursor: zoom-in;
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+.item__desc {
+  flex: 1;
+  margin: 0;
+  color: var(--muted);
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+/* Price always pushed to the right:
+   - when description is present, flex: 1 on desc fills space and price sits at end
+   - when description is absent, margin-left: auto pushes price to the right */
 .item__price {
+  margin-left: auto;
   white-space: nowrap;
   flex-shrink: 0;
   color: var(--price, var(--bg));
 }
 
 .item__prices {
+  margin-left: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -185,37 +212,6 @@ onBeforeUnmount(() => {
   font-size: 0.72rem;
   color: var(--muted);
   white-space: nowrap;
-}
-
-.item__desc {
-  margin: 0;
-  color: var(--muted);
-  text-align: left;
-  font-size: 0.9rem;
-}
-
-.item__media {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.thumb {
-  border: 0;
-  background: transparent;
-  border-radius: var(--radius);
-  overflow: hidden;
-  padding: 0;
-  cursor: zoom-in;
-  flex-shrink: 0;
-  height: 160px;
-  width: 160px;
-
-  img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
 }
 
 // Label icon colors
