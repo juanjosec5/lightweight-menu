@@ -9,12 +9,18 @@ export type Label =
 
 export type Platform = 'instagram' | 'facebook' | 'tiktok' | 'website' | 'custom'
 
+export interface PriceOption {
+  label: string
+  price: number
+}
+
 export interface Item {
   id: string
   slug: string
   name: string
   description: string | null
   price: number | null
+  price_options: PriceOption[] | null
   is_available: boolean
   image_url: string | null
   thumbnail_url: string | null

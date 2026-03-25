@@ -73,7 +73,13 @@ onBeforeUnmount(() => {
             />
           </span>
         </h4>
-        <strong v-if="item.price != null" class="item__price">
+        <div v-if="item.price_options?.length" class="item__prices">
+          <span v-for="opt in item.price_options" :key="opt.label" class="item__price-option">
+            <span class="item__price-label">{{ opt.label }}</span>
+            <strong class="item__price">{{ formatPrice(opt.price, currency, locale) }}</strong>
+          </span>
+        </div>
+        <strong v-else-if="item.price != null" class="item__price">
           {{ formatPrice(item.price, currency, locale) }}
         </strong>
       </span>
@@ -159,6 +165,26 @@ onBeforeUnmount(() => {
   white-space: nowrap;
   flex-shrink: 0;
   color: var(--price, var(--bg));
+}
+
+.item__prices {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  flex-shrink: 0;
+}
+
+.item__price-option {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.item__price-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  white-space: nowrap;
 }
 
 .item__desc {
