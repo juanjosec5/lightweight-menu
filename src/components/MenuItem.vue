@@ -37,6 +37,15 @@ const iconLabels = computed(() =>
     .map(l => ({ key: l, ...LABEL_MAP[l] }))
 )
 
+const descParsed = computed(() => {
+  const d = props.item.description
+  if (!d) return null
+  if (d.startsWith('[')) {
+    try { return { type: 'list' as const, items: JSON.parse(d) as string[] } } catch {}
+  }
+  return { type: 'text' as const, text: d }
+})
+
 function openDialog() {
   const dlg = dialogRef.value
   if (!dlg) return
@@ -91,7 +100,12 @@ onBeforeUnmount(() => {
         />
       </button>
 
-      <p v-if="item.description" class="item__desc">{{ item.description }}</p>
+      <template v-if="descParsed">
+        <p v-if="descParsed.type === 'text'" class="item__desc">{{ descParsed.text }}</p>
+        <ul v-else class="item__desc item__desc--list">
+          <li v-for="(line, i) in descParsed.items" :key="i">{{ line }}</li>
+        </ul>
+      </template>
 
       <div v-if="item.price_options?.length" class="item__prices">
         <span v-for="opt in item.price_options" :key="opt.label" class="item__price-option">
@@ -130,7 +144,6 @@ onBeforeUnmount(() => {
   border-bottom: 1px solid var(--muted);
   scroll-margin-top: calc(var(--toolbar-h) + 3.25rem);
   background: var(--card, transparent);
-  border-radius: var(--radius);
 }
 
 .item__title {
@@ -181,6 +194,14 @@ onBeforeUnmount(() => {
   color: var(--muted);
   text-align: left;
   font-size: 0.9rem;
+}
+
+.item__desc--list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
 }
 
 /* Price always pushed to the right:
