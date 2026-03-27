@@ -2,6 +2,7 @@
 import { defineAsyncComponent, onMounted, onBeforeUnmount, ref, computed, watch, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
 import SignupSection from './SignupSection.vue'
+import { supabase } from '@/lib/supabase'
 
 const AdminDemo    = defineAsyncComponent(() => import('./AdminDemo.vue'))
 const MobileAdminDemo = defineAsyncComponent(() => import('./MobileAdminDemo.vue'))
@@ -10,10 +11,17 @@ const { locale } = useI18n()
 
 // ── Language ────────────────────────────────────────────────────────────────
 const lang = ref<'es' | 'en'>('es')
+const liveRestaurants = ref<{ name: string; slug: string; logo_url: string | null }[]>([])
 
 let revealObserver: IntersectionObserver | null = null
 
-onMounted(() => {
+onMounted(async () => {
+  const { data } = await supabase
+    .from('restaurants')
+    .select('name, slug, logo_url')
+    .eq('is_published', true)
+    .order('created_at')
+  if (data) liveRestaurants.value = data
   const saved = localStorage.getItem('lwm-lang')
   if (saved === 'es' || saved === 'en') lang.value = saved
   document.documentElement.classList.add('dark')
@@ -94,27 +102,41 @@ const translations = {
       h2: '¿Cuánta gente está viendo tu menú?',
       sub: 'Mira cuántas personas escanean tu QR cada día. Sencillo, directo, útil. Sin dashboards complicados.',
     },
+    testimonials: {
+      eyebrow: 'Restaurantes activos',
+      headline: 'Ya confían en Lightweight Menu',
+    },
     pricing: {
-      headline: 'Un solo plan.',
-      headlineAccent: 'Todo incluido.',
-      sub: 'Sin niveles confusos. Sin funciones escondidas. Todo lo que tu restaurante necesita, en un precio claro.',
+      headline: 'Elige tu plan.',
+      headlineAccent: 'Sin sorpresas.',
+      sub: 'Dos planes claros para cada etapa de tu restaurante. Sin costos ocultos.',
       trialBadge: 'El primer mes es gratis. Sin tarjeta de crédito. Sin permanencia.',
-      planTitle: 'Plan completo',
-      planBadge: 'Todo incluido',
-      planFeatures: [
+      baseTitle: 'Base',
+      baseBadge: 'Básico',
+      baseFeatures: [
         'Menús ilimitados',
         'Categorías y platos ilimitados',
-        'Carga de fotos por plato',
-        'Código QR listo para imprimir, siempre',
+        'Hasta 15 fotos por menú',
+        'Código QR listo para imprimir',
         'Editor visual con drag-and-drop',
         'Gestión desde el celular',
         'Actualizaciones en tiempo real',
-        'Analíticas de escaneos',
         'Perfil de restaurante completo',
       ],
-      planPrice: '$120.000 COP / mes',
-      planUsd: '≈ $32 USD / mes*',
-      planFine: 'Primer mes gratis. Pago mensual por transferencia bancaria. Cancela cuando quieras.',
+      basePrice: '$100.000 COP / mes',
+      baseUsd: '≈ $27 USD / mes*',
+      baseFine: 'Primer mes gratis. Pago mensual por transferencia bancaria. Cancela cuando quieras.',
+      proTitle: 'Pro',
+      proBadge: 'Pro',
+      proRecommended: 'Recomendado',
+      proFeatures: [
+        'Todo lo del plan Base',
+        'Fotos ilimitadas por menú',
+        'Analíticas de escaneos',
+      ],
+      proPrice: '$150.000 COP / mes',
+      proUsd: '≈ $40 USD / mes*',
+      proFine: 'Primer mes gratis. Pago mensual por transferencia bancaria. Cancela cuando quieras.',
       setupTitle: 'Configuración inicial',
       setupBadge: 'Pago único · Opcional',
       setupDesc: '¿Prefieres que nos encarguemos de todo? Creamos tu restaurante, cargamos tus platos, descripciones, precios, etiquetas e imágenes. Tu menú listo desde el primer día.',
@@ -204,27 +226,41 @@ const translations = {
       h2: 'How many people are viewing your menu?',
       sub: 'See how many people scan your QR every day. Simple, direct, useful. No complicated dashboards.',
     },
+    testimonials: {
+      eyebrow: 'Live restaurants',
+      headline: 'Already using Lightweight Menu',
+    },
     pricing: {
-      headline: 'One plan.',
-      headlineAccent: 'Everything included.',
-      sub: 'No confusing tiers. No hidden features. Everything your restaurant needs, at one clear price.',
+      headline: 'Choose your plan.',
+      headlineAccent: 'No surprises.',
+      sub: 'Two clear plans for every stage of your restaurant. No hidden costs.',
       trialBadge: 'First month free. No credit card. No commitment.',
-      planTitle: 'Full plan',
-      planBadge: 'All inclusive',
-      planFeatures: [
+      baseTitle: 'Base',
+      baseBadge: 'Basic',
+      baseFeatures: [
         'Unlimited menus',
         'Unlimited categories and dishes',
-        'Photo upload per dish',
-        'Print-ready QR code, always',
+        'Up to 15 photos per menu',
+        'Print-ready QR code',
         'Visual drag-and-drop editor',
         'Manage from your phone',
         'Real-time updates',
-        'Scan analytics',
         'Complete restaurant profile',
       ],
-      planPrice: '$120.000 COP / month',
-      planUsd: '≈ $32 USD / month*',
-      planFine: 'First month free. Monthly payment by bank transfer. Cancel anytime.',
+      basePrice: '$100.000 COP / month',
+      baseUsd: '≈ $27 USD / month*',
+      baseFine: 'First month free. Monthly payment by bank transfer. Cancel anytime.',
+      proTitle: 'Pro',
+      proBadge: 'Pro',
+      proRecommended: 'Recommended',
+      proFeatures: [
+        'Everything in Base',
+        'Unlimited photos per menu',
+        'Scan analytics',
+      ],
+      proPrice: '$150.000 COP / month',
+      proUsd: '≈ $40 USD / month*',
+      proFine: 'First month free. Monthly payment by bank transfer. Cancel anytime.',
       setupTitle: 'Initial setup',
       setupBadge: 'One-time · Optional',
       setupDesc: 'Prefer we handle everything? We create your restaurant, load your dishes, descriptions, prices, labels and images. Your menu ready from day one.',
@@ -562,6 +598,34 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
         </div>
       </section>
 
+      <!-- ── Testimonials ──────────────────────────────────────────────── -->
+      <section v-if="liveRestaurants.length > 0" class="py-20 overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 text-center mb-12 reveal">
+          <p class="text-xs font-black uppercase tracking-widest text-on-surface-variant/60 font-headline mb-3">
+            {{ t.testimonials.eyebrow }}
+          </p>
+          <h2 class="font-extrabold text-3xl text-white font-headline">
+            {{ t.testimonials.headline }}
+          </h2>
+        </div>
+        <div class="flex gap-6 overflow-x-auto pb-4 px-6 no-scrollbar justify-start md:justify-center md:flex-wrap">
+          <a
+            v-for="r in liveRestaurants"
+            :key="r.slug"
+            :href="`/?menu=${r.slug}`"
+            class="flex-shrink-0 glass-card rounded-xl px-6 py-4 flex flex-col items-center gap-2 min-w-[120px] hover:border-primary/40 transition-colors border border-white/10"
+          >
+            <img
+              v-if="r.logo_url"
+              :src="r.logo_url"
+              :alt="r.name"
+              class="h-10 w-auto object-contain opacity-80"
+            />
+            <span class="text-on-surface-variant text-sm font-medium text-center leading-tight">{{ r.name }}</span>
+          </a>
+        </div>
+      </section>
+
       <!-- ── Signup ───────────────────────────────────────────────────── -->
       <SignupSection />
 
@@ -589,16 +653,16 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
           <!-- Cards -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
 
-            <!-- Plan card -->
-            <div class="glass-card rounded-2xl p-10 flex flex-col justify-between border border-primary/30 reveal reveal-d1">
+            <!-- Base card -->
+            <div class="glass-card rounded-2xl p-10 flex flex-col justify-between reveal reveal-d1">
               <div>
                 <div class="flex flex-col gap-3 mb-8">
-                  <span class="self-start px-3 py-1 bg-primary/10 border border-primary/20 text-primary rounded-full text-xs font-black uppercase tracking-widest font-headline">{{ t.pricing.planBadge }}</span>
-                  <h3 class="font-extrabold text-2xl text-white font-headline">{{ t.pricing.planTitle }}</h3>
+                  <span class="self-start px-3 py-1 bg-white/5 border border-white/10 text-neutral-400 rounded-full text-xs font-black uppercase tracking-widest font-headline">{{ t.pricing.baseBadge }}</span>
+                  <h3 class="font-extrabold text-2xl text-white font-headline">{{ t.pricing.baseTitle }}</h3>
                 </div>
                 <ul class="space-y-4 mb-10">
                   <li
-                    v-for="feature in t.pricing.planFeatures"
+                    v-for="feature in t.pricing.baseFeatures"
                     :key="feature"
                     class="flex items-center gap-3 text-on-surface-variant text-sm font-light"
                   >
@@ -612,30 +676,44 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
               <div>
                 <div class="border-t border-white/10 pt-8">
                   <div class="flex items-baseline gap-3 mb-1">
-                    <span class="text-3xl font-black text-white font-headline">{{ t.pricing.planPrice }}</span>
+                    <span class="text-3xl font-black text-white font-headline">{{ t.pricing.basePrice }}</span>
                   </div>
-                  <div class="text-on-surface-variant text-sm mb-4">{{ t.pricing.planUsd }}</div>
-                  <p class="text-xs text-on-surface-variant/60 font-light">{{ t.pricing.planFine }}</p>
+                  <div class="text-on-surface-variant text-sm mb-4">{{ t.pricing.baseUsd }}</div>
+                  <p class="text-xs text-on-surface-variant/60 font-light">{{ t.pricing.baseFine }}</p>
                 </div>
               </div>
             </div>
 
-            <!-- Setup card -->
-            <div class="glass-card rounded-2xl p-10 flex flex-col justify-between reveal reveal-d2">
+            <!-- Pro card -->
+            <div class="glass-card rounded-2xl p-10 flex flex-col justify-between border border-primary/30 reveal reveal-d2">
               <div>
                 <div class="flex flex-col gap-3 mb-8">
-                  <span class="self-start px-3 py-1 bg-white/5 border border-white/10 text-neutral-400 rounded-full text-xs font-black uppercase tracking-widest font-headline">{{ t.pricing.setupBadge }}</span>
-                  <h3 class="font-extrabold text-2xl text-white font-headline">{{ t.pricing.setupTitle }}</h3>
+                  <div class="flex items-center gap-2">
+                    <span class="self-start px-3 py-1 bg-primary/10 border border-primary/20 text-primary rounded-full text-xs font-black uppercase tracking-widest font-headline">{{ t.pricing.proBadge }}</span>
+                    <span class="px-3 py-1 bg-primary text-on-primary rounded-full text-xs font-black uppercase tracking-widest font-headline">{{ t.pricing.proRecommended }}</span>
+                  </div>
+                  <h3 class="font-extrabold text-2xl text-white font-headline">{{ t.pricing.proTitle }}</h3>
                 </div>
-                <p class="text-on-surface-variant leading-relaxed font-light mb-10">{{ t.pricing.setupDesc }}</p>
+                <ul class="space-y-4 mb-10">
+                  <li
+                    v-for="feature in t.pricing.proFeatures"
+                    :key="feature"
+                    class="flex items-center gap-3 text-on-surface-variant text-sm font-light"
+                  >
+                    <div class="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                      <span class="material-symbols-outlined text-primary" style="font-size: 12px; font-variation-settings: 'FILL' 1;">check</span>
+                    </div>
+                    {{ feature }}
+                  </li>
+                </ul>
               </div>
               <div>
                 <div class="border-t border-white/10 pt-8">
                   <div class="flex items-baseline gap-3 mb-1">
-                    <span class="text-3xl font-black text-white font-headline">{{ t.pricing.setupPrice }}</span>
+                    <span class="text-3xl font-black text-white font-headline">{{ t.pricing.proPrice }}</span>
                   </div>
-                  <div class="text-on-surface-variant text-sm mb-4">{{ t.pricing.setupUsd }}</div>
-                  <p class="text-xs text-on-surface-variant/60 font-light">{{ t.pricing.setupFine }}</p>
+                  <div class="text-on-surface-variant text-sm mb-4">{{ t.pricing.proUsd }}</div>
+                  <p class="text-xs text-on-surface-variant/60 font-light">{{ t.pricing.proFine }}</p>
                 </div>
               </div>
             </div>
@@ -647,7 +725,7 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
           </p>
 
           <!-- DIY callout -->
-          <div class="text-center glass-card rounded-2xl p-10 reveal">
+          <div class="text-center glass-card rounded-2xl p-10 reveal mb-8">
             <h4 class="font-bold text-xl text-white mb-4 font-headline">{{ t.pricing.diyTitle }}</h4>
             <p class="text-on-surface-variant font-light mb-8 max-w-md mx-auto">{{ t.pricing.diyDesc }}</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -658,6 +736,22 @@ const WA_URL = computed(() => `https://wa.me/573154019699?text=${t.value.waMessa
                 class="bg-primary text-on-primary px-8 py-4 rounded-lg font-extrabold text-base hover:brightness-110 transition-all glow-primary font-headline"
               >{{ t.pricing.diyCtaPrimary }}</a>
               <p class="text-on-surface-variant text-sm font-light max-w-xs">{{ t.pricing.diyCtaSecondary }}</p>
+            </div>
+          </div>
+
+          <!-- Setup card (one-time service, below DIY) -->
+          <div class="glass-card rounded-2xl p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 reveal">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="px-3 py-1 bg-white/5 border border-white/10 text-neutral-400 rounded-full text-xs font-black uppercase tracking-widest font-headline">{{ t.pricing.setupBadge }}</span>
+              </div>
+              <h4 class="font-bold text-lg text-white mb-1 font-headline">{{ t.pricing.setupTitle }}</h4>
+              <p class="text-on-surface-variant text-sm font-light leading-relaxed">{{ t.pricing.setupDesc }}</p>
+            </div>
+            <div class="shrink-0 text-right">
+              <div class="text-xl font-black text-white font-headline">{{ t.pricing.setupPrice }}</div>
+              <div class="text-on-surface-variant text-sm">{{ t.pricing.setupUsd }}</div>
+              <p class="text-xs text-on-surface-variant/60 font-light mt-1 max-w-[200px]">{{ t.pricing.setupFine }}</p>
             </div>
           </div>
 
@@ -829,4 +923,8 @@ html { scroll-behavior: smooth; }
 .reveal-d1 { transition-delay: 0.1s; }
 .reveal-d2 { transition-delay: 0.2s; }
 .reveal-d3 { transition-delay: 0.3s; }
+
+/* ── No-scrollbar utility ──────────────────────────────────────── */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
 </style>
